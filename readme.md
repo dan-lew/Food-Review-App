@@ -1,3 +1,7 @@
+Testing 1 = Mahdieh 
+Testing 2 = Rania
+Master = Dan
+
 1. # in root
 2. npm init -y
 3. npm install
