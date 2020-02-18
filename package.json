@@ -1,0 +1,32 @@
+{
+  "name": "Food-Review-App",
+  "version": "1.0.0",
+  "description": "1. # in root 2. npm init -y 3. npm install 4. npm i mongoose colors bcrypt concurrently dotenv express express express-validator jsonwebtoken nodemon  bootstrap --save-dev 5. # create folder 6. client 7. config 8. middleware 9. routes 10. # in client folder npx create-react-app . 11. # add to config folder file  config.env db.js 12. # in add to db.js const mongoose= require('mongoose'); const colors = require('colors') const connectDB=async () =>{     try {         const conn = await mongoose.connect(process.env.MONGO_URI,{             useNewUrlParser:true,             useCreateIndex:true,             useFindAndModify:true,             useUnifiedTopology:true         });         console.log(`MongoDB connected: ${conn.connection.host}`.magenta);     } catch (error) {         return console.log(\"cant connected: \", error)             } }",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dan-lew/Food-Review-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dan-lew/Food-Review-App/issues"
+  },
+  "homepage": "https://github.com/dan-lew/Food-Review-App#readme",
+  "devDependencies": {
+    "bcrypt": "^3.0.8",
+    "bootstrap": "^4.4.1",
+    "colors": "^1.4.0",
+    "concurrently": "^5.1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.1",
+    "nodemon": "^2.0.2"
+  }
+}
