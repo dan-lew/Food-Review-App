@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 066790fc8783a560917312183401e1793b6a1e9a
 1. # in root
 2. npm init -y
 3. npm install
