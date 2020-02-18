@@ -6,7 +6,7 @@
 6. client
 7. config
 8. middleware
-9. routes
+9. routes and models
 10. # in client folder
 npx create-react-app .
 11. # add to config folder file 
@@ -62,7 +62,7 @@ const UserSchema=new mongoose.Schema({
     },
 });
 module.exports=mongoose.model('User', UserSchema)
-15. # 14. # add to models folder file Restaurants.js 
+15. # 1.  add to models folder file Restaurants.js 
 const mongoose = require('mongoose');
 
 const RestaurantSchema=new mongoose.Schema({
@@ -84,6 +84,36 @@ const RestaurantSchema=new mongoose.Schema({
     },
 });
 module.exports=mongoose.model('Restaurant', RestaurantSchema)
+15. # 2. add to models folder file Rating.js 
+const mongoose = require('mongoose');
+
+const RatingSchema=new mongoose.Schema({
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'users',
+        required:true,
+    },
+    restaurant:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'restaurants',
+        required:true,
+    },
+    message: {
+        type: String,
+        required:true,
+    },
+    rating:{
+        type: Number,
+        required:true,
+    },
+
+    date:{
+        type: Date,
+        default:Date.now
+    },
+});
+module.exports=mongoose.model('Rating', RatingSchema)
+
 
 16. # in client folder install
 npm i react-router-dom react-transition-group --save-dev 
