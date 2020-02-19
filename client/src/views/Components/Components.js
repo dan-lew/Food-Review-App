@@ -28,6 +28,7 @@ import SectionLogin from "./Sections/SectionLogin.js";
 import SectionExamples from "./Sections/SectionExamples.js";
 import SectionDownload from "./Sections/SectionDownload.js";
 
+
 import styles from "assets/jss/material-kit-react/views/components.js";
 
 const useStyles = makeStyles(styles);
@@ -38,7 +39,7 @@ export default function Components(props) {
   return (
     <div>
       <Header
-        brand="Material Kit React"
+        brand="Food Reviews"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
@@ -48,6 +49,9 @@ export default function Components(props) {
         }}
         {...rest}
       />
+      <div >
+      <SectionCarousel /> 
+      </div>
       <Parallax image={require("assets/img/sushi.jpg")}>
         <div className={classes.container}>
           <GridContainer>
@@ -63,8 +67,8 @@ export default function Components(props) {
       </Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>
-        {
-          <SectionCarousel /> /* <SectionBasics />
+        { 
+          /* <SectionBasics />
         <SectionNavbars />
         <SectionTabs />
         <SectionPills />

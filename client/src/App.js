@@ -10,6 +10,8 @@ import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
+import SendMessagePage from "views/sendMessagePage/sendMessagePage";
+import ReviewPage from 'views/ReviewPage/reviewPage'
 var hist = createBrowserHistory();
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
             <Route path="/landing-page" component={LandingPage} />
             <Route path="/profile-page" component={ProfilePage} />
             <Route path="/login-page" component={LoginPage} />
+            <Route path="sendmessagepage" component={SendMessagePage} />
+            <Route path='/review-page' component={ReviewPage}/>
             <Route path="/" component={Components} />
           </Switch>
         </Router>
