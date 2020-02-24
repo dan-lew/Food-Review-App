@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import AlertContext from "../../context/alert/alertContext";
+import AuthContext from "../../context/auth/authContext";
+import ReactStars from "react-stars";
+import AddPhoto from "./AddPhoto/addPhoto";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
+
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -24,13 +25,73 @@ import image from "assets/img/reviewpgbg.jpg";
 
 const useStyles = makeStyles(styles);
 
-export default function ReviewPage(props) {
+const ReviewPage = props => {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
+
+  const ratingChanged = newRating => {
+    console.log(newRating);
+  };
+
   const classes = useStyles();
   const { ...rest } = props;
+  const alertContext = useContext(AlertContext);
+  const { setAlert } = alertContext;
+  const authContext = useContext(AuthContext);
+  const { register } = authContext;
+
+  const [review, setReview] = useState({
+    restaurantName: "",
+    category: "",
+    nameOfFood: "",
+    dateOfVisit: "",
+    price: "",
+    photo: "",
+    rating: "",
+    comment: ""
+  });
+  const {
+    restaurantName,
+    category,
+    nameOfFood,
+    dateOfVisit,
+    price,
+    photo,
+    rating,
+    comment
+  } = review;
+  const onChange = e =>
+    setReview({ ...review, [e.target.restaurantName]: e.target.value });
+  const onSubmit = e => {
+    e.preventDefault();
+    if (
+      restaurantName === "" ||
+      category === "" ||
+      nameOfFood === "" ||
+      dateOfVisit === "" ||
+      price === "" ||
+      photo === "" ||
+      rating === "" ||
+      comment === ""
+    ) {
+      setAlert("please complete all the fields", "danger");
+    } else {
+      register({
+        restaurantName,
+        category,
+        nameOfFood,
+        dateOfVisit,
+        price,
+        photo,
+        rating,
+        comment
+      });
+      console.log("Review Added");
+    }
+  };
+
   return (
     <div>
       <Header
@@ -52,7 +113,7 @@ export default function ReviewPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={6}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form onSubmit={onSubmit} className={classes.form}>
                   <CardHeader color="warning" className={classes.cardHeader}>
                     <h4>Write a review</h4>
                   </CardHeader>
@@ -62,6 +123,7 @@ export default function ReviewPage(props) {
                   </p>
                   <CardBody>
                     <CustomInput
+                      onChange={onChange}
                       labelText="Restaurant Name..."
                       id="restaurantName"
                       formControlProps={{
@@ -71,12 +133,13 @@ export default function ReviewPage(props) {
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <i class="fas fa-home"></i>
+                            <i className="fas fa-home"></i>
                           </InputAdornment>
                         )
                       }}
                     />
                     <CustomInput
+                      onChange={onChange}
                       labelText="Type of cuisine..."
                       id="typeofcuisine"
                       formControlProps={{
@@ -86,12 +149,13 @@ export default function ReviewPage(props) {
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <i class="fas fa-utensils"></i>
+                            <i className="fas fa-utensils"></i>
                           </InputAdornment>
                         )
                       }}
                     />
                     <CustomInput
+                      onChange={onChange}
                       labelText="Type of dish..."
                       id="typeofdish"
                       formControlProps={{
@@ -101,13 +165,14 @@ export default function ReviewPage(props) {
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <i class="fas fa-utensils"></i>
+                            <i className="fas fa-utensils"></i>
                           </InputAdornment>
                         )
                       }}
                     />
                     <CustomInput
                       id="dateofvisit"
+                      onChange={onChange}
                       formControlProps={{
                         fullWidth: true
                       }}
@@ -115,12 +180,13 @@ export default function ReviewPage(props) {
                         type: "date",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <i class="fas fa-calendar-alt"></i>
+                            <i className="fas fa-calendar-alt"></i>
                           </InputAdornment>
                         )
                       }}
                     />
                     <CustomInput
+                      onChange={onChange}
                       labelText="Price of the food..."
                       id="price"
                       formControlProps={{
@@ -130,14 +196,28 @@ export default function ReviewPage(props) {
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
-                            <i class="fas fa-dollar-sign"></i>
+                            <i className="fas fa-dollar-sign"></i>
                           </InputAdornment>
                         )
                       }}
                     />
-                    
-                    
+                    <div>
+                      <p>Please provide an overall rating... </p>
+                      <ReactStars
+                        count={5}
+                        onChange={ratingChanged}
+                        size={40}
+                        color2={"#ffd700"}
+                      />
+                    </div>
+
+                    <div>
+                      <br />
+                      <AddPhoto />
+                    </div>
+
                     <CustomInput
+                      onChange={onChange}
                       labelText="Your Review"
                       id="message"
                       formControlProps={{
@@ -149,14 +229,14 @@ export default function ReviewPage(props) {
                         rows: 5,
                         endAdornment: (
                           <InputAdornment position="end">
-                            <i class="fas fa-comment fa-lg"></i>
+                            <i className="fas fa-comment fa-lg"></i>
                           </InputAdornment>
                         )
                       }}
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
+                    <Button type="submit" simple color="primary" size="lg">
                       Add Review
                     </Button>
                   </CardFooter>
@@ -169,4 +249,5 @@ export default function ReviewPage(props) {
       </div>
     </div>
   );
-}
+};
+export default ReviewPage;

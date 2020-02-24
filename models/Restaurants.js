@@ -56,7 +56,6 @@ const RestaurantSchema=new mongoose.Schema({
         type: Date,
         default:Date.now
     },
-    ratings:[RatingSchema],
     email:{
         type: String,
         required:true,
@@ -69,6 +68,7 @@ const RestaurantSchema=new mongoose.Schema({
         type: Number,
         required:true,
     },
-    foods:[]
+    foods:[],
+    ratings:[RatingSchema],
 });
 module.exports=mongoose.model('Restaurant', RestaurantSchema)
