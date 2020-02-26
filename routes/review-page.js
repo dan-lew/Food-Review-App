@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 // import Rating model
-const Rating = require("../models/Restaurants.js");
+const Rating = require("../models/Review.js/index.js");
 
 // Review Page
 router.get("/review-page", (req, res) => {
@@ -116,6 +116,7 @@ router.post(
       })
       .catch(err => {
         console.log(err);
+        res.status(500).send(" Server Error");
       });
   }
 );

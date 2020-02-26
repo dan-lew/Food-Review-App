@@ -39,7 +39,7 @@ const RatingSchema=new mongoose.Schema({
     },
 })
 
-const RestaurantSchema=new mongoose.Schema({
+const ReviewSchema=new mongoose.Schema({
     name: {
         type: String,
         required:true,
@@ -71,4 +71,4 @@ const RestaurantSchema=new mongoose.Schema({
     foods:[],
     ratings:[RatingSchema],
 });
-module.exports=mongoose.model('Restaurant', RestaurantSchema)
+module.exports=mongoose.model('Restaurant', ReviewSchema)

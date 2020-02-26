@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-import ReviewContext from "../context/reviewPage/reviewContext";
+import ReviewContext from "../../context/reviewPage/reviewContext";
 import ReviewItem from "./ReviewItem";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
@@ -7,7 +7,7 @@ export const Reviews = () => {
   const reviewContext = useContext(ReviewContext);
   const { reviews, filtered } = reviewContext;
   if (reviews.length === 0) {
-    return <h2>Please add a contact</h2>;
+    return <h2>Please add a Review</h2>;
   }
   return (
     <Fragment>
@@ -18,7 +18,7 @@ export const Reviews = () => {
                 <ReviewItem review={item} />
               </CSSTransition>
             ))
-          : contacts.map(item => (
+          : reviews.map(item => (
               <CSSTransition key={item.id} classNames="item" timeout={500}>
                 <ReviewItem review={item} />
               </CSSTransition>
