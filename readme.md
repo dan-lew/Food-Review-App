@@ -161,3 +161,5 @@ config.env
 
 /.history
 
+19. # in client  install react-google-location
+npm i react-google-location react-google-maps react-google-autocomplete react-geocode

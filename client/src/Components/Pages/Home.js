@@ -1,6 +1,6 @@
 import React from 'react';
-import Carousels from './Carousels'
-
+// import Carousels from './Carousels'
+import RestaurantsList from './RestaurantsList'
 
 const Home = () => {
     return (
@@ -9,10 +9,10 @@ const Home = () => {
             
             <div>
                 carousel
-                <Carousels />
+                {/* <Carousels /> */}
             </div>
-           <div className="grid-2">
-                restaurants liste
+           <div className="">
+                <RestaurantsList />
             </div>
         </div>
     )

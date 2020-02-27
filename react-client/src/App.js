@@ -8,6 +8,7 @@ import Navbar from './Components/Layout/Navbar'
 import Home from './Components/Pages/Home'
 import About from './Components/Pages/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 // import ContactState from './Context/Contact/ContactState'
 // import AuthState from './Context/Auth/AuthState';
 // import Register from './Components/Auth/Register';
