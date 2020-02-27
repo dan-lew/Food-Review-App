@@ -6,6 +6,7 @@ export default () => (
   <div className="rolling">
     <div className="spinner fadein">
       <FontAwesomeIcon icon={faBowlingBall} size="5x" color="#1D3C4C" />
+      <p>Image Loaded</p>
     </div>
   </div>
 );

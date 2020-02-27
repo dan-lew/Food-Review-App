@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
 // import Rating model
-const Rating = require("../models/Review.js/index.js");
+const Rating = require("../models/Review.js");
 
 // Review Page
 router.get("/review-page", (req, res) => {

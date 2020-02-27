@@ -1,12 +1,10 @@
-import React from "react";
-// @material-ui/core components
+import React, { useState, useContext } from "react";
+import AlertContext from "../../context/alert/alertContext";
+import AuthContext from "../../context/auth/authContext";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
-// import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
-// core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
@@ -18,19 +16,54 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/sendmsgbg1.jpg";
 
 const useStyles = makeStyles(styles);
 
-export default function SendMessagePage(props) {
+const SendMessagePage = props => {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
+
   const classes = useStyles();
   const { ...rest } = props;
+
+  const alertContext = useContext(AlertContext);
+  const { setAlert } = alertContext;
+  const authContext = useContext(AuthContext);
+  const { sendMail } = authContext;
+
+  const [sendMessage, setMessage] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+  const { name, email, message } = sendMessage;
+
+  const onChange = e =>
+    setMessage({ ...sendMessage, [e.target.name]: e.target.value });
+  console.log("onChange", sendMessage);
+
+  const onSubmit = e => {
+    e.preventDefault();
+    sendMail({
+      name,
+      email,
+      message
+    });
+    if (name === "" || email === "" || message === "") {
+      setAlert("please complete all the fields", "danger");
+    } else {
+      sendMail({
+        name,
+        email,
+        message
+      });
+    }
+    console.log("onsubmit", message);
+  };
   return (
     <div>
       <Header
@@ -52,7 +85,7 @@ export default function SendMessagePage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={5}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form onSubmit={onSubmit} className={classes.form}>
                   <CardHeader color="warning" className={classes.cardHeader}>
                     <h4>Send us a message</h4>
                   </CardHeader>
@@ -62,12 +95,15 @@ export default function SendMessagePage(props) {
                   </p>
                   <CardBody>
                     <CustomInput
+                      onChange={onChange}
                       labelText="First Name..."
                       id="first"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: onChange,
+                        name: "name",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -77,12 +113,15 @@ export default function SendMessagePage(props) {
                       }}
                     />
                     <CustomInput
+                      onChange={onChange}
                       labelText="Email..."
                       id="email"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: onChange,
+                        name: "email",
                         type: "email",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -93,24 +132,32 @@ export default function SendMessagePage(props) {
                     />
                     <CustomInput
                       labelText="Your Message"
-                      id="message"
+                      id="sendMessage"
                       formControlProps={{
                         fullWidth: true,
                         className: classes.textArea
                       }}
                       inputProps={{
+                        onChange: onChange,
+                        name: "message",
                         multiline: true,
                         rows: 5,
                         endAdornment: [
                           <InputAdornment position="end">
-                            <i class="fas fa-comment"></i>
+                            <i className="fas fa-comment"></i>
                           </InputAdornment>
                         ]
                       }}
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
+                    <Button
+                    type="submit"
+                      onSubmit={onSubmit}
+                      simple
+                      color="primary"
+                      size="lg"
+                    >
                       Get started
                     </Button>
                   </CardFooter>
@@ -123,4 +170,5 @@ export default function SendMessagePage(props) {
       </div>
     </div>
   );
-}
+};
+export default SendMessagePage;

@@ -32,5 +32,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.1",
     "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "nodemailer": "^6.4.3"
   }
 }

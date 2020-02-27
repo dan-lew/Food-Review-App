@@ -5,7 +5,7 @@ import Images from "./images";
 import Buttons from "./buttons";
 import WakeUp from "./WakeUp";
 
-import { API_URL } from "../../../config/config";
+import { API_URL } from "./config";
 
 const toastColor = {
   background: "#505050",

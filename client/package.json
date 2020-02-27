@@ -16,7 +16,7 @@
     "history": "4.9.0",
     "moment": "2.24.0",
     "node-sass": "^4.13.1",
-    "nodemailer": "^6.4.2",
+    "nodemailer": "^6.4.3",
     "nouislider": "14.0.2",
     "prop-types": "15.7.2",
     "react": "16.9.0",
@@ -66,5 +66,6 @@
       "not op_mini all"
     ],
     "development": []
-  }
+  },
+  "proxy": "http://localhost:5002"
 }

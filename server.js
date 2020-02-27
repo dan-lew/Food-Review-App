@@ -21,6 +21,7 @@ app.get('/' , (req ,res)=> {
 
 app.use('/api/reviews' , require('./routes/reviews'));
 app.use('/api/review-page' , require('./routes/review-page'));
+app.use('/api/sendMessage' , require('./routes/sendMessage'));
 app.use('/api/auth' , require('./routes/index.js'));
 
 const PORT = process.env.PORT || 5002;

@@ -60,7 +60,25 @@ const AuthState = props => {
       });
     }
   };
-
+ // send message 
+ const sendMail = async formData => {
+  const config = {
+    headers: { "Content-Type": "application/json" }
+  };
+  try {
+    const res = await axios.post("/api/sendMessage/", formData, config);
+    dispatch({
+      type: REGISTER_SUCCESS,
+      payload: res.data
+    });
+    loadUser();
+  } catch (error) {
+    dispatch({
+      type: REGISTER_FAIL,
+      payload: error.response.data.msg
+    });
+  }
+};
   // Login User
   const login = () => {
     console.log("login");
@@ -84,6 +102,7 @@ const AuthState = props => {
         user: state.user,
         error: state.error,
         register,
+        sendMail,
         login,
         logout,
         loadUser,

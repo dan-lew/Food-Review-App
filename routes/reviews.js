@@ -84,7 +84,7 @@ router.put("/:id", auth, async (req, res) => {
     comment
   } = req.body;
 
-  // Build contact Object
+  // Build review Object
   const reviewFields = {};
   if (restaurantName) reviewFields.restaurantName = restaurantName;
   if (category) reviewFields.category = category;
