@@ -24,7 +24,7 @@ const App = ()=> {
         <AlertState>
             <Router history={hist}>
 
-                <div> 
+                <div>   
                     <Alerts/>
                     <Switch>
                     <Route path="/landing-page" component={LandingPage} />
