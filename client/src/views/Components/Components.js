@@ -38,7 +38,7 @@ export default function Components(props) {
   return (
     <div>
       <Header
-        brand="Material Kit React"
+        brand="Food Reviews"
         rightLinks={<HeaderLinks />}
         fixed
         color="transparent"
@@ -57,6 +57,9 @@ export default function Components(props) {
                 <h3 className={classes.subtitle}>
                   A Badass Material-UI Kit based on Material Design.
                 </h3>
+                <h1 className={classes.title}>
+                  Best place to find great food reviews.
+                </h1>
               </div>
             </GridItem>
           </GridContainer>

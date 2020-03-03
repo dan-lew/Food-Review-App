@@ -115,6 +115,21 @@ export default function HeaderLinks(props) {
           </Button>
         </Tooltip>
       </ListItem>
+      <ListItem>
+              Home
+            <Link to="/login-page" className={classes.dropdownLink}>
+              Login
+            </Link>,
+            <Link to="/profile-page" className={classes.dropdownLink}>
+              View Profile
+            </Link>,
+            <Link to="/review-page" className={classes.dropdownLink}>
+              Make a review
+            </Link>,
+            <Link to="/sendmessagepage" className={classes.dropdownLink}>
+              Get in touch
+            </Link>
+      </ListItem>
     </List>
   );
 }

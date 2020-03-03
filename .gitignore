@@ -32,3 +32,4 @@ config.env
 /.history
 /client1
 /react-client
+/client/node_modules
