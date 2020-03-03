@@ -60,7 +60,7 @@ const Home = (props) => {
             <div className="" style={{height:'100vh'}}>
                 <GridContainer  justify="center" >
                     <GridItem  xs={12} sm={12} md={12} lg={12}>
-                    <MapMarkers/>
+                    {/* <MapMarkers/> */}
                 {/* <RestaurantsList /> */}
                     </GridItem>
                 </GridContainer>
