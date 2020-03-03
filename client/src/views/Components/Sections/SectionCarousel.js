@@ -40,7 +40,7 @@ export default function SectionCarousel() {
                   <div className="slick-caption">
                     <h4>
                       <LocationOn className="slick-icons" />
-                      FIND THE BEST SUSHI HERE
+                      Yellowstone National Park, United States
                     </h4>
                   </div>
                 </div>
