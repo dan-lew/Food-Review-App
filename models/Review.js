@@ -13,7 +13,7 @@ const RatingSchema=new mongoose.Schema({
         type: String,
         required: true
     },
-    nameOfFood:{
+    nameOfDish:{
         type: String,
         required: true
     },
@@ -39,7 +39,7 @@ const RatingSchema=new mongoose.Schema({
     },
 })
 
-const RestaurantSchema=new mongoose.Schema({
+const ReviewSchema=new mongoose.Schema({
     name: {
         type: String,
         required:true,
@@ -56,7 +56,6 @@ const RestaurantSchema=new mongoose.Schema({
         type: Date,
         default:Date.now
     },
-    ratings:[RatingSchema],
     email:{
         type: String,
         required:true,
@@ -69,6 +68,7 @@ const RestaurantSchema=new mongoose.Schema({
         type: Number,
         required:true,
     },
-    foods:[]
+    foods:[],
+    ratings:[RatingSchema],
 });
-module.exports=mongoose.model('Restaurant', RestaurantSchema)
+module.exports=mongoose.model('Restaurant', ReviewSchema)

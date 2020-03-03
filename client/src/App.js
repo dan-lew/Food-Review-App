@@ -9,35 +9,36 @@ import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
-import RegisterPage from "views/RegisterPage/RegisterPage.js";
-import AlertState from './context/alert/alertState';
-import Alerts from './context/alert/Alerts';
-import AuthState from './context/auth/authState';
+import SendMessagePage from "views/sendMessagePage/sendMessagePage";
+import ReviewPage from "views/ReviewPage/reviewPage";
 
-
+import ReviewState from "../src/context/reviewPage/ReviewState";
+import AuthState from "./context/auth/authState";
+import AlertState from "./context/alert/alertState";
 
 var hist = createBrowserHistory();
 
-const App = ()=> {
-    return (
-    <AuthState>
-        <AlertState>
+function App() {
+  return (
+    <div>
+      <AuthState>
+        <ReviewState>
+          <AlertState>
             <Router history={hist}>
-
-                <div>   
-                    <Alerts/>
-                    <Switch>
-                    <Route path="/landing-page" component={LandingPage} />
-                    <Route path="/profile-page" component={ProfilePage} />
-                    <Route path="/login-page" component={LoginPage} />
-                    <Route path="/register-page" component={RegisterPage} />
-                    <Route path="/" component={Components} />
-                    </Switch>
-                </div>
+              <Switch>
+                <Route path="/landing-page" component={LandingPage} />
+                <Route path="/profile-page" component={ProfilePage} />
+                <Route path="/login-page" component={LoginPage} />
+                <Route path="/sendmessagepage" component={SendMessagePage} />
+                <Route path="/review-page" component={ReviewPage} />
+                <Route path="/" component={Components} />
+              </Switch>
             </Router>
-        </AlertState>
-    </AuthState>
-    )     
+          </AlertState>
+        </ReviewState>
+      </AuthState>
+    </div>
+  );
 }
 
 

@@ -15,16 +15,22 @@
     "history": "4.9.0",
     "moment": "2.24.0",
     "node-sass": "^4.13.1",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "nouislider": "14.0.2",
     "prop-types": "15.7.2",
     "react": "16.9.0",
     "react-datetime": "2.16.3",
     "react-dom": "16.9.0",
+    "react-images-upload": "^1.2.8",
+    "react-notify-toast": "^0.5.1",
     "react-router-dom": "5.0.1",
     "react-scripts": "^3.4.0",
     "react-slick": "0.25.2",
-    "react-swipeable-views": "0.13.3",
-    "uuid": "^3.4.0"
+    "react-stars": "^2.2.5",
+    "react-swipeable-views": "0.13.3"
   },
   "devDependencies": {
     "@babel/cli": "7.5.5",
@@ -62,5 +68,6 @@
       "not op_mini all"
     ],
     "development": []
-  }
+  },
+  "proxy": "http://localhost:5002"
 }
