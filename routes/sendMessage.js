@@ -2,11 +2,11 @@ const sendEmail = require("../config/sendEmail");
 const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
-const path = require('path')
+const path = require("path");
+
 router.get("/", (req, res) => {
   res.render("sendMessagePage", { layout: false });
 });
-
 
 // static folder
 router.use("/public", express.static(path.join(__dirname, "public")));
@@ -20,16 +20,15 @@ router.post("/send", (req, res) => {
   console.log(req.body);
 });
 
-router.post("/", async (req, res , next) => {
+router.post("/", async (req, res, next) => {
   const sendMsg = req.body;
   console.log(sendMsg);
-  
   try {
     await sendEmail({
       email: sendMsg.email,
       name: sendMsg.name,
       subject: " Thanks for sending us a message",
-      message : sendMsg.message
+      message: sendMsg.message
     });
     res.status(200).json({
       status: "Success",

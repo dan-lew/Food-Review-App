@@ -29,7 +29,6 @@ const SendMessagePage = props => {
 
   const classes = useStyles();
   const { ...rest } = props;
-
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
   const authContext = useContext(AuthContext);
@@ -152,7 +151,7 @@ const SendMessagePage = props => {
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button
-                    type="submit"
+                      type="submit"
                       onSubmit={onSubmit}
                       simple
                       color="primary"

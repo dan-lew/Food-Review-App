@@ -22,7 +22,7 @@ router.post(
       .not()
       .isEmpty()
       .withMessage("Type of cuisine is empty"),
-    check("nameOfFood")
+    check("nameOfDish")
       .trim()
       .not()
       .isEmpty()
@@ -32,11 +32,6 @@ router.post(
       .not()
       .isEmpty()
       .withMessage("Please select a date"),
-    check("price")
-      .trim()
-      .not()
-      .isEmpty()
-      .withMessage("Please enter a price"),
     check("price")
       .trim()
       .isCurrency()
@@ -54,7 +49,6 @@ router.post(
       .not()
       .isEmpty()
       .withMessage("Please select a rating"),
-
     check("comment")
       .trim()
       .not()
@@ -65,7 +59,7 @@ router.post(
     const {
       restaurantName,
       category,
-      nameOfFood,
+      nameOfDish,
       dateOfVisit,
       price,
       photo,
@@ -89,7 +83,7 @@ router.post(
           errors,
           restaurantName,
           category,
-          nameOfFood,
+          nameOfDish,
           dateOfVisit,
           price,
           photo,
@@ -101,7 +95,7 @@ router.post(
     const newReview = new Rating({
       restaurantName,
       category,
-      nameOfFood,
+      nameOfDish,
       dateOfVisit,
       price,
       photo,

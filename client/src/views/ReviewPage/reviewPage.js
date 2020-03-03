@@ -31,15 +31,6 @@ const ReviewPage = props => {
     setCardAnimation("");
   }, 700);
 
-  const ratingChanged = (newRating, e) => {
-    console.log(newRating);
-    setReview({ ...review, [e.target.name]: e.target.value });
-    // document.querySelector("#rating").value = newRating;
-
-    // console.log(document.querySelector("#rating").value);
-    // setReview({ ...review, ["rating"]: newRating });
-  };
-
   const classes = useStyles();
   const { ...rest } = props;
   const alertContext = useContext(AlertContext);
@@ -55,7 +46,7 @@ const ReviewPage = props => {
     price: "",
     photo: "",
     rating: "",
-    message: ""
+    comment: ""
   });
   const {
     restaurantName,
@@ -63,16 +54,28 @@ const ReviewPage = props => {
     typeofdish,
     dateOfVisit,
     price,
-    rating,
     photo,
-    message
+    rating,
+    comment
   } = review;
-  const onChange = e =>
-    setReview({ ...review, [e.target.name]: e.target.value });
+
+  const onChange = (e) =>
+    setReview({ ...review, [e.target.restaurantName]: e.target.value });
+  console.log('onchange', review);
+
 
   const onSubmit = e => {
     e.preventDefault();
-
+    register({
+      restaurantName,
+      nameOfFood,
+      typeofdish,
+      dateOfVisit,
+      price,
+      photo,
+      rating,
+      comment
+    });
     if (
       restaurantName === "" ||
       nameOfFood === "" ||
@@ -81,7 +84,7 @@ const ReviewPage = props => {
       price === "" ||
       photo === "" ||
       rating === "" ||
-      message === ""
+      comment === ""
     ) {
       setAlert("please complete all the fields", "danger");
     } else {
@@ -93,10 +96,10 @@ const ReviewPage = props => {
         price,
         photo,
         rating,
-        message
+        comment
       });
     }
-    console.log("Review Added", review);
+    console.log("onSubmit", restaurantName);
   };
 
   return (
@@ -137,6 +140,7 @@ const ReviewPage = props => {
                         fullWidth: true
                       }}
                       inputProps={{
+                        onChange: onChange,
                         name: "restaurantName",
                         type: "text",
                         endAdornment: (
@@ -221,7 +225,7 @@ const ReviewPage = props => {
                       <p>Please provide an overall rating... </p>
                       <ReactStars
                         count={5}
-                        onChange={ratingChanged}
+                        onChange={onChange}
                         size={40}
                         color2={"#ffd700"}
                       />
@@ -235,14 +239,14 @@ const ReviewPage = props => {
                     <CustomInput
                       onChange={onChange}
                       labelText="Your Review"
-                      id="message"
+                      id="comment"
                       formControlProps={{
                         fullWidth: true,
                         className: classes.textArea
                       }}
                       inputProps={{
                         onChange: onChange,
-                        name: "message",
+                        name: "comment",
                         multiline: true,
                         rows: 5,
                         endAdornment: (
@@ -255,7 +259,7 @@ const ReviewPage = props => {
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button
-                      onSubmit={onSubmit}
+                      
                       type="submit"
                       simple
                       color="primary"

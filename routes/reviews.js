@@ -5,9 +5,6 @@ const { check, validationResult } = require("express-validator");
 const User = require("../models/User");
 const Review = require("../models/Review");
 
-// @route   GET api/reviews
-// @desc    Get all users reviews
-// @access  Private
 router.get("/", auth, async (req, res) => {
   try {
     const reviews = await Review.find({ user: req.user.id }).sort({ date: -1 });
@@ -18,9 +15,6 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// @route   POST api/review
-// @desc    Add new review
-// @access  Private
 router.post(
   "/",
   [
@@ -36,11 +30,10 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    // passed
     const {
       restaurantName,
       category,
-      nameOfFood,
+      nameOfDish,
       dateOfVisit,
       price,
       photo,
@@ -51,7 +44,7 @@ router.post(
       const newReview = new Review({
         restaurantName,
         category,
-        nameOfFood,
+        nameOfDish,
         dateOfVisit,
         price,
         photo,
@@ -76,7 +69,7 @@ router.put("/:id", auth, async (req, res) => {
   const {
     restaurantName,
     category,
-    nameOfFood,
+    nameOfDish,
     dateOfVisit,
     price,
     photo,
@@ -88,7 +81,7 @@ router.put("/:id", auth, async (req, res) => {
   const reviewFields = {};
   if (restaurantName) reviewFields.restaurantName = restaurantName;
   if (category) reviewFields.category = category;
-  if (nameOfFood) reviewFields.nameOfFood = nameOfFood;
+  if (nameOfDish) reviewFields.nameOfDish = nameOfDish;
   if (dateOfVisit) reviewFields.dateOfVisit = dateOfVisit;
   if (price) reviewFields.price = price;
   if (photo) reviewFields.photo = photo;
@@ -115,9 +108,7 @@ router.put("/:id", auth, async (req, res) => {
   }
 });
 
-// @route   DELETE api/review
-// @desc    Delete review
-// @access  Private
+
 router.delete("/:id", auth, async (req, res) => {
   try {
     let review = await Review.findById(req.params.id);

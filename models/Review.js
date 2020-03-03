@@ -13,7 +13,7 @@ const RatingSchema=new mongoose.Schema({
         type: String,
         required: true
     },
-    nameOfFood:{
+    nameOfDish:{
         type: String,
         required: true
     },
