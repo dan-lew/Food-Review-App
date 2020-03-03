@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { GoogleComponent } from 'react-google-location'
+import RestaurantsList from './Restaurants/RestaurantsList'
+import InputField from './InputFields'
 
 const API_KEY = "AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic"  // how to get key - step are below
 
@@ -8,30 +10,32 @@ class Places extends Component {
 
 constructor(props) {
     super(props)
-
+  
     // this.state = {
     //      place:null
     // }
     this.state = {
         root:"https://maps.googleapis.com/maps/api/place/findplacefromtext/json",
-        key:"AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI",
+        key:API_KEY,
         location:"",
-        type:"",
+       // type:"",
         url:"",
         letSearch: false,
-        loadedImages:null
-     }
+        loadedPlaces:null,
+        place:null
+         }
 }
 
     saveQuery=(e)=>{
         e.preventDefault();
         this.setState({
-        type:e.target.value, 
-        letSearch:false
+       // type:e.target.value, 
+        letSearch:false,
+        place:e
         })
     }
 
-    searchInput=()=>{
+    searchPlaces=()=>{
         
         let typeQuery= this.state.type;
     
@@ -48,27 +52,26 @@ constructor(props) {
         this.setState({
           url:newUrl,
           letSearch:true,
-          loadedImages:null
+          loadedPlaces:null
         })
       }
     
+  loadPlaces=()=>{
+    console.log(this.state.url)
+    let newPlaces=<RestaurantsList url={this.state.url}/>;
+    this.setState({loadedPlaces:newPlaces, letSearch:false})
+  }
 
   render() {
       console.log("return ",this.state.place)
+      if(this.state.letSearch){
+        this.loadPlaces();
+      }
     return (
-        <div >
-           <GoogleComponent
-           
-            apiKey={API_KEY}
-            language={'de'}
-            country={'country:de'}
-            coordinates={true}
-            placeholder={'Start typing your location'}
-            locationBoxStyle={'custom-style'}
-            locationListStyle={'custom-style-list'}
-            onChange={(e) => { this.setState({ place: e }) }} />
+        <div >        
+          <InputField change={(e) => { this.setState({ place: e }) } }/>
         </div>
-  
+
       )
     
   }

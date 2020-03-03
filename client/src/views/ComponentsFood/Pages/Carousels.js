@@ -10,7 +10,10 @@ import SearchInput from '../Layout/SearchInput'
 
 function Carousels() {
 
-  
+    const useStyles = makeStyles(styles);
+
+    const classes = useStyles();
+    const { ...rest } = props;
         // const [index, setIndex] = useState(0);
       
         // const [direction, setDirection] = useState(null);

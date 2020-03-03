@@ -3,7 +3,6 @@ import { withGoogleMap, GoogleMap, withScriptjs, InfoWindow, Marker } from "reac
 import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import  searchPlaces  from './LngLat'
-import GridContainer from 'components/Grid/GridContainer';
 
 Geocode.setApiKey( "AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic" );
 Geocode.enableDebug();
@@ -248,7 +247,6 @@ class Map extends Component{
 		const AsyncMap = withScriptjs(
 			withGoogleMap(
 				props => (
-					<GridContainer>
 					<GoogleMap google={ this.props.google }
 					           defaultZoom={ this.props.zoom }
 					           defaultCenter={{ lat: this.state.mapPosition.lat, lng: this.state.mapPosition.lng }}
@@ -283,7 +281,6 @@ class Map extends Component{
 							types={['(regions)']}
 						/>
 					</GoogleMap>
-					</GridContainer>
 				)
 			)
 		);
@@ -312,7 +309,7 @@ class Map extends Component{
 				</div>
 
 				<AsyncMap
-				googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic&libraries=places"
+				googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.40&key=AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic&libraries=places"
 
 					loadingElement={
 						<div style={{ height: `100%` }} />

@@ -1,4 +1,5 @@
 import React from 'react'
+import initAutocomplete from '../js/map'
 
 const RestaurantsList=()=> {
     return (
