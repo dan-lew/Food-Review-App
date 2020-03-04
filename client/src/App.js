@@ -11,6 +11,7 @@ import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SendMessagePage from "views/sendMessagePage/sendMessagePage";
 import ReviewPage from "views/ReviewPage/reviewPage";
+import Home from "views/ComponentsFood/Pages/Home"
 
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
@@ -27,6 +28,7 @@ function App() {
             <Router history={hist}>
               <Switch>
                 <Route path="/landing-page" component={LandingPage} />
+                <Route path="/home" component={Home} />
                 <Route path="/profile-page" component={ProfilePage} />
                 <Route path="/login-page" component={LoginPage} />
                 <Route path="/sendmessagepage" component={SendMessagePage} />
@@ -40,5 +42,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

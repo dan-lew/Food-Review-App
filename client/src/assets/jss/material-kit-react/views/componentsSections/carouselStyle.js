@@ -2,7 +2,7 @@ import { container } from "assets/jss/material-kit-react.js";
 
 const carouselStyle = {
   section: {
-    padding: "70px 0"
+    padding: "0px 0"
   },
   container,
   marginAuto: {
