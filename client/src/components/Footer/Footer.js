@@ -8,9 +8,6 @@ import classNames from "classnames";
 import { List, ListItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
-
 import Tooltip from "@material-ui/core/Tooltip";
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
@@ -80,6 +77,17 @@ export default function Footer(props) {
             </ListItem>
           
         </div>
+        <div className={classes.right}>
+          &copy; {1900 + new Date().getYear()} , made with{" "}
+          <Favorite className={classes.icon} /> by{" "}
+          <a
+            href="https://www.creative-tim.com?ref=mkr-footer"
+            className={aClasses}
+            target="_blank"
+          >
+            Creative Tim
+          </a>{" "}
+          for a better web.
         <div className={classes.block}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
@@ -135,6 +143,7 @@ export default function Footer(props) {
             </ListItem>
           </List>
         </div>
+      </div>
       </div>
     </footer>
   );
