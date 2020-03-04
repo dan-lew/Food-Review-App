@@ -10,7 +10,12 @@ const styles = {
   grid: {
     marginRight: "-15px",
     marginLeft: "-15px",
-    width: "auto"
+    width: "auto",
+    backgroundImage:'transparent',
+    alignItems:"center",
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
   }
 };
 
