@@ -11,7 +11,11 @@ const styles = {
     marginRight: "-15px",
     marginLeft: "-15px",
     width: "auto",
-    color:'text-dark'
+    backgroundImage:'transparent',
+    alignItems:"center",
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
   }
 };
 

@@ -8,6 +8,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
+// @material-ui/icons
+import LocationOn from "@material-ui/icons/LocationOn";
+import LocalDiningIcon from '@material-ui/icons/LocalDining';
 
 import styles from "assets/jss/material-kit-react/components/customInputStyle.js";
 
@@ -24,7 +27,10 @@ export default function CustomInput(props) {
     error,
     white,
     inputRootCustomClasses,
-    success
+    success,
+    onChangeFunction,
+    onFocusFunction,
+    onBlurFunction
   } = props;
 
   const labelClasses = classNames({
@@ -72,6 +78,9 @@ export default function CustomInput(props) {
           underline: underlineClasses
         }}
         id={id}
+        onChange={onChangeFunction}
+        onFocus = {onFocusFunction}
+        onBlur = {onBlurFunction}
         {...inputProps}
       />
     </FormControl>

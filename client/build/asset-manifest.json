@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a0c559b9.chunk.css",
+    "main.js": "/static/js/main.f2b21b9d.chunk.js",
+    "main.js.map": "/static/js/main.f2b21b9d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c7a95b43.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c7a95b43.js.map",
+    "static/js/2.cce6cf79.chunk.js": "/static/js/2.cce6cf79.chunk.js",
+    "static/js/2.cce6cf79.chunk.js.map": "/static/js/2.cce6cf79.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3f033eeef627f30fdf2a4eded607bf42.js": "/precache-manifest.3f033eeef627f30fdf2a4eded607bf42.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.a0c559b9.chunk.css.map": "/static/css/main.a0c559b9.chunk.css.map",
+    "static/js/2.cce6cf79.chunk.js.LICENSE.txt": "/static/js/2.cce6cf79.chunk.js.LICENSE.txt",
+    "static/media/avatar.jpg": "/static/media/avatar.f1d71f77.jpg",
+    "static/media/bg2.jpg": "/static/media/bg2.84378183.jpg",
+    "static/media/bg3.jpg": "/static/media/bg3.e76de24b.jpg",
+    "static/media/bg7.jpg": "/static/media/bg7.b08234a2.jpg",
+    "static/media/christian.jpg": "/static/media/christian.56633ed3.jpg",
+    "static/media/clem-onojegaw.jpg": "/static/media/clem-onojegaw.c058841b.jpg",
+    "static/media/clem-onojeghuo.jpg": "/static/media/clem-onojeghuo.216ef03c.jpg",
+    "static/media/cynthia-del-rio.jpg": "/static/media/cynthia-del-rio.9813593c.jpg",
+    "static/media/kendall.jpg": "/static/media/kendall.e0508cc9.jpg",
+    "static/media/landing-bg.jpg": "/static/media/landing-bg.df8fd3ef.jpg",
+    "static/media/mariya-georgieva.jpg": "/static/media/mariya-georgieva.4575c40b.jpg",
+    "static/media/olu-eletu.jpg": "/static/media/olu-eletu.4112cbc1.jpg",
+    "static/media/profile-bg.jpg": "/static/media/profile-bg.baf6b40a.jpg",
+    "static/media/reviewpgbg.jpg": "/static/media/reviewpgbg.f4f7d235.jpg",
+    "static/media/sendmsgbg1.jpg": "/static/media/sendmsgbg1.d4e15445.jpg",
+    "static/media/studio-1.jpg": "/static/media/studio-1.ae0150c0.jpg",
+    "static/media/studio-2.jpg": "/static/media/studio-2.76e2987e.jpg",
+    "static/media/studio-3.jpg": "/static/media/studio-3.1d5451ce.jpg",
+    "static/media/studio-4.jpg": "/static/media/studio-4.e064d090.jpg",
+    "static/media/studio-5.jpg": "/static/media/studio-5.ef5c30ea.jpg",
+    "static/media/sushi.jpg": "/static/media/sushi.7dc0859b.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c7a95b43.js",
+    "static/js/2.cce6cf79.chunk.js",
+    "static/css/main.a0c559b9.chunk.css",
+    "static/js/main.f2b21b9d.chunk.js"
+  ]
+}
