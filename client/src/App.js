@@ -11,6 +11,7 @@ import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SendMessagePage from "views/sendMessagePage/sendMessagePage";
 import ReviewPage from "views/ReviewPage/reviewPage";
+import RegisterPage from './views/RegisterPage/RegisterPage'
 
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/landing-page" component={LandingPage} />
                 <Route path="/profile-page" component={ProfilePage} />
                 <Route path="/login-page" component={LoginPage} />
+                <Route path="/register-page" component={RegisterPage} />
                 <Route path="/sendmessagepage" component={SendMessagePage} />
                 <Route path="/review-page" component={ReviewPage} />
                 <Route path="/" component={Components} />
