@@ -33,3 +33,5 @@ config.env
 /client1
 /react-client
 /client/node_modules
+
+/Documentation
