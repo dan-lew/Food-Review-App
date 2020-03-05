@@ -6,7 +6,7 @@ const PlaceCard = (({ info, key }) => {
   const { address, distanceText, name, openNow, photoUrl, priceLevel, rating, timeText } = info;
   return (
     <div key={key} className="col-3 w-100 mx-4 my-4">
-      <img src={photoUrl} className="image-wrapper-sm mb-2" alt="ice-cream" />
+      <img src={photoUrl} className="image-wrapper-sm mb-2" alt="Restaurant" />
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">{name}</h5>

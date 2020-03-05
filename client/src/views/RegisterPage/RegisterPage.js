@@ -67,10 +67,11 @@ const RegisterPage = (props) => {
       });
       const { firstname ,lastname, username, email ,dateOfBirth, city, password ,password2 } = user;
       const onChange = (e) => {
-        console.log(e.target.value)
+        console.log(user)
+
         setUser({ ...user , [e.target.name]:e.target.value})}
                               
-        
+       
       const onFocus = (e) => {
         return (e.target.type="date")
       }
@@ -87,6 +88,7 @@ const RegisterPage = (props) => {
       // if (lastname === ''){
       //   alert+= "lastname "
       // }
+
       if(firstname === '' || lastname === '' || username==="" || email === ''||
        dateOfBirth==='' ||city==='' || password ==='' ){
           setAlert(alert,'danger')
