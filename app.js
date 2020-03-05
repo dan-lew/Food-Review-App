@@ -9,6 +9,7 @@ const session=require('express-session');
 const passport=require('passport');
 const cookieParser=require('cookie-parser');
 const bodyParser=require('body-parser');
+const cors = require("cors")
 
 const index=require('./routes/index');
 const users=require('./routes/users');
@@ -18,6 +19,7 @@ dotenv.config({path:'./config/config.env'});
 //4. connect to db
 connectDB();
 //5
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 

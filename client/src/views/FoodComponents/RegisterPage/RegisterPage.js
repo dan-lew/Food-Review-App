@@ -1,8 +1,8 @@
 
 import React , { useState , useContext , useEffect} from 'react';
-import AlertContext from '../../context/alert/alertContext' ;
-import AuthContext from '../../context/auth/authContext' ;
-import Alerts from '../../context/alert/Alerts';
+import AlertContext from '../../../context/alert/alertContext' ;
+import AuthContext from '../../../context/auth/authContext' ;
+import Alerts from '../../../context/alert/Alerts';
 
 
 // @material-ui/core components
@@ -49,7 +49,7 @@ const RegisterPage = (props) => {
    const { ...rest } = props;
    useEffect(()=> {
           if(isAuthenticated){
-              props.history.push('/');
+              props.history.push('/');//profile page
           }
           if(error === 'User already exist'){
               setAlert(error, 'danger');
@@ -69,7 +69,6 @@ const RegisterPage = (props) => {
       });
       const { firstname ,lastname, username, email ,dateOfBirth, city, password ,password2 } = user;
       const onChange = (e) => {
-        console.log(user)
 
         setUser({ ...user , [e.target.name]:e.target.value})}
                               

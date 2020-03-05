@@ -12,28 +12,27 @@ const User=require('../models/User');
 // });
 
 router.post("/",[
-    check('firstName','firstName is required').not().isEmpty(),
-    check('lastName','lastName is required').not().isEmpty(),
+    check('firstname','firstName is required').not().isEmpty(),
+    check('lastname','lastName is required').not().isEmpty(),
     check('username','username is required').not().isEmpty(),
-    check('email','Please enter a valid email').isEmpty(),
+    check('email','Please enter a valid email').isEmail(),
     check('dateOfBirth','username is required').not().isEmpty(),
-    check('date','date is required').not().isEmpty(),
-    check('city ','city is required').not().isEmpty(),
+    check('city ','city is required').isEmpty(),
     check('password','Please enter your password with 6 or more characters').isLength({min:6})
 ],async(req,res)=>{
     const errors=validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({errors:errors.array()});
 }
-const {firstName,lastName,username,email,dateOfBirth,date,city,password}=req.body;
+const {firstname,lastname,username,email,dateOfBirth,date,city,password}=req.body;
 try{
     let user=await User.findOne({email});
     if(user){
         return res.status(400).json({msg:"User already exist"})
     }
     user=new User({
-        firstName,
-        lastName,
+        firstname,
+        lastname,
         username,
         email,
         dateOfBirth,

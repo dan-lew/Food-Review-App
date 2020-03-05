@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 const UserSchema=new mongoose.Schema({
-    firstName: {
+    firstname: {
         type: String,
         required:true,
     }, 
@@ -23,7 +23,7 @@ const UserSchema=new mongoose.Schema({
    
     date:{
         type: Date,
-        default:Date.now
+        default:Date.now()
     },
     city:{
         type:String,

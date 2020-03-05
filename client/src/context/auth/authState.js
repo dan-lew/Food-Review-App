@@ -47,7 +47,7 @@ const AuthState = props => {
       headers: { "Content-Type": "application/json" }
     };
     try {
-      const res = await axios.post("/api/users", formData, config);
+      const res = await axios.post("http://localhost:5002/api/users", formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data
