@@ -1,4 +1,6 @@
-import React from "react";
+import React , {useState} from 'react';
+
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -21,11 +23,26 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
-import image from "assets/img/bg7.jpg";
+import image from "assets/img/sushi.jpg";
 
 const useStyles = makeStyles(styles);
 
-export default function LoginPage(props) {
+const LoginPage=(props)=> {
+  const [user,setUser]=useState({
+    email:'',
+    password:'',
+});
+  const{email,password,}=user;
+  const onChange=e=>setUser({...user, [e.target.name]: e.target.value})
+  
+  const onSubmit=e =>{
+      e.preventDefault();
+      
+      console.log('Login user');
+     
+  }
+
+
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
@@ -53,7 +70,7 @@ export default function LoginPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form className={classes.form} onSubmit={onSubmit}>
                   <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>Login</h4>
                     <div className={classes.socialLine}>
@@ -86,31 +103,19 @@ export default function LoginPage(props) {
                       </Button>
                     </div>
                   </CardHeader>
-                  <p className={classes.divider}>Or Be Classical</p>
+                  {/* <p className={classes.divider}>Or </p> */}
                   <CardBody>
-                    <CustomInput
-                      labelText="First Name..."
-                      id="first"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <CustomInput
+                    <CustomInput onChangeFunction={onChange}
                       labelText="Email..."
                       id="email"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
+                        value:email,
                         type: "email",
+                        name:"email",
+                        required:true,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -118,14 +123,17 @@ export default function LoginPage(props) {
                         )
                       }}
                     />
-                    <CustomInput
+                    <CustomInput onChangeFunction={onChange}
                       labelText="Password"
                       id="pass"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
+                        value:password,
                         type: "password",
+                        name:"password",
+                        required:true,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -138,7 +146,7 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
+                    <Button  type="submit" simple color="primary" size="lg">
                       Get started
                     </Button>
                   </CardFooter>
@@ -152,3 +160,5 @@ export default function LoginPage(props) {
     </div>
   );
 }
+
+export default LoginPage

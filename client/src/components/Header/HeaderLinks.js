@@ -37,14 +37,14 @@ export default function HeaderLinks(props) {
           buttonIcon={Apps}
           dropdownList={[
             <Link to="/" className={classes.dropdownLink}>
-              All components
+              Main Page
             </Link>,
             <a
-              href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
+              href="/register-page"
               target="_blank"
               className={classes.dropdownLink}
             >
-              Documentation
+              Register
             </a>
           ]}
         />
@@ -56,7 +56,7 @@ export default function HeaderLinks(props) {
           target="_blank"
           className={classes.navLink}
         >
-          <CloudDownload className={classes.icons} /> Download
+          <CloudDownload className={classes.icons} /> About us
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
@@ -72,7 +72,7 @@ export default function HeaderLinks(props) {
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
-            href="https://twitter.com/CreativeTim?ref=creativetim"
+            href="https://www.twitter.com/"
             target="_blank"
             color="transparent"
             className={classes.navLink}
@@ -90,7 +90,7 @@ export default function HeaderLinks(props) {
         >
           <Button
             color="transparent"
-            href="https://www.facebook.com/CreativeTim?ref=creativetim"
+            href="https://www.facebook.com/"
             target="_blank"
             className={classes.navLink}
           >
@@ -107,13 +107,30 @@ export default function HeaderLinks(props) {
         >
           <Button
             color="transparent"
-            href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+            href="https://www.instagram.com/"
             target="_blank"
             className={classes.navLink}
           >
             <i className={classes.socialIcons + " fab fa-instagram"} />
           </Button>
         </Tooltip>
+      </ListItem>
+
+        <ListItem>
+                      Home
+            
+            <Link to="/login-page" className={classes.dropdownLink}>
+              Login
+            </Link>,
+            <Link to="/profile-page" className={classes.dropdownLink}>
+              View Profile
+            </Link>,
+            <Link to="/review-page" className={classes.dropdownLink}>
+              Make a review
+            </Link>,
+            <Link to="/sendmessagepage" className={classes.dropdownLink}>
+              Get in touch
+            </Link>
       </ListItem>
     </List>
   );

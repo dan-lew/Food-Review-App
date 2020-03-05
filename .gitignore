@@ -8,12 +8,13 @@
 
 /.pnp
 .pnp.js
-
+git 
 # testing
 /coverage
 
 # production
-/build
+/client/build
+/client
 
 # misc
 .DS_Store
@@ -33,3 +34,4 @@ config.env
 /client1
 /react-client
 /client/src/Components
+/client/node_modules

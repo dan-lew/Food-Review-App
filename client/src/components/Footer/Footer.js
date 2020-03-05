@@ -8,9 +8,10 @@ import classNames from "classnames";
 import { List, ListItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+import Tooltip from "@material-ui/core/Tooltip";
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
-
+import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-kit-react/components/footerStyle.js";
 
 const useStyles = makeStyles(styles);
@@ -31,16 +32,8 @@ export default function Footer(props) {
       <div className={classes.container}>
         <div className={classes.left}>
           <List className={classes.list}>
-            <ListItem className={classes.inlineBlock}>
-              <a
-                href="https://www.creative-tim.com/?ref=mkr-footer"
-                className={classes.block}
-                target="_blank"
-              >
-                Creative Tim
-              </a>
-            </ListItem>
-            <ListItem className={classes.inlineBlock}>
+           
+            {/* <ListItem className={classes.inlineBlock}>
               <a
                 href="https://www.creative-tim.com/presentation?ref=mkr-footer"
                 className={classes.block}
@@ -49,6 +42,21 @@ export default function Footer(props) {
                 About us
               </a>
             </ListItem>
+            */}
+   
+          </List>
+        </div>
+        <div className={classes.center}>
+          &copy; {1900 + new Date().getYear()} , made with{" "}
+          <Favorite className={classes.icon} /> by{" "}
+          <a
+            href="https://www.creative-tim.com?ref=mkr-footer"
+            className={aClasses}
+            target="_blank"
+          >
+            Creative Team in DCI
+          </a>{" "}
+          for a better web.
             <ListItem className={classes.inlineBlock}>
               <a
                 href="http://blog.creative-tim.com/?ref=mkr-footer"
@@ -67,7 +75,7 @@ export default function Footer(props) {
                 Licenses
               </a>
             </ListItem>
-          </List>
+          
         </div>
         <div className={classes.right}>
           &copy; {1900 + new Date().getYear()} , made with{" "}
@@ -80,7 +88,62 @@ export default function Footer(props) {
             Creative Tim
           </a>{" "}
           for a better web.
+        <div className={classes.block}>
+          <List className={classes.list}>
+            <ListItem className={classes.inlineBlock}>
+              <Tooltip
+                id="instagram-twitter"
+                title="Follow us on twitter"
+                placement={window.innerWidth > 959 ? "top" : "left"}
+                classes={{ tooltip: classes.tooltip }}
+              >
+                <Button
+                  href="https://twitter.com/CreativeTim?ref=creativetim"
+                  target="_blank"
+                  color="transparent"
+                  className={classes.navLink}
+                >
+                  <i className={classes.socialIcons + " fab fa-twitter"} />
+                </Button>
+              </Tooltip>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <Tooltip
+                id="instagram-facebook"
+                title="Follow us on facebook"
+                placement={window.innerWidth > 959 ? "top" : "left"}
+                classes={{ tooltip: classes.tooltip }}
+              >
+                <Button
+                  color="transparent"
+                  href="https://www.facebook.com/CreativeTim?ref=creativetim"
+                  target="_blank"
+                  className={classes.navLink}
+                >
+                  <i className={classes.socialIcons + " fab fa-facebook"} />
+                </Button>
+              </Tooltip>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <Tooltip
+                id="instagram-tooltip"
+                title="Follow us on instagram"
+                placement={window.innerWidth > 959 ? "top" : "left"}
+                classes={{ tooltip: classes.tooltip }}
+              >
+                <Button
+                  color="transparent"
+                  href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
+                  target="_blank"
+                  className={classes.navLink}
+                >
+                  <i className={classes.socialIcons + " fab fa-instagram"} />
+                </Button>
+              </Tooltip>
+            </ListItem>
+          </List>
         </div>
+      </div>
       </div>
     </footer>
   );

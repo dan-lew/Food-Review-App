@@ -1,32 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
 
-import "assets/scss/material-kit-react.scss?v=1.8.0";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
-// pages for this product
-import Home from "views/FoodComponents/Pages/Home";
-import Components from "views/Components/Components.js";
-import LandingPage from "views/LandingPage/LandingPage.js";
-import ProfilePage from "views/ProfilePage/ProfilePage.js";
-import LoginPage from "views/LoginPage/LoginPage.js";
-import UsersProfile from 'views/FoodComponents/Pages/UsersProfile';
+ReactDOM.render(<App />, document.getElementById("root"));
 
-var hist = createBrowserHistory();
-
-ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      <Route path="/landing-page" component={LandingPage} />
-      <Route path="/profile-page" component={ProfilePage} />
-      <Route path="/login-page" component={LoginPage} />
-      <Route path="/home" component={Home} />
-      <Route path="/login/user-profile" component={UsersProfile}/>  
-      <Route path="/" component={Components} />
-       
-    </Switch> 
-  </Router>,
-  document.getElementById("root")
-);
-  
+serviceWorker.unregister();

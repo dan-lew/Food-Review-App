@@ -20,10 +20,9 @@ import team1 from "assets/img/faces/avatar.jpg";
 import team2 from "assets/img/faces/christian.jpg";
 import team3 from "assets/img/faces/kendall.jpg";
 
-
+const useStyles = makeStyles(styles);
 
 export default function TeamSection() {
-  const useStyles = makeStyles(styles);
   const classes = useStyles();
   const imageClasses = classNames(
     classes.imgRaised,
