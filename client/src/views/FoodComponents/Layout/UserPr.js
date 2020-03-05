@@ -39,12 +39,14 @@ export default function UserPr(props) {
     console.log(classes)
     const { ...rest } = props;
     return (
-        <div className={classes.section}>   
-            <GridContainer style={{paddingTop:"80px",paddingLeft:"20px",paddingRight:"20px"}} className={classes.marginAuto} >
-                <GridItem justify="center" xs={12} sm={12} md={4} lg={4} className={classesT.marginLeft}>
-                    <GridContainer justify="center">
-                    <GridItem justify="center"  xs={12} sm={12} md={12}  className={classesT.marginLeft}>
-                    <Card >
+        <div style={{paddingTop:"80px", width:"90%"}}  className={classesT.marginCenter}>   
+        <Card className={classesT.marginCenter} >
+            <CardBody  className={classesT.marginCenter}>
+            <GridContainer  className={classesT.marginCenter} >
+                <GridItem  xs={12} sm={12} md={4} lg={4} className={classesT.marginCenter}>
+                    <GridContainer   className={classesT.marginLeft}>
+                    <GridItem  style={{paddingTop:"0px"}}  xs={12} sm={12} md={10} >
+                    <Card  >
                         <CardHeader style={{}} color="primary" className={classes.cardHeader}>
                             User Profile
                         </CardHeader>
@@ -55,7 +57,7 @@ export default function UserPr(props) {
                                         src={avatar}
                                         alt="..."
                                         className={
-                                            {height: "180px", justifyContent: "center",  width: "100%"}+
+                                            {height: "100px", justifyContent: "center",  width: "100%"}+
                                         classesT.imgRaised +
                                         " " +
                                         classesT.imgRoundedCircle +
@@ -84,14 +86,14 @@ export default function UserPr(props) {
                 </GridItem>
                 <GridItem  xs={12} sm={12} md={8} lg={8}  >
                     {/* datapicker*/}
-                    <GridContainer>
+                    <GridContainer style={{paddingTop:"90px"}}>
                         <GridItem xs={12} sm={6} md={6} lg={6} className={classesT.marginLeft}>
                             <Card>
                                 <CardHeader color="primary" className={classes.cardHeader}>
                                     From:
                                 </CardHeader>
                                 <CardBody>
-                                    <InputLabel className={classes.label}>
+                                    <InputLabel style={{visibility:"hidden"}} className={classes.label}>
                                     </InputLabel>
                                 <br />
                                 <FormControl fullWidth>
@@ -188,6 +190,10 @@ export default function UserPr(props) {
                     </GridContainer>
                 </GridItem>
             </GridContainer>
+
+            </CardBody>
+        </Card>
+            
         </div>
     )
 }

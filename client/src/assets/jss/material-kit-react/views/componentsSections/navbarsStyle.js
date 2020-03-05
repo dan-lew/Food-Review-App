@@ -13,6 +13,7 @@ const navbarsStyle = theme => ({
     minHeight: "32px",
     textDecoration: "none"
   },
+    
   navbar: {
     marginBottom: "-20px",
     zIndex: "100",
@@ -40,12 +41,19 @@ const navbarsStyle = theme => ({
     height: "20px",
     color: "inherit"
   },
+   // edit 
+   logo: {
+    width: "40px",
+    height: "auto",
+    borderRadius: "50%"
+  },
   ...headerLinksStyle(theme),
   img: {
     width: "40px",
     height: "40px",
     borderRadius: "50%"
   },
+ 
   imageDropdownButton: {
     padding: "0px",
     top: "4px",
