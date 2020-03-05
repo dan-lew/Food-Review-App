@@ -3,7 +3,7 @@ import Notifications, { notify } from "react-notify-toast";
 import Spinner from "./spinner";
 import Images from "./images";
 import Buttons from "./buttons";
-import WakeUp from "./WakeUp";
+// import WakeUp from "./WakeUp";
 
 import { API_URL } from "./config";
 
@@ -103,8 +103,8 @@ export default class App extends Component {
 
     const content = () => {
       switch (true) {
-        case loading:
-          return <WakeUp />;
+        // case loading:
+        //   return <WakeUp />;
         case uploading:
           return <Spinner />;
         case images.length > 0:

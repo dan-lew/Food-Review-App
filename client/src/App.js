@@ -11,7 +11,7 @@ import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SendMessagePage from "views/sendMessagePage/sendMessagePage";
 import ReviewPage from "views/ReviewPage/reviewPage";
-import Home from "views/ComponentsFood/Pages/Home"
+import Home from "./views/FoodCompontents/Pages/Home"
 import RegisterPage from "./views/RegisterPage/RegisterPage"
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";

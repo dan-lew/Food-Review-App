@@ -60,23 +60,20 @@ export default function ProfilePage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div>
           <div className={classes.container}>
-            <GridContainer justify="center">
+            <GridContainer justify="">
               <GridItem xs={12} sm={12} md={6}>
                 <div className={classes.profile}>
                   <div>
                     <img src={profile} alt="..." className={imageClasses} />
                   </div>
                   <div className={classes.name}>
-                    <h3 className={classes.title}>Christian Louboutin</h3>
-                    <h6>DESIGNER</h6>
+                    <h3 className={classes.title}>Daniel Lewis</h3>
+                    <h6>Web Developer</h6>
                     <Button justIcon link className={classes.margin5}>
-                      <i className={"fab fa-twitter"} />
+                      <i className={"fab fa-github"} />
                     </Button>
                     <Button justIcon link className={classes.margin5}>
-                      <i className={"fab fa-instagram"} />
-                    </Button>
-                    <Button justIcon link className={classes.margin5}>
-                      <i className={"fab fa-facebook"} />
+                      <i className={"fab fa-linkedin"} />
                     </Button>
                   </div>
                 </div>
@@ -84,10 +81,12 @@ export default function ProfilePage(props) {
             </GridContainer>
             <div className={classes.description}>
               <p>
-                An artist of considerable range, Chet Faker — the name taken by
-                Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs
-                and records all of his own music, giving it a warm, intimate
-                feel with a solid groove structure.{" "}
+                Since relocating to Hamburg from England in October 2016, I
+                worked with an events company who provide recruitment services
+                for businesses specifically within the technology and digital
+                arenas. Excited by the buzz these businesses created, motivated
+                to future-proof my career and to become a part of the future of
+                technology, I decided to pursue my interest in this area.{" "}
               </p>
             </div>
             <GridContainer justify="center">

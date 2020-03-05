@@ -59,10 +59,14 @@ const ReviewPage = props => {
     comment
   } = review;
 
-  const onChange = (e) =>
-    setReview({ ...review, [e.target.restaurantName]: e.target.value });
-  console.log('onchange', review);
+  const onChange = e =>
+    setReview({ ...review, [e.target.name]: e.target.value });
+  console.log("onchange", review);
 
+  const stars = star => {
+    //document.getElementById('rating').value=star
+    setReview({ ...review, rating: star });
+  };
 
   const onSubmit = e => {
     e.preventDefault();
@@ -121,7 +125,7 @@ const ReviewPage = props => {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
+            <GridItem xs={12} sm={12} md={5}>
               <Card className={classes[cardAnimaton]}>
                 <form onSubmit={onSubmit} className={classes.form}>
                   <CardHeader color="warning" className={classes.cardHeader}>
@@ -133,7 +137,6 @@ const ReviewPage = props => {
                   </p>
                   <CardBody>
                     <CustomInput
-                      onChange={onChange}
                       labelText="Restaurant Name..."
                       id="restaurantName"
                       formControlProps={{
@@ -225,17 +228,14 @@ const ReviewPage = props => {
                       <p>Please provide an overall rating... </p>
                       <ReactStars
                         count={5}
-                        onChange={onChange}
+                        onChange={stars}
                         size={40}
+                        value={review.rating}
                         color2={"#ffd700"}
                       />
                     </div>
-                    <input type="hidden" id="rating" name="rating" />
-                    <div>
-                      <br />
-                      <AddPhoto onChange={onChange} name="photo" />
-                    </div>
-
+                    <br/>
+                    <AddPhoto name="photo"  />
                     <CustomInput
                       onChange={onChange}
                       labelText="Your Review"
@@ -258,13 +258,7 @@ const ReviewPage = props => {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button
-                      
-                      type="submit"
-                      simple
-                      color="primary"
-                      size="lg"
-                    >
+                    <Button type="submit" simple color="primary" size="lg">
                       Add Review
                     </Button>
                   </CardFooter>
