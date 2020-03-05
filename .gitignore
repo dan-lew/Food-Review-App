@@ -5,6 +5,12 @@
 /client/Documentation
 /node_modules
 /client/node_modules
+/.history
+/client1
+/react-client
+/client/src/Components
+
+
 
 /.pnp
 .pnp.js
@@ -14,7 +20,7 @@ git
 
 # production
 /client/build
-/client
+/build
 
 # misc
 .DS_Store
@@ -30,10 +36,3 @@ yarn-error.log*
 #config
 config.env
 
-/.history
-/client1
-/react-client
-/client/src/Components
-/client/node_modules
-
-/client/Documentation

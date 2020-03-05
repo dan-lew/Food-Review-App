@@ -8,7 +8,7 @@ import "assets/scss/material-kit-react.scss?v=1.8.0";
 import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
-import LoginPage from "views/LoginPage/LoginPage.js";
+import LoginPage from "views/FoodComponents/LoginPage/LoginPage";
 import SendMessagePage from "views/sendMessagePage/sendMessagePage";
 import ReviewPage from "views/ReviewPage/reviewPage";
 import Home from "views/FoodComponents/Pages/Home"
@@ -16,7 +16,7 @@ import Home from "views/FoodComponents/Pages/Home"
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
 import AlertState from "./context/alert/alertState";
-import RegisterPage from "views/RegisterPage/RegisterPage.js";
+import RegisterPage from "views/FoodComponents/RegisterPage/RegisterPage.js";
 
 var hist = createBrowserHistory();
 
