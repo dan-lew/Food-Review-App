@@ -51,7 +51,7 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href=""
+          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
           color="transparent"
           target="_blank"
           className={classes.navLink}
@@ -114,6 +114,23 @@ export default function HeaderLinks(props) {
             <i className={classes.socialIcons + " fab fa-instagram"} />
           </Button>
         </Tooltip>
+      </ListItem>
+
+        <ListItem>
+                      Home
+            
+            <Link to="/login-page" className={classes.dropdownLink}>
+              Login
+            </Link>,
+            <Link to="/profile-page" className={classes.dropdownLink}>
+              View Profile
+            </Link>,
+            <Link to="/review-page" className={classes.dropdownLink}>
+              Make a review
+            </Link>,
+            <Link to="/sendmessagepage" className={classes.dropdownLink}>
+              Get in touch
+            </Link>
       </ListItem>
     </List>
   );

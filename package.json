@@ -15,6 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/dan-lew/Food-Review-App.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -39,6 +40,11 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.0",
     "google-search-results-serpwow": "0.0.12",
-    "passport": "^0.4.1"
+    "passport": "^0.4.1",    
+    "nodemailer": "^6.4.3",
+    "react-geocode": "^0.2.1",
+    "react-google-autocomplete": "^1.1.2",
+    "react-google-location": "^1.2.2",
+    "react-google-maps": "^9.4.5"
   }
 }

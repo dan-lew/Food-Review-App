@@ -137,7 +137,7 @@ export default function SectionNavbars() {
           className={classes.navigation}
           style={{ backgroundImage: "url(" + image + ")" }}
         >
-          <Header
+           <Header
             brand="Brand"
             color="rose"
             leftLinks={
