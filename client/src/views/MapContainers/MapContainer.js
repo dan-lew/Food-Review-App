@@ -30,6 +30,7 @@ class MapsContainer extends Component {
       zoom:6,
       cityLocation: {lat:0,lng:0}
     };
+    
   }
 
   // Update name for constraint with index === key
