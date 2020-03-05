@@ -35,3 +35,5 @@ config.env
 /react-client
 /client/src/Components
 /client/node_modules
+
+/client/Documentation
