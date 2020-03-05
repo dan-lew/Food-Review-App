@@ -16,6 +16,7 @@ import Home from "views/ComponentsFood/Pages/Home"
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
 import AlertState from "./context/alert/alertState";
+import RegisterPage from "views/RegisterPage/RegisterPage.js";
 
 var hist = createBrowserHistory();
 
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/login-page" component={LoginPage} />
                 <Route path="/sendmessagepage" component={SendMessagePage} />
                 <Route path="/review-page" component={ReviewPage} />
+                <Route path="/register-page" component={RegisterPage} />
                 <Route path="/" component={Components} />
               </Switch>
             </Router>

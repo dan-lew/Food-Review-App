@@ -14,6 +14,7 @@ Documentation
 
 # production
 /build
+/client/build
 
 # misc
 .DS_Store
@@ -34,4 +35,4 @@ config.env
 /react-client
 /client/node_modules
 
-/Documentation
+/client/Documentation
