@@ -8,7 +8,7 @@ const componentsStyle = {
   },
   title: {
     fontSize: "4.2rem",
-    fontWeight: "600",
+    fontWeight: "900",
     display: "inline-block",
     position: "relative"
   },

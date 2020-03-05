@@ -2,19 +2,19 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-Documentation
+/client/Documentation
 /node_modules
 /client/node_modules
 
 /.pnp
 .pnp.js
-
+git 
 # testing
 /coverage
 
 # production
-/build
 /client/build
+/client
 
 # misc
 .DS_Store
@@ -33,6 +33,7 @@ config.env
 /.history
 /client1
 /react-client
+/client/src/Components
 /client/node_modules
 
 /client/Documentation
