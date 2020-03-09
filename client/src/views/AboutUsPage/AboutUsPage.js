@@ -19,11 +19,11 @@ import CardHeader from "components/Card/CardHeader.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-import profile from "assets/img/faces/christian.jpg";
+import profile from "assets/img/faces/ice_cream.jpg";
 import profile1 from "assets/img/faces/kendall.jpg";
 import profile2 from "assets/img/faces/rania.jpg";
 
-import styles from "assets/jss/material-kit-react/views/profilePage.js";
+import styles from "assets/jss/material-kit-react/views/aboutUsPage.js";
 import { PersonAdd } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
@@ -57,17 +57,17 @@ export default function AboutUsPage(props) {
           <h2 className={classes.title}>Here is our team</h2>
         </div>
         <div>
-          <GridContainer>
+          <GridContainer className={classes.justifyCenter}>
             <GridItem xs={12} sm={12} md={4}>
               <Card plain>
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <img src={profile} alt="..." className={imageClasses} />
                 </GridItem>
-                <h4 className={classes.cardTitle}>
+                <h2 className={classes.cardTitle}>
                   Dan Lewis
                   <br />
                   <small className={classes.smallTitle}>Web Developer</small>
-                </h4>
+                </h2>
                 <CardBody>
                   <p className={classes.description}>
                     Since relocating to Hamburg from England in October 2016, I
@@ -104,18 +104,20 @@ export default function AboutUsPage(props) {
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <img src={profile1} alt="..." className={imageClasses} />
                 </GridItem>
-                <h4 className={classes.cardTitle}>
+                <h2 className={classes.cardTitle}>
                   Mahdieh
                   <br />
                   <small className={classes.smallTitle}>Web Developer</small>
-                </h4>
+                </h2>
                 <CardBody>
                   <p className={classes.description}>
                     Some Text About Mahdia. Lorem ipsum, dolor sit amet
                     consectetur adipisicing elit. Cum ullam minus earum quae
                     dolores blanditiis molestias vero iure rerum vitae eligendi
                     odit aliquam quasi architecto iste corporis sapiente,
-                    temporibus magni.
+                    temporibus magni. Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit. Nemo, voluptatum deleniti. Laborum facilis
+                    animi vel ipsum.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
@@ -141,24 +143,27 @@ export default function AboutUsPage(props) {
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <img src={profile2} alt="..." className={imageClasses} />
                 </GridItem>
-                <h4 className={classes.cardTitle}>
+                <h2 className={classes.cardTitle}>
                   Rania
                   <br />
                   <small className={classes.smallTitle}>Web Developer</small>
-                </h4>
+                </h2>
                 <CardBody>
                   <p className={classes.description}>
-                    Some text about Rania. Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Dignissimos doloribus error
-                    est iusto, qui ipsa enim quod aliquid quia ratione! Aut ut
-                    consectetur deserunt, suscipit non eius harum quod maiores.
+                    Some text about Rania. Lorem ipsum, dolor sit amet
+                    consectetur adipisicing elit. Cum ullam minus earum quae
+                    dolores blanditiis molestias vero iure rerum vitae eligendi
+                    odit aliquam quasi architecto iste corporis sapiente,
+                    temporibus magni. Lorem, ipsum dolor sit amet consectetur
+                    adipisicing elit. Nemo, voluptatum deleniti. Laborum facilis
+                    animi vel ipsum.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
                   <Button
                     justIcon
                     color="transparent"
-                    className={classes.margin5}
+                    className={classes.justifyCenter}
                   >
                     <i className={classes.socials + " fab fa-github"} />
                   </Button>

@@ -10,7 +10,7 @@ import {
   USER_LOADED,
   CLEAR_ERRORS,
   AUTH_ERROR
-} from "../type";
+} from "../../types";
 
 const AuthState = props => {
   const initialState = {

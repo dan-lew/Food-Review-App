@@ -12,7 +12,7 @@ import {
   CLEAR_FILTER,
   // SET_ALERT,
   // REMOVE_ALERT
-} from "../type";
+} from "../../types";
 
 const ReviewState = props => {
   const initialState = {
