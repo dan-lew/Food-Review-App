@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
 import ReactStars from "react-stars";
-import AddPhoto from "./AddPhoto/addPhoto";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -19,7 +18,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-
+import FileUpload from "./components/FileUpload";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/reviewpgbg.jpg";
 
@@ -61,7 +60,7 @@ const ReviewPage = props => {
 
   const onChange = e =>
     setReview({ ...review, [e.target.name]: e.target.value });
-  console.log("onchange", review);
+  // console.log("onchange", review);
 
   const stars = star => {
     //document.getElementById('rating').value=star
@@ -235,8 +234,8 @@ const ReviewPage = props => {
                       />
                     </div>
                     <br/>
-                    <AddPhoto name="photo"  />
-                    <CustomInput
+                    <FileUpload/>
+                      <CustomInput
                       onChange={onChange}
                       labelText="Your Review"
                       id="comment"

@@ -19,8 +19,8 @@ import CardHeader from "components/Card/CardHeader.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
-import profile from "assets/img/faces/ice_cream.jpg";
-import profile1 from "assets/img/faces/kendall.jpg";
+import profile from "assets/img/faces/dans.png";
+import profile1 from "assets/img/faces/mahdieh.jpg";
 import profile2 from "assets/img/faces/rania.jpg";
 
 import styles from "assets/jss/material-kit-react/views/aboutUsPage.js";
@@ -96,6 +96,14 @@ export default function AboutUsPage(props) {
                   >
                     <i className={classes.socials + " fab fa-linkedin"} />
                   </Button>
+                  <Button
+                    justIcon
+                    color="transparent"
+                    className={classes.margin5}
+                    href="https://www.xing.com/profile/Dan_Lewis4/cv"
+                  >
+                    <i className={classes.socials + " fab fa-xing"} />
+                  </Button>
                 </CardFooter>
               </Card>
             </GridItem>
@@ -105,7 +113,7 @@ export default function AboutUsPage(props) {
                   <img src={profile1} alt="..." className={imageClasses} />
                 </GridItem>
                 <h2 className={classes.cardTitle}>
-                  Mahdieh
+                  Mahdieh Nasr
                   <br />
                   <small className={classes.smallTitle}>Web Developer</small>
                 </h2>
@@ -125,15 +133,25 @@ export default function AboutUsPage(props) {
                     justIcon
                     color="transparent"
                     className={classes.margin5}
+                    href= "https://github.com/mahdieh019"
                   >
                     <i className={classes.socials + " fab fa-github"} />
                   </Button>
                   <Button
                     justIcon
+                    href = "https://www.linkedin.com/in/mahdieh-nasrabadi-a50b7119b/"
                     color="transparent"
                     className={classes.margin5}
                   >
                     <i className={classes.socials + " fab fa-linkedin"} />
+                  </Button>
+                  <Button
+                    justIcon
+                    color="transparent"
+                    className={classes.margin5}
+                    href="https://www.xing.com/profile"
+                  >
+                    <i className={classes.socials + " fab fa-xing"} />
                   </Button>
                 </CardFooter>
               </Card>
@@ -173,6 +191,14 @@ export default function AboutUsPage(props) {
                     className={classes.margin5}
                   >
                     <i className={classes.socials + " fab fa-linkedin"} />
+                  </Button>
+                  <Button
+                    justIcon
+                    color="transparent"
+                    className={classes.margin5}
+                    href="https://www.xing.com/profile"
+                  >
+                    <i className={classes.socials + " fab fa-xing"} />
                   </Button>
                 </CardFooter>
               </Card>

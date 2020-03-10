@@ -1,28 +1,61 @@
 const express = require("express");
 const router = express.Router();
-const auth = require("../middleware/auth");
+const flash = require("connect-flash");
 const { check, validationResult } = require("express-validator");
-const User = require("../models/User");
-const Review = require("../models/Review");
+const Review = require("../models/Review.js");
+const auth = require("../middleware/auth");
+const fileupload = require("express-fileupload");
 
-router.get("/", auth, async (req, res) => {
+// Review Page
+router.get("/review", auth, async (req, res) => {
   try {
-    const reviews = await Review.find({ user: req.user.id }).sort({ date: -1 });
+    const reviews = await Review.find({ user: req.review.id }).sort({
+      date: -1
+    });
     res.json(reviews);
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Server Error");
   }
+  res.send("this is review-page");
 });
 
 router.post(
-  "/",
+  "/review",
   [
-    auth,
     [
-      check("restaurantName", " Restuarant name is required")
+      check("restaurantName", "Restaurant Name is empty")
+        .trim()
+        .not()
+        .isEmpty(),
+      check("category", "Type of cuisine is empty")
+        .trim()
+        .not()
+        .isEmpty(),
+      check("nameOfDish", "Type of dish is empty")
+        .trim()
+        .not()
+        .isEmpty(),
+
+      check("price", "Please enter a price")
+        .trim()
+        .isCurrency()
+        .not()
+        .isEmpty(),
+      check("photo", "Please add a photo")
+        .trim()
+        .not()
+        .isEmpty(),
+      check("rating", "Please select a rating")
+        .trim()
+        .isNumeric()
+        .not()
+        .isEmpty(),
+      check("comment", "Your review is too short")
+        .trim()
         .not()
         .isEmpty()
+        .isLength({ min: 10 })
     ]
   ],
   async (req, res) => {
@@ -30,6 +63,20 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+
+    const file = req.files.file;
+    if (req.files === null) {
+      return res.status(400).json({ msg: "No file uploaded" });
+    }
+    file.mv(`${__dirname}/client/public/imgUploads/${file.name}`, err => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send(err);
+      }
+      res.json({ fileName: file.name, filePath: `/imgUploads/${file.name}` });
+    });
+
     const {
       restaurantName,
       category,
@@ -40,6 +87,7 @@ router.post(
       rating,
       comment
     } = req.body;
+    console.log(req.body);
     try {
       const newReview = new Review({
         restaurantName,
@@ -49,8 +97,7 @@ router.post(
         price,
         photo,
         rating,
-        comment,
-        user: req.user.id
+        comment
       });
 
       const review = await newReview.save();
@@ -59,13 +106,55 @@ router.post(
       console.log(error.message);
       res.status(500).send("Server Error");
     }
+    // if there are errors
+    const check_errors = validationResult(req);
+    // let errors = [];
+    if (!check_errors.isEmpty()) {
+      // return res.status(422).json({ errors: errors() });
+      console.log(check_errors.array());
+      // errors.push(check_errors.array());
+      check_errors.array().forEach(item => {
+        errors.push(item);
+      });
+      console.log("errors :", errors);
+      if (errors.length > 0) {
+        res.render("review-page", {
+          errors,
+          restaurantName,
+          category,
+          nameOfDish,
+          dateOfVisit,
+          price,
+          photo,
+          rating,
+          comment
+        });
+      }
+    }
+    const newReview = new Review({
+      restaurantName,
+      category,
+      nameOfDish,
+      dateOfVisit,
+      price,
+      photo,
+      rating,
+      comment
+    });
+    newReview
+      .save() //saved review in database
+      .then(review => {
+        req.flash("Your review has been saved!");
+        res.redirect("/review-page");
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).send(" Server Error");
+      });
   }
 );
 
-// @route   PUT api/contacts
-// @desc    Update contact
-// @access  Private
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", async (req, res) => {
   const {
     restaurantName,
     category,
@@ -77,11 +166,11 @@ router.put("/:id", auth, async (req, res) => {
     comment
   } = req.body;
 
-  // Build review Object
+  // Build contact Object
   const reviewFields = {};
   if (restaurantName) reviewFields.restaurantName = restaurantName;
   if (category) reviewFields.category = category;
-  if (nameOfDish) reviewFields.nameOfDish = nameOfDish;
+  if (nameOfDish) reviewFields.phone = nameOfDish;
   if (dateOfVisit) reviewFields.dateOfVisit = dateOfVisit;
   if (price) reviewFields.price = price;
   if (photo) reviewFields.photo = photo;
@@ -92,10 +181,10 @@ router.put("/:id", auth, async (req, res) => {
     let review = await Review.findById(req.params.id);
     if (!review) res.status(404).json({ msg: "Review not found" });
 
-    // Make sure user owns the review
-    if (review.user.toString() !== req.user.id) {
-      return res.status(401).json({ msg: " Not authorized" });
-    }
+    // // Make sure user owns the contact
+    // if (review.user.toString() !== req.user.id) {
+    //   return res.status(401).json({ msg: " Not authorized" });
+    // }
     review = await Review.findByIdAndUpdate(
       req.params.id,
       { $set: reviewFields },
@@ -108,18 +197,17 @@ router.put("/:id", auth, async (req, res) => {
   }
 });
 
-
-router.delete("/:id", auth, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     let review = await Review.findById(req.params.id);
     if (!review) return res.status(404).json({ msg: "Review not found" });
 
-    // Make sure user own review
+    // Make sure user own contact
     if (review.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: "Not authorized" });
     }
     await Review.findByIdAndRemove(req.params.id);
-    res.json({ msg: "Reveiw removed" });
+    res.json({ msg: "Review removed" });
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Server Error");
