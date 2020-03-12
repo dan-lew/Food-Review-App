@@ -39,8 +39,8 @@ const ReviewPage = props => {
 
   const [review, setReview] = useState({
     restaurantName: "",
-    nameOfFood: "",
-    typeofdish: "",
+    category: "",
+    nameOfDish: "",
     dateOfVisit: "",
     price: "",
     photo: "",
@@ -49,8 +49,8 @@ const ReviewPage = props => {
   });
   const {
     restaurantName,
-    nameOfFood,
-    typeofdish,
+    category,
+    nameOfDish,
     dateOfVisit,
     price,
     photo,
@@ -60,29 +60,27 @@ const ReviewPage = props => {
 
   const onChange = e =>
     setReview({ ...review, [e.target.name]: e.target.value });
+    
+
   // console.log("onchange", review);
 
-  const stars = star => {
+  const stars = (star) => {
     //document.getElementById('rating').value=star
     setReview({ ...review, rating: star });
+
   };
+
+  const getImgPath = (path) =>{
+    console.log(path)
+    setReview({...review, photo: path })
+  }
 
   const onSubmit = e => {
     e.preventDefault();
-    register({
-      restaurantName,
-      nameOfFood,
-      typeofdish,
-      dateOfVisit,
-      price,
-      photo,
-      rating,
-      comment
-    });
     if (
       restaurantName === "" ||
-      nameOfFood === "" ||
-      typeofdish === "" ||
+      category === "" ||
+      nameOfDish === "" ||
       dateOfVisit === "" ||
       price === "" ||
       photo === "" ||
@@ -91,10 +89,11 @@ const ReviewPage = props => {
     ) {
       setAlert("please complete all the fields", "danger");
     } else {
+      console.log("onSubmit", review);
       register({
         restaurantName,
-        nameOfFood,
-        typeofdish,
+        category,
+        nameOfDish,
         dateOfVisit,
         price,
         photo,
@@ -102,7 +101,7 @@ const ReviewPage = props => {
         comment
       });
     }
-    console.log("onSubmit", restaurantName);
+    
   };
 
   return (
@@ -155,13 +154,13 @@ const ReviewPage = props => {
                     <CustomInput
                       onChange={onChange}
                       labelText="Type of cuisine..."
-                      id="nameOfFood"
+                      id="category"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         onChange: onChange,
-                        name: "nameOfFood",
+                        name: "category",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -173,13 +172,13 @@ const ReviewPage = props => {
                     <CustomInput
                       onChange={onChange}
                       labelText="Type of dish..."
-                      id="typeofdish"
+                      id="nameOfDish"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         onChange: onChange,
-                        name: "typeofdish",
+                        name: "nameOfDish",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -234,7 +233,10 @@ const ReviewPage = props => {
                       />
                     </div>
                     <br/>
-                    <FileUpload/>
+                    <div>
+                    <p>Please upload a photo here...</p>
+                    <FileUpload getImgPath = {getImgPath}/>
+                    </div>
                       <CustomInput
                       onChange={onChange}
                       labelText="Your Review"

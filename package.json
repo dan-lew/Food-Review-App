@@ -47,6 +47,8 @@
     "react-geocode": "^0.2.1",
     "react-google-autocomplete": "^1.1.2",
     "react-google-location": "^1.2.2",
-    "react-google-maps": "^9.4.5"
+    "react-google-maps": "^9.4.5",
+    "uuid": "^7.0.2",
+    "uuidv4": "^6.0.6"
   }
 }

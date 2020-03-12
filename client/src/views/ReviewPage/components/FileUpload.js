@@ -1,30 +1,32 @@
 import React, { Fragment, useState } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import Message from "./message";
 import ProgressBar from "./ProgressBar";
 
-const FileUpload = () => {
+const FileUpload = (props) => {
   const [file, setFile] = useState("");
   const [filename, setFilename] = useState("Choose File");
-  const [uploadedFile, setUploadedFile] = useState({});
+  const [uploadedFile, setUploadedFile] = useState({ });
   const [message, setMessage] = useState("");
   const [uploadPercentage, setuploadPercentage] = useState(0);
   const imgArray = ["image/jpeg", "image/png", "image/gif"];
 
-  const onChange = e => {
+  const onChangeImg = e => {
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
     console.log(file.type);
+    onSubmitImg(e)
   };
 
-  const onSubmit = async e => {
+  const onSubmitImg = async e => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("file", file);
 
     try {
-      if (imgArray.includes(file.type) && file.size < 3145728) {
-        const res = await axios.post("/imgUpload", formData, {
+      if (imgArray.includes(file.type) && file.size < 5000000) {
+        const res = await axios.post("/api/reviews/imgUpload", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           },
@@ -37,11 +39,14 @@ const FileUpload = () => {
             setTimeout(() => setuploadPercentage(0), 4000);
           }
         });
-        const { fileName, filePath } = res.data;
-        setUploadedFile({ fileName, filePath });
+        const { filename, filePath } = res.data;
+        setUploadedFile({ filename, filePath });
+        props.getImgPath(filePath)
+        console.log(filePath, file.size,"KB", file.type)
         setMessage("File Uploaded");
-      } else {
-        setMessage("File type is not allowed or is too large!");
+      } 
+      else {
+        setMessage("Must be jpg/png/gif, max size 5MB!");
       }
     } catch (err) {
       if (err.response.status === 500) {
@@ -56,32 +61,30 @@ const FileUpload = () => {
 
   return (
     <Fragment>
-    <p>Please upload a photo here...</p>
       {message ? <Message msg={message} /> : null}
-      <form onSubmit={onSubmit}>
         <div className="custom-file">
-          <input
+          <input name="photo"
             type="file"
             className="custom-file-input"
             id="customFile"
-            onChange={onChange}
+            onChange={onChangeImg}
           />
+          <input type="hidden" id="photo" name="photo" />
           <label className="custom-file-label" htmlFor="customFile">
             {filename}
           </label>
         </div>
-
+        <br/>
         <ProgressBar percentage={uploadPercentage} />
         <input
-          type="submit"
-          value="Upload"
-          className="btn btn-info btn-block mt-4"
+          type="button" onClick={onSubmitImg}
+          value="Upload Photo"
+          className="btn btn-info btn-block mt-2"
         />
-      </form>
       {uploadedFile ? (
         <div className="row mt-5">
           <div className="col-md-6 m-auto">
-            <h3 className="text-center">{uploadedFile.fileName}</h3>
+            {/* <h3 className="text-center">{uploadedFile.fileName}</h3> */}
             <img
               alt={uploadedFile.fileName}
               src={uploadedFile.filePath}
@@ -93,4 +96,6 @@ const FileUpload = () => {
     </Fragment>
   );
 };
+
+
 export default FileUpload;

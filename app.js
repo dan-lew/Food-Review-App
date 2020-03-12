@@ -12,8 +12,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const index = require("./routes/index");
 const fileupload = require("express-fileupload");
-// const register = require("./routes/register");
-// const login = require("./routes/login");
+const uuid = require("uuidv4");
 
 // Load env variables
 dotenv.config({ path: "./config/config.env" });
@@ -35,9 +34,8 @@ app.get("/", (req, res) => {
 app.use("/api/index", require("./routes/index"));
 app.use("/api/reviews", require("./routes/reviews"));
 app.use("/api/sendMessage", require("./routes/sendMessage"));
-// app.use("/api/register", register);
-// app.use("/api/login", login);
-
+// app.use("/api/register", require("./routes/register"));
+// app.use("/api/login", require("./routes/login"));
 
 const PORT = process.env.PORT || 5002;
 

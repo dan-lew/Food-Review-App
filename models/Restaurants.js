@@ -30,7 +30,7 @@ const RestaurantSchema = new mongoose.Schema({
     required: true
   },
   foods: [],
-  ratings: [RatingSchema]
+  ratings: [ReviewSchema]
 });
 
 module.exports = mongoose.model("Restaurant", RestaurantSchema);

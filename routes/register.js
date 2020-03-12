@@ -4,8 +4,8 @@ const bcrypt=require('bcrypt');
 const passport=require('passport');
 const {check, validationResult}=require('express-validator');
 const jwt=require('jsonwebtoken');
-const router=express.Router();
-const User=require('../models/User');
+const router = express.Router();
+const User = require('../models/User');
 ​
 router.post("/",[
     check('firstname','firstName is required').not().isEmpty(),
@@ -15,7 +15,7 @@ router.post("/",[
     check('dateOfBirth','username is required').not().isEmpty(),
     check('city ','city is required').isEmpty(),
     check('password','Please enter your password with 6 or more characters').isLength({min:6})
-], async(req,res)=>{
+], async (req,res)=>{
     const errors=validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({errors:errors.array()});
