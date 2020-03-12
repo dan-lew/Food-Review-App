@@ -5,13 +5,16 @@ import { Router, Route, Switch } from "react-router-dom";
 import "assets/scss/material-kit-react.scss?v=1.8.0";
 
 // pages for this product
-import Components from "views/FoodComponents/Pages/Home";
-import LandingPage from "views/LandingPage/LandingPage";
-import ProfilePage from "views/ProfilePage/ProfilePage";
-import LoginPage from "views/FoodComponents/LoginPage/LoginPage";
+import Components from "views/Components/Components.js";
+import LandingPage from "views/LandingPage/LandingPage.js";
+import AboutUsPage from "views/AboutUsPage/AboutUsPage.js";
+import LoginPage from "views/FoodComponents/LoginPage/LoginPage.js";
 import SendMessagePage from "views/sendMessagePage/sendMessagePage";
 import ReviewPage from "views/ReviewPage/reviewPage";
-import Home from "views/FoodComponents/Pages/Home"
+import Home from "views/FoodComponents/Pages/Home";
+import UsersProfile from 'views/FoodComponents/Pages/UsersProfile'
+import About from 'views/FoodComponents/Pages/About';
+import WelcomeUser from 'views/FoodComponents/Pages/WelcomeUser'
 
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
@@ -30,12 +33,17 @@ function App() {
           <AlertState>
             <Router history={hist}>
               <Switch>
-                <Route path="/landing-page" component={LandingPage} />
-                {/* <Route path="/" component={Home} /> */}
-                <Route path="/profile-page" component={ProfilePage} />
-                <Route path="/login" component={LoginPage} />
+            
+                <Route path="/home" component={Home} />
+                <Route path="/login/user-profile" component={UsersProfile} />
+                <Route path="/login/welcome-user" component={WelcomeUser} />
+                {/* <Route path="/profile-page" component={ProfilePage} /> */}
+                <Route path="/login-page" component={LoginPage} />
+                <Route path="/register-page" component={RegisterPage} />
+                <Route path="/about" component={About} />
                 <Route path="/sendmessagepage" component={SendMessagePage} />
                 <Route path="/review-page" component={ReviewPage} />
+                <Route path="/aboutus-page" component={AboutUsPage} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/ForgetPassword" component={ForgetPassword} />
                 <Route path="/editprofile" component={EditUserProfile} />

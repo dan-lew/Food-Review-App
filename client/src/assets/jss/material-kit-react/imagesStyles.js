@@ -1,5 +1,6 @@
 const imagesStyles = {
   imgFluid: {
+    marginLeft: "60%",
     maxWidth: "100%",
     height: "auto"
   },

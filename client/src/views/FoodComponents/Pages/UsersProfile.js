@@ -2,7 +2,7 @@ import React, { useStyles } from "react";
 import HeaderLogin from "../Layout/HeaderLogin/HeaderLogin.js";
 import HeaderLinksUser from "../Layout/HeaderLogin/HeaderLinksUser.js";
 import { makeStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/components.js";
+import styles from "assets/jss/material-kit-react/views/components";
 import UserPr from "../Layout/UserPr";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";

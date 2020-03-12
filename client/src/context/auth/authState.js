@@ -50,12 +50,13 @@ const AuthState = props => {
   }
   };
 
-  // Register Review
+  // register user
   const register = async formData => {
     const config = {
       headers: { "Content-Type": "application/json" }
     };
     try {
+      
       const res = await axios.post("/api/register", formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
@@ -69,7 +70,29 @@ const AuthState = props => {
       });
     }
   };
- // Send message 
+
+  // Register Review
+  const registerReview = async formData => {
+    const config = {
+      headers: { "Content-Type": "application/json" }
+    };
+    try {
+      const res = await axios.post("/api/reviews/review", formData, config);
+      
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.data
+      });
+      loadUser();
+    } catch (error) {
+      dispatch({
+        type: REGISTER_FAIL,
+        payload: error.response.data.msg
+      });
+    }
+  };
+  
+ // send message 
  const sendMail = async formData => {
   const config = {
     headers: { "Content-Type": "application/json" }
@@ -88,6 +111,7 @@ const AuthState = props => {
     });
   }
 };
+
 // Login User 
  const login = async formData => {   
     const config = { 

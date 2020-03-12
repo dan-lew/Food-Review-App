@@ -9,8 +9,8 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 // @material-ui/icons
-import LocationOn from "@material-ui/icons/LocationOn";
-import LocalDiningIcon from '@material-ui/icons/LocalDining';
+// import LocationOn from "@material-ui/icons/LocationOn";
+// import LocalDiningIcon from '@material-ui/icons/LocalDining';
 
 import styles from "assets/jss/material-kit-react/components/customInputStyle.js";
 

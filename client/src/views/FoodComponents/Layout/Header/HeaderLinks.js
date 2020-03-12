@@ -17,18 +17,14 @@ import { Apps, CloudDownload } from "@material-ui/icons";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
-
+import Logo from "assets/img/Logo-FR-124.png"
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
-import Logo from 'assets/img/Logo-FR-shadow.png';
+import GridContainer from "components/Grid/GridContainer";
+import GridItem from "components/Grid/GridItem";
 import stylesC from "assets/jss/material-kit-react/views/components.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js"
 import stylesN from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
-import GridContainer from "components/Grid/GridContainer";
-import GridItem from "components/Grid/GridItem";
-
-
-
 import AuthContext from '../../../../context/auth/authContext';
 console.log(Logo);
 
@@ -38,8 +34,8 @@ const useStylesC = makeStyles(stylesC);
 const useStylesI = makeStyles(stylesI);
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
-  console.log(Logo)
+ const HeaderLinks=(props)=> {
+
   const classes = useStyles();
   const classesI = useStylesI();
 
@@ -64,7 +60,6 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink}  to="/login">Login </Link>
       </ListItem>
-     
     </Fragment>
   )
   const userLinks = (
@@ -79,10 +74,6 @@ export default function HeaderLinks(props) {
           <Link className={classes.navLink} onClick={onLogout} to="/">Logout </Link>
       </ListItem>
 
-      <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} > Hello {user && user.firstname} </Link>
-      </ListItem>
-     
      
     </Fragment>
   )
@@ -96,7 +87,7 @@ export default function HeaderLinks(props) {
       {!isAuthenticated && guestLinks}
 
       <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/about">About </Link>
+        <Link className={classes.navLink} to="/aboutus-page">About </Link>
       </ListItem>
     
       <ListItem className={classes.listItem}>
@@ -108,3 +99,4 @@ export default function HeaderLinks(props) {
     </List>
   );
 }
+export default HeaderLinks;

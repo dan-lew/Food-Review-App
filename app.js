@@ -10,6 +10,7 @@ const passport=require('passport');
 const cookieParser=require('cookie-parser');
 const bodyParser=require('body-parser');
 const cors = require("cors")
+const fileupload = require("express-fileupload");
 
 const index=require('./routes/index');
 const register=require('./routes/register');
@@ -18,6 +19,8 @@ const resetPassword=require('./routes/resetPassword');
 const editProfile=require('./routes/editProfile');
 const restaurant = require("./routes/restaurant");
 
+const reviews = require("./routes/reviews");
+const sendMessage = require("./routes/sendMessage")
 dotenv.config({path:'./config/config.env'});
 
 //4. connect to db
@@ -26,7 +29,7 @@ connectDB();
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-
+app.use(fileupload());
 app.use(express.json({extended:false}));
 
 
@@ -36,6 +39,8 @@ app.use('/api/resetpassword',resetPassword);
 app.use('/api/editprofile',editProfile);
 app.use('/api/restaurant',restaurant);
 
+app.use("/api/reviews", reviews);
+app.use("/api/sendMessage", sendMessage);
 
 const PORT=process.env.PORT || 5002;
 app.listen(PORT,console.log(`Server started on port ${PORT} in ${process.env.NODE_ENV}`.bgMagenta))

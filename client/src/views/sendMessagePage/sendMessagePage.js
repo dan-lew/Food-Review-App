@@ -18,7 +18,9 @@ import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/sendmsgbg1.jpg";
-
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
+import Logo from "assets/img/Logo-FR-124.png";
 const useStyles = makeStyles(styles);
 
 const SendMessagePage = props => {
@@ -26,7 +28,10 @@ const SendMessagePage = props => {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-
+  const useStylesT = makeStyles(stylesT);
+  const useStylesI = makeStyles(stylesI);
+  const classesT = useStylesT();
+  const classesI = useStylesI();
   const classes = useStyles();
   const { ...rest } = props;
   const alertContext = useContext(AlertContext);
@@ -65,13 +70,24 @@ const SendMessagePage = props => {
   };
   return (
     <div>
-      <Header
-        absolute
-        color="transparent"
-        brand="Food Reviews"
-        rightLinks={<HeaderLinks />}
-        {...rest}
-      />
+    <Header
+          brand={
+            <img
+              className={
+                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
+              }
+              src={Logo}
+            />
+          }
+          rightLinks={<HeaderLinks />}
+          fixed
+          color="dark"
+          changeColorOnScroll={{
+            height: 100,
+            color: "white"
+          }}
+          {...rest}
+        />
       <div
         className={classes.pageHeader}
         style={{
@@ -85,7 +101,7 @@ const SendMessagePage = props => {
             <GridItem xs={12} sm={12} md={5}>
               <Card className={classes[cardAnimaton]}>
                 <form onSubmit={onSubmit} className={classes.form}>
-                  <CardHeader color="warning" className={classes.cardHeader}>
+                  <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>Send us a message</h4>
                   </CardHeader>
                   <p className={classes.divider}>

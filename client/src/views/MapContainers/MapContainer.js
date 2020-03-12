@@ -1,18 +1,31 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-import MapAutoComplete from '../../MapComponents/MapAutoComplete';
-import MapMarker from '../../MapComponents/MapMarker';
-import PlaceCard from '../../MapComponents/PlaceCard';
-import ConstraintSlider from '../../MapComponents/ConstraintSlider';
-import { Button, Input, Divider, message } from 'antd';
+import React, { Component } from "react";
+import GoogleMapReact from "google-map-react";
+import MapAutoComplete from "../../MapComponents/MapAutoComplete";
+import MapMarker from "../../MapComponents/MapMarker";
+import PlaceCard from "../../MapComponents/PlaceCard";
+import ConstraintSlider from "../../MapComponents/ConstraintSlider";
+import CustomInput from "components/CustomInput/CustomInput.js";
+import { Button, Input, Divider, message } from "antd";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 
-const DE_COOR = { lat:51.1657, lng:10.4515 };
 
+
+const DE_COOR = { lat: 51.1657, lng: 10.4515 };
+const API_KEY = "AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI";
+
+//const useStyles = makeStyles(styles);
+
+//const classes = useStyles();
+
+// console.log(classes)
 class MapsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      constraints: [{ name: '', time: 0 }],
+      constraints: [{ name: "", time: 0 }],
       searchResults: [],
       mapsLoaded: false,
       markers: [],
@@ -33,25 +46,27 @@ class MapsContainer extends Component {
     
   }
 
+  //classes = useStyles();
+
   // Update name for constraint with index === key
-  updateConstraintName = ((event, key) => {
+  updateConstraintName = (event, key) => {
     event.preventDefault();
     const prevConstraints = this.state.constraints;
     const constraints = Object.assign([], prevConstraints);
     constraints[key].name = event.target.value;
     this.setState({ constraints });
-  });
+  };
 
   // Updates distance (in KM) for constraint with index == key
-  updateConstraintTime = ((key, value) => {
+  updateConstraintTime = (key, value) => {
     const prevConstraints = this.state.constraints;
     const constraints = Object.assign([], prevConstraints);
     constraints[key].time = value;
     this.setState({ constraints });
-  });
+  };
 
   // Adds a Marker to the GoogleMaps component
-  addMarker = ((lat, lng, name) => {
+  addMarker = (lat, lng, name) => {
     const prevMarkers = this.state.markers;
     const markers = Object.assign([], prevMarkers);
     // 
@@ -74,7 +89,7 @@ class MapsContainer extends Component {
     }
 
     this.setState({ markers });
-  });
+  }
 
   getLocation = (lat,lng) => {
     this.setState({cityLocation:{lat:lat,lng:lng}})
@@ -115,8 +130,6 @@ class MapsContainer extends Component {
   // Runs once when the Google Maps library is ready
   // Initializes all services that we need
   apiHasLoaded = ((map, mapsApi) => {
-
-
     this.setState({
       mapsLoaded: true,
       map,
@@ -125,7 +138,7 @@ class MapsContainer extends Component {
       autoCompleteService: new mapsApi.places.AutocompleteService(),
       placesService: new mapsApi.places.PlacesService(map),
       geoCoderService: new mapsApi.Geocoder(),
-      directionService: new mapsApi.DirectionsService(),
+      directionService: new mapsApi.DirectionsService()
     });
   });
 
@@ -150,7 +163,7 @@ class MapsContainer extends Component {
     const latPlace=[];
     const lngPlace=[];
     // First, search for restaurants shops.
-    placesService.textSearch(placesRequest, ((response) => {
+    placesService.textSearch(placesRequest, response => {
       // Only look at the nearest top 20.
       const responseLimit = Math.min(20, response.length);
       const total_Addresses=[];
@@ -176,7 +189,7 @@ class MapsContainer extends Component {
         
        this.loadMarkers(map,mapsApi,latPlace[i],lngPlace[i],restaurantPlace.name);
         const priceLevel = restaurantPlace.price_level; // 1, 2, 3...
-        let photoUrl = '';
+        let photoUrl = "";
         let openNow = false;
         if (restaurantPlace.opening_hours) {
           openNow = restaurantPlace.opening_hours.open_now; // e.g true/false
@@ -189,10 +202,12 @@ class MapsContainer extends Component {
         const directionRequest = {
           origin: markerLatLng,
           destination: address, // Address of restaurant place
-          travelMode: 'DRIVING',
-        }
-        directionService.route(directionRequest, ((result, status) => {
-          if (status !== 'OK') { return }
+          travelMode: "DRIVING"
+        };
+        directionService.route(directionRequest, (result, status) => {
+          if (status !== "OK") {
+            return;
+          }
           const travellingRoute = result.routes[0].legs[0]; // { duration: { text: 1mins, value: 600 } }
           const travellingTimeInMinutes = travellingRoute.duration.value / 60;
           if (travellingTimeInMinutes < timeLimit) {
@@ -206,12 +221,12 @@ class MapsContainer extends Component {
               priceLevel,
               photoUrl,
               distanceText,
-              timeText,
+              timeText
             });
           }
           // Finally, Add results to state
           this.setState({ searchResults: filteredResults });
-        }));
+        });
       }
       this.setCenter(latPlace[0],lngPlace[0])
       this.setState({
@@ -219,15 +234,27 @@ class MapsContainer extends Component {
         lngPlace:lngPlace,
         
       })
-    }));
-  });
-
+    });
+  })
+  
   render() {
-
-    const { constraints, mapsLoaded, germanyLatLng, markers, searchResults,latPlace, lngPlace} = this.state;
+    const styleDiv = {
+      width: "100%",
+      height: "30%",
+      display: "flex flexWrap",
+      padding: "30px",
+      justifyContent: "center"
+    };
+    const {
+      constraints,
+      mapsLoaded,
+      germanyLatLng,
+      markers,
+      searchResults
+    } = this.state;
     const { autoCompleteService, geoCoderService } = this.state; // Google Maps Services
     return (
-      <div className="w-100 d-flex py-4 flex-wrap justify-content-center">
+      <div style={styleDiv}>
         <h1 className="w-100 fw-md">Find Some restaurants!</h1>
         {/* Constraints section */}
      
@@ -252,26 +279,37 @@ class MapsContainer extends Component {
           </GoogleMapReact>
         </section>
         <section className="col-4">
-          {mapsLoaded ?
+          {mapsLoaded ? (
             <div>
               {constraints.map((constraint, key) => {
                 const { name, time } = constraint;
                 return (
-                  <div key={key} className="mb-4">
-                    <div className="d-flex mb-2">
-                      <Input className="col-4 mr-2" placeholder="Name" onChange={(event) => this.updateConstraintName(event, key)} />
+                  <div
+                    key={key}
+                    style={{ marginTop: "4px", marginBottom: "4px" }}
+                    className=""
+                  >
+                    <div style={{ display: "d-flex" }} className="d-flex mb-2">
+                      <Input
+                        className="col-4 mr-2"
+                        placeholder="Name"
+                        onChange={event =>
+                          this.updateConstraintName(event, key)
+                        }
+                      />
                       <MapAutoComplete
                         autoCompleteService={autoCompleteService}
                         geoCoderService={geoCoderService}
                         germanyLatLng={germanyLatLng}
                         markerName={name}
                         getLocation={this.getLocation}
+                        addMarker={this.addMarker}
                       />
                     </div>
                     <ConstraintSlider
                       iconType="car"
                       value={time}
-                      onChange={(value) => this.updateConstraintTime(key, value)}
+                      onChange={value => this.updateConstraintTime(key, value)}
                       text="Minutes away by car"
                     />
                     <Divider />
@@ -279,17 +317,50 @@ class MapsContainer extends Component {
                 );
               })}
             </div>
-            : null
-          }
-          <Button className="mt-4 fw-md" type="primary" size="large" onClick={this.handleSearch}>Search!</Button>
+          ) : null}
+        </section>
 
+        {/* Maps Section */}
+        <section className="col-8 h-lg">
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: API_KEY,
+              libraries: ["places", "directions"]
+            }}
+            defaultZoom={6}
+            defaultCenter={{ lat: DE_COOR.lat, lng: DE_COOR.lng }}
+            yesIWantToUseGoogleMapApiInternals={true}
+            onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)} // "maps" is the mapApi. Bad naming but that's their library.
+          >
+            {/* Pin markers on the Map*/}
+
+            {markers.map((marker, key) => {
+              const { name, lat, lng } = marker;
+              return <MapMarker key={key} name={name} lat={lat} lng={lng} />;
+            })}
+
+            {/* {markers.map((marker, key) => {
+              const { name, lat, lng } = marker;
+              const reastaurantPlace=this.state.filteredResults.address
+              return (
+                <MapMarker key={key} name={name} lat={lat} lng={lng} resPlace={reastaurantPlace} />
+              );
+            })} */}
+          </GoogleMapReact>
         </section>
 
         {/* Search Button */}
-
+        <Button
+          className="mt-4 fw-md"
+          type="primary"
+          size="large"
+          onClick={this.handleSearch}
+        >
+          Search!
+        </Button>
 
         {/* Results section */}
-        {searchResults.length > 0 ?
+        {searchResults.length > 0 ? (
           <>
             <Divider />
             <section className="col-12">
@@ -303,9 +374,11 @@ class MapsContainer extends Component {
               </div>
             </section>
           </>
-          : null}
+        ) : null}
+        {/* <GridContainer xs={12} md={8}>
+           </GridContainer>       */}
       </div>
-    )
+    );
   }
 }
 

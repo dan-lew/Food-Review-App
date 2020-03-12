@@ -13,7 +13,9 @@ const typographyStyle = {
     fontSize: "14px"
   },
   defaultHeaderMargins: {
-    marginTop: "20px",
+    //marginTop: "20px",
+    // edit
+    marginTop: "15px",
     marginBottom: "10px"
   },
   quote: {
@@ -55,6 +57,9 @@ const typographyStyle = {
     fontWeight: "400",
     lineHeight: "1",
     color: "#777"
+  },
+  link:{
+    textTransform:"uppercase"
   }
 };
 

@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 import { AutoComplete } from 'antd';
-class MapAutoComplete extends Component {
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
+
+//  const useStyles = makeStyles(styles);
+//  const classes = useStyles();
+
+class MapAutoComplete extends Component { 
+
   constructor(props) {
     super(props);
     this.state = {
@@ -45,11 +53,15 @@ class MapAutoComplete extends Component {
   });
 
   render() {
-    const { dataSource } = this.state;
+ 
+    
+   
     return (
       <AutoComplete
-        className="w-100"
-        dataSource={dataSource}
+        style={{width:"100%"}}
+        className=""
+        // className={classes.width100}
+        dataSource={this.dataSource}
         onSelect={this.onSelect}
         onSearch={this.handleSearch}
         placeholder="Address"

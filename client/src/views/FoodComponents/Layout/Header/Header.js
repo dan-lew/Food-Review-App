@@ -18,7 +18,7 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
 const useStyles = makeStyles(styles);
 
-export default function Header(props) {
+export default function HeaderLogin(props) {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
@@ -107,11 +107,11 @@ export default function Header(props) {
   );
 }
 
-Header.defaultProp = {
+HeaderLogin.defaultProp = {
   color: "white"
 };
 
-Header.propTypes = {
+HeaderLogin.propTypes = {
   color: PropTypes.oneOf([
     "primary",
     "info",
@@ -125,7 +125,9 @@ Header.propTypes = {
   ]),
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
-  brand: PropTypes.string,
+  // brand: PropTypes.string,
+    // edit
+  brand: PropTypes.object,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
   // this will cause the sidebar to change the color from
