@@ -39,6 +39,9 @@ const typographyStyle = {
   marginLeft: {
     marginLeft: "auto !important"
   },
+  marginCenter: {
+    margin: "0 auto !important"
+  },
   ...imagesStyles
 };
 

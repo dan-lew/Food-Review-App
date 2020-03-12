@@ -16,6 +16,9 @@ import RegisterPage from "./views/RegisterPage/RegisterPage"
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
 import AlertState from "./context/alert/alertState";
+import RegisterPage from "views/FoodComponents/RegisterPage/RegisterPage";
+import ForgetPassword from "views/FoodComponents/ForgetPassword/ForgetPassword";
+import EditUserProfile from "views/FoodComponents/EditUserProfile/EditUserProfilePage";
 
 var hist = createBrowserHistory();
 
@@ -28,13 +31,14 @@ function App() {
             <Router history={hist}>
               <Switch>
                 <Route path="/landing-page" component={LandingPage} />
-                <Route path="/home" component={Home} />
-                <Route path = '/register-page' component= {RegisterPage} />
-                <Route path="/aboutus-page" component={AboutUsPage} />
-                <Route path="/login-page" component={LoginPage} />
-                <Route path="/register-page" component={RegisterPage} />
-                <Route path="/sendmessage-page" component={SendMessagePage} />
+                <Route path="/profile-page" component={ProfilePage} />
+                <Route path="/login" component={LoginPage} />
+                <Route path="/sendmessagepage" component={SendMessagePage} />
                 <Route path="/review-page" component={ReviewPage} />
+                <Route path="/aboutus-page" component={AboutUsPage} />
+                <Route path="/register" component={RegisterPage} />
+                <Route path="/ForgetPassword" component={ForgetPassword} />
+                <Route path="/editprofile" component={EditUserProfile} />
                 <Route path="/" component={Components} />
               </Switch>
             </Router>

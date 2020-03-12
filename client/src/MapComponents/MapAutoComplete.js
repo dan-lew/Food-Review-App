@@ -19,7 +19,7 @@ class MapAutoComplete extends Component {
       console.log(response[0]);
       const { location } = response[0].geometry;
       console.log(location);
-      this.props.addMarker(location.lat(), location.lng(), this.props.markerName);
+      this.props.getLocation(location.lat(), location.lng());
     }))
   });
 

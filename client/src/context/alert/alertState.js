@@ -7,7 +7,7 @@ import {
    SET_ALERT,
    REMOVE_ALERT
 
-} from "../../types";
+} from "../type";
 
 const AlertState = (props) => {
     const initialState = [];

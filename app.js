@@ -1,44 +1,42 @@
 const express = require("express");
-const expressLayouts = require("express-ejs-layouts");
-const app = express();
-const colors = require("colors");
-const connectDB = require("./config/db");
-const dotenv = require("dotenv");
-const flash = require("connect-flash");
-const session = require("express-session");
-const passport = require("passport");
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const index = require("./routes/index");
+const expressLayouts=require('express-ejs-layouts');
+const app=express();
+const colors=require('colors');
+const connectDB=require('./config/db');
+const dotenv=require('dotenv');
+const flash=require('connect-flash');
+const session=require('express-session');
+const passport=require('passport');
+const cookieParser=require('cookie-parser');
+const bodyParser=require('body-parser');
+const cors = require("cors")
 const fileupload = require("express-fileupload");
-const uuid = require("uuidv4");
 
-// Load env variables
-dotenv.config({ path: "./config/config.env" });
+const index=require('./routes/index');
+const register=require('./routes/register');
+const login=require('./routes/login');
+const resetPassword=require('./routes/resetPassword');
+const editProfile=require('./routes/editProfile');
+const reviews = require("./routes/reviews");
+const sendMessage = require("./routes/sendMessage")
+dotenv.config({path:'./config/config.env'});
 
-// Connect to MongoDB database
+//4. connect to db
 connectDB();
-
-// Initialize Middleware
-app.use(cors());
+//5
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.json({ extended: false }));
+app.use(cookieParser());
 app.use(fileupload());
+app.use(express.json({extended:false}));
 
-app.get("/", (req, res) => {
-  res.json({ msg: "welcome to food review app api " });
-});
 
-// Define Routes
-app.use("/api/index", require("./routes/index"));
-app.use("/api/reviews", require("./routes/reviews"));
-app.use("/api/sendMessage", require("./routes/sendMessage"));
-// app.use("/api/register", require("./routes/register"));
-// app.use("/api/login", require("./routes/login"));
+app.use('/api/register',register);
+app.use('/api/login',login);
+app.use('/api/resetpassword',resetPassword);
+app.use('/api/editprofile',editProfile);
+app.use("/api/reviews", reviews);
+app.use("/api/sendMessage", sendMessage);
 
-const PORT = process.env.PORT || 5002;
-
-app.listen(PORT, () =>
-  console.log(`Server Started on port ${PORT} `.magenta.underline.bold)
-);
+const PORT=process.env.PORT || 5002;
+app.listen(PORT,console.log(`Server started on port ${PORT} in ${process.env.NODE_ENV}`.bgMagenta))

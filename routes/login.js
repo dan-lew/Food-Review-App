@@ -9,13 +9,13 @@ const mailer = require('../config/sendEmail');
 // const sendEmail=require('../config/sendEmail');
 const crypto=require('crypto');
 const User = require("../models/User");
-​
-​
-​
+
+
+
 // @route   Get api/auth
 // @desc    Get logged in user
 // @access  Private
-router.get('/load',auth,async (req ,res) => {
+router.get('/',auth,async (req ,res) => {
     try{
         const user=await User.findById(req.user.id).select('-password');
         if(!user){
@@ -30,7 +30,6 @@ router.get('/load',auth,async (req ,res) => {
 // @route   POST api/auth
 // @desc    Auth user & get token
 // @access  Public
-​
 router.post('/',[
     check('email', 'Please enter a valid email').isEmail(),
     check('password','Password is required').exists()

@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "server": "nodemon server.js",
+    "start": "nodemon app.js",
+    "server": "nodemon app.js",
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" "
@@ -35,6 +35,7 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
@@ -49,6 +50,7 @@
     "react-google-location": "^1.2.2",
     "react-google-maps": "^9.4.5",
     "uuid": "^7.0.2",
-    "uuidv4": "^6.0.6"
+    "uuidv4": "^6.0.6",
+    "react-router-dom": "^5.1.2"
   }
 }

@@ -4,6 +4,17 @@ const imagesStyles = {
     maxWidth: "100%",
     height: "auto"
   },
+  // edit
+  imgFluidLogo:{
+    maxWidth:"auto",
+    height:"60px",
+    padding: 0,
+    margin: 0 
+  },
+  imgFluidUser:{
+    maxWidth:"70px",
+    height:"auto"
+  },
   imgRounded: {
     borderRadius: "6px !important"
   },
@@ -12,7 +23,7 @@ const imagesStyles = {
   },
   imgRaised: {
     boxShadow:
-      "0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
+      "0 5px 15px -8px rgba(0, 0, 0, 0.54), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"
   },
   imgGallery: {
     width: "100%",

@@ -1,5 +1,4 @@
 import { defaultFont } from "assets/jss/material-kit-react.js";
-
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const headerLinksStyle = theme => ({
@@ -63,11 +62,39 @@ const headerLinksStyle = theme => ({
       }
     }
   },
+  // edit
+  navLink_R: {
+    color: "inherit",
+    position: "relative",
+    padding: "0.9375rem",
+    fontWeight: "400",
+    fontSize: "12px",
+    textTransform: "uppercase",
+    borderRadius: "3px",
+    lineHeight: "20px",
+    textDecoration: "none",
+    margin: "0px",
+    display: "inline-flex",
+    "&:hover,&:focus": {
+      color: "inherit",
+      background: "rgba(200, 200, 200, 0.2)"
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "calc(100% - 30px)",
+      marginLeft: "15px",
+      marginBottom: "8px",
+      marginTop: "8px",
+      textAlign: "left",
+      "& > span:first-child": {
+        justifyContent: "flex-start"
+      }
+    }
+  },
   notificationNavLink: {
     color: "inherit",
     padding: "0.9375rem",
     fontWeight: "400",
-    fontSize: "12px",
+    fontSize: "10px",
     textTransform: "uppercase",
     lineHeight: "20px",
     textDecoration: "none",
@@ -95,7 +122,13 @@ const headerLinksStyle = theme => ({
     height: "20px",
     marginRight: "3px"
   },
-  socialIcons: {
+  // edit
+  logo: {
+    width: "60px",
+    height: "auto",
+    marginRight: "3px"
+  },
+  socialIcons: {  
     position: "relative",
     fontSize: "20px !important",
     marginRight: "4px"
