@@ -12,6 +12,13 @@
 
 
 
+/.history
+/client1
+/react-client
+/client/src/Components
+/client/node_modules
+
+
 /.pnp
 .pnp.js
 git 
@@ -35,4 +42,9 @@ yarn-error.log*
 
 #config
 config.env
+config_d.env
 
+<<<<<<< HEAD
+=======
+ /client/src/views/MapContainers/MapContainer0.js
+>>>>>>> Rania

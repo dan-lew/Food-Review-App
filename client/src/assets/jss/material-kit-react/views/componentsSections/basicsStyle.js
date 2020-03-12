@@ -25,6 +25,21 @@ const basicsStyle = {
     height: "17px",
     color: "#FFFFFF"
   },
+  socialIcons: {  
+    position: "relative",
+    fontSize: "20px !important",
+    marginRight: "4px"
+  },
+  marginAuto:{
+    marginAuto:"auto"
+  },
+  marginRight5:{
+    marginAuto:"5px"
+  },
+  width100:{
+    width:"100vw",
+    height:"50vw"
+  },
   ...customCheckboxRadioSwitch
 };
 

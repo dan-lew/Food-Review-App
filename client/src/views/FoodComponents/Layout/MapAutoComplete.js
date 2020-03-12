@@ -1,5 +1,7 @@
 import  {AutoComplete}  from 'antd';
 import React,{Component} from 'react';
+import TextField from '@material-ui/core/TextField';
+//import Autocomplete from '@material-ui/lab/Autocomplete';
 
 class MapAutoComplete extends Component {
   
@@ -40,7 +42,7 @@ class MapAutoComplete extends Component {
         dataSource={dataSource}
         onSearch={this.handleSearch}
         onSelect={this.onSelect}
-        placeholder="Address"
+        placeholder="City"
       />
     )
   }

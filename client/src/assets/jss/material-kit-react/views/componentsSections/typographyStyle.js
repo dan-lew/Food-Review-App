@@ -1,6 +1,14 @@
 import { container, title } from "assets/jss/material-kit-react.js";
 
 import imagesStyles from "assets/jss/material-kit-react/imagesStyles.js";
+import {
+  defaultFont,
+  primaryColor,
+  infoColor,
+  successColor,
+  warningColor,
+  dangerColor
+} from "assets/jss/material-kit-react.js";
 
 const typographyStyle = {
   section: {
@@ -41,6 +49,16 @@ const typographyStyle = {
   },
   marginCenter: {
     margin: "0 auto !important"
+  },
+  marginTop: {
+    marginTop: "100px"
+  },
+  link:{
+    textTransform:"uppercase"
+  },
+  header:{
+    fontSize:"30px",
+    color:primaryColor
   },
   ...imagesStyles
 };

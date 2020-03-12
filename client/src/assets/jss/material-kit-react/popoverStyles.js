@@ -8,7 +8,9 @@ const popoverStyles = {
     border: "none",
     borderRadius: "3px",
     display: "block",
-    maxWidth: "276px",
+    // edit
+    //maxWidth: "276px",
+    maxWidth: "200px",
     fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
     fontStyle: "normal",
     fontWeight: "400",
@@ -40,7 +42,9 @@ const popoverStyles = {
   popoverBody: {
     padding: "10px 15px 15px",
     lineHeight: "1.4",
-    color: "#555"
+    // edit 
+    //color:"#555",
+    color: "#9c27b0"
   }
 };
 

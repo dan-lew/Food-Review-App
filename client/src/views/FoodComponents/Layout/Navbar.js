@@ -9,7 +9,7 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 import Button from "components/CustomButtons/Button.js";
 import avatar from "assets/img/faces/avatar.jpg";
 import Avatar from "@material-ui/core/Avatar";
-import stylesC from "assets/jss/material-kit-react/views/components.js";
+import stylesC from "assets/jss/material-kit-react/views/components";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js"
 
 
