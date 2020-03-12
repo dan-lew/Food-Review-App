@@ -31,7 +31,7 @@ import {Link} from "react-router-dom"
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
 
-const LoginPage=(props)=> {
+const ResetPassword=(props)=> {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const { setAlert } = alertContext;
@@ -39,7 +39,7 @@ const LoginPage=(props)=> {
 
   useEffect(()=> {
     if(isAuthenticated){
-        props.history.push('/');//go to profile page
+        props.history.push('/Hi');//go to profile page
     }
     if(error === 'invalid credential'){
         setAlert(error, 'danger');
@@ -110,59 +110,12 @@ const LoginPage=(props)=> {
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form} onSubmit={onSubmit}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Login</h4>
-                    <div className={classes.socialLine}>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-facebook"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-google-plus-g"} />
-                      </Button>
-                    </div>
+                    <h4>New Password</h4>
                   </CardHeader>
                   {/* <p className={classes.divider}>Or </p> */}
                   <CardBody>
                     <CustomInput onChangeFunction={onChange}
-                      labelText="Email..."
-                      id="email"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        value:email,
-                        type: "email",
-                        name:"email",
-                        required:true,
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <CustomInput onChangeFunction={onChange}
-                      labelText="Password"
+                      labelText="Password..."
                       id="pass"
                       formControlProps={{
                         fullWidth: true
@@ -171,6 +124,26 @@ const LoginPage=(props)=> {
                         value:password,
                         type: "password",
                         name:"password",
+                        required:true,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                          <Icon className={classes.inputIconsColor}>
+                              lock_outline
+                            </Icon>
+                          </InputAdornment>
+                        )
+                      }}
+                    />
+                    <CustomInput onChangeFunction={onChange}
+                      labelText="Confirm Password"
+                      id="pass2"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        value:password,
+                        type: "password",
+                        name:"password2",
                         required:true,
                         endAdornment: (
                           <InputAdornment position="end">
@@ -185,11 +158,8 @@ const LoginPage=(props)=> {
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button  type="submit" simple color="primary" size="lg">
-                      Login
+                    Reset Password
                     </Button>
-                    <Link to="/ForgetPassword"  color="danger" size="lg" >
-                      Forget Password
-                  </Link>
                   </CardFooter>
                 </form>
               </Card>
@@ -202,4 +172,4 @@ const LoginPage=(props)=> {
   );
 }
 
-export default LoginPage
+export default ResetPassword

@@ -35,6 +35,7 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
@@ -46,6 +47,7 @@
     "react-geocode": "^0.2.1",
     "react-google-autocomplete": "^1.1.2",
     "react-google-location": "^1.2.2",
-    "react-google-maps": "^9.4.5"
+    "react-google-maps": "^9.4.5",
+    "react-router-dom": "^5.1.2"
   }
 }

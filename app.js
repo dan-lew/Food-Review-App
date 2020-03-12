@@ -12,7 +12,10 @@ const bodyParser=require('body-parser');
 const cors = require("cors")
 
 const index=require('./routes/index');
-const users=require('./routes/users');
+const register=require('./routes/register');
+const login=require('./routes/login');
+const resetPassword=require('./routes/resetPassword');
+const editProfile=require('./routes/editProfile');
 
 dotenv.config({path:'./config/config.env'});
 
@@ -25,8 +28,11 @@ app.use(cookieParser());
 
 app.use(express.json({extended:false}));
 
-app.use('/', index);
-app.use('/api/users',users);
+
+app.use('/api/register',register);
+app.use('/api/login',login);
+app.use('/api/resetpassword',resetPassword);
+app.use('/api/editprofile',editProfile);
 
 const PORT=process.env.PORT || 5002;
 app.listen(PORT,console.log(`Server started on port ${PORT} in ${process.env.NODE_ENV}`.bgMagenta))

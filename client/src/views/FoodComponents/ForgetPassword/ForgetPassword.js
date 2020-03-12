@@ -28,18 +28,19 @@ import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
 import {Link} from "react-router-dom"
+
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
 
-const LoginPage=(props)=> {
+const ForgetPassword=(props)=> {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
   const { setAlert } = alertContext;
-  const { login ,error,clearErrors ,isAuthenticated} = authContext;
+  const { login ,error,clearErrors ,isAuthenticated,forgot_password} = authContext;
 
   useEffect(()=> {
     if(isAuthenticated){
-        props.history.push('/');//go to profile page
+        props.history.push('/login');//go to login
     }
     if(error === 'invalid credential'){
         setAlert(error, 'danger');
@@ -49,25 +50,21 @@ const LoginPage=(props)=> {
 
 
   const [user,setUser]=useState({
-    email:'',
-    password:'',
+        Email:'',
 });
   const{email,password,}=user;
   const onChange=e=>setUser({...user, [e.target.name]: e.target.value})
   
   const onSubmit=e =>{
       e.preventDefault();
-      if(email===''|| password===''){
-        setAlert("Please fill in all fields", "danger");
+      if(email===''){
+        setAlert("Please enter your Email", "danger");
       }else{
-        login({
-          email,
-          password
+        forgot_password({
+          email
         });
       }     
   }
-
-
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
@@ -110,36 +107,7 @@ const LoginPage=(props)=> {
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form} onSubmit={onSubmit}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Login</h4>
-                    <div className={classes.socialLine}>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-facebook"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-google-plus-g"} />
-                      </Button>
-                    </div>
+                    <h4>Reset Password</h4>
                   </CardHeader>
                   {/* <p className={classes.divider}>Or </p> */}
                   <CardBody>
@@ -161,34 +129,13 @@ const LoginPage=(props)=> {
                         )
                       }}
                     />
-                    <CustomInput onChangeFunction={onChange}
-                      labelText="Password"
-                      id="pass"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        value:password,
-                        type: "password",
-                        name:"password",
-                        required:true,
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Icon className={classes.inputIconsColor}>
-                              lock_outline
-                            </Icon>
-                          </InputAdornment>
-                        ),
-                        autoComplete: "off"
-                      }}
-                    />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button  type="submit" simple color="primary" size="lg">
-                      Login
+                     reset Password
                     </Button>
-                    <Link to="/ForgetPassword"  color="danger" size="lg" >
-                      Forget Password
+                    <Link to="/login"  color="danger" size="lg" >
+                     Back to login
                   </Link>
                   </CardFooter>
                 </form>
@@ -202,4 +149,4 @@ const LoginPage=(props)=> {
   );
 }
 
-export default LoginPage
+export default ForgetPassword

@@ -40,7 +40,7 @@ const HeaderLinksUser=(props)=>{
       </ListItem>
 
       <ListItem className={classes.listItem}>
-      <Link className={classes.navLink}  to="/contactUs">Contact Us </Link>
+      <Link className={classes.navLink}  to="/sendMessagePage">Contact Us </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>

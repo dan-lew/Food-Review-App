@@ -7,10 +7,6 @@ const jwt=require('jsonwebtoken');
 const router=express.Router();
 const User=require('../models/User');
 
-// router.get("/login-page", (req,res)=>{
-//     res.render('login');
-// });
-
 router.post("/",[
     check('firstname','firstName is required').not().isEmpty(),
     check('lastname','lastName is required').not().isEmpty(),
@@ -62,13 +58,5 @@ try{
 });
 
 
-
-// router.get("/",(req,res)=>{
-//     res.json("Hello");
-// })
-
-// router.get("/edit-profile",(req,res)=>{
-//     res.render('editProfile');
-// })
 
 module.exports=router;
