@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const RestaurantSchema=new mongoose.Schema({
-    rating:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'rating',
-        required:true,
-    },
     name: {
         type: String,
         required:true,
@@ -14,14 +9,18 @@ const RestaurantSchema=new mongoose.Schema({
         type: String,
         required:true,
     },
+    city:{
+        type: String,
+        required:true,
+    },
+    country:{
+        type: String,
+        required:true,
+    },
     category: {
         type: String,
         required: true
-    },
-    dateOfVisit:{
-        type: Date,
-        default:Date.now
-    },
+    },  
     photo:{
         type: String,
     },

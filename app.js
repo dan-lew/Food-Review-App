@@ -16,6 +16,7 @@ const register=require('./routes/register');
 const login=require('./routes/login');
 const resetPassword=require('./routes/resetPassword');
 const editProfile=require('./routes/editProfile');
+const restaurant = require("./routes/restaurant");
 
 dotenv.config({path:'./config/config.env'});
 
@@ -33,6 +34,8 @@ app.use('/api/register',register);
 app.use('/api/login',login);
 app.use('/api/resetpassword',resetPassword);
 app.use('/api/editprofile',editProfile);
+app.use('/api/restaurant',restaurant);
+
 
 const PORT=process.env.PORT || 5002;
 app.listen(PORT,console.log(`Server started on port ${PORT} in ${process.env.NODE_ENV}`.bgMagenta))
