@@ -1,38 +1,33 @@
 import React, { useStyles } from "react";
 //import Carousels from './Carousels'
+// import Map from "../Layout/MapR";
+// import MapMarkers from "../Layout/MapMarkers";
+// import Places from "../Layout/Places";
 import SectionCarousel from "../Sections/SectionCarousel";
 import RestaurantsList from "../Layout/Restaurants/RestaurantsList";
-import { makeStyles } from "@material-ui/core/styles";
-//import  Footer from '../../../components/Footer/Footer'
-import Header from "../Layout/Header/Header";
-import HeaderRights from "../Layout/Header/HeaderRights";
-import HeaderLinks from "../Layout/Header/HeaderLinks";
 import Footer from "../Layout/Footer";
-import styles from "assets/jss/material-kit-react/views/components.js";
-import Map from "../Layout/MapR";
-import MapMarkers from "../Layout/MapMarkers";
-import Places from "../Layout/Places";
+import Header from "../Layout/Header/Header";
+import HeaderLinks from "../Layout/Header/HeaderLinks";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-// import Logo70 from "assets/img/Logo-FR-70.png";
+import Card from 'components/Card/Card';
+import { makeStyles } from "@material-ui/core/styles";
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import Logo from "assets/img/Logo-FR-124.png";
 
-import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
-
 const Home = props => {
-  const useStyles = makeStyles(styles);
-  const classes = useStyles();
+  const useStylesT = makeStyles(stylesT);
   const useStylesI = makeStyles(stylesI);
+  const classesT = useStylesT();
   const classesI = useStylesI();
-  console.log(Logo);
+  console.log(classesT);
   const { ...rest } = props;
+
   return (
     <div className="">
-      <div>
+      <div className="">
         <Header
-          // leftLinks={<img className={classesI.imgRoundedCircle +" "+classesI.imgFluidLogo} src={Logo}/>}
-          // leftLinks={<HeaderRights />}
-          // brand="Food Rating"
           brand={
             <img
               className={
@@ -41,7 +36,7 @@ const Home = props => {
               src={Logo}
             />
           }
-          //leftLinks={"Food Rating"}
+         
           rightLinks={<HeaderLinks />}
           fixed
           color="dark"
@@ -51,8 +46,10 @@ const Home = props => {
           }}
           {...rest}
         />
-      </div>
-      <div style={{ paddingTop: "80px" }}>
+      </div> 
+      
+      <div style={{ paddingTop: "80px",width:"90%" }} className={classesT.marginCenter}>
+     <Card className={classesT.marginCenter} >
         <SectionCarousel />
         {/* <Map google={this.props.google} */}
         {/* <Map
@@ -66,18 +63,20 @@ const Home = props => {
         /> */}
 
         {/* <Carousels /> */}
-      </div>
+     
       <div>{/* <Places />   */}</div>
       <br></br>
       <br></br>
       <div className="" style={{ height: "100vh" }}>
-        <GridContainer justify="center">
+        <GridContainer className={classesT.marginCenter}>
           <GridItem xs={12} sm={12} md={12} lg={12}>
             {/* <MapMarkers/> */}
             {/* <RestaurantsList /> */}
           </GridItem>
         </GridContainer>
+        
       </div>
+      </Card> </div>
       {/* <Footer /> */}
     </div>
   );

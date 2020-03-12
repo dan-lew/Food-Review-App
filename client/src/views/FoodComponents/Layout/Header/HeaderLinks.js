@@ -19,28 +19,17 @@ import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
-import Logo from 'assets/img/Logo-FR-shadow.png';
-import stylesC from "assets/jss/material-kit-react/views/components.js";
-import stylesI from "assets/jss/material-kit-react/imagesStyles.js"
-import stylesN from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
-import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 
-console.log(Logo);
-
-const useStylesN = makeStyles(stylesN);
-const useStylesT = makeStyles(stylesT);
-const useStylesC = makeStyles(stylesC);
-const useStylesI = makeStyles(stylesI);
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
-  console.log(Logo)
+ const HeaderLinks=(props)=> {
+
   const classes = useStyles();
-  const classesI = useStylesI();
+  // const classesI = useStylesI();
   return (
-   <List>
+   <List className={classes.list}>
       <ListItem className={classes.listItem}>
       <Link className={classes.navLink} to="/home">Home </Link>
        
@@ -59,3 +48,4 @@ export default function HeaderLinks(props) {
     </List>
   );
 }
+export default HeaderLinks;

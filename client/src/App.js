@@ -11,8 +11,11 @@ import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SendMessagePage from "views/sendMessagePage/sendMessagePage";
 import ReviewPage from "views/ReviewPage/reviewPage";
-import Home from "views/FoodComponents/Pages/Home"
-
+import Home from "views/FoodComponents/Pages/Home";
+import UsersProfile from 'views/FoodComponents/Pages/UsersProfile'
+import About from 'views/FoodComponents/Pages/About';
+import WelcomeUser from 'views/FoodComponents/Pages/WelcomeUser'
+import RegisterPage from "views/RegisterPage/RegisterPage.js";
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
 import AlertState from "./context/alert/alertState";
@@ -29,8 +32,13 @@ function App() {
               <Switch>
                 <Route path="/landing-page" component={LandingPage} />
                 <Route path="/home" component={Home} />
+                <Route path="/login/user-profile" component={UsersProfile} />
+                <Route path="/login/welcome-user" component={WelcomeUser} />
+                {/* <Route path="/foodsRating" component={RestaurantFoodRating} /> */}
                 <Route path="/profile-page" component={ProfilePage} />
                 <Route path="/login-page" component={LoginPage} />
+                <Route path="/register-page" component={RegisterPage} />
+                <Route path="/about" component={About} />
                 <Route path="/sendmessagepage" component={SendMessagePage} />
                 <Route path="/review-page" component={ReviewPage} />
                 <Route path="/" component={Components} />

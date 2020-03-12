@@ -6,6 +6,13 @@
 /node_modules
 /client/node_modules
 
+/.history
+/client1
+/react-client
+/client/src/Components
+/client/node_modules
+
+
 /.pnp
 .pnp.js
 git 
@@ -14,7 +21,7 @@ git
 
 # production
 /client/build
-/client
+/build
 
 # misc
 .DS_Store
@@ -29,9 +36,6 @@ yarn-error.log*
 
 #config
 config.env
+config_d.env
 
-/.history
-/client1
-/react-client
-/client/src/Components
-/client/node_modules
+ /client/src/views/MapContainers/MapContainer0.js
