@@ -10,7 +10,7 @@ import {
   USER_LOADED,
   CLEAR_ERRORS,
   AUTH_ERROR
-} from "../type";
+} from "../../types";
 
 const AuthState = props => {
   const initialState = {
@@ -47,7 +47,7 @@ const AuthState = props => {
       headers: { "Content-Type": "application/json" }
     };
     try {
-      const res = await axios.post("/api/users", formData, config);
+      const res = await axios.post("/api/reviews/review", formData, config);
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data
@@ -60,6 +60,7 @@ const AuthState = props => {
       });
     }
   };
+  
  // send message 
  const sendMail = async formData => {
   const config = {
