@@ -7,8 +7,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 // core components
-import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
+import Header from "../FoodComponents/Layout/Header/Header.js";
+import HeaderLinks from "../FoodComponents/Layout/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -21,7 +21,9 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import FileUpload from "./components/FileUpload";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/reviewpgbg.jpg";
-
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
+import Logo from "assets/img/Logo-FR-124.png";
 const useStyles = makeStyles(styles);
 
 const ReviewPage = props => {
@@ -29,7 +31,10 @@ const ReviewPage = props => {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-
+  const useStylesT = makeStyles(stylesT);
+  const useStylesI = makeStyles(stylesI);
+  const classesT = useStylesT();
+  const classesI = useStylesI();
   const classes = useStyles();
   const { ...rest } = props;
   const alertContext = useContext(AlertContext);
@@ -106,13 +111,24 @@ const ReviewPage = props => {
 
   return (
     <div>
-      <Header
-        absolute
-        color="transparent"
-        brand="Food Reviews"
-        rightLinks={<HeaderLinks />}
-        {...rest}
-      />
+    <Header
+          brand={
+            <img
+              className={
+                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
+              }
+              src={Logo}
+            />
+          }
+          rightLinks={<HeaderLinks />}
+          fixed
+          color="dark"
+          changeColorOnScroll={{
+            height: 100,
+            color: "white"
+          }}
+          {...rest}
+        />
       <div
         className={classes.pageHeader}
         style={{
@@ -126,7 +142,7 @@ const ReviewPage = props => {
             <GridItem xs={12} sm={12} md={5}>
               <Card className={classes[cardAnimaton]}>
                 <form onSubmit={onSubmit} className={classes.form}>
-                  <CardHeader color="warning" className={classes.cardHeader}>
+                  <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>Write a review</h4>
                   </CardHeader>
                   <p className={classes.divider}>

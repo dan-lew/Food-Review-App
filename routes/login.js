@@ -10,11 +10,6 @@ const mailer = require('../config/sendEmail');
 const crypto=require('crypto');
 const User = require("../models/User");
 
-
-
-// @route   Get api/auth
-// @desc    Get logged in user
-// @access  Private
 router.get('/',auth,async (req ,res) => {
     try{
         const user=await User.findById(req.user.id).select('-password');
@@ -33,7 +28,7 @@ router.get('/',auth,async (req ,res) => {
 router.post('/',[
     check('email', 'Please enter a valid email').isEmail(),
     check('password','Password is required').exists()
-], async (req ,res) => {
+]   , async (req ,res) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()){
         return res.status(400).json({ errors : errors.array()});
@@ -66,6 +61,5 @@ router.post('/',[
         res.status(500).send('Server Error')
     }
 });
-​​
-​
+​​​
 module.exports = router
