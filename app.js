@@ -20,6 +20,7 @@ const editProfile=require('./routes/editProfile');
 const restaurant = require("./routes/restaurant");
 
 const reviews = require("./routes/reviews");
+const profileImg = require ("./routes/userProfile")
 const sendMessage = require("./routes/sendMessage")
 dotenv.config({path:'./config/config.env'});
 
@@ -40,6 +41,8 @@ app.use('/api/editprofile',editProfile);
 app.use('/api/restaurant',restaurant);
 
 app.use("/api/reviews", reviews);
+app.use("/api/userprofile", profileImg);
+
 app.use("/api/sendMessage", sendMessage);
 
 const PORT=process.env.PORT || 5002;
