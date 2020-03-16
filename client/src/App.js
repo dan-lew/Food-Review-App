@@ -3,7 +3,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
 import "assets/scss/material-kit-react.scss?v=1.8.0";
-
+ 
 // pages for this product
 import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
@@ -32,14 +32,15 @@ function App() {
         <ReviewState>
           <AlertState>
             <Router history={hist}>
+              
               <Switch>
             
                 <Route path="/home" component={Home} />
                 <Route path="/login/user-profile" component={UsersProfile} />
                 <Route path="/login/welcome-user" component={WelcomeUser} />
                 {/* <Route path="/profile-page" component={ProfilePage} /> */}
-                <Route path="/login-page" component={LoginPage} />
-                <Route path="/register-page" component={RegisterPage} />
+                <Route path="/login" component={LoginPage} />
+                {/* <Route path="/register-page" component={RegisterPage} /> */}
                 <Route path="/about" component={About} />
                 <Route path="/sendmessagepage" component={SendMessagePage} />
                 <Route path="/review-page" component={ReviewPage} />
@@ -47,7 +48,7 @@ function App() {
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/ForgetPassword" component={ForgetPassword} />
                 <Route path="/editprofile" component={EditUserProfile} />
-                <Route path="/" component={Components} />
+                <Route path="/" component={Home} />
               </Switch>
             </Router>
 

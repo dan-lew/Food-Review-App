@@ -6,7 +6,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
 import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
+import HeaderLinks from "../FoodComponents/Layout/Header/HeaderLinks";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
