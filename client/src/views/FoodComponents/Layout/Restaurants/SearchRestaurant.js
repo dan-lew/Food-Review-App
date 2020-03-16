@@ -102,7 +102,8 @@ export default function SearchRestaurant(props) {
                 )
               }}
             />
-            <Button type="submit"> Search </Button>
+            <Button color="primary"
+                      size="md" type="submit"> Search </Button>
           </form>
         </GridItem>
       </GridContainer>
