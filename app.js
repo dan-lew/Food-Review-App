@@ -18,6 +18,7 @@ const login=require('./routes/login');
 const resetPassword=require('./routes/resetPassword');
 const editProfile=require('./routes/editProfile');
 const reviews = require("./routes/reviews");
+const profileImg = require ("./routes/userProfile")
 const sendMessage = require("./routes/sendMessage")
 dotenv.config({path:'./config/config.env'});
 
@@ -36,6 +37,8 @@ app.use('/api/login',login);
 app.use('/api/resetpassword',resetPassword);
 app.use('/api/editprofile',editProfile);
 app.use("/api/reviews", reviews);
+app.use("/api/userprofile", profileImg);
+
 app.use("/api/sendMessage", sendMessage);
 
 const PORT=process.env.PORT || 5002;
