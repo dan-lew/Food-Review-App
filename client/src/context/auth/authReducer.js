@@ -12,12 +12,18 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     LOGOUT,
-    CLEAR_ERRORS
-} from "../../types";
+    CLEAR_ERRORS,
+    GET_USER_PROFILE,
+    EDIT_PROFILE ,
+    USER_ERROR,
+    
+   
+} from "../type";
 
 export default (state,action)=>{
     switch(action.type){
         case REGISTER_SUCCESS:
+        case LOGIN_SUCCESS:
             localStorage.setItem('token', action.payload.token);
             return{
                 ...state,
@@ -25,14 +31,25 @@ export default (state,action)=>{
                 isAuthenticated:true,
                 loading:false
             }
-        case AUTH_ERROR:
-        case REGISTER_FAIL:
+        case  AUTH_ERROR:
+        case  REGISTER_FAIL:
+        case  LOGOUT:
             localStorage.removeItem('token');
             return {
                 ...state,
                 token:null,
                 isAuthenticated:false,
-                loading:true,
+                loading:false,
+                user:null,
+                error:action.payload
+            }
+        case  LOGIN_FAIL:
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                token:null,
+                isAuthenticated:false,
+                loading:false,
                 user:null,
                 error:action.payload
             }
@@ -42,6 +59,20 @@ export default (state,action)=>{
                 error:null
             }
         case USER_LOADED:
+            return{
+                ...state,
+                isAuthenticated:true,
+                loading:false,
+                user:action.payload
+            }
+        case  GET_USER_PROFILE :
+            return{
+                    ...state,
+                    isAuthenticated:true,
+                    loading:false,
+                    user:action.payload
+                }
+        case EDIT_PROFILE :
             return{
                 ...state,
                 isAuthenticated:true,

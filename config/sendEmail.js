@@ -6,7 +6,7 @@ const sendEmail = async options => {
     port: 2525,
     auth: {
       user: process.env.MY_EMAIL,
-      pass: process.env.MY_PASS
+      pass: process.env.MY_PASSWORD
     }
   });
   const output = `

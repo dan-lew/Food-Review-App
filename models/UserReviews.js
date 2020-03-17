@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 
-const RatingSchema=new mongoose.Schema({
+const UserReviewsSchema=new mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'users',
         required:true,
     },
     restaurant:{
-        type: mongoose.Schema.Types.ObjectId,
         ref:'restaurants',
         required:true,
     },
@@ -19,10 +18,9 @@ const RatingSchema=new mongoose.Schema({
         type: Number,
         required:true,
     },
-
     date:{
         type: Date,
         default:Date.now
     },
 });
-module.exports=mongoose.model('Rating', RatingSchema)
+module.exports=mongoose.model('UserReviews', UserReviewsSchema)

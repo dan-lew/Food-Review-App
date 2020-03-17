@@ -30,7 +30,6 @@ const UsersProfile = props => {
               src={Logo}
             />
           }
-          // leftLinks={<HeaderRights />}
           rightLinks={<HeaderLinksUser />}
           fixed
           color="dark"

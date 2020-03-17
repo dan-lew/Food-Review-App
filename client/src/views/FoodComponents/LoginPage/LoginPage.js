@@ -1,5 +1,7 @@
-import React , {useState} from 'react';
-
+import React , { useState , useContext , useEffect} from 'react';
+import Alerts from '../../../context/alert/Alerts';
+import AlertContext from '../../../context/alert/alertContext' ;
+import AuthContext from '../../../context/auth/authContext' ;
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -7,10 +9,9 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
+// import People from "@material-ui/icons/People";
 // core components
 import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -20,14 +21,33 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-
 import image from "assets/img/sushi.jpg";
-
+import loginStyle from 'assets/jss/material-kit-react/views/componentsSections/loginStyle';
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+import Logo from "assets/img/Logo-FR-124.png";
+import HeaderLinks from "../Layout/Header/HeaderLinks";
+import {Link} from "react-router-dom"
 const useStyles = makeStyles(styles);
+const useStylesI = makeStyles(stylesI);
 
 const LoginPage=(props)=> {
+  const alertContext = useContext(AlertContext);
+  const authContext = useContext(AuthContext);
+  const { setAlert } = alertContext;
+  const { login ,error,clearErrors ,isAuthenticated} = authContext;
+
+  useEffect(()=> {
+    if(isAuthenticated){
+        props.history.push('/');//go to profile page
+    }
+    if(error === 'invalid credential'){
+        setAlert(error, 'danger');
+        clearErrors()
+    }
+},[error,isAuthenticated,props.history])
+
+
   const [user,setUser]=useState({
     email:'',
     password:'',
@@ -37,9 +57,14 @@ const LoginPage=(props)=> {
   
   const onSubmit=e =>{
       e.preventDefault();
-      
-      console.log('Login user');
-     
+      if(email===''|| password===''){
+        setAlert("Please fill in all fields", "danger");
+      }else{
+        login({
+          email,
+          password
+        });
+      }     
   }
 
 
@@ -47,17 +72,30 @@ const LoginPage=(props)=> {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
+
+  const classesI = useStylesI();
   const classes = useStyles();
   const { ...rest } = props;
   return (
     <div>
-      <Header
-        absolute
-        color="transparent"
-        brand="Material Kit React"
-        rightLinks={<HeaderLinks />}
-        {...rest}
-      />
+    <Header
+          brand={
+            <img
+              className={
+                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
+              }
+              src={Logo}
+            />
+          }
+          rightLinks={<HeaderLinks />}
+          fixed
+          color="dark"
+          changeColorOnScroll={{
+            height: 100,
+            color: "white"
+          }}
+          {...rest}
+        />
       <div
         className={classes.pageHeader}
         style={{
@@ -147,15 +185,18 @@ const LoginPage=(props)=> {
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button  type="submit" simple color="primary" size="lg">
-                      Get started
+                      Login
                     </Button>
+                    <Link to="/ForgetPassword"  color="danger" size="lg" >
+                      Forget Password
+                  </Link>
                   </CardFooter>
                 </form>
               </Card>
             </GridItem>
           </GridContainer>
         </div>
-        <Footer whiteFont />
+        {/* <Footer whiteFont /> */}
       </div>
     </div>
   );

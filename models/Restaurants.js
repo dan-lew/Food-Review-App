@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const RestaurantSchema=new mongoose.Schema({
     rating:{
@@ -18,9 +18,18 @@ const RestaurantSchema=new mongoose.Schema({
         type: String,
         required: true
     },
-    date:{
+    dateOfVisit:{
         type: Date,
         default:Date.now
     },
+    photo:{
+        type: String,
+    },
+    rating: {
+        type: String,
+        required: true
+    },
+
 });
-module.exports=mongoose.model('Restaurant', RestaurantSchema)
+
+module.exports = mongoose.model("Restaurant", RestaurantSchema);

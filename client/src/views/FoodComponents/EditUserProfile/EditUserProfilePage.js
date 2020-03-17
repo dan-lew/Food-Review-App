@@ -1,10 +1,10 @@
 
 import React , { useState , useContext , useEffect} from 'react';
-import AlertContext from '../../context/alert/alertContext' ;
-import AuthContext from '../../context/auth/authContext' ;
-import Alerts from '../../context/alert/Alerts';
+import AlertContext from '../../../context/alert/alertContext' ;
+import AuthContext from '../../../context/auth/authContext' ;
+import Alerts from '../../../context/alert/Alerts';
 
-
+   
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -26,51 +26,66 @@ import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/sushi.jpg";
-import "./style.css"
+// import "./style.css"
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+import Logo from "assets/img/Logo-FR-124.png";
+import HeaderLinks from "../Layout/Header/HeaderLinks";
+
 
 const useStyles = makeStyles(styles);
+const useStylesI = makeStyles(stylesI);
 
-const RegisterPage = (props) => {
+const EditUserProfilePage = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
 
   console.log(alertContext) 
-  const { setAlert } = alertContext;
-  const {  register ,error,clearErrors ,isAuthenticated} = authContext;
 
+  const { setAlert } = alertContext;
+  const { error ,isAuthenticated,get_user_profile ,edit_profile,user} = authContext;
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  console.log(user)
    setTimeout(function() {
      setCardAnimation("");
    }, 700);
- 
-   const classes = useStyles();
-   const { ...rest } = props;
-   useEffect(()=> {
-          if(isAuthenticated){
-              props.history.push('/');
-          }
-          if(error === 'User already exist'){
-              setAlert(error, 'danger');
-              clearErrors()
-          }
-      },[error,isAuthenticated,props.history])
-      
-      const [user , setUser ] = useState({
-          firstname : '',
-          lastname:'',
-          username:'',
-          email: '',
-          dateOfBirth:'',
-          city:'',
-          password:'',
-          password2:''
-      });
-      const { firstname ,lastname, username, email ,dateOfBirth, city, password ,password2 } = user;
-      const onChange = (e) => {
-        console.log(e.target.value)
-        setUser({ ...user , [e.target.name]:e.target.value})}
-                              
+  const classesI = useStylesI();
+  const classes = useStyles();
+  const { ...rest } = props;
+
+  let init=true;
+  const [client , setClient ] = useState({
+            firstname : '',
+            lastname:'',
+            username:'',
+            email: '',
+            dateOfBirth:'',
+            city:'',
+            password:'',
+            password2:''
+        });
+
+  useEffect(()=> {
+    if(!isAuthenticated){
+        props.history.push('/');
+    }
+    if(init){
+      get_user_profile()
+      setClient({
+        ...user
+      })
+      init=false
+    }
         
+  },[error,isAuthenticated,props.history])
+      
+      
+     
+  const { firstname ,lastname, username, email ,dateOfBirth, city, password ,password2 } = client;
+
+      const onChange = (e) => {
+        setClient({ ...client , [e.target.name]:e.target.value})
+      }
+       
       const onFocus = (e) => {
         return (e.target.type="date")
       }
@@ -79,14 +94,9 @@ const RegisterPage = (props) => {
       }
     const onSubmit = (e) => {
       e.preventDefault();
-      console.log(user)
+      console.log(client)
       let alert = "please enter ";
-      // if(firstname === ''){
-      //   alert += "firstname "
-      // }
-      // if (lastname === ''){
-      //   alert+= "lastname "
-      // }
+
       if(firstname === '' || lastname === '' || username==="" || email === ''||
        dateOfBirth==='' ||city==='' || password ==='' ){
           setAlert(alert,'danger')
@@ -95,28 +105,41 @@ const RegisterPage = (props) => {
           setAlert('password do not match','danger')
       }
       else {
-          register({
+        edit_profile({
+              
               firstname,
               lastname,
               username,
               email,
               dateOfBirth,
               city,
-              password
+              password,
+              password2
           })
-          console.log('Register user');
+          console.log('Your profile is edited');
       }
   }
   
   return (
     <div>
-      <Header
-        absolute
-        color="transparent"
-        brand="Favorite Food"
-        rightLinks={<HeaderLinks1 />}
-        {...rest}
-      />
+    <Header
+          brand={
+            <img
+              className={
+                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
+              }
+              src={Logo}
+            />
+          }
+          rightLinks={<HeaderLinks />}
+          fixed
+          color="dark"
+          changeColorOnScroll={{
+            height: 100,
+            color: "white"
+          }}
+          {...rest}
+        />
       <div
         className={classes.pageHeader}
         style={{
@@ -133,7 +156,7 @@ const RegisterPage = (props) => {
             
                 <form className={classes.form} onSubmit={onSubmit}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Register</h4>
+                    <h4>Edit Profile</h4>
                     
                   </CardHeader>
                   
@@ -189,6 +212,7 @@ const RegisterPage = (props) => {
                         type: "email",
                         name:"email",
                         required:true,
+   
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -198,7 +222,7 @@ const RegisterPage = (props) => {
                     />
                     <CustomInput onChangeFunction={onChange}
                       onFocusFunction = {onFocus}
-                      onBlurFunction = {onBlur}
+              
                       labelText="Date of Birth..."
                       id="dateOfBirth"
                       formControlProps={{
@@ -270,20 +294,22 @@ const RegisterPage = (props) => {
                   <Alerts />
                   <CardFooter className={classes.cardFooter}>
                     <Button simple type="submit"  color="primary" size="lg" >
-                      Get started
+                      Upload 
                     </Button>
+                    
                   </CardFooter>
                 </form>
+                
               </Card>
             </GridItem>
           </GridContainer>
         </div>
-        <Footer whiteFont />
+        {/* <Footer whiteFont /> */}
       </div>
     </div>
   );
 }
-export default RegisterPage;  
+export default EditUserProfilePage;  
 
 
 

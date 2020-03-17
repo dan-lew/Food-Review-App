@@ -1,18 +1,20 @@
 const imagesStyles = {
   imgFluid: {
+    // edit
+    //marginLeft: "60%",
     maxWidth: "100%",
     height: "auto"
   },
   // edit
-  imgFluidLogo:{
-    maxWidth:"auto",
-    height:"60px",
+  imgFluidLogo: {
+    maxWidth: "auto",
+    height: "60px",
     padding: 0,
-    margin: 0 
+    margin: 0
   },
-  imgFluidUser:{
-    maxWidth:"70px",
-    height:"auto"
+  imgFluidUser: {
+    maxWidth: "70px",
+    height: "auto"
   },
   imgRounded: {
     borderRadius: "6px !important"

@@ -10,34 +10,28 @@ router.get("/review-page", (req, res) => {
 });
 
 router.post(
-  "/review-page",
+  "/restaurant",
   [
     check("restaurantName")
       .trim()
       .not()
       .isEmpty()
       .withMessage("Restaurant Name is empty"),
+      check("address")
+      .trim()
+      .not()
+      .isEmpty()
+      .withMessage("Address is empty"),
     check("category")
       .trim()
       .not()
       .isEmpty()
       .withMessage("Type of cuisine is empty"),
-    check("nameOfDish")
-      .trim()
-      .not()
-      .isEmpty()
-      .withMessage("Type of dish is empty"),
     check("dateOfVisit")
       .trim()
       .not()
       .isEmpty()
       .withMessage("Please select a date"),
-    check("price")
-      .trim()
-      .isCurrency()
-      .not()
-      .isEmpty()
-      .withMessage("Please enter a price"),
     check("photo")
       .trim()
       .not()
@@ -49,11 +43,7 @@ router.post(
       .not()
       .isEmpty()
       .withMessage("Please select a rating"),
-    check("comment")
-      .trim()
-      .not()
-      .isLength({ min: 10 })
-      .withMessage("Your review is too short")
+    
   ],
   (req, res) => {
     const {

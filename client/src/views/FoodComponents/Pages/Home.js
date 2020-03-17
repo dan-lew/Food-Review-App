@@ -36,7 +36,6 @@ const Home = props => {
               src={Logo}
             />
           }
-         
           rightLinks={<HeaderLinks />}
           fixed
           color="dark"
@@ -49,34 +48,20 @@ const Home = props => {
       </div> 
       
       <div style={{ paddingTop: "80px",width:"90%" }} className={classesT.marginCenter}>
-     <Card className={classesT.marginCenter} >
-        <SectionCarousel />
-        {/* <Map google={this.props.google} */}
-        {/* <Map
-          google={props.google}
-          center={{
-            lat: 53.5510846,
-            lng: 9.9936819
-          }}
-          height="300px"
-          zoom={15}
-        /> */}
+          <Card className={classesT.marginCenter} >
+              <SectionCarousel />
 
-        {/* <Carousels /> */}
-     
-      <div>{/* <Places />   */}</div>
-      <br></br>
-      <br></br>
+      
       <div className="" style={{ height: "100vh" }}>
         <GridContainer className={classesT.marginCenter}>
           <GridItem xs={12} sm={12} md={12} lg={12}>
-            {/* <MapMarkers/> */}
-            {/* <RestaurantsList /> */}
+          
           </GridItem>
         </GridContainer>
         
       </div>
-      </Card> </div>
+      </Card> 
+      </div>
       {/* <Footer /> */}
     </div>
   );

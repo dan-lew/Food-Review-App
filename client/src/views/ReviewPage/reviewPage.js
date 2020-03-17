@@ -2,14 +2,13 @@ import React, { useState, useContext } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
 import ReactStars from "react-stars";
-import AddPhoto from "./AddPhoto/addPhoto";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 // core components
-import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
+import Header from "../FoodComponents/Layout/Header/Header.js";
+import HeaderLinks from "../FoodComponents/Layout/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -19,10 +18,12 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-
+import FileUpload from "./components/FileUpload";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/reviewpgbg.jpg";
-
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
+import Logo from "assets/img/Logo-FR-124.png";
 const useStyles = makeStyles(styles);
 
 const ReviewPage = props => {
@@ -30,7 +31,10 @@ const ReviewPage = props => {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-
+  const useStylesT = makeStyles(stylesT);
+  const useStylesI = makeStyles(stylesI);
+  const classesT = useStylesT();
+  const classesI = useStylesI();
   const classes = useStyles();
   const { ...rest } = props;
   const alertContext = useContext(AlertContext);
@@ -40,8 +44,8 @@ const ReviewPage = props => {
 
   const [review, setReview] = useState({
     restaurantName: "",
-    nameOfFood: "",
-    typeofdish: "",
+    category: "",
+    nameOfDish: "",
     dateOfVisit: "",
     price: "",
     photo: "",
@@ -50,8 +54,8 @@ const ReviewPage = props => {
   });
   const {
     restaurantName,
-    nameOfFood,
-    typeofdish,
+    category,
+    nameOfDish,
     dateOfVisit,
     price,
     photo,
@@ -59,27 +63,29 @@ const ReviewPage = props => {
     comment
   } = review;
 
-  const onChange = (e) =>
-    setReview({ ...review, [e.target.restaurantName]: e.target.value });
-  console.log('onchange', review);
+  const onChange = e =>
+    setReview({ ...review, [e.target.name]: e.target.value });
+    
 
+  // console.log("onchange", review);
+
+  const stars = (star) => {
+    //document.getElementById('rating').value=star
+    setReview({ ...review, rating: star });
+
+  };
+
+  const getImgPath = (path) =>{
+    console.log(path)
+    setReview({...review, photo: path })
+  }
 
   const onSubmit = e => {
     e.preventDefault();
-    register({
-      restaurantName,
-      nameOfFood,
-      typeofdish,
-      dateOfVisit,
-      price,
-      photo,
-      rating,
-      comment
-    });
     if (
       restaurantName === "" ||
-      nameOfFood === "" ||
-      typeofdish === "" ||
+      category === "" ||
+      nameOfDish === "" ||
       dateOfVisit === "" ||
       price === "" ||
       photo === "" ||
@@ -88,10 +94,11 @@ const ReviewPage = props => {
     ) {
       setAlert("please complete all the fields", "danger");
     } else {
+      console.log("onSubmit", review);
       register({
         restaurantName,
-        nameOfFood,
-        typeofdish,
+        category,
+        nameOfDish,
         dateOfVisit,
         price,
         photo,
@@ -99,18 +106,29 @@ const ReviewPage = props => {
         comment
       });
     }
-    console.log("onSubmit", restaurantName);
+    
   };
 
   return (
     <div>
-      <Header
-        absolute
-        color="transparent"
-        brand="Food Reviews"
-        rightLinks={<HeaderLinks />}
-        {...rest}
-      />
+    <Header
+          brand={
+            <img
+              className={
+                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
+              }
+              src={Logo}
+            />
+          }
+          rightLinks={<HeaderLinks />}
+          fixed
+          color="dark"
+          changeColorOnScroll={{
+            height: 100,
+            color: "white"
+          }}
+          {...rest}
+        />
       <div
         className={classes.pageHeader}
         style={{
@@ -121,10 +139,10 @@ const ReviewPage = props => {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={6}>
+            <GridItem xs={12} sm={12} md={5}>
               <Card className={classes[cardAnimaton]}>
                 <form onSubmit={onSubmit} className={classes.form}>
-                  <CardHeader color="warning" className={classes.cardHeader}>
+                  <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>Write a review</h4>
                   </CardHeader>
                   <p className={classes.divider}>
@@ -133,7 +151,6 @@ const ReviewPage = props => {
                   </p>
                   <CardBody>
                     <CustomInput
-                      onChange={onChange}
                       labelText="Restaurant Name..."
                       id="restaurantName"
                       formControlProps={{
@@ -153,13 +170,13 @@ const ReviewPage = props => {
                     <CustomInput
                       onChange={onChange}
                       labelText="Type of cuisine..."
-                      id="nameOfFood"
+                      id="category"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         onChange: onChange,
-                        name: "nameOfFood",
+                        name: "category",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -171,13 +188,13 @@ const ReviewPage = props => {
                     <CustomInput
                       onChange={onChange}
                       labelText="Type of dish..."
-                      id="typeofdish"
+                      id="nameOfDish"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
                         onChange: onChange,
-                        name: "typeofdish",
+                        name: "nameOfDish",
                         type: "text",
                         endAdornment: (
                           <InputAdornment position="end">
@@ -225,18 +242,18 @@ const ReviewPage = props => {
                       <p>Please provide an overall rating... </p>
                       <ReactStars
                         count={5}
-                        onChange={onChange}
+                        onChange={stars}
                         size={40}
+                        value={review.rating}
                         color2={"#ffd700"}
                       />
                     </div>
-                    <input type="hidden" id="rating" name="rating" />
+                    <br/>
                     <div>
-                      <br />
-                      <AddPhoto onChange={onChange} name="photo" />
+                    <p>Please upload a photo here...</p>
+                    <FileUpload getImgPath = {getImgPath}/>
                     </div>
-
-                    <CustomInput
+                      <CustomInput
                       onChange={onChange}
                       labelText="Your Review"
                       id="comment"
@@ -258,13 +275,7 @@ const ReviewPage = props => {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button
-                      
-                      type="submit"
-                      simple
-                      color="primary"
-                      size="lg"
-                    >
+                    <Button type="submit" simple color="primary" size="lg">
                       Add Review
                     </Button>
                   </CardFooter>
