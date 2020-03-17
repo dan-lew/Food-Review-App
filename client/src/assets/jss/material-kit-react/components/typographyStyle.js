@@ -12,6 +12,24 @@ const typographyStyle = {
     ...defaultFont,
     fontSize: "14px"
   },
+  // edit
+  description: {
+    margin: "1.071rem auto 0",
+    maxWidth: "600px",
+    color: "#999",
+    textAlign: "center !important"
+  },
+  socials: {
+    marginTop: "0",
+    width: "100%",
+    transform: "none",
+    left: "0",
+    top: "0",
+    height: "100%",
+    lineHeight: "41px",
+    fontSize: "20px",
+    color: "#999"
+  },
   defaultHeaderMargins: {
     //marginTop: "20px",
     // edit

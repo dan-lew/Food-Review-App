@@ -8,7 +8,7 @@ import CardHeader from "components/Card/CardHeader";
 import { Switch, Route } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/components.js";
+import styles from "assets/jss/material-kit-react/components/cardStyle";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 
 import StarIcon from "@material-ui/icons/Star";
@@ -44,6 +44,8 @@ export default function WelUser(props) {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   
+  console.log(classes)
+
   const [classList, setClassList] = React.useState("notShow");
 
   const handleShow = () => {
@@ -88,8 +90,8 @@ export default function WelUser(props) {
                     </CardHeader>
                     <CardBody
                       className={
-                        { display: "flex", alignItems: "center" } +
-                        " " +
+                        { display: "flex",justifyContent: "center", alignItems: "center" } 
+                       + " " +
                         classes.textCenter
                       }
                     >
@@ -102,11 +104,12 @@ export default function WelUser(props) {
                             height: "100px",
                             justifyContent: "center",
                             width: "100%"
-                          } +
-                          classesT.imgRaised +
-                          " " +
-                          classesT.imgRoundedCircle +
-                          " " +
+                          }
+                           +
+                          classesT.imgRaised 
+                          + " " +
+                          classesT.imgRoundedCircle 
+                          + " " +
                           classesT.imgFluid
                         }
                       />

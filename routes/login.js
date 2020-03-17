@@ -1,16 +1,14 @@
 const express = require('express');
-const { body, check , validationResult} = require('express-validator');
 const router = express.Router();
-const passport = require("passport");
-const bcrypt=require('bcryptjs');
+const User = require('../models/User')
 const auth=require('../middleware/auth')
-const jwt=require('jsonwebtoken')
-const mailer = require('../config/sendEmail');
-// const sendEmail=require('../config/sendEmail');
-const crypto=require('crypto');
-const User = require("../models/User");
+const { body, check , validationResult} = require('express-validator');
+const jwt=require('jsonwebtoken');
+const bcrypt = require('bcrypt')
 
-router.get('/',auth,async (req ,res) => {
+
+
+router.get('/',auth , async (req ,res) => {
     try{
         const user=await User.findById(req.user.id).select('-password');
         if(!user){
@@ -20,8 +18,9 @@ router.get('/',auth,async (req ,res) => {
     }catch(error){
         res.status(500).send('Server Error');
     }
-    
-});
+})
+
+
 // @route   POST api/auth
 // @desc    Auth user & get token
 // @access  Public
@@ -57,9 +56,9 @@ router.post('/',[
             res.json({ token })
         });
     } catch (error) {
-        console.log(error.message);
+        console.log('error-message : ',error.message);
         res.status(500).send('Server Error')
     }
-});
-​​​
+ })
+
 module.exports = router
