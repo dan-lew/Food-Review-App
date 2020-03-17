@@ -11,7 +11,7 @@ import Icon from "@material-ui/core/Icon";
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
 // core components
-import Header from "components/Header/Header.js";
+import Header from "../Layout/Header/Header";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -103,7 +103,7 @@ const ForgetPassword=(props)=> {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={4}>
+            <GridItem xs={12} sm={12} md={6} lg={6}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form} onSubmit={onSubmit}>
                   <CardHeader color="primary" className={classes.cardHeader}>

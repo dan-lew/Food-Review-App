@@ -1,12 +1,11 @@
 const express = require("express");
-const expressLayouts=require('express-ejs-layouts');
+//const expressLayouts=require('express-ejs-layouts');
 const app=express();
 const colors=require('colors');
 const connectDB=require('./config/db');
 const dotenv=require('dotenv');
-const flash=require('connect-flash');
-const session=require('express-session');
-const passport=require('passport');
+
+//const passport=require('passport');
 const cookieParser=require('cookie-parser');
 const bodyParser=require('body-parser');
 const cors = require("cors")

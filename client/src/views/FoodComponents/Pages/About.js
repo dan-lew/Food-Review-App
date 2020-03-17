@@ -67,7 +67,7 @@ const About = props => {
             About Us
           </h2>
           <GridContainer>
-            <GridItem xs={12} sm={5} md={3} lg={3}>
+            <GridItem xs={12} sm={6} md={4} lg={4}>
               <Card style={{ textAlign: "center" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
                   Mahdieh
@@ -124,7 +124,7 @@ const About = props => {
               </Card>
             </GridItem>
 
-            <GridItem xs={12} sm={5} md={3} lg={3}>
+            <GridItem xs={12} sm={6} md={4} lg={4}>
               <Card style={{ textAlign: "center" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
                   Daniel
@@ -183,27 +183,35 @@ const About = props => {
                 </CardFooter>
               </Card>
             </GridItem>
-            <GridItem xs={12} sm={5} md={3} lg={3}>
+            <GridItem xs={12} sm={6} md={4} lg={4}>
               <Card style={{ textAlign: "center" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
                   Rania
                 </CardHeader>
                 <CardBody>
                   <img src={profile2} alt="..." className={imageClasses} />
-                  <GridItem
+                  <GridItem 
                     style={{ paddingTop: "20px", textAlign: "justify" }}
                     xs={12}
                     sm={12}
                     md={12}
                     lg={12}
                   >
+                    <h3  style={{ textAlign: "center" }} className={classesT.mutedText}>Webdeveloper</h3>
                     <p className={classesT.description}>
-                      I have been in Hamburg since 1994. I am a computer
+                      {/* I have been in Hamburg since 1994. I am a computer
                       scientist. In 2001 I decided to start my new long journey
                       into IT and got into the IT industry. Since then I have
                       continuously learned, improved and worked on my acquired
                       knowledge in various new technologies and would like to
-                      stay in IT
+                      stay in IT */}
+                      Some Text About Mahdia. Lorem ipsum, dolor sit amet
+                      consectetur adipisicing elit. Cum ullam minus earum quae
+                      dolores blanditiis molestias vero iure rerum vitae
+                      eligendi odit aliquam quasi architecto iste corporis
+                      sapiente, temporibus magni. Lorem, ipsum dolor sit amet
+                      consectetur adipisicing elit. Nemo, voluptatum deleniti.
+                      Laborum facilis animi vel ipsum.
                     </p>
                   </GridItem>
                 </CardBody>
