@@ -76,7 +76,7 @@ export default function SearchRestaurant(props) {
                   to={`/login/welcome-user/${value}`}
                 >
                   {" "}
-                  {value}
+                  {value}{<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
                 </Link>
               </Fragment>
             );

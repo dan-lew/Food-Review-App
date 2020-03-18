@@ -137,7 +137,7 @@ const About = props => {
                     style={{ textAlign: "justify", paddingTop: "20px" }}
                     xs={12}
                     sm={12}
-                    md={12}
+                    md={12} 
                     lg={12}
                   >
                     <h3  style={{ textAlign: "center" }} className={classesT.mutedText}>Webdeveloper</h3>
