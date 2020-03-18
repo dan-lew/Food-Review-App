@@ -39,7 +39,7 @@ export default function SearchRestaurant(props) {
     console.log("input food: ",e.target.name);
     setFood({ ...sendFood, [e.target.name]: e.target.value });
   };
-  
+    
 
   let btnS = [];
   btnS.push(state.category);
