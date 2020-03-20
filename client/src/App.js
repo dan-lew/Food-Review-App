@@ -15,7 +15,7 @@ import Home from "views/FoodComponents/Pages/Home";
 import UsersProfile from 'views/FoodComponents/Pages/UsersProfile'
 import About from 'views/FoodComponents/Pages/About';
 import WelcomeUser from 'views/FoodComponents/Pages/WelcomeUser'
-import RestaurantsReview from 'views/FoodComponents/Layout/RestaurantsReview'
+import RestaurantsReview from 'views/FoodComponents/Pages/RestaurantsReview'
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
 import AlertState from "./context/alert/alertState";
