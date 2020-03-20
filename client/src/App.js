@@ -15,7 +15,7 @@ import Home from "views/FoodComponents/Pages/Home";
 import UsersProfile from 'views/FoodComponents/Pages/UsersProfile'
 import About from 'views/FoodComponents/Pages/About';
 import WelcomeUser from 'views/FoodComponents/Pages/WelcomeUser'
-
+import RestaurantsReview from 'views/FoodComponents/Layout/RestaurantsReview'
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
 import AlertState from "./context/alert/alertState";
@@ -42,6 +42,7 @@ function App() {
                 <Route path="/aboutus-page" component={AboutUsPage} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/ForgetPassword" component={ForgetPassword} />
+                <Route path="/login/restaurantsReview" component={RestaurantsReview}/>
                 <Route path="/editprofile" component={EditUserProfile} />
                 <Route path="/" component={Home} />
               </Switch>

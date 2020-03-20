@@ -22,7 +22,7 @@ router.get('/',auth,async (req,res)=>{
 });
 
 router.post('/' , auth, async(req ,res) => {
-  let { firstname,lastname, username , email , dateOfBirth,city,password,pasword2 } = req.body;
+  let { firstname,lastname, username , email , dateOfBirth,city,password } = req.body;
   // Build contact Object
   const userFields = {};
   if(firstname) userFields.firsname = firstname;
