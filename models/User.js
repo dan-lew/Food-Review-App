@@ -1,3 +1,4 @@
+
 const mongoose=require('mongoose');
 const crypto=require('crypto');
 
@@ -10,7 +11,8 @@ const UserSchema=new mongoose.Schema({
         type: String,
         required:true,
     }, 
-    username: {
+    username: 
+    {
         type: String,
         required:true,
     }, 

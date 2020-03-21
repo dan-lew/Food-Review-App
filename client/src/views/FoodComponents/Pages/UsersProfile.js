@@ -6,9 +6,7 @@ import styles from "assets/jss/material-kit-react/views/components";
 import UserPr from "../Layout/UserPr";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
-//import stylesM from '../../../assets/jss/material-kit-react.js'
 import Logo from "assets/img/Logo-FR-124.png";
-import HeaderRights from "../Layout/Header/HeaderRights";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 
 const UsersProfile = props => {

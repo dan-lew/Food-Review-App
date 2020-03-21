@@ -37,6 +37,23 @@ export default function UserPr(props) {
   const classes = useStyles();
   console.log(classes);
   const { ...rest } = props;
+
+
+  let user = [{
+    id: "1",
+    name: "Restaurant name",
+    rating: 2,
+    food: "Lasagne",
+    date: new Date(),
+    user: {
+      src: "https://via.placeholder.com/60x60",
+      description: "bla bla bla bla",
+      name:"user name",
+      rating:3
+    }
+  }];
+
+
   return (
     <div
       // style={{ paddingTop: "50px", width: "90%" }}

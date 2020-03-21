@@ -22,6 +22,7 @@ import AlertState from "./context/alert/alertState";
 import RegisterPage from "views/FoodComponents/RegisterPage/RegisterPage";
 import ForgetPassword from "views/FoodComponents/ForgetPassword/ForgetPassword";
 import EditUserProfile from "views/FoodComponents/EditUserProfile/EditUserProfilePage";
+import RestaurantState from './context/restaurants/restaurantState';
 
 var hist = createBrowserHistory();
 
@@ -29,6 +30,7 @@ function App() {
   return (
     <div>
       <AuthState>
+        <RestaurantState>
         <ReviewState>
           <AlertState>
             <Router history={hist}>
@@ -49,6 +51,7 @@ function App() {
             </Router>
           </AlertState>
         </ReviewState>
+        </RestaurantState>
       </AuthState>
     </div>
   );

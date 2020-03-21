@@ -17,7 +17,8 @@ const login=require('./routes/login');
 const resetPassword=require('./routes/resetPassword');
 const editProfile=require('./routes/editProfile');
 const reviews = require("./routes/reviews");
-const sendMessage = require("./routes/sendMessage")
+const sendMessage = require("./routes/sendMessage");
+const restaurant = require("./routes/restaurant");
 dotenv.config({path:'./config/config.env'});
 
 //4. connect to db
@@ -36,6 +37,7 @@ app.use('/api/resetpassword',resetPassword);
 app.use('/api/editprofile',editProfile);
 app.use("/api/reviews", reviews);
 app.use("/api/sendMessage", sendMessage);
+app.use('/api/restaurant',restaurant);
 
 const PORT=process.env.PORT || 5002;
 app.listen(PORT,console.log(`Server started on port ${PORT} in ${process.env.NODE_ENV}`.bgMagenta))
