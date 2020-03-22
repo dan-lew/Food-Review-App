@@ -19,19 +19,9 @@ const ConstraintSlider = ({ iconType, value, onChange, text }) => {
   return (
     <GridContainer>
       <GridItem className={classes.marginAuto}>
-        {/* <CustomLinearProgress
-          variant="determinate"
-          color="primary"
-          value={value}
-          style={{ width: "100%", display: "inline-block" }}
-          onChange={onChange}
-        /> 
-        <br></br>*/}
+ 
         <Slider
-          // edit
-          // className="slider-primary"
-          style={{ backgroundColor: "#9c27b0", color:"#9c27b0", width:"500px" }}
-          //color="primary"
+     
           className=""
           value={value}
           min={0}

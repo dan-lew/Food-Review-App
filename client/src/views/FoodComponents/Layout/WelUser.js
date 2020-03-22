@@ -26,8 +26,8 @@ import SearchRestaurant from "./Restaurants/SearchRestaurant";
 import Sum from "./ReviewList/Sum";
 
 // Restaurants list
-const restaurantContext = React.useContext(RestaurantContext);
-const { restaurants,filtered,error,getCatRestaurant, catrestaurants } = restaurantContext;
+//const restaurantContext = React.useContext(RestaurantContext);
+//const { restaurants,filtered,error,getCatRestaurant, catrestaurants } = restaurantContext;
   // useEffect(()=>{
     
   // },[])

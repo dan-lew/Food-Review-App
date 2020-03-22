@@ -80,7 +80,7 @@ const About = props => {
                       className={classesT.quoteAuthor}
                     >
                       <h3  style={{ textAlign: "center" }} className={classesT.mutedText}>Webdeveloper</h3>
-                      Some Text About Mahdia. Lorem ipsum, dolor sit amet
+                      Some Text About Mahdieh. Lorem ipsum, dolor sit amet
                       consectetur adipisicing elit. Cum ullam minus earum quae
                       dolores blanditiis molestias vero iure rerum vitae
                       eligendi odit aliquam quasi architecto iste corporis
