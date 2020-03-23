@@ -53,6 +53,7 @@ const useStyles = makeStyles(styles);
   const guestLinks = (
 
     <Fragment>
+    
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink}  to="/register">Register </Link>
       </ListItem>
@@ -60,12 +61,13 @@ const useStyles = makeStyles(styles);
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink}  to="/login">Login </Link>
       </ListItem>
+      
     </Fragment>
   )
   const userLinks = (
 
     <Fragment>
-    
+      
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink}  to="/editprofile">Edit Profile </Link>
       </ListItem>
@@ -73,7 +75,7 @@ const useStyles = makeStyles(styles);
       <ListItem className={classes.listItem}>
           <Link className={classes.navLink} onClick={onLogout} to="/">Logout </Link>
       </ListItem>
-
+ 
      
     </Fragment>
   )

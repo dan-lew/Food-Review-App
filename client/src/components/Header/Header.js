@@ -11,7 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
-import Logo from 'assets/img/Logo-FR-shadow.png';
+
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import stylesN from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
 
@@ -23,7 +23,7 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 const useStylesN = makeStyles(stylesN);
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
-console.log("h1",Logo)
+
 
 export default function Header(props) {
   const classes = useStyles();
@@ -63,8 +63,8 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-  const { color, rightLinks, leftLinks, brand, fixed, absolute, logo } = props;
-  //logo={Logo}
+  const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
+ 
   
   const appBarClasses = classNames({
     [classes.appBar]: true,
@@ -139,7 +139,7 @@ Header.propTypes = {
     "rose",
     "dark"
   ]),
-  logo:PropTypes.string,
+ // logo:PropTypes.string,
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
   brand: PropTypes.string,
