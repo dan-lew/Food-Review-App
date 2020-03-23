@@ -39,7 +39,7 @@ export default function SearchRestaurant(props) {
     console.log("input food: ",e.target.name);
     setFood({ ...sendFood, [e.target.name]: e.target.value });
   };
-  
+    
 
   let btnS = [];
   btnS.push(state.category);
@@ -76,7 +76,7 @@ export default function SearchRestaurant(props) {
                   to={`/login/welcome-user/${value}`}
                 >
                   {" "}
-                  {value}
+                  {value}{<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
                 </Link>
               </Fragment>
             );
@@ -102,7 +102,7 @@ export default function SearchRestaurant(props) {
                 )
               }}
             />
-            <Button type="submit"> Search </Button>
+            <Button color="primary" size="sm" type="submit"> Search </Button>
           </form>
         </GridItem>
       </GridContainer>

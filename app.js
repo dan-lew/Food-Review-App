@@ -38,6 +38,7 @@ app.use("/api/reviews", reviews);
 app.use("/api/userReviews", userReviews);
 app.use("/api/restaurant", restaurant);
 app.use("/api/sendMessage", sendMessage);
+app.use('/api/restaurant',restaurant);
 
 const PORT=process.env.PORT || 5002;
 app.listen(PORT,console.log(`Server started on port ${PORT} in ${process.env.NODE_ENV}`.bgMagenta))

@@ -15,7 +15,7 @@ import Home from "views/FoodComponents/Pages/Home";
 import UsersProfile from 'views/FoodComponents/Pages/UsersProfile'
 import About from 'views/FoodComponents/Pages/About';
 import WelcomeUser from 'views/FoodComponents/Pages/WelcomeUser'
-
+import RestaurantsReview from 'views/FoodComponents/Pages/RestaurantsReview'
 import ReviewState from "../src/context/reviewPage/ReviewState";
 import AuthState from "./context/auth/authState";
 import AlertState from "./context/alert/alertState";
@@ -23,6 +23,7 @@ import Alerts from 'views/FoodComponents/Layout/Alert'
 import RegisterPage from "views/FoodComponents/RegisterPage/RegisterPage";
 import ForgetPassword from "views/FoodComponents/ForgetPassword/ForgetPassword";
 import EditUserProfile from "views/FoodComponents/EditUserProfile/EditUserProfilePage";
+import RestaurantState from './context/restaurants/restaurantState';
 
 var hist = createBrowserHistory();
 
@@ -30,13 +31,12 @@ function App() {
   return (
     <div>
       <AuthState>
+        <RestaurantState>
         <ReviewState>
           <AlertState>           
             <Router history={hist}>
             <Alerts />
               <Switch>
-            
-                <Route path="/home" component={Home} />
                 <Route path="/login/user-profile" component={UsersProfile} />
                 <Route path="/login/welcome-user" component={WelcomeUser} />
                 <Route path="/login" component={LoginPage} />
@@ -46,12 +46,14 @@ function App() {
                 <Route path="/aboutus-page" component={AboutUsPage} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/ForgetPassword" component={ForgetPassword} />
+                <Route path="/login/restaurantsReview" component={RestaurantsReview}/>
                 <Route path="/editprofile" component={EditUserProfile} />
                 <Route path="/" component={Home} />
               </Switch>
             </Router>
           </AlertState>
         </ReviewState>
+        </RestaurantState>
       </AuthState>
     </div>
   );

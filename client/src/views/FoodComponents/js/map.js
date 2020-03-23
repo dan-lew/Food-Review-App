@@ -298,8 +298,8 @@ function initAutocomplete() {
       // Create a marker for each place.
       markers.push(new google.maps.Marker({
         map: map,
-        // icon:icon,
-        icon: MARKER_PATH,
+         icon:icon,
+        //icon: MARKER_PATH,
         title: place.name,
         draggable: true,
         animation: google.maps.Animation.DROP,

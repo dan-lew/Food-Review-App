@@ -1,4 +1,4 @@
-import React, { useStyles, useEffect } from "react";
+import React, { useStyles, useContext, useEffect } from "react";
 
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
@@ -13,6 +13,7 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 
 import StarIcon from "@material-ui/icons/Star";
 import avatar from "assets/img/faces/avatar.jpg";
+import RestaurantContext from '../../../context/restaurants/restaurantContext'
 
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
@@ -24,13 +25,21 @@ import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import SearchRestaurant from "./Restaurants/SearchRestaurant";
 import Sum from "./ReviewList/Sum";
 
+// Restaurants list
+//const restaurantContext = React.useContext(RestaurantContext);
+//const { restaurants,filtered,error,getCatRestaurant, catrestaurants } = restaurantContext;
+  // useEffect(()=>{
+    
+  // },[])
+ // console.log(catrestaurants)
+
 const ListRestaurantStyle = {
   show: {
-     display: "block"
-   // visibility: "visible"
+    display: "block"
+    // visibility: "visible"
   },
   notShow: {
-     display: "none"
+    display: "none"
     //visibility: "hidden"
   }
 };
@@ -43,8 +52,8 @@ export default function WelUser(props) {
 
   const useStyles = makeStyles(styles);
   const classes = useStyles();
-  
-  console.log(classes)
+
+  console.log(classes);
 
   const [classList, setClassList] = React.useState("notShow");
 
@@ -56,22 +65,52 @@ export default function WelUser(props) {
     }
   };
 
-  const handleSearch=(food)=>{
+  const handleSearch = food => {
     console.log(food);
     // edit
-    //backend 
+    //backend
     //get data from restaurant with users food
-  }
+  };
 
   let listCategory = ["Italian", "Indian", "Japanese", "Greek", "Thai"];
 
+
+  let restaurantsState =[ {
+    id: "1",
+    url: "",
+    img: { src: "https://via.placeholder.com/180x130" },
+    name: "Restaurant name",
+    rating: "1",
+    food:"ravioli",
+    isLoading: "false",
+    category: ""
+  }, {
+    id: "2",
+    url: "",
+    img: { src: "https://via.placeholder.com/180x130" },
+    name: "Restaurant name 2",
+    rating: "3",
+    food:"lasagne",
+    isLoading: "false",
+    category: ""
+  }, {
+    id: "3",
+    url: "",
+    img: { src: "https://via.placeholder.com/180x130" },
+    name: "Restaurant name 3",
+    rating: "4",
+    food:"",
+    isLoading: "false",
+    category: ""
+  }];
+  const onSubmit =(val)=>{
+   // getCatRestaurant(val)
+  }
+  //let 
+
   return (
-    <div
-      className={classesT.marginCenter} style={{ width: "90%" }}
-    >
-      <Card
-        className={classesT.marginCenter} style={{ paddingTop: "140px"}}
-      >
+    <div className={classesT.marginCenter} style={{ width: "90%" }}>
+      <Card className={classesT.marginCenter} style={{ paddingTop: "140px" }}>
         <CardBody className={classesT.marginCenter}>
           <GridContainer className={classesT.marginCenter}>
             <GridItem
@@ -89,11 +128,11 @@ export default function WelUser(props) {
                       Welcome User (Home)
                     </CardHeader>
                     <CardBody
-                      className={
-                        { display: "flex",justifyContent: "center", alignItems: "center" } 
-                       + " " +
-                        classes.textCenter
-                      }
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
                     >
                       {/* User foto links */}
                       <img
@@ -103,13 +142,13 @@ export default function WelUser(props) {
                           {
                             height: "100px",
                             justifyContent: "center",
+                            alignItems: "center",
                             width: "100%"
-                          }
-                           +
-                          classesT.imgRaised 
-                          + " " +
-                          classesT.imgRoundedCircle 
-                          + " " +
+                          } +
+                          classesT.imgRaised +
+                          " " +
+                          classesT.imgRoundedCircle +
+                          " " +
                           classesT.imgFluid
                         }
                       />
@@ -125,7 +164,7 @@ export default function WelUser(props) {
                   <Card>
                     <CardBody>
                       <SearchRestaurant
-                        category={listCategory} 
+                        category={listCategory}
                         searchFunction={handleSearch}
                       />
                     </CardBody>
@@ -136,29 +175,59 @@ export default function WelUser(props) {
           </GridContainer>
           <GridContainer>
             <GridItem>
-               {/* restaurants reviews */}
-               <GridContainer>
+              {/* restaurants reviews */}
+              <GridContainer>
                 <GridItem>
                   <Switch>
                     <Route path="/login/welcome-user/Japanese">
-                      <h1 className={classesT.primaryText + " "+classesT.header} >Japanese</h1>
-                      <ListRestaurantsProfilReview className={classesListR["show"]} />
+                      <h1
+                        className={classesT.primaryText + " " + classesT.header}
+                      >
+                        Japanese
+                      </h1>
+                      <ListRestaurantsProfilReview restaurants={restaurantsState}
+                        className={classesListR["show"]}
+                      />
                     </Route>
                     <Route path="/login/welcome-user/Italian">
-                      <h1  className={classesT.primaryText + " "+classesT.header}>Italian</h1>
-                      <ListRestaurantsProfilReview className={classesListR["show"]} />
+                      <h1
+                        className={classesT.primaryText + " " + classesT.header}
+                      >
+                        Italian
+                      </h1>
+                      <ListRestaurantsProfilReview restaurants={restaurantsState}
+                        className={classesListR["show"]}
+                      />
                     </Route>
                     <Route path="/login/welcome-user/Indian">
-                      <h1  className={classesT.primaryText + " "+classesT.header}>Indian</h1>
-                      <ListRestaurantsProfilReview className={classesListR["show"]} />
+                      <h1
+                        className={classesT.primaryText + " " + classesT.header}
+                      >
+                        Indian
+                      </h1>
+                      <ListRestaurantsProfilReview restaurants={restaurantsState}
+                        className={classesListR["show"]}
+                      />
                     </Route>
                     <Route path="/login/welcome-user/Greek">
-                      <h1  className={classesT.primaryText + " "+classesT.header}>Greek</h1>
-                      <ListRestaurantsProfilReview className={classesListR["show"]} />
+                      <h1
+                        className={classesT.primaryText + " " + classesT.header}
+                      >
+                        Greek
+                      </h1>
+                      <ListRestaurantsProfilReview restaurants={restaurantsState}
+                        className={classesListR["show"]}
+                      />
                     </Route>
                     <Route path="/login/welcome-user/Thai">
-                      <h1  className={classesT.primaryText + " "+classesT.header}>Thai</h1>
-                      <ListRestaurantsProfilReview className={classesListR["show"]} />
+                      <h1
+                        className={classesT.primaryText + " " + classesT.header}
+                      >
+                        Thai
+                      </h1>
+                      <ListRestaurantsProfilReview restaurants={restaurantsState}
+                        className={classesListR["show"]}
+                      />
                     </Route>
                   </Switch>
                 </GridItem>
@@ -170,4 +239,3 @@ export default function WelUser(props) {
     </div>
   );
 }
-

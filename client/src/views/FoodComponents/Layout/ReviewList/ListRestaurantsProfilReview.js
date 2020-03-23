@@ -17,6 +17,7 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesB from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import CardListRestaurant from './CardListRestaurant'
+import update from 'immutability-helper';
 
 const useStylesB = makeStyles(stylesB);
 const useStylesT = makeStyles(stylesT);
@@ -37,7 +38,28 @@ export default function ListRestaurantsProfilReview(props) {
   const classesB = useStylesB();
   const classesT = useStylesT();
 //
-  console.log(props)
+  console.log(props.restaurants[1].rating)
+  const[restaurant,setRestaurant]=useState([{
+    id: "1",
+    url: "",
+    img: { src: "https://via.placeholder.com/180x130" },
+    name: "Restaurant name",
+    rating: "",
+    food:"",
+    isLoading: "false",
+    category: "italian"
+  }]) ;
+
+
+  let restaurantsShow =()=>{
+    setRestaurant(
+      restaurant=>update(
+        restaurant,props.restaurants
+      )
+    )
+  }
+
+
 
   let restaurantsState = {
     id: "1",
@@ -52,6 +74,7 @@ export default function ListRestaurantsProfilReview(props) {
   };
 
   console.log("state ", restaurantsState.count);
+  console.log("state ", restaurant[0].category);
   console.log(restaurantsState.img.src);
   console.log(restaurantsState.food);
   const [restaurants, setRestaurants] = useState(restaurantsState.count);

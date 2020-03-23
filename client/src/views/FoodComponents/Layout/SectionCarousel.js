@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card.js";
-import SearchInput from "../Layout/SearchInput";
 import image1 from "assets/img/food/chinesisch-1200-400.png";
 import image2 from "assets/img/food/coffee-1200-400.png";
 import image3 from "assets/img/food/food1-1200-400.png";
@@ -22,7 +21,7 @@ import image10 from "assets/img/food/food8-1200-400.png";
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/carouselStyle.js";
 
-import MapContainer from "../../MapContainers/MapContainer";
+import MapContainer from "../../MapContainers/MapContainer.js";
 
 import "../../../App.css";
 import stylesC from "assets/jss/material-kit-react/views/components.js";
@@ -87,8 +86,9 @@ export default function SectionCarousel() {
                   <img src={image10} alt="Ten slide" className="slick-image" />
                 </div>
               </Carousel>
-              {/* <SearchInput /> */}
+           
             </Card>
+            
             <Card>
               <MapContainer />
             </Card>

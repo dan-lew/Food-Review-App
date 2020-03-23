@@ -24,7 +24,7 @@ export const EDIT_PROFILE  ="EDIT_PROFILE"
 export const USER_ERROR  ="USER_ERROR"
 
 export const LOGOUT = "LOGOUT";
-
+// restaurant
 export const GET_RESTAURANTS = "GET_RESTAURANTS";
 export const SEARCH_FOOD = "SEARCH_FOOD";
 export const RESTAURANT_ERROR  = "RESTAURANT_ERROR";

@@ -292,7 +292,7 @@ class Map extends Component{
 
 		if( this.props.center.lat !== undefined ) {
 			map = <div>
-				<div>
+				{/* <div>
 					<div className="form-group">
 						<label htmlFor="">City</label>
 						<input type="text" name="city" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.city }/>
@@ -309,7 +309,7 @@ class Map extends Component{
 						<label htmlFor="">Address</label>
 						<input type="text" name="address" className="form-control" onChange={ this.onChange } readOnly="readOnly" value={ this.state.address }/>
 					</div>
-				</div>
+				</div> */}
 
 				<AsyncMap
 				googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic&libraries=places"

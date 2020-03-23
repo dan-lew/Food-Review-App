@@ -15,16 +15,16 @@ const sendEmail = async options => {
     }
   });
   const output = `
-<p>You have a new message!...</p>
-<ul>
-<li>Name : ${options.name}</li>
+    <p>You have a new message!...</p>
+    <ul>
+    <li>Name : ${options.name}</li>
 
-<li>Email : ${options.email}</li>
+    <li>Email : ${options.email}</li>
 
-</ul>
-<h2>Message</h2>
-<p>${options.message}</p>
-`;
+    </ul>
+    <h2>Message</h2>
+    <p>${options.message}</p>
+  `;
 
   let mailOptions = {
     from: '"Food Review App" <info@foodreviewapp.pro>', // sender address

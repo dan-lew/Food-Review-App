@@ -1,16 +1,11 @@
 import React from 'react';
-import 'antd/dist/antd.css';
-import { Icon } from 'antd/lib/icon';
-import { makeStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
+//import { Icon } from 'antd';
 
-const useStyles = makeStyles(styles);
-const MapMarker = (({ name, key }) => {
-  const classes = useStyles();
+const MapMarker = (({ name, key}) => {
   return (
     <div key={key}>
-      <span className="">{name}</span>
-      <Icon className="" type="environment" theme="twoTone" twoToneColor="#fd0000" />
+      <span className="brand-red">{name}</span>
+      {/* <Icon className="font-1-5" type="environment" theme="twoTone" twoToneColor="#fd0000" /> */}
     </div>
   );
 });

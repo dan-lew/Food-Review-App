@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom";
 import { AutoComplete } from 'antd';
-import { makeStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 
-//  const useStyles = makeStyles(styles);
-//  const classes = useStyles();
-
-class MapAutoComplete extends Component { 
-
+class MapAutoComplete extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,10 +17,8 @@ class MapAutoComplete extends Component {
   // Geocode the location selected to be created as a marker.
   onSelect = ((value) => {
     this.state.geoCoderService.geocode({ address: value }, ((response) => {
-      console.log(response[0]);
       const { location } = response[0].geometry;
-      console.log(location);
-      this.props.getLocation(location.lat(), location.lng());
+      this.props.addMarker(location.lat(), location.lng(), this.props.markerName);
     }))
   });
 
@@ -53,15 +44,11 @@ class MapAutoComplete extends Component {
   });
 
   render() {
- 
-    
-   
+    const { dataSource } = this.state;
     return (
       <AutoComplete
-        style={{width:"100%"}}
-        className=""
-        // className={classes.width100}
-        dataSource={this.dataSource}
+        className="w-100"
+        dataSource={dataSource}
         onSelect={this.onSelect}
         onSearch={this.handleSearch}
         placeholder="Address"

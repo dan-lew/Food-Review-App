@@ -1,4 +1,4 @@
-import React, { useStyles, useState } from "react";
+import React, { useStyles, useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import GridContainer from "components/Grid/GridContainer";
@@ -11,6 +11,7 @@ import { container, title } from "assets/jss/material-kit-react.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
+import stylesB from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 import { cardTitle } from "assets/jss/material-kit-react";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
@@ -21,11 +22,14 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
 import Datetime from "react-datetime";
+import FileUpload from "../../ReviewPage/components/FileUpload";
+import CustomInput from "components/CustomInput/CustomInput.js";
 import CardHeaderList from "./CardList/CardHeaderList";
 import CardBodyList from "./CardList/CardBodyList";
 import ListRestaurantsReview from "./ReviewList/ListRestaurantsReview";
 import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import Sum from "./ReviewList/Sum";
+import Button from "components/CustomButtons/Button.js";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 
@@ -36,6 +40,8 @@ export default function UserPr(props) {
   console.log(classesT);
   const useStyles = makeStyles(styles);
   const classes = useStyles();
+  const useStylesB = makeStyles(styles);
+  const classesB = useStylesB();
   console.log(classes);
   const { ...rest } = props;
 
@@ -50,6 +56,79 @@ export default function UserPr(props) {
     console.log(path);
     setImg({...img, photo: path })
   };
+  const [user, setUser] = useState([
+    {
+      id: "1",
+      name: "Restaurant name",
+      rating: 2,
+      food: "Lasagne",
+      date: new Date(),
+      user: {
+        photo: "https://via.placeholder.com/60x60",
+        description: "bla bla bla bla",
+        name: "user name",
+        rating: 3,
+        price: 20.0
+      }
+    },
+    {
+      id: "1",
+      name: "Restaurant name",
+      rating: 4,
+      food: "fisch",
+      date: new Date(),
+      user: {
+        photo: "https://via.placeholder.com/60x60",
+        description: "fisch bla bla bla",
+        name: "user2 name",
+        rating: 4,
+        price: 30.0
+      }
+    }
+  ]);
+
+  let user1 = [
+    {
+      id: "1",
+      rating: 2,
+      food: "Lasagne",
+      date: new Date(),
+      user: {
+        photo: "https://via.placeholder.com/60x60",
+        description: "bla bla bla bla",
+        name: "user name",
+        rating: 3,
+        price: 20.0
+      }
+    }
+  ];
+  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
+  const getImgPath = path => {
+    console.log(path);
+    setUser({ ...user, photo: path });
+  };
+
+  console.log("user: ", user);
+  let price = [];
+  let getPrice = count => {
+    if (count == 0) {
+      console.log("keine daten");
+      return (
+        <Fragment>
+          <h3>Keine Angaben</h3>
+        </Fragment>
+      );
+    } else {
+      for (let i = 0; i < count; i++) {
+        console.log("count: ", count);
+        console.log(user[i].user.price);
+        price.push(user[i].user.price);
+      }
+      console.log(price);
+      return price;
+    }
+  };
+
   return (
     <div
       // style={{ paddingTop: "50px", width: "90%" }}
@@ -110,7 +189,7 @@ export default function UserPr(props) {
                       <Link
                         style={{ color: "#9c27b0" }}
                         className={classes.navLink}
-                        to="/addReview"
+                        to="/review-page"
                       >
                         Add a review
                       </Link>
@@ -122,14 +201,7 @@ export default function UserPr(props) {
                       >
                         Edit Profile
                       </Link>
-                      {/* <br></br>
-                      <Link
-                        style={{ color: "#9c27b0" }}
-                        className={classes.navLink}
-                        to="/logout"
-                      >
-                        Logout
-                      </Link> */}
+                 
                     </CardBody>
                   </Card>
                 </GridItem>
@@ -205,20 +277,6 @@ export default function UserPr(props) {
                           inputProps={{
                             placeholder: "Please choose your Date"
                           }}
-                          // id="dateodateOfVisitfvisit"
-                          // formControlProps={{
-                          //   fullWidth: true
-                          // }}
-                          // inputProps={{
-                          //   // onChange: onChange,
-                          //   name: "dateOfVisit",
-                          //   type: "date",
-                          //   endAdornment: (
-                          //     <InputAdornment position="end">
-                          //       <i className="fas fa-calendar-alt"></i>
-                          //     </InputAdornment>
-                          //   )
-                          // }}
                         />
                       </FormControl>
                     </CardBody>
@@ -290,7 +348,8 @@ export default function UserPr(props) {
                 >
                   <Card>
                     <CardBody>
-                      <Sum />
+                      {/* <Sum price={user1[].user.price}/> */}
+                      <Sum price={getPrice(user.length)} />
                     </CardBody>
                   </Card>
                 </GridItem>
