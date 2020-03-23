@@ -14,7 +14,6 @@ const register=require('./routes/register');
 const login = require('./routes/login');
 const resetPassword=require('./routes/resetPassword');
 const editProfile=require('./routes/editProfile');
-const restaurant = require("./routes/restaurant");
 
 const reviews = require("./routes/reviews");
 const userReviews = require ("./routes/userReviews")
