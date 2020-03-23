@@ -19,18 +19,19 @@ router.get("/review", auth, async (req, res) => {
   res.send("this is review-page");
 });
 
-router.post("/imgUpload", (req, res) => {
+router.post("/foodImgUpload", (req, res) => {
+  console.log(req.body)
   if (req.files === null) {
     return res.status(400).json({ msg: "No file uploaded" });
   }
   const file = req.files.file;
   file.name = uuid() + file.name;
-  file.mv(`${__dirname}/../client/public/imgUploads/${file.name}`, err => {
+  file.mv(`${__dirname}/../client/public/foodImgUploads/${file.name}`, err => {
     if (err) {
       console.log(err);
       return res.status(500).send(err);
     }
-    res.json({ fileName: file.name, filePath: `/imgUploads/${file.name}` });
+    res.json({ fileName: file.name, filePath: `/foodImgUploads/${file.name}` });
   });
 });
 
@@ -38,6 +39,10 @@ router.post(  "/review",
   [
     
       check("restaurantName", "Restaurant Name is empty")
+        .trim()
+        .not()
+        .isEmpty(),
+        check("city", "Restaurant location is empty")
         .trim()
         .not()
         .isEmpty(),
@@ -69,6 +74,7 @@ router.post(  "/review",
     }
     const {
       restaurantName,
+      city,
       category,
       nameOfDish,
       dateOfVisit,
@@ -80,6 +86,7 @@ router.post(  "/review",
     try {
       const newReview = new Review({
         restaurantName,
+        city,
         category,
         nameOfDish,
         dateOfVisit,

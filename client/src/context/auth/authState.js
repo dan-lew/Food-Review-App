@@ -209,6 +209,7 @@ const get_user_profile = async ()=>{
         user: state.user,
         error: state.error,
         register,
+        registerReview,
         sendMail,
         login,
         loadUser,

@@ -1,10 +1,8 @@
+import React, { useState, useContext, useEffect } from "react";
+import AlertContext from "../../../context/alert/alertContext";
+import AuthContext from "../../../context/auth/authContext";
+import Alerts from "../Layout/Alert";
 
-import React , { useState , useContext , useEffect} from 'react';
-import AlertContext from '../../../context/alert/alertContext' ;
-import AuthContext from '../../../context/auth/authContext' ;
-import Alerts from '../../../context/alert/Alerts';
-
-   
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -31,115 +29,132 @@ import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
 
-
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
 
-const EditUserProfilePage = (props) => {
+const EditUserProfilePage = props => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
 
-  console.log(alertContext) 
+  console.log(alertContext);
 
   const { setAlert } = alertContext;
-  const { error ,isAuthenticated,get_user_profile ,edit_profile,user} = authContext;
+  const {
+    error,
+    isAuthenticated,
+    get_user_profile,
+    edit_profile,
+    user
+  } = authContext;
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
-  console.log(user)
-   setTimeout(function() {
-     setCardAnimation("");
-   }, 700);
+  console.log(user);
+  setTimeout(function() {
+    setCardAnimation("");
+  }, 700);
   const classesI = useStylesI();
   const classes = useStyles();
   const { ...rest } = props;
 
-  let init=true;
-  const [client , setClient ] = useState({
-            firstname : '',
-            lastname:'',
-            username:'',
-            email: '',
-            dateOfBirth:'',
-            city:'',
-            password:'',
-            password2:''
-        });
+  let init = true;
+  const [client, setClient] = useState({
+    firstname: "",
+    lastname: "",
+    username: "",
+    email: "",
+    dateOfBirth: "",
+    city: "",
+    password: "",
+    password2: ""
+  });
 
-  useEffect(()=> {
-    if(!isAuthenticated){
-        props.history.push('/');
+  useEffect(() => {
+    if (!isAuthenticated) {
+      props.history.push("/");
     }
-    if(init){
-      get_user_profile()
+    if (init) {
+      get_user_profile();
       setClient({
         ...user
-      })
-      init=false
+      });
+      init = false;
     }
-        
-  },[error,isAuthenticated,props.history])
-      
-      
-     
-  const { firstname ,lastname, username, email ,dateOfBirth, city, password ,password2 } = client;
+  }, [error, isAuthenticated, props.history]);
 
-      const onChange = (e) => {
-        setClient({ ...client , [e.target.name]:e.target.value})
-      }
-       
-      const onFocus = (e) => {
-        return (e.target.type="date")
-      }
-      const onBlur = (e) => {
-        return (e.target.type="text")
-      }
-    const onSubmit = (e) => {
-      e.preventDefault();
-      console.log(client)
-      let alert = "please enter ";
+  const {
+    firstname,
+    lastname,
+    username,
+    email,
+    dateOfBirth,
+    city,
+    password,
+    password2
+  } = client;
 
-      if(firstname === '' || lastname === '' || username==="" || email === ''||
-       dateOfBirth==='' ||city==='' || password ==='' ){
-          setAlert(alert,'danger')
-      }
-      else if(password !== password2){
-          setAlert('password do not match','danger')
-      }
-      else {
+  const onChange = e => {
+    setClient({ ...client, [e.target.name]: e.target.value });
+  };
+
+  const onFocus = e => {
+    return (e.target.type = "date");
+  };
+  const onBlur = e => {
+    return (e.target.type = "text");
+  };
+  const onSubmit = e => {
+    e.preventDefault();
+    console.log(client);
+    let alert = " Please complete all the fields";
+    try {
+      if (
+        firstname === "" ||
+        lastname === "" ||
+        username === "" ||
+        email === "" ||
+        dateOfBirth === "" ||
+        city === "" ||
+        password === ""
+      ) {
+        setAlert(alert, "danger");
+      } else if (password !== password2) {
+        setAlert(" Password do not match", "danger");
+      } else {
+        console.log("onSubmit", client);
         edit_profile({
-              
-              firstname,
-              lastname,
-              username,
-              email,
-              dateOfBirth,
-              city,
-              password,
-              password2
-          })
-          console.log('Your profile is edited');
+          firstname,
+          lastname,
+          username,
+          email,
+          dateOfBirth,
+          city,
+          password,
+          password2
+        });
+        console.log("Your profile is edited");
       }
-  }
-  
+    } catch (error) {
+      setAlert(error.msg, "danger");
+    }
+  };
+
   return (
     <div>
-    <Header
-          brand={
-            <img
-              className={
-                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
-              }
-              src={Logo}
-            />
-          }
-          rightLinks={<HeaderLinks />}
-          fixed
-          color="dark"
-          changeColorOnScroll={{
-            height: 100,
-            color: "white"
-          }}
-          {...rest}
-        />
+      <Header
+        brand={
+          <img
+            className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
+            src={Logo}
+          />
+        }
+        rightLinks={<HeaderLinks />}
+        fixed
+        color="dark"
+        changeColorOnScroll={{
+          height: 100,
+          color: "white"
+        }}
+        {...rest}
+      />
       <div
         className={classes.pageHeader}
         style={{
@@ -148,71 +163,71 @@ const EditUserProfilePage = (props) => {
           backgroundPosition: "top center"
         }}
       >
-    
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
-            
                 <form className={classes.form} onSubmit={onSubmit}>
                   <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>Edit Profile</h4>
-                    
                   </CardHeader>
-                  
+
                   <CardBody>
-                    <CustomInput  onChangeFunction={onChange}
+                    <CustomInput
+                      onChangeFunction={onChange}
                       labelText="First Name..."
                       id="first"
                       formControlProps={{
-                        fullWidth: true,
-                        
+                        fullWidth: true
                       }}
                       inputProps={{
                         value: firstname,
                         type: "text",
                         name: "firstname",
-                        required:true
+                        required: true
                       }}
                     />
-                    <CustomInput onChangeFunction={onChange}
+                    <CustomInput
+                      onChangeFunction={onChange}
                       labelText="Last Name..."
                       id="last"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
-                        value:lastname,
+                        value: lastname,
                         type: "text",
-                        name:"lastname",
-                        required:true
+                        name: "lastname",
+                        required: true
                       }}
                     />
-                    <CustomInput onChangeFunction={onChange}
+                    <CustomInput
+                      onChangeFunction={onChange}
                       labelText="Username..."
                       id="username"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
-                        value:username,
+                        value: username,
                         type: "text",
-                        name:"username",
-                        required:true
+                        name: "username",
+                        required: true
                       }}
                     />
-                    <CustomInput onChangeFunction={onChange}
+                    <CustomInput
+                      onChangeFunction={onChange}
                       labelText="Email..."
                       id="email"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
-                        value:email,
+                        value: email,
                         type: "email",
-                        name:"email",
-                        required:true,
-   
+                        name: "email",
+                        required: true,
+
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -220,45 +235,47 @@ const EditUserProfilePage = (props) => {
                         )
                       }}
                     />
-                    <CustomInput onChangeFunction={onChange}
-                      onFocusFunction = {onFocus}
-              
+                    <CustomInput
+                      onChangeFunction={onChange}
+                      onFocusFunction={onFocus}
                       labelText="Date of Birth..."
                       id="dateOfBirth"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
-                        value:dateOfBirth,
-                        name:"dateOfBirth",
-                        type:"text",
-                        required:true
+                        value: dateOfBirth,
+                        name: "dateOfBirth",
+                        type: "text",
+                        required: true
                       }}
                     />
-                    <CustomInput onChangeFunction={onChange}
+                    <CustomInput
+                      onChangeFunction={onChange}
                       labelText="City"
                       id="city"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
-                        value:city,
+                        value: city,
                         type: "text",
-                        name:"city",
-                        required:true
+                        name: "city",
+                        required: true
                       }}
                     />
-                    <CustomInput onChangeFunction={onChange}
+                    <CustomInput
+                      onChangeFunction={onChange}
                       labelText="Password"
                       id="pass"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
-                        value:password,
+                        value: password,
                         type: "password",
-                        name:"password",
-                        required:true,
+                        name: "password",
+                        required: true,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -269,17 +286,18 @@ const EditUserProfilePage = (props) => {
                         autoComplete: "off"
                       }}
                     />
-                    <CustomInput onChangeFunction={onChange}
+                    <CustomInput
+                      onChangeFunction={onChange}
                       labelText="Confirm Password"
                       id="pass2"
                       formControlProps={{
                         fullWidth: true
                       }}
                       inputProps={{
-                        value:password2,
+                        value: password2,
                         type: "password",
-                        name:"password2",
-                        required:true,
+                        name: "password2",
+                        required: true,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -293,13 +311,11 @@ const EditUserProfilePage = (props) => {
                   </CardBody>
                   <Alerts />
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple type="submit"  color="primary" size="lg" >
-                      Upload 
+                    <Button simple type="submit" color="primary" size="lg">
+                      Upload
                     </Button>
-                    
                   </CardFooter>
                 </form>
-                
               </Card>
             </GridItem>
           </GridContainer>
@@ -308,10 +324,5 @@ const EditUserProfilePage = (props) => {
       </div>
     </div>
   );
-}
-export default EditUserProfilePage;  
-
-
-
-
-
+};
+export default EditUserProfilePage;

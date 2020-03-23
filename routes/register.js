@@ -12,7 +12,7 @@ router.post("/",[
     check('lastname','lastName is required').not().isEmpty(),
     check('username','username is required').not().isEmpty(),
     check('email','Please enter a valid email').isEmail(),
-    check('dateOfBirth','username is required').not().isEmpty(),
+    check('dateOfBirth','Birthdate  is required').not().isEmpty(),
     check('city ','city is required').isEmpty(),
     check('password','Please enter your password with 6 or more characters').isLength({min:6})
 ],async(req,res)=>{

@@ -2,7 +2,7 @@
 import React , { useState , useContext , useEffect} from 'react';
 import AlertContext from '../../../context/alert/alertContext' ;
 import AuthContext from '../../../context/auth/authContext' ;
-import Alerts from '../../../context/alert/Alerts';
+import Alerts from '../Layout/Alert'
 
    
 // @material-ui/core components
@@ -85,8 +85,8 @@ const RegisterPage = (props) => {
     const onSubmit = (e) => {
       e.preventDefault();
       console.log(user)
-      let alert = "please enter ";
-
+      let alert = " Please complete all the fields";
+try{
       if(firstname === '' || lastname === '' || username==="" || email === ''||
        dateOfBirth==='' ||city==='' || password ==='' ){
           setAlert(alert,'danger')
@@ -95,6 +95,7 @@ const RegisterPage = (props) => {
           setAlert('password do not match','danger')
       }
       else {
+        console.log("onSubmit", setUser);
           register({
               firstname,
               lastname,
@@ -106,6 +107,11 @@ const RegisterPage = (props) => {
           })
           console.log('Register user');
       }
+    }
+    catch(error){
+      setAlert(error.msg, 'danger')
+
+    }
   }
   
   return (

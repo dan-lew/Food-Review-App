@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
+import Alerts from "../FoodComponents/Layout/Alert";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Email from "@material-ui/icons/Email";
@@ -57,37 +58,39 @@ const SendMessagePage = props => {
       email,
       message
     });
-    if (name === "" || email === "" || message === "") {
-      setAlert("please complete all the fields", "danger");
-    } else {
-      sendMail({
-        name,
-        email,
-        message
-      });
+    try {
+      if (name === "" || email === "" || message === "") {
+        setAlert(" Please complete all the fields", "danger");
+      } else {
+        console.log("onsubmit", sendMessage);
+        sendMail({
+          name,
+          email,
+          message
+        });
+      }
+    } catch (error) {
+      setAlert(error.msg, "danger");
     }
-    console.log("onsubmit", message);
   };
   return (
     <div>
-    <Header
-          brand={
-            <img
-              className={
-                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
-              }
-              src={Logo}
-            />
-          }
-          rightLinks={<HeaderLinks />}
-          fixed
-          color="dark"
-          changeColorOnScroll={{
-            height: 100,
-            color: "white"
-          }}
-          {...rest}
-        />
+      <Header
+        brand={
+          <img
+            className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
+            src={Logo}
+          />
+        }
+        rightLinks={<HeaderLinks />}
+        fixed
+        color="dark"
+        changeColorOnScroll={{
+          height: 100,
+          color: "white"
+        }}
+        {...rest}
+      />
       <div
         className={classes.pageHeader}
         style={{
@@ -165,6 +168,7 @@ const SendMessagePage = props => {
                       }}
                     />
                   </CardBody>
+                  <Alerts />
                   <CardFooter className={classes.cardFooter}>
                     <Button
                       type="submit"

@@ -27,7 +27,7 @@ import ListRestaurantsReview from "./ReviewList/ListRestaurantsReview";
 import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import Sum from "./ReviewList/Sum";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import FileUpload from "../../ReviewPage/components/FileUpload";
+import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 
 export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
@@ -81,6 +81,7 @@ export default function UserPr(props) {
                         classes.textCenter
                       }
                     >
+                    <div onChange= {onChange}>
                       {/* User foto links */}
                       <img
                         src={avatar}
@@ -98,7 +99,7 @@ export default function UserPr(props) {
                           classesT.imgFluid
                         }
                       />
-                      <div onChange= {onChange}>
+                      
                         <p>Edit your profile image...</p>
                         <FileUpload getImgPath={getImgPath} />
                       </div>
