@@ -1,0 +1,45 @@
+{
+    "formatted_address": "Via Castelfidardo, 76, 00185 Roma RM, Italy",
+    "geometry": {
+      "location": {},
+      "viewport": {
+        "Za": {
+          "i": 41.90393447010727,
+          "j": 41.90663412989272
+        },
+        "Ua": {
+          "i": 12.50113302010728,
+          "j": 12.50383267989272
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+    "id": "c75587535b95998cc27d63c03da66d5162228ef7",
+    "name": "Trattoria \"Al Camoscio D'Abruzzo\"",
+    "opening_hours": {},
+    "photos": [
+      {
+        "height": 4032,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/110731427630505245632\">Alessia Pistilli</a>"
+        ],
+        "width": 3024
+      }
+    ],
+    "place_id": "ChIJSal2mKBhLxMRU93ICJCvhmQ",
+    "plus_code": {
+      "compound_code": "WG43+42 Rome, Metropolitan City of Rome, Italy",
+      "global_code": "8FHJWG43+42"
+    },
+    "price_level": 2,
+    "rating": 4.4,
+    "reference": "ChIJSal2mKBhLxMRU93ICJCvhmQ",
+    "types": [
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "user_ratings_total": 255,
+    "html_attributions": []
+  }
