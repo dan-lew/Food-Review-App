@@ -20,7 +20,7 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLogin from "../Layout/HeaderLogin/HeaderLogin.js";
 import HeaderLinksUser from "../Layout/HeaderLogin/HeaderLinksUser.js";
-
+ 
 export default function RestaurantsReview(props) {
   const useStylesT = makeStyles(stylesT);
   const useStylesI = makeStyles(stylesI);
@@ -50,7 +50,7 @@ export default function RestaurantsReview(props) {
   };
   console.log(restaurantView.rating);
 
-  const starShow = count => {
+  const starShow = (count) => {
     for (let i = 0; i <= count; i++) {
       return <StarIcon style={{ color: "yellow" }}></StarIcon>;
     }

@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/dan-lew/Food-Review-App#readme",
   "devDependencies": {
+    "antd": "^3.26.14",
     "bcrypt": "^3.0.8",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

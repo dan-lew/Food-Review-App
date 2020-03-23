@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
-import { AutoComplete } from 'antd';
+import {  AutoComplete } from 'antd';
+//import { AutoComplete } from 'antd';
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 
@@ -19,6 +20,8 @@ class MapAutoComplete extends Component {
       geoCoderService: this.props.geoCoderService,
     }
   }
+
+  
 
   // Runs after clicking away from the input field or pressing 'enter'.
   // Geocode the location selected to be created as a marker.
@@ -53,9 +56,7 @@ class MapAutoComplete extends Component {
   });
 
   render() {
- 
-    
-   
+
     return (
       <AutoComplete
         style={{width:"100%"}}

@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
+
 import MapAutoComplete from "../../MapComponents/MapAutoComplete";
 import MapMarker from "../../MapComponents/MapMarker";
-import PlaceCard from "../../MapComponents/PlaceCard";
+import PlaceCard from "MapComponents/PlaceCard";
 import ConstraintSlider from "../../MapComponents/ConstraintSlider";
-import CustomInput from "components/CustomInput/CustomInput.js";
+//import CustomInput from "components/CustomInput/CustomInput.js";
 import { Button, Input, Divider, message } from "antd";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
-
 
 
 const DE_COOR = { lat: 51.1657, lng: 10.4515 };
@@ -35,8 +35,9 @@ class MapsContainer extends Component {
       placesService: {},
       geoCoderService: {},
       directionService: {}
-    };
+    }
   }
+
 
   //classes = useStyles();
 
