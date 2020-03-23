@@ -14,6 +14,8 @@ const register=require('./routes/register');
 const login = require('./routes/login');
 const resetPassword=require('./routes/resetPassword');
 const editProfile=require('./routes/editProfile');
+const restaurant = require("./routes/restaurant");
+
 const reviews = require("./routes/reviews");
 const userReviews = require ("./routes/userReviews")
 const sendMessage = require("./routes/sendMessage")
@@ -34,6 +36,8 @@ app.use('/api/register',register);
 app.use('/api/login',login);
 app.use('/api/resetpassword',resetPassword);
 app.use('/api/editprofile',editProfile);
+app.use('/api/restaurant',restaurant);
+
 app.use("/api/reviews", reviews);
 app.use("/api/userReviews", userReviews);
 app.use("/api/restaurant", restaurant);
