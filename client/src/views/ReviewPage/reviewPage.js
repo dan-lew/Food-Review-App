@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
+import Alerts from "../FoodComponents/Layout/Alert";
 import ReactStars from "react-stars";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -40,10 +41,11 @@ const ReviewPage = props => {
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
   const authContext = useContext(AuthContext);
-  const { register } = authContext;
+  const { registerReview } = authContext;
 
   const [review, setReview] = useState({
     restaurantName: "",
+    city: "",
     category: "",
     nameOfDish: "",
     dateOfVisit: "",
@@ -54,6 +56,7 @@ const ReviewPage = props => {
   });
   const {
     restaurantName,
+    city,
     category,
     nameOfDish,
     dateOfVisit,
@@ -65,70 +68,71 @@ const ReviewPage = props => {
 
   const onChange = e =>
     setReview({ ...review, [e.target.name]: e.target.value });
-    
 
   // console.log("onchange", review);
 
-  const stars = (star) => {
+  const stars = star => {
     //document.getElementById('rating').value=star
     setReview({ ...review, rating: star });
-
   };
 
-  const getImgPath = (path) =>{
-    console.log(path)
-    setReview({...review, photo: path })
-  }
+  const getImgPath = path => {
+    console.log(path);
+    setReview({ ...review, photo: path });
+  };
 
   const onSubmit = e => {
     e.preventDefault();
-    if (
-      restaurantName === "" ||
-      category === "" ||
-      nameOfDish === "" ||
-      dateOfVisit === "" ||
-      price === "" ||
-      photo === "" ||
-      rating === "" ||
-      comment === ""
-    ) {
-      setAlert("please complete all the fields", "danger");
-    } else {
-      console.log("onSubmit", review);
-      register({
-        restaurantName,
-        category,
-        nameOfDish,
-        dateOfVisit,
-        price,
-        photo,
-        rating,
-        comment
-      });
+    try {
+      if (
+        restaurantName === "" ||
+        city === "" ||
+        category === "" ||
+        nameOfDish === "" ||
+        dateOfVisit === "" ||
+        price === "" ||
+        photo === "" ||
+        rating === "" ||
+        comment === ""
+      ) {
+        setAlert(" Please complete all the fields", "danger");
+      } else {
+        console.log("onSubmit", review);
+        registerReview({
+          restaurantName,
+          city,
+          category,
+          nameOfDish,
+          dateOfVisit,
+          price,
+          photo,
+          rating,
+          comment
+        });
+      }
+    } catch (error) {
+      setAlert(error.msg, "danger");
     }
-    
   };
 
   return (
     <div>
-    <Header
-          brand={
-            <img
-              className={
-                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
-              }
-              src={Logo}
-            />
-          }
-          rightLinks={<HeaderLinks />}
-          fixed
-          color="dark"
-          changeColorOnScroll={{
-            height: 100,
-            color: "white"
-          }}
-          {...rest}
-        />
+      <Header
+        brand={
+          <img
+            className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
+            src={Logo}
+          />
+        }
+        rightLinks={<HeaderLinks />}
+        fixed
+        color="dark"
+        changeColorOnScroll={{
+          height: 100,
+          color: "white"
+        }}
+        {...rest}
+      />
       <div
         className={classes.pageHeader}
         style={{
@@ -163,6 +167,23 @@ const ReviewPage = props => {
                         endAdornment: (
                           <InputAdornment position="end">
                             <i className="fas fa-home"></i>
+                          </InputAdornment>
+                        )
+                      }}
+                    />
+                    <CustomInput
+                      labelText="Restaurant Location..."
+                      id="city"
+                      formControlProps={{
+                        fullWidth: true
+                      }}
+                      inputProps={{
+                        onChange: onChange,
+                        name: "city",
+                        type: "text",
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <i className="fas fa-map-marker-alt"></i>
                           </InputAdornment>
                         )
                       }}
@@ -248,12 +269,12 @@ const ReviewPage = props => {
                         color2={"#ffd700"}
                       />
                     </div>
-                    <br/>
+                    <br />
                     <div>
-                    <p>Please upload a photo here...</p>
-                    <FileUpload getImgPath = {getImgPath}/>
+                      <p>Please upload a photo here...</p>
+                      <FileUpload getImgPath={getImgPath} />
                     </div>
-                      <CustomInput
+                    <CustomInput
                       onChange={onChange}
                       labelText="Your Review"
                       id="comment"
@@ -274,11 +295,13 @@ const ReviewPage = props => {
                       }}
                     />
                   </CardBody>
+                  <Alerts />
                   <CardFooter className={classes.cardFooter}>
                     <Button type="submit" simple color="primary" size="lg">
                       Add Review
                     </Button>
                   </CardFooter>
+                 
                 </form>
               </Card>
             </GridItem>

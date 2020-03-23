@@ -1,4 +1,4 @@
-import React, { useStyles } from "react";
+import React, { useStyles, useState } from "react";
 import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import GridContainer from "components/Grid/GridContainer";
@@ -27,6 +27,7 @@ import ListRestaurantsReview from "./ReviewList/ListRestaurantsReview";
 import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import Sum from "./ReviewList/Sum";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 
 export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
@@ -37,6 +38,18 @@ export default function UserPr(props) {
   const classes = useStyles();
   console.log(classes);
   const { ...rest } = props;
+
+    const [img, setImg] = useState({
+      photo:"",
+    })
+    const {photo} = img;
+
+  const onChange = e =>
+  setImg({ ...img, [e.target.name]: e.target.value });
+  const getImgPath = path => {
+    console.log(path);
+    setImg({...img, photo: path })
+  };
   return (
     <div
       // style={{ paddingTop: "50px", width: "90%" }}
@@ -68,6 +81,7 @@ export default function UserPr(props) {
                         classes.textCenter
                       }
                     >
+                    <div onChange= {onChange}>
                       {/* User foto links */}
                       <img
                         src={avatar}
@@ -85,6 +99,10 @@ export default function UserPr(props) {
                           classesT.imgFluid
                         }
                       />
+                      
+                        <p>Edit your profile image...</p>
+                        <FileUpload getImgPath={getImgPath} />
+                      </div>
                     </CardBody>
                   </Card>
                   <Card>

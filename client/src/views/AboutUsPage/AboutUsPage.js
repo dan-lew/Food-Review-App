@@ -11,7 +11,8 @@ import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks1 from "components/Header/HeaderLinks1.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
+// import HeaderLinks from "components/Header/HeaderLinks.js";
+import HeaderLinks from "../FoodComponents/Layout/Header/HeaderLinks";
 import NavPills from "components/NavPills/NavPills.js";
 import Parallax from "components/Parallax/Parallax.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -22,13 +23,19 @@ import CardFooter from "components/Card/CardFooter.js";
 import profile from "assets/img/faces/dans.png";
 import profile1 from "assets/img/faces/mahdieh.jpg";
 import profile2 from "assets/img/faces/rania.jpg";
-
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
+import Logo from "assets/img/Logo-FR-124.png";
 import styles from "assets/jss/material-kit-react/views/aboutUsPage.js";
 import { PersonAdd } from "@material-ui/icons";
 
 const useStyles = makeStyles(styles);
 
 export default function AboutUsPage(props) {
+  const useStylesT = makeStyles(stylesT);
+  const useStylesI = makeStyles(stylesI);
+  const classesT = useStylesT();
+  const classesI = useStylesI()
   const classes = useStyles();
   const { ...rest } = props;
   const imageClasses = classNames(
@@ -39,17 +46,24 @@ export default function AboutUsPage(props) {
 
   return (
     <div>
-      <HeaderLinks
-        color="transparent"
-        brand="Material Kit React"
-        rightLinks={<HeaderLinks1 />}
-        fixed
-        changeColorOnScroll={{
-          height: 200,
-          color: "white"
-        }}
-        {...rest}
-      />
+    <Header
+          brand={
+            <img
+              className={
+                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
+              }
+              src={Logo}
+            />
+          }
+          rightLinks={<HeaderLinks />}
+          fixed
+          color="dark"
+          changeColorOnScroll={{
+            height: 100,
+            color: "white"
+          }}
+          {...rest}
+        />
       <Parallax small filter image={require("assets/img/sushi.jpg")}></Parallax>
 
       <div className={classNames(classes.main, classes.mainRaised)}>

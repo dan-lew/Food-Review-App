@@ -26,7 +26,7 @@ const FileUpload = (props) => {
 
     try {
       if (imgArray.includes(file.type) && file.size < 5000000) {
-        const res = await axios.post("/api/reviews/foodImgUpload", formData, {
+        const res = await axios.post("/api/userReviews/user", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           },
@@ -46,7 +46,7 @@ const FileUpload = (props) => {
         setMessage("File Uploaded");
       } 
       else {
-        setMessage("Must be jpg/png/gif, max size 5MB!");
+        setMessage("Must be jpg/png/gif, max size 5mb");
       }
     } catch (err) {
       if (err.response.status === 500) {
@@ -81,10 +81,9 @@ const FileUpload = (props) => {
           value="Upload Photo"
           className="btn btn-info btn-block mt-2"
         />
-      {uploadedFile ? (
+       {uploadedFile ? (
         <div className="row mt-5">
           <div className="col-md-6 m-auto">
-            {/* <h3 className="text-center">{uploadedFile.fileName}</h3> */}
             <img
               alt={uploadedFile.fileName}
               src={uploadedFile.filePath}
