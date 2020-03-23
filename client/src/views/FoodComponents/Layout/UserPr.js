@@ -22,7 +22,6 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
 import Datetime from "react-datetime";
-import FileUpload from "../../ReviewPage/components/FileUpload";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import CardHeaderList from "./CardList/CardHeaderList";
 import CardBodyList from "./CardList/CardBodyList";
@@ -50,12 +49,6 @@ export default function UserPr(props) {
     })
     const {photo} = img;
 
-  const onChange = e =>
-  setImg({ ...img, [e.target.name]: e.target.value });
-  const getImgPath = path => {
-    console.log(path);
-    setImg({...img, photo: path })
-  };
   const [user, setUser] = useState([
     {
       id: "1",

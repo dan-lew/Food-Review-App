@@ -61,8 +61,4 @@ router.post('/',[
     }
  })
 
-<<<<<<< HEAD
 module.exports = router
-=======
-module.exports = router
->>>>>>> testing1
