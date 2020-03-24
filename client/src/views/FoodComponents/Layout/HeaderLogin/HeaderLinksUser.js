@@ -32,7 +32,7 @@ const HeaderLinksUser=(props)=>{
       </ListItem>
 
       <ListItem className={classes.listItem}>
-      <Link className={classes.navLink} to="/login/user-profile">Profile </Link>
+      <Link className={classes.navLink} to="/user-profile">Profile </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>

@@ -1,6 +1,6 @@
 import React, { useStyles } from "react";
-import HeaderLogin from "../Layout/HeaderLogin/HeaderLogin.js";
-import HeaderLinksUser from "../Layout/HeaderLogin/HeaderLinksUser.js";
+import Header from "../Layout/Header/Header.js";
+import HeaderLinks from "../Layout/Header/HeaderLinks.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components";
 import UserPr from "../Layout/UserPr";
@@ -19,7 +19,7 @@ const UsersProfile = props => {
   return (
     <div className="">
       <div className="">
-        <HeaderLogin
+        <Header
           brand={
             <img
               className={
@@ -28,7 +28,7 @@ const UsersProfile = props => {
               src={Logo}
             />
           }
-          rightLinks={<HeaderLinksUser />}
+          rightLinks={<HeaderLinks />}
           fixed
           color="dark"
           changeColorOnScroll={{
