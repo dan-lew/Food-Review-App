@@ -45,7 +45,7 @@ function App() {
                 <Route path="/aboutus-page" component={AboutUsPage} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/ForgetPassword" component={ForgetPassword} />
-                <Route path="/login/restaurantsReview" component={RestaurantsReview}/>
+                <Route path="/restaurantsReview" component={RestaurantsReview}/>
                 <Route path="/editprofile" component={EditUserProfile} />
                 <Route path="/" component={Home} />
               </Switch>

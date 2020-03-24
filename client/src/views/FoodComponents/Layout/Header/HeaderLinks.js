@@ -54,7 +54,7 @@ const HeaderLinks = props => {
       </ListItem>
 
       <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/login-page">
+        <Link className={classes.navLink} to="/login">
           Login{" "}
         </Link>
       </ListItem>
