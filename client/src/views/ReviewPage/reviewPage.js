@@ -9,7 +9,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 
 // core components
 import Header from "../FoodComponents/Layout/Header/Header.js";
-import HeaderLinks from "../FoodComponents/Layout/Header/HeaderLinks.js";
+import HeaderLinks from "../FoodComponents/Layout/HeaderLogin/HeaderLinksUser.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -109,6 +109,7 @@ const ReviewPage = props => {
           rating,
           comment
         });
+        console.log(registerReview);
       }
     } catch (error) {
       setAlert(error.msg, "danger");
@@ -143,7 +144,7 @@ const ReviewPage = props => {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={5}>
+            <GridItem xs={12} sm={12} md={6} lg={6}>
               <Card className={classes[cardAnimaton]}>
                 <form onSubmit={onSubmit} className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>

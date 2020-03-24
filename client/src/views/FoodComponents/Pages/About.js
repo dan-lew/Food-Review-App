@@ -67,8 +67,8 @@ const About = props => {
             About Us
           </h2>
           <GridContainer>
-            <GridItem xs={12} sm={5} md={3} lg={3}>
-              <Card style={{ textAlign: "center" }}>
+            <GridItem xs={12} sm={6} md={4} lg={4}>
+              <Card style={{ textAlign: "center",height:"740px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
                   Mahdieh
                 </CardHeader>
@@ -79,7 +79,8 @@ const About = props => {
                       style={{ textAlign: "justify", paddingTop: "20px" }}
                       className={classesT.quoteAuthor}
                     >
-                      Some Text About Mahdia. Lorem ipsum, dolor sit amet
+                      <h3  style={{ textAlign: "center" }} className={classesT.mutedText}>Webdeveloper</h3>
+                      Some Text About Mahdieh. Lorem ipsum, dolor sit amet
                       consectetur adipisicing elit. Cum ullam minus earum quae
                       dolores blanditiis molestias vero iure rerum vitae
                       eligendi odit aliquam quasi architecto iste corporis
@@ -87,6 +88,7 @@ const About = props => {
                       consectetur adipisicing elit. Nemo, voluptatum deleniti.
                       Laborum facilis animi vel ipsum.
                     </p>
+                    
                   </GridItem>
                 </CardBody>
                 <CardFooter
@@ -124,8 +126,8 @@ const About = props => {
               </Card>
             </GridItem>
 
-            <GridItem xs={12} sm={5} md={3} lg={3}>
-              <Card style={{ textAlign: "center" }}>
+            <GridItem xs={12} sm={6} md={4} lg={4}>
+              <Card style={{ textAlign: "center",height:"740px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
                   Daniel
                 </CardHeader>
@@ -135,9 +137,10 @@ const About = props => {
                     style={{ textAlign: "justify", paddingTop: "20px" }}
                     xs={12}
                     sm={12}
-                    md={12}
+                    md={12} 
                     lg={12}
                   >
+                    <h3  style={{ textAlign: "center" }} className={classesT.mutedText}>Webdeveloper</h3>
                     <p className={classesT.description}>
                       Since relocating to Hamburg from England in October 2016,
                       I worked with an events company who provide recruitment
@@ -183,20 +186,21 @@ const About = props => {
                 </CardFooter>
               </Card>
             </GridItem>
-            <GridItem xs={12} sm={5} md={3} lg={3}>
-              <Card style={{ textAlign: "center" }}>
+            <GridItem xs={12} sm={6} md={4} lg={4}>
+              <Card style={{ textAlign: "center",height:"740px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
                   Rania
                 </CardHeader>
                 <CardBody>
                   <img src={profile2} alt="..." className={imageClasses} />
-                  <GridItem
+                  <GridItem 
                     style={{ paddingTop: "20px", textAlign: "justify" }}
                     xs={12}
                     sm={12}
                     md={12}
                     lg={12}
                   >
+                    <h3  style={{ textAlign: "center" }} className={classesT.mutedText}>Webdeveloper</h3>
                     <p className={classesT.description}>
                       I have been in Hamburg since 1994. I am a computer
                       scientist. In 2001 I decided to start my new long journey
@@ -204,6 +208,7 @@ const About = props => {
                       continuously learned, improved and worked on my acquired
                       knowledge in various new technologies and would like to
                       stay in IT
+                     
                     </p>
                   </GridItem>
                 </CardBody>

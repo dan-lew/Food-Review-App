@@ -11,9 +11,7 @@ import Icon from "@material-ui/core/Icon";
 import Email from "@material-ui/icons/Email";
 // import People from "@material-ui/icons/People";
 // core components
-import Header from "components/Header/Header.js";
-import HeaderLinks1 from "components/Header/HeaderLinks1.js";
-import Footer from "components/Footer/Footer.js";
+import Header from "../Layout/Header/Header";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";

@@ -14,6 +14,7 @@ const register=require('./routes/register');
 const login = require('./routes/login');
 const resetPassword=require('./routes/resetPassword');
 const editProfile=require('./routes/editProfile');
+
 const reviews = require("./routes/reviews");
 const userReviews = require ("./routes/userReviews")
 const sendMessage = require("./routes/sendMessage")
@@ -34,10 +35,12 @@ app.use('/api/register',register);
 app.use('/api/login',login);
 app.use('/api/resetpassword',resetPassword);
 app.use('/api/editprofile',editProfile);
+app.use('/api/restaurant',restaurant);
 app.use("/api/reviews", reviews);
 app.use("/api/userReviews", userReviews);
 app.use("/api/restaurant", restaurant);
 app.use("/api/sendMessage", sendMessage);
+app.use('/api/restaurant',restaurant);
 
 const PORT=process.env.PORT || 5002;
 app.listen(PORT,console.log(`Server started on port ${PORT} in ${process.env.NODE_ENV}`.bgMagenta))

@@ -8,8 +8,7 @@
 // import ListSelectFoodReview from "./ListSelectFoodReview";
 // import { Switch, Route, Link } from "react-router-dom";
 // const useStyles = makeStyles(styles);
-
-import React,{useEffect, useState} from "react";
+import React, { useState, useEffect ,useContext} from "react";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,7 +16,10 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesB from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import CardListRestaurant from './CardListRestaurant'
+import update from 'immutability-helper';
 
+import RestaurantContext from '../../../../context/restaurants/restaurantContext'
+import ListRestaurantsReview from './ListRestaurantsReview'
 const useStylesB = makeStyles(stylesB);
 const useStylesT = makeStyles(stylesT);
 
@@ -30,52 +32,61 @@ const ListFoodStyle = {
   }
 };
 
-export default function ListRestaurantsProfilReview(props) {
+const ListRestaurantsProfilReview=(props)=> {
   const useStylesListF = makeStyles(ListFoodStyle);
   const classesListF = useStylesListF();
   const useStyles = makeStyles(styles);
   const classesB = useStylesB();
   const classesT = useStylesT();
-//
-  console.log(props)
 
-  let restaurantsState = {
-    id: "1",
-    url: "",
-    img: { src: "https://via.placeholder.com/180x130" },
-    name: "Restaurant name",
-    rating: "",
-    food:"",
-    isLoading: "false",
-    category: "",
-    count: 0
-  };
+// Restaurants list
+  const restaurantContext = useContext(RestaurantContext);
+  const { restaurants,filtered,error,getCatRestaurant, catrestaurants } = restaurantContext;
+  useEffect(()=>{
+    getCatRestaurant(props.category)
+    console.log('use effect in list restaurants profile review')
+  },[])
+  console.log(catrestaurants)
 
-  console.log("state ", restaurantsState.count);
-  console.log(restaurantsState.img.src);
-  console.log(restaurantsState.food);
-  const [restaurants, setRestaurants] = useState(restaurantsState.count);
-  const { id, category, count, url, img, food, name, rating } = props;
+   // let restaurantsState = {
+  //   id: "1",
+  //   url: "",
+  //   img: { src: "https://via.placeholder.com/180x130" },
+  //   name: "Restaurant name",
+  //   rating: "",
+  //   food:"",
+  //   isLoading: "false",
+  //   category: "",
+  //   count: 0
+  // };
 
- //food set 
+  // console.log("state ", restaurantsState.count);
+  // console.log(restaurantsState.img.src);
+  // console.log(restaurantsState.food);
+//   const [restaurants, setRestaurants] = useState(restaurantsState.count);
+//   const { id, category, count, url, img, food, name, rating } = props;
+
+//  //food set 
 
 
-  const [classList, setClassList] = React.useState("display");
-  const handleShow = () => {
-    if (classList === "block") {
-      setClassList("display");
-    } else {
-      setClassList("block");
-    }
-  };
+//   const [classList, setClassList] = React.useState("display");
+//   const handleShow = () => {
+//     if (classList === "block") {
+//       setClassList("display");
+//     } else {
+//       setClassList("block");
+//     }
+//   };
 
   return (
     <div className={props.className}>
       <GridContainer>
         <GridItem>
+          {catrestaurants.map(restaurant=>(
+            <CardListRestaurant key={restaurant.id} restaurant={restaurant}/> //<div>{user.login}</div>
+          ))}
           {/* // edit */}
           {/* <ListSelectFoodReview /> */}
-          <CardListRestaurant data={restaurantsState} />
         </GridItem>
         <GridItem></GridItem>
       </GridContainer>
@@ -83,3 +94,4 @@ export default function ListRestaurantsProfilReview(props) {
     </div>
   );
 }
+export default ListRestaurantsProfilReview

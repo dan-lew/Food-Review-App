@@ -3,14 +3,14 @@ import React, { useStyles } from "react";
 // import Map from "../Layout/MapR";
 // import MapMarkers from "../Layout/MapMarkers";
 // import Places from "../Layout/Places";
-import SectionCarousel from "../Sections/SectionCarousel";
+import SectionCarousel from "../Layout/SectionCarousel";
 import RestaurantsList from "../Layout/Restaurants/RestaurantsList";
 import Footer from "../Layout/Footer";
 import Header from "../Layout/Header/Header";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Card from 'components/Card/Card';
+import Card from "components/Card/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
@@ -45,22 +45,21 @@ const Home = props => {
           }}
           {...rest}
         />
-      </div> 
-      
-      <div style={{ paddingTop: "80px",width:"90%" }} className={classesT.marginCenter}>
-          <Card className={classesT.marginCenter} >
-              <SectionCarousel />
-
-      
-      <div className="" style={{ height: "100vh" }}>
-        <GridContainer className={classesT.marginCenter}>
-          <GridItem xs={12} sm={12} md={12} lg={12}>
-          
-          </GridItem>
-        </GridContainer>
-        
       </div>
-      </Card> 
+
+      <div
+        style={{ paddingTop: "80px", width: "90%" }}
+        className={classesT.marginCenter}
+      >
+        <Card className={classesT.marginCenter}>
+          <SectionCarousel />
+
+          {/* <div className="" style={{ height: "100vh" }}>
+            <GridContainer className={classesT.marginCenter}>
+              <GridItem xs={12} sm={12} md={12} lg={12}></GridItem>
+            </GridContainer>
+          </div> */}
+        </Card>
       </div>
       {/* <Footer /> */}
     </div>

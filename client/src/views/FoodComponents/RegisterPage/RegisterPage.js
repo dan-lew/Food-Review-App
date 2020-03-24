@@ -13,7 +13,7 @@ import Icon from "@material-ui/core/Icon";
 import Email from "@material-ui/icons/Email";
 // import People from "@material-ui/icons/People";
 // core components
-import Header from "components/Header/Header.js";
+import Header from "../Layout/Header/Header.js";
 import HeaderLinks1 from "components/Header/HeaderLinks1.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -30,8 +30,6 @@ import "./style.css"
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
-
-console.log('hello');
 
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
@@ -54,7 +52,7 @@ const RegisterPage = (props) => {
 
    useEffect(()=> {
           if(isAuthenticated){
-              props.history.push('/');
+              props.history.push('/login/welcome-user');
           }
           if(error === 'User already exist'){
               setAlert(error, 'danger');
@@ -145,7 +143,7 @@ try{
     
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={4}>
+            <GridItem xs={12} sm={12} md={6} lg={6}>
               <Card className={classes[cardAnimaton]}>
             
                 <form className={classes.form} onSubmit={onSubmit}>

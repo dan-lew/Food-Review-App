@@ -6,7 +6,7 @@ const Review = require("../models/Review.js");
 const auth = require("../middleware/auth");
 
 // Review Page
-router.get("/review", auth, async (req, res) => {
+router.get("/reviews", auth, async (req, res) => {
   try {
     const reviews = await Review.find({ user: req.user.id }).sort({
       date: -1
@@ -66,7 +66,7 @@ router.post(  "/review",
         .isEmpty()
         .isLength({ min: 10 })
     
-  ],
+  ],auth,
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -105,65 +105,4 @@ router.post(  "/review",
     }
   }
 );
-
-// router.put("/:id", async (req, res) => {
-//   const {
-//     restaurantName,
-//     category,
-//     nameOfDish,
-//     dateOfVisit,
-//     price,
-//     photo,
-//     rating,
-//     comment
-//   } = req.body;
-
-//   // Build contact Object
-//   const reviewFields = {};
-//   if (restaurantName) reviewFields.restaurantName = restaurantName;
-//   if (category) reviewFields.category = category;
-//   if (nameOfDish) reviewFields.phone = nameOfDish;
-//   if (dateOfVisit) reviewFields.dateOfVisit = dateOfVisit;
-//   if (price) reviewFields.price = price;
-//   if (photo) reviewFields.photo = photo;
-//   if (rating) reviewFields.rating = rating;
-//   if (comment) reviewFields.comment = comment;
-
-//   try {
-//     let review = await Review.findById(req.params.id);
-//     if (!review) res.status(404).json({ msg: "Review not found" });
-
-//     // // Make sure user owns the contact
-//     // if (review.user.toString() !== req.user.id) {
-//     //   return res.status(401).json({ msg: " Not authorized" });
-//     // }
-//     review = await Review.findByIdAndUpdate(
-//       req.params.id,
-//       { $set: reviewFields },
-//       { new: true }
-//     );
-//     res.send(review);
-//   } catch (error) {
-//     console.log(error.message);
-//     res.status(500).send("Server Error");
-//   }
-// });
-
-// router.delete("/:id", async (req, res) => {
-//   try {
-//     let review = await Review.findById(req.params.id);
-//     if (!review) return res.status(404).json({ msg: "Review not found" });
-
-//     // Make sure user own contact
-//     if (review.user.toString() !== req.user.id) {
-//       return res.status(401).json({ msg: "Not authorized" });
-//     }
-//     await Review.findByIdAndRemove(req.params.id);
-//     res.json({ msg: "Review removed" });
-//   } catch (error) {
-//     console.log(error.message);
-//     res.status(500).send("Server Error");
-//   }
-// });
-
-module.exports = router;
+module.exports = router
