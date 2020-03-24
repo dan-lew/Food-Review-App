@@ -18,8 +18,8 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import Logo from "assets/img/Logo-FR-124.png";
-import HeaderLogin from "../Layout/HeaderLogin/HeaderLogin.js";
-import HeaderLinksUser from "../Layout/HeaderLogin/HeaderLinksUser.js";
+import Header from "../Layout/Header/Header.js";
+import HeaderLinks from "../Layout/Header/HeaderLinks.js";
  
 export default function RestaurantsReview(props) {
   const useStylesT = makeStyles(stylesT);
@@ -119,7 +119,7 @@ export default function RestaurantsReview(props) {
   return (
     <div>
       <div>
-        <HeaderLogin
+        <Header
           brand={
             <img
               className={
@@ -128,7 +128,7 @@ export default function RestaurantsReview(props) {
               src={Logo}
             />
           }
-          rightLinks={<HeaderLinksUser />}
+          rightLinks={<HeaderLinks />}
           fixed
           color="dark"
           changeColorOnScroll={{

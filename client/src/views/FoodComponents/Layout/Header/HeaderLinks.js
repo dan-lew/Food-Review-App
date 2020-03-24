@@ -49,29 +49,42 @@ const HeaderLinks = props => {
     <Fragment>
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/register">
-          Register{" "}
+          Register
         </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/login">
-          Login{" "}
+          Login
         </Link>
       </ListItem>
     </Fragment>
   );
   const userLinks = (
     <Fragment>
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/editprofile">
-          Edit Profile{" "}
+          Edit Profile
         </Link>
+      </ListItem> */}
+
+      <ListItem className={classes.listItem}>
+      <Link className={classes.navLink} to="/welcome-user">Welcome User </Link>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
+      <Link className={classes.navLink} to="/user-profile">Profile </Link>
+      </ListItem>
+
+      <ListItem className={classes.listItem}>
+      <Link className={classes.navLink}  to="/review-page">User Reviews </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} onClick={onLogout} to="/">
-          Logout{" "}
+          Logout
         </Link>
+
       </ListItem>
     </Fragment>
   );
@@ -79,7 +92,7 @@ const HeaderLinks = props => {
     <List>
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/">
-          Home{" "}
+          Home
         </Link>
       </ListItem>
 
@@ -91,7 +104,7 @@ const HeaderLinks = props => {
 
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/sendMessagePage">
-          Contact Us{" "}
+          Contact Us
         </Link>
       </ListItem>
 

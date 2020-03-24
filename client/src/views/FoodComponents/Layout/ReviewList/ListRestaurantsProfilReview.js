@@ -16,7 +16,7 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesB from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import CardListRestaurant from './CardListRestaurant'
-import update from 'immutability-helper';
+// import update from 'immutability-helper';
 
 import RestaurantContext from '../../../../context/restaurants/restaurantContext'
 import ListRestaurantsReview from './ListRestaurantsReview'
