@@ -37,9 +37,9 @@ const LoginPage = props => {
   const { setAlert } = alertContext;
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      props.history.push("/login/welcome-user"); //go to profile page
+  useEffect(()=> {
+    if(isAuthenticated){
+        props.history.push('/login/welcome-user');//go to profile page
     }
     if (error === "Invalid email or password") {
       setAlert(error, "danger");

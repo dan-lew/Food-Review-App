@@ -24,6 +24,7 @@ import RegisterPage from "views/FoodComponents/RegisterPage/RegisterPage";
 import ForgetPassword from "views/FoodComponents/ForgetPassword/ForgetPassword";
 import EditUserProfile from "views/FoodComponents/EditUserProfile/EditUserProfilePage";
 import RestaurantState from './context/restaurants/restaurantState';
+import PrivateRoute from './components/routing/PrivateRoute'
 var hist = createBrowserHistory();
 
 function App() {
@@ -36,21 +37,20 @@ function App() {
             <Router history={hist}>
             <Alerts />
               <Switch>
-                <Route path="/login/user-profile" component={UsersProfile} />
-                <Route path="/login/welcome-user" component={WelcomeUser} />
-                <Route path="/login" component={LoginPage} />
+                <Route path="/home" component={Home} />
                 <Route path="/about" component={About} />
                 <Route path="/sendmessagepage" component={SendMessagePage} />
-                <Route path="/review-page" component={ReviewPage} />
-                <Route path="/aboutus-page" component={AboutUsPage} />
                 <Route path="/register" component={RegisterPage} />
+                <Route path="/login" component={LoginPage} />
                 <Route path="/ForgetPassword" component={ForgetPassword} />
-                <Route path="/restaurantsReview" component={RestaurantsReview}/>
-                <Route path="/editprofile" component={EditUserProfile} />
+                <PrivateRoute path="/login/welcome-user" component={WelcomeUser} />
+                <PrivateRoute path="/login/user-profile" component={UsersProfile} />
+                <PrivateRoute path="/editprofile" component={EditUserProfile} />
+                <PrivateRoute path="/restaurantsReview" component={RestaurantsReview}/>               
+                <PrivateRoute path="/review-page" component={ReviewPage} />
                 <Route path="/" component={Home} />
               </Switch>
             </Router>
-
           </AlertState>
         </ReviewState>
         </RestaurantState>

@@ -3,9 +3,11 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const auth=require('../middleware/auth')
 // import Rating model
+
 const Restaurant = require("../models/Restaurants");
 // Get all restaurants from DB
-router.get("/", async(req, res) => {
+
+router.get("/",auth,async(req, res) => {
   // res.send("Restaurant page");
 try {
   const restaurants = await Restaurant.find().sort({date:-1});
@@ -15,7 +17,8 @@ try {
   res.status(500).json({msg :'Server Error'})
 }
 });
-router.post('/category',async(req,res)=>{
+
+router.post('/category',auth,async(req,res)=>{
    // res.send("Restaurant page");
   try {
     let category=req.body.category;
@@ -60,7 +63,7 @@ router.post("/",
       .not()
       .isEmpty()
       .withMessage("Please select a rating"),
-  ],
+  ],auth,
   async (req, res) => {           ``
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
