@@ -26,7 +26,7 @@ const FileUpload = (props) => {
 
     try {
       if (imgArray.includes(file.type) && file.size < 5000000) {
-        const res = await axios.post("/api/reviews/imgUpload", formData, {
+        const res = await axios.post("/api/reviews/foodImgUpload", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           },

@@ -2,7 +2,7 @@
 import React , { useState , useContext , useEffect} from 'react';
 import AlertContext from '../../../context/alert/alertContext' ;
 import AuthContext from '../../../context/auth/authContext' ;
-import Alerts from '../../../context/alert/Alerts';
+import Alerts from '../Layout/Alert'
 
    
 // @material-ui/core components
@@ -31,8 +31,6 @@ import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
 
-console.log('hello');
-
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
 
@@ -54,7 +52,7 @@ const RegisterPage = (props) => {
 
    useEffect(()=> {
           if(isAuthenticated){
-              props.history.push('/');
+              props.history.push('/login/welcome-user');
           }
           if(error === 'User already exist'){
               setAlert(error, 'danger');
@@ -85,8 +83,8 @@ const RegisterPage = (props) => {
     const onSubmit = (e) => {
       e.preventDefault();
       console.log(user)
-      let alert = "please enter ";
-
+      let alert = " Please complete all the fields";
+try{
       if(firstname === '' || lastname === '' || username==="" || email === ''||
        dateOfBirth==='' ||city==='' || password ==='' ){
           setAlert(alert,'danger')
@@ -95,6 +93,7 @@ const RegisterPage = (props) => {
           setAlert('password do not match','danger')
       }
       else {
+        console.log("onSubmit", setUser);
           register({
               firstname,
               lastname,
@@ -106,6 +105,11 @@ const RegisterPage = (props) => {
           })
           console.log('Register user');
       }
+    }
+    catch(error){
+      setAlert(error.msg, 'danger')
+
+    }
   }
   
   return (

@@ -13,9 +13,25 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { makeStyles } from "@material-ui/core/styles";
 import stylesT from "assets/jss/material-kit-react/components/typographyStyle.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import axios from 'axios'
+import RestaurantContext from '../../../../context/restaurants/restaurantContext'
+
+const  SearchRestaurant=(props)=> {
+
+//   onst [text,setText]=useState('');
+//   const onChange=(e)=>setText( e.target.value);
+
+//   const onSubmit=(e)=>{
+//     e.preventDefault();
+//     if(text===''){
+//     alertContext.setAlert('Please enter something','light');
+//     }else{
+//     githubContext.searchFood(text);
+//         setText('')
+//     }
+// }
 
 
-export default function SearchRestaurant(props) {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   const useStylesT = makeStyles(stylesT);
@@ -23,7 +39,17 @@ export default function SearchRestaurant(props) {
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
 
-  console.log(props);
+
+// Restaurants list
+const restaurantContext = useContext(RestaurantContext);
+const { restaurants,filtered,error,getCatRestaurant, catrestaurants } = restaurantContext;
+
+const getAllRestaurant=(value)=>{
+  getCatRestaurant(value)
+  console.log(value)
+}
+console.log(catrestaurants)
+
 
   const state = {
     category: props.category
@@ -45,8 +71,9 @@ export default function SearchRestaurant(props) {
   btnS.push(state.category);
 
   useEffect(() => {
-    // createBtnS();
+    //createBtnS();
   });
+ 
   const searchFood = e => {
     e.preventDefault();
 
@@ -69,7 +96,8 @@ export default function SearchRestaurant(props) {
             // console.log(index, value);
             return (
               <Fragment key={index}>
-                <Link
+                <Link 
+                  onClick={()=>{getAllRestaurant(value)}}
                   id="link"
                   className={classesT.primaryText + " " + classesT.link}
                   key={index}
@@ -109,3 +137,4 @@ export default function SearchRestaurant(props) {
     </div>
   );
 }
+export default SearchRestaurant

@@ -42,6 +42,7 @@ const AuthState = props => {
         type: USER_LOADED,
         payload: res.data
       });
+      
     } catch (error) {
       dispatch({
         type: AUTH_ERROR
@@ -209,6 +210,7 @@ const get_user_profile = async ()=>{
         user: state.user,
         error: state.error,
         register,
+        registerReview,
         sendMail,
         login,
         loadUser,

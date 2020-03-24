@@ -3,10 +3,11 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const auth=require('../middleware/auth')
 // import Rating model
-const Restaurant = require("../models/Restaurants");
 
+const Restaurant = require("../models/Restaurants");
 // Get all restaurants from DB
-router.get("/", async(req, res) => {
+
+router.get("/",auth,async(req, res) => {
   // res.send("Restaurant page");
 try {
   const restaurants = await Restaurant.find().sort({date:-1});
@@ -17,11 +18,10 @@ try {
 }
 });
 
-
-router.get('/:category',async(req,res)=>{
+router.post('/category',auth,async(req,res)=>{
    // res.send("Restaurant page");
   try {
-    let category=req.params.category;
+    let category=req.body.category;
     const restaurants = await Restaurant.find({category:category}).sort({date:-1});
     res.json(restaurants)
   } catch (error) {
@@ -29,25 +29,7 @@ router.get('/:category',async(req,res)=>{
     res.status(500).json({msg :'Server Error'})
   }
 })
-
-
-router.post('/category',async(req,res)=>{
-  // res.send("Restaurant page");
- try {
-   let category=req.body.category;
-   const restaurants = await Restaurant.find({category:category}).sort({date:-1});
-   res.json(restaurants)
- } catch (error) {
-   console.log(error.message);
-   res.status(500).json({msg :'Server Error'})
- }
-})
-
-
-
-
 // add a restaurant
-
 router.post("/",
   [
     check("name")
@@ -70,26 +52,22 @@ router.post("/",
       .not()
       .isEmpty()
       .withMessage("Country is empty"),
-      
     check("category")
       .trim()
       .not()
       .isEmpty()
-      .withMessage("Type of cuisine is empty"),   
+      .withMessage("Type of cuisine is empty"),
     check("rating")
       .trim()
       .isNumeric()
       .not()
       .isEmpty()
       .withMessage("Please select a rating"),
-    
-  ],
+  ],auth,
   async (req, res) => {           ``
-    
     const errors = validationResult(req);
-    
     if (!errors.isEmpty()) {
-     return res.status(400).json({ erorrs : errors.array()});       
+     return res.status(400).json({ erorrs : errors.array()});
     }
     const { name,address,city,country,category,photo,rating} = req.body;
     try {
@@ -100,18 +78,15 @@ router.post("/",
         country,
         category,
         photo,
-        rating     
+        rating
       });
-      
       const newResturant = await restaurant.save();
-      res.json(newResturant) 
-    }   
+      res.json(newResturant)
+    }
     catch(err) {
       console.log(err);
       res.status(500).send(" Server Error");
-    } 
-
-    }    
+    }
+    }
 );
-
 module.exports = router;

@@ -37,7 +37,7 @@ export default function HeaderLinks(props) {
         <Link to="/review-page" className={classes.dropdownLink}>
           Make a review
         </Link>
-        <Link to="/sendmessagepage" className={classes.dropdownLink}>
+        <Link to="/sendmessage-page" className={classes.dropdownLink}>
           Get in touch
         </Link>
       </ListItem>

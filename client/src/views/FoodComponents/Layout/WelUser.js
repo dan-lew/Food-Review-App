@@ -1,5 +1,4 @@
-import React, { useStyles, useContext, useEffect } from "react";
-
+import React, { useStyles,Fragment, useEffect ,useContext} from "react";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card";
@@ -13,7 +12,6 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 
 import StarIcon from "@material-ui/icons/Star";
 import avatar from "assets/img/faces/avatar.jpg";
-import RestaurantContext from '../../../context/restaurants/restaurantContext'
 
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
@@ -24,6 +22,8 @@ import ListRestaurantsProfilReview from "./ReviewList/ListRestaurantsProfilRevie
 import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import SearchRestaurant from "./Restaurants/SearchRestaurant";
 import Sum from "./ReviewList/Sum";
+// restaurants
+import RestaurantContext from '../../../context/restaurants/restaurantContext'
 
 // Restaurants list
 //const restaurantContext = React.useContext(RestaurantContext);
@@ -45,6 +45,7 @@ const ListRestaurantStyle = {
 };
 
 export default function WelUser(props) {
+
   const useStylesListR = makeStyles(ListRestaurantStyle);
   const classesListR = useStylesListR();
   const useStylesT = makeStyles(stylesT);
@@ -163,8 +164,8 @@ export default function WelUser(props) {
                 <GridItem className={classesT.marginLeft}>
                   <Card>
                     <CardBody>
-                      <SearchRestaurant
-                        category={listCategory}
+                      <SearchRestaurant                    
+                        category={listCategory} 
                         searchFunction={handleSearch}
                       />
                     </CardBody>
@@ -175,59 +176,28 @@ export default function WelUser(props) {
           </GridContainer>
           <GridContainer>
             <GridItem>
-              {/* restaurants reviews */}
-              <GridContainer>
+               <GridContainer>
                 <GridItem>
                   <Switch>
                     <Route path="/login/welcome-user/Japanese">
-                      <h1
-                        className={classesT.primaryText + " " + classesT.header}
-                      >
-                        Japanese
-                      </h1>
-                      <ListRestaurantsProfilReview restaurants={restaurantsState}
-                        className={classesListR["show"]}
-                      />
+                      <h1 className={classesT.primaryText + " "+classesT.header} >Japanese</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Japanese" />
                     </Route>
                     <Route path="/login/welcome-user/Italian">
-                      <h1
-                        className={classesT.primaryText + " " + classesT.header}
-                      >
-                        Italian
-                      </h1>
-                      <ListRestaurantsProfilReview restaurants={restaurantsState}
-                        className={classesListR["show"]}
-                      />
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Italian</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Italian"/>
                     </Route>
                     <Route path="/login/welcome-user/Indian">
-                      <h1
-                        className={classesT.primaryText + " " + classesT.header}
-                      >
-                        Indian
-                      </h1>
-                      <ListRestaurantsProfilReview restaurants={restaurantsState}
-                        className={classesListR["show"]}
-                      />
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Indian</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Indian"/>
                     </Route>
                     <Route path="/login/welcome-user/Greek">
-                      <h1
-                        className={classesT.primaryText + " " + classesT.header}
-                      >
-                        Greek
-                      </h1>
-                      <ListRestaurantsProfilReview restaurants={restaurantsState}
-                        className={classesListR["show"]}
-                      />
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Greek</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Greek"/>
                     </Route>
                     <Route path="/login/welcome-user/Thai">
-                      <h1
-                        className={classesT.primaryText + " " + classesT.header}
-                      >
-                        Thai
-                      </h1>
-                      <ListRestaurantsProfilReview restaurants={restaurantsState}
-                        className={classesListR["show"]}
-                      />
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Thai</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Thai" />
                     </Route>
                   </Switch>
                 </GridItem>

@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 
 const UserReviewsSchema=new mongoose.Schema({
     user:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref:'users',
+        type: String,
+        ref:'user',
         required:true,
     },
     restaurant:{
-        ref:'restaurants',
+        type: String,
         required:true,
     },
-    message: {
+    comment: {
         type: String,
         required:true,
     },
@@ -22,5 +22,13 @@ const UserReviewsSchema=new mongoose.Schema({
         type: Date,
         default:Date.now
     },
+    totalSpent:{
+        type: Number,
+        required: true,
+    },
+    photo:{
+        type:String,
+        required: false
+    }
 });
 module.exports=mongoose.model('UserReviews', UserReviewsSchema)

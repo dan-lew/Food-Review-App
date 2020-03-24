@@ -22,7 +22,6 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
 import Datetime from "react-datetime";
-import FileUpload from "../../ReviewPage/components/FileUpload";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import CardHeaderList from "./CardList/CardHeaderList";
 import CardBodyList from "./CardList/CardBodyList";
@@ -31,6 +30,7 @@ import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import Sum from "./ReviewList/Sum";
 import Button from "components/CustomButtons/Button.js";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 
 export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
@@ -43,6 +43,11 @@ export default function UserPr(props) {
   const classesB = useStylesB();
   console.log(classes);
   const { ...rest } = props;
+
+    const [img, setImg] = useState({
+      photo:"",
+    })
+    const {photo} = img;
 
   const [user, setUser] = useState([
     {
@@ -78,7 +83,6 @@ export default function UserPr(props) {
   let user1 = [
     {
       id: "1",
-      name: "Restaurant name",
       rating: 2,
       food: "Lasagne",
       date: new Date(),
@@ -149,6 +153,7 @@ export default function UserPr(props) {
                         classes.textCenter
                       }
                     >
+                    <div onChange= {onChange}>
                       {/* User foto links */}
                       <img
                         src={avatar}
@@ -166,8 +171,8 @@ export default function UserPr(props) {
                           classesT.imgFluid
                         }
                       />
-                      <div sm={12}>
-                        <p>Edit profile photo.</p>
+                      
+                        <p>Edit your profile image...</p>
                         <FileUpload getImgPath={getImgPath} />
                       </div>
                     </CardBody>

@@ -46,7 +46,8 @@
     "react-google-location": "^1.2.2",
     "uuidv4": "^6.0.6"
   },
-  "depd": {
+  "dependencies": {
+    "antd": "^4.0.1",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
@@ -54,7 +55,6 @@
     "express-ejs-layouts": "^2.5.0",
     "express-fileupload": "^1.1.6",
     "express-session": "^1.17.0",
-    "antd": "^4.0.1",
     "google-search-results-serpwow": "0.0.12",
     "nodemailer": "^6.4.3",
     "passport": "^0.4.1",
@@ -62,11 +62,8 @@
     "react-google-autocomplete": "^1.1.2",
     "react-google-location": "^1.2.2",
     "react-google-maps": "^9.4.5",
+    "react-router-dom": "^5.1.2",
     "uuid": "^7.0.2",
-    "uuidv4": "^6.0.6",
-    "react-router-dom": "^5.1.2"
-  },
-  "dependencies": {
-    "express-ejs-layouts": "^2.5.0"
+    "uuidv4": "^6.0.6"
   }
 }

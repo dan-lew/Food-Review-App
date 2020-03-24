@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import GoogleMapReact from "google-map-react";
 import MapAutoComplete from "../../MapComponents/MapAutoComplete";
@@ -22,6 +23,20 @@ const DE_COOR = { lat: 51.1657, lng: 10.4515 };
 // const classesI = useStylesI();
 // const useStyles = makeStyles(styles);
 // const classes = useStyles();
+=======
+
+import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
+import MapAutoComplete from '../../MapComponents/MapAutoComplete';
+import MapMarker from '../../MapComponents/MapMarker';
+import PlaceCard from '../../MapComponents/PlaceCard';
+//../components/ConstraintSlider
+import ConstraintSlider from '../../MapComponents/ConstraintSlider';
+import { Button, Input, Divider, message, Slider } from 'antd';
+import Geocode from 'react-geocode';
+const DE_COOR = { lat:51.1657, lng:10.4515 };
+
+>>>>>>> testing1
 class MapsContainer extends Component {
   constructor(props) {
     super(props);
