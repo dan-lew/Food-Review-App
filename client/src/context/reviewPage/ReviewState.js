@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
-import uuid from "uuid";
-import reviewContext from "./reviewContext";
+import{ v4 as uuid} from 'uuid';
 import reviewReducer from "./reviewReducer";
+import reviewContext from "./reviewContext";
 import {
   ADD_REVIEW,
   SET_CURRENT,
@@ -16,30 +16,7 @@ import {
 
 const ReviewState = props => {
   const initialState = {
-    reviews: [
-      {
-        id: 1,
-        restaurantName: " Mexican Restaurant",
-        category: 'Mexican',
-        nameOfDish: "Burrito",
-        dateOfVisit: "22/03/2019",
-        price: "8.99",
-        photo: "burritoimg.jpeg",
-        rating: "4",
-        comment: "The Burrito was juicy"
-      },
-      {
-        id: 2,
-        restaurantName: " Japanese Restaurant",
-        category: "Sushi",
-        nameOfDish: "California Rolls",
-        dateOfVisit: "24/06/2019",
-        price: "8.99",
-        photo: "sushiimg.jpeg",
-        rating: "3",
-        comment: "The sushi was nommy"
-      },
-    ],
+    reviews: [],
     current: null, filtered : null
   };
   const [state, dispatch] = useReducer(reviewReducer, initialState);

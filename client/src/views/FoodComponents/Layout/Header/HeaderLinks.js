@@ -87,7 +87,7 @@ const useStyles = makeStyles(styles);
       {!isAuthenticated && guestLinks}
 
       <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/aboutus-page">About </Link>
+        <Link className={classes.navLink} to="/about">About </Link>
       </ListItem>
     
       <ListItem className={classes.listItem}>

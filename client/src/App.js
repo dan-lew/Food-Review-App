@@ -22,25 +22,23 @@ import AlertState from "./context/alert/alertState";
 import RegisterPage from "views/FoodComponents/RegisterPage/RegisterPage";
 import ForgetPassword from "views/FoodComponents/ForgetPassword/ForgetPassword";
 import EditUserProfile from "views/FoodComponents/EditUserProfile/EditUserProfilePage";
-
+import RestaurantState from './context/restaurants/restaurantState';
 var hist = createBrowserHistory();
 
 function App() {
   return (
     <div>
       <AuthState>
+        <RestaurantState>
         <ReviewState>
           <AlertState>
             <Router history={hist}>
-              
               <Switch>
-            
                 <Route path="/home" component={Home} />
-                <Route path="/login/user-profile" component={UsersProfile} />
+                {/* <Route path="/login/user-profile" component={UsersProfile} /> */}
                 <Route path="/login/welcome-user" component={WelcomeUser} />
                 {/* <Route path="/profile-page" component={ProfilePage} /> */}
                 <Route path="/login" component={LoginPage} />
-                {/* <Route path="/register-page" component={RegisterPage} /> */}
                 <Route path="/about" component={About} />
                 <Route path="/sendmessagepage" component={SendMessagePage} />
                 <Route path="/review-page" component={ReviewPage} />
@@ -54,6 +52,7 @@ function App() {
 
           </AlertState>
         </ReviewState>
+        </RestaurantState>
       </AuthState>
     </div>
   );
