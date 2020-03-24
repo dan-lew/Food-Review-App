@@ -24,7 +24,7 @@ import RegisterPage from "views/FoodComponents/RegisterPage/RegisterPage";
 import ForgetPassword from "views/FoodComponents/ForgetPassword/ForgetPassword";
 import EditUserProfile from "views/FoodComponents/EditUserProfile/EditUserProfilePage";
 import RestaurantState from './context/restaurants/restaurantState';
-import PrivateRoute from '../components/Routing/PrivateRoute'
+import PrivateRoute from './components/Routing/PrivateRoute'
 var hist = createBrowserHistory();
 
 function App() {
