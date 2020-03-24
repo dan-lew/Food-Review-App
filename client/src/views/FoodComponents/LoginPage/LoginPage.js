@@ -39,7 +39,7 @@ const LoginPage=(props)=> {
 
   useEffect(()=> {
     if(isAuthenticated){
-        props.history.push('/');//go to profile page
+        props.history.push('/login/welcome-user');//go to profile page
     }
     if(error === 'invalid credential'){
         setAlert(error, 'danger');
