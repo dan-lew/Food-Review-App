@@ -19,7 +19,8 @@ class MapAutoComplete extends Component {
   onSelect = ((value) => {
     this.state.geoCoderService.geocode({ address: value }, ((response) => {
       const { location } = response[0].geometry;
-      this.props.addMarker(location.lat(), location.lng(), this.props.markerName);
+      //this.props.addMarker(location.lat(), location.lng(), this.props.markerName);
+      this.props.getLocation(location.lat(), location.lng());
     }))
   });
 

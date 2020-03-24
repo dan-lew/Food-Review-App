@@ -41,7 +41,8 @@ class MapsContainer extends Component {
       latPlace:[],
       restName:[],
       mapCenter:{lat:51.1657, lng:10.4515},
-      zoom:6
+      zoom:6,
+      cityLocation: {lat:0,lng:0}
     };
   }
   
@@ -89,7 +90,9 @@ class MapsContainer extends Component {
     this.setState({ markers });
   });
 
- 
+  getLocation = (lat,lng) => {
+    this.setState({cityLocation:{lat:lat,lng:lng}})
+  }
   setCenter=(lat,lng)=>{
     const prevMarkers = this.state.markers;
     let markers = Object.assign([], prevMarkers);
@@ -102,6 +105,26 @@ class MapsContainer extends Component {
       zoom:15
     })
   }
+
+  loadMarkers=(map,mapsApi,lat,lng,name)=>{
+    let content = `<p>${name}</p>`
+    let infoWindow = new mapsApi.InfoWindow({
+      content:content
+    })
+    let marker = new mapsApi.Marker({
+      position: {lat,lng},
+      map:map,
+      title:name
+    })
+    marker.addListener("click",()=>{
+      infoWindow.open(map,marker)
+    })
+    marker.addListener("Escape",()=>{
+      infoWindow.open(null)
+    })
+
+  }
+
 
   // Runs once when the Google Maps library is ready
   // Initializes all services that we need
@@ -120,22 +143,21 @@ class MapsContainer extends Component {
 
   // With the constraints, find some places serving restaurant
   handleSearch = (() => {
-    const { markers, constraints, placesService, directionService, mapsApi } = this.state;
-    if (markers.length === 0) {
-      message.warn('Add a constraint and try again!');
+    const { cityLocation, constraints, placesService, directionService, map,mapsApi } = this.state;
+    if (cityLocation.lat === 0) {
+      message.warn('Select a city and try again!');
       return;
     }
     const filteredResults = [];
-    const marker = markers[0];
     const timeLimit = constraints[0].time;
-    const markerLatLng = new mapsApi.LatLng(marker.lat, marker.lng);
+    const markerLatLng = new mapsApi.LatLng(cityLocation.lat, cityLocation.lng);
 
     const placesRequest = {
       location: markerLatLng,
-      // radius: '30000', // Cannot be used with rankBy. Pick your poison!
-      type: ['ice cream', 'cafe'], // List of types: https://developers.google.com/places/supported_types
-      query: 'restaurant',
-      rankBy: mapsApi.places.RankBy.DISTANCE, // Cannot be used with radius.
+      radius: '10000', // Cannot be used with rankBy. Pick your poison!
+      type: ['food', 'cafe'], // List of types: https://developers.google.com/places/supported_types
+      query: 'iranian restaurant'
+      //rankBy: mapsApi.places.RankBy.DISTANCE, // Cannot be used with radius.
     };
     const latPlace=[];
     const lngPlace=[];
@@ -165,7 +187,8 @@ class MapsContainer extends Component {
             latPlace[i]=restaurantPlace.geometry.viewport.Za.i;
             lngPlace[i]=restaurantPlace.geometry.viewport.Ua.i;
         
-       this.addMarker(latPlace[i],lngPlace[i],restaurantPlace.name);
+       //this.addMarker(latPlace[i],lngPlace[i],restaurantPlace.name);
+       this.loadMarkers(map,mapsApi,latPlace[i],lngPlace[i],restaurantPlace.name);
         const priceLevel = restaurantPlace.price_level; // 1, 2, 3...
         let photoUrl = '';
         let openNow = false;
@@ -200,6 +223,7 @@ class MapsContainer extends Component {
               timeText,
             });
           }
+          console.log(filteredResults)
           // Finally, Add results to state
           this.setState({ searchResults: filteredResults });
           console.log("this.state: ", this.state)
@@ -229,7 +253,7 @@ class MapsContainer extends Component {
         <Divider />
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: 'AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI',
+              key: '',
               libraries: ['places', 'directions']
             }}
             defaultZoom={8}
@@ -273,16 +297,16 @@ class MapsContainer extends Component {
                         name: "country",
                         required:true
                       }}
-                    /> */}
+                    /> 
 
-                      <Input  className="col-4 mr-2" placeholder="Name" onChange={(event) => this.updateConstraintName(event, key)} />
+                      <Input  className="col-4 mr-2" placeholder="Name" onChange={(event) => this.updateConstraintName(event, key)} />*/}
                       <MapAutoComplete
                         autoCompleteService={autoCompleteService}
                         geoCoderService={geoCoderService}
                         germanyLatLng={germanyLatLng}
                         markerName={name}
                         addMarker={this.addMarker}
-                        
+                        getLocation={this.getLocation}
                       />
                     </div>
                     <ConstraintSlider
@@ -299,10 +323,11 @@ class MapsContainer extends Component {
             : null
           }
         </section>
-
+        <div style={{"marginTop":"40px"}}>
         {/* Search Button */}
         <Button className="mt-4 fw-md" type="primary" size="large" onClick={this.handleSearch}>Search!</Button>
-
+        
+        </div>
 
         {/* Results section */}
         {searchResults.length > 0 ?

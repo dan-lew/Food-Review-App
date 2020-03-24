@@ -8,9 +8,9 @@ const PlaceCard = (({ info, index }) => {
   const { address, distanceText, name, openNow, photoUrl, priceLevel, rating, timeText } = info;
   return (
     <GridContainer>
-      <GridItem>
-    <div key={index} className="col-3 w-100 mx-4 my-4">
-      <img src={photoUrl} className="image-wrapper-sm mb-2" alt="Restaurant" />
+      <GridItem xs={12} sm={12} md={12}>
+    <div key={index} style={{"margin":"30px"}}>
+      <img src={photoUrl} className="image-wrapper-sm mb-6" alt="Restaurant" />
       <div className="card">
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
