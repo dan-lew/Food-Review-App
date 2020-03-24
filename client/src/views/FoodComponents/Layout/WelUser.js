@@ -12,7 +12,6 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 
 import StarIcon from "@material-ui/icons/Star";
 import avatar from "assets/img/faces/avatar.jpg";
-import RestaurantContext from '../../../context/restaurants/restaurantContext'
 
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
