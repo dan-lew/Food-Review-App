@@ -41,7 +41,7 @@ constructor(props) {
     
         //https://maps.googleapis.com/maps/api/place/nearbysearch/json
         //?location=53.6424933,10.0465429&radius=2000
-        //&type=restaurant&key=AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI
+        //&type=restaurant&key=
 
         // let newUrl = this.state.root+"?key="+this.state.key+"&per_page=200&q="
         let newUrl = this.state.root+"?location="+"&radius=2000&type="+typeQuery+"&key="+this.state.key;
