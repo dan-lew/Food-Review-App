@@ -66,7 +66,7 @@ router.post(  "/review",
         .isEmpty()
         .isLength({ min: 10 })
     
-  ],
+  ],auth,
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

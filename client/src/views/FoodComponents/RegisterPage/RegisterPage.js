@@ -52,7 +52,7 @@ const RegisterPage = (props) => {
 
    useEffect(()=> {
           if(isAuthenticated){
-              props.history.push('/');
+              props.history.push('/login/welcome-user');
           }
           if(error === 'User already exist'){
               setAlert(error, 'danger');
