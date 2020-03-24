@@ -31,8 +31,6 @@ import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
 
-console.log('hello');
-
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
 

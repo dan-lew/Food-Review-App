@@ -109,6 +109,7 @@ const ReviewPage = props => {
           rating,
           comment
         });
+        console.log(registerReview);
       }
     } catch (error) {
       setAlert(error.msg, "danger");

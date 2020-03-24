@@ -22,12 +22,17 @@ export const FORGOT_PASSWORD_FAILER  ="FORGOT_PASSWORD_FAILER"
 export const GET_USER_PROFILE ="GET_USER_PROFILE"
 export const EDIT_PROFILE  ="EDIT_PROFILE"
 export const USER_ERROR  ="USER_ERROR"
-
 export const LOGOUT = "LOGOUT";
-// restaurant
-export const GET_RESTAURANTS = "GET_RESTAURANTS";
-export const SEARCH_FOOD = "SEARCH_FOOD";
-export const RESTAURANT_ERROR  = "RESTAURANT_ERROR";
-export const SET_LOADING  = "SET_LOADING";
-export const GET_RESTAURANT = "GET_RESTAURANT";
-export const GET_CATRESTAURANT = "GET_CATRESTAURANT";
+
+ // restaurant 
+ export const GET_RESTAURANTS = "GET_RESTAURANTS";
+ export const SEARCH_FOOD = "SEARCH_FOOD";
+ export const RESTAURANT_ERROR  = "RESTAURANT_ERROR";
+ export const SET_LOADING  = "SET_LOADING";
+ export const GET_RESTAURANT = "GET_RESTAURANT";
+ export const GET_CATRESTAURANT = "GET_CATRESTAURANT";
+
+ 
+ 
+
+

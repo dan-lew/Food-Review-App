@@ -24,7 +24,6 @@ import RegisterPage from "views/FoodComponents/RegisterPage/RegisterPage";
 import ForgetPassword from "views/FoodComponents/ForgetPassword/ForgetPassword";
 import EditUserProfile from "views/FoodComponents/EditUserProfile/EditUserProfilePage";
 import RestaurantState from './context/restaurants/restaurantState';
-
 var hist = createBrowserHistory();
 
 function App() {
@@ -51,6 +50,7 @@ function App() {
                 <Route path="/" component={Home} />
               </Switch>
             </Router>
+
           </AlertState>
         </ReviewState>
         </RestaurantState>

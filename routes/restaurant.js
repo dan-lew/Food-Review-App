@@ -26,10 +26,7 @@ router.post('/category',async(req,res)=>{
     res.status(500).json({msg :'Server Error'})
   }
 })
-
-
 // add a restaurant
-
 router.post("/",
   [
     check("name")
@@ -65,39 +62,28 @@ router.post("/",
       .withMessage("Please select a rating"),
   ],
   async (req, res) => {           ``
-   
-    
     const errors = validationResult(req);
-    
     if (!errors.isEmpty()) {
-     return res.status(400).json({ erorrs : errors.array()});       
+     return res.status(400).json({ erorrs : errors.array()});
     }
-    
-      const   { name,address,city,country,category,photo,rating} = req.body;
-      try {
-        const restaurant = new Restaurant({
-          name,
-          address,
-          city,
-          country,
-          category,
-          photo,
-          rating     
-        });
-        
-       const newResturant = await restaurant.save();
-       res.json(newResturant) 
-      }   
-      
-        catch(err) {
-          console.log(err);
-          res.status(500).send(" Server Error");
-        } 
-
-    }    
-   
+    const { name,address,city,country,category,photo,rating} = req.body;
+    try {
+      const restaurant = new Restaurant({
+        name,
+        address,
+        city,
+        country,
+        category,
+        photo,
+        rating
+      });
+      const newResturant = await restaurant.save();
+      res.json(newResturant)
+    }
+    catch(err) {
+      console.log(err);
+      res.status(500).send(" Server Error");
+    }
+    }
 );
-
-
-
 module.exports = router;

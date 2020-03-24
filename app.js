@@ -36,7 +36,6 @@ app.use('/api/login',login);
 app.use('/api/resetpassword',resetPassword);
 app.use('/api/editprofile',editProfile);
 app.use('/api/restaurant',restaurant);
-
 app.use("/api/reviews", reviews);
 app.use("/api/userReviews", userReviews);
 app.use("/api/restaurant", restaurant);
