@@ -44,7 +44,7 @@ const HeaderLinks = props => {
   const onLogout = () => {
     logout();
   };
-  console.log(isAuthenticated);
+ 
   const guestLinks = (
     <Fragment>
       <ListItem className={classes.listItem}>

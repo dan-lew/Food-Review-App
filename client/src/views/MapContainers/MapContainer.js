@@ -1,14 +1,27 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-import MapAutoComplete from '../../MapComponents/MapAutoComplete';
-import MapMarker from '../../MapComponents/MapMarker';
-import PlaceCard from '../../MapComponents/PlaceCard';
-//../components/ConstraintSlider
-import ConstraintSlider from '../../MapComponents/ConstraintSlider';
-import { Button, Input, Divider, message, Slider } from 'antd';
-import Geocode from 'react-geocode';
-const DE_COOR = { lat:51.1657, lng:10.4515 };
+import React, { Component } from "react";
+import GoogleMapReact from "google-map-react";
+import MapAutoComplete from "../../MapComponents/MapAutoComplete";
+import MapMarker from "../../MapComponents/MapMarker";
+import PlaceCard from "../../MapComponents/PlaceCard";
+import ConstraintSlider from "../../MapComponents/ConstraintSlider";
+import { Button, Input, Divider, message, Slider } from "antd";
+import Geocode from "react-geocode";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
+import CustomInput from "components/CustomInput/CustomInput.js";
+// import classNames from "classnames";
+// import { makeStyles } from "@material-ui/core/styles";
+// import styles from "assets/jss/material-kit-react/components/cardStyle";
+// import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+// import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 
+const DE_COOR = { lat: 51.1657, lng: 10.4515 };
+// const useStylesT = makeStyles(stylesT);
+// const useStylesI = makeStyles(stylesI);
+// const classesT = useStylesT();
+// const classesI = useStylesI();
+// const useStyles = makeStyles(styles);
+// const classes = useStyles();
 class MapsContainer extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +44,7 @@ class MapsContainer extends Component {
       zoom:6
     };
   }
+  
 
   // Update name for constraint with index === key
   updateConstraintName = ((event, key) => {
@@ -188,6 +202,7 @@ class MapsContainer extends Component {
           }
           // Finally, Add results to state
           this.setState({ searchResults: filteredResults });
+          console.log("this.state: ", this.state)
         }));
       }
       this.setCenter(latPlace[0],lngPlace[0])
@@ -205,18 +220,19 @@ class MapsContainer extends Component {
     const { autoCompleteService, geoCoderService } = this.state; // Google Maps Services
     return (
       <div className="w-100 d-flex py-4 flex-wrap justify-content-center">
-        <h1 className="w-100 fw-md">Find Some restaurants!</h1>
+        <h3 className="w-100 fw-md">Find Some restaurants!</h3>
         {/* Constraints section */}
      
 
         {/* Maps Section */}
         <section className="col-8 h-lg " >
+        <Divider />
           <GoogleMapReact
             bootstrapURLKeys={{
               key: 'AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI',
               libraries: ['places', 'directions']
             }}
-            defaultZoom={6}
+            defaultZoom={8}
             defaultCenter={this.state.mapCenter}
             center={this.state.mapCenter}
             zoom={this.state.zoom}
@@ -244,7 +260,22 @@ class MapsContainer extends Component {
                 return (
                   <div key={key} className="mb-4">
                     <div className="d-flex mb-2">
-                      <Input className="col-4 mr-2" placeholder="Name" onChange={(event) => this.updateConstraintName(event, key)} />
+                    {/* <CustomInput  onChange={(event) => this.updateConstraintName(event, key)} 
+                      labelText="Country"
+                      id="first"
+                      formControlProps={{
+                        fullWidth: true,
+                        
+                      }}
+                      inputProps={{
+                       
+                        type: "text",
+                        name: "country",
+                        required:true
+                      }}
+                    /> */}
+
+                      <Input  className="col-4 mr-2" placeholder="Name" onChange={(event) => this.updateConstraintName(event, key)} />
                       <MapAutoComplete
                         autoCompleteService={autoCompleteService}
                         geoCoderService={geoCoderService}

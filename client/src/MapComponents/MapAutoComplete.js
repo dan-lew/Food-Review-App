@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { AutoComplete } from 'antd';
+import CustomInput from "components/CustomInput/CustomInput.js";
 
 class MapAutoComplete extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class MapAutoComplete extends Component {
   // Runs a search on the current value as the user types in the AutoComplete field.
   handleSearch = ((value) => {
     const { autoCompleteService, germanyLatLng } = this.state;
+    console.log("autocomplet: " ,autoCompleteService ); 
     // Search only if there is a string
     if (value.length > 0) {
       const searchQuery = {
@@ -51,8 +53,9 @@ class MapAutoComplete extends Component {
         dataSource={dataSource}
         onSelect={this.onSelect}
         onSearch={this.handleSearch}
-        placeholder="Address"
-      />
+      >
+
+      </AutoComplete>
     );
   }
 }
