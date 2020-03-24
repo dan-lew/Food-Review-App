@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
-import GoogleMapReact from "google-map-react";
-import MapAutoComplete from "../../MapComponents/MapAutoComplete";
-import MapMarker from "../../MapComponents/MapMarker";
-import PlaceCard from "../../MapComponents/PlaceCard";
-import ConstraintSlider from "../../MapComponents/ConstraintSlider";
-import { Button, Input, Divider, message, Slider } from "antd";
-import Geocode from "react-geocode";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
-// import classNames from "classnames";
-// import { makeStyles } from "@material-ui/core/styles";
-// import styles from "assets/jss/material-kit-react/components/cardStyle";
-// import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
-// import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
-const API_KEY=""
-const DE_COOR = { lat: 51.1657, lng: 10.4515 };
-// const useStylesT = makeStyles(stylesT);
-// const useStylesI = makeStyles(stylesI);
-// const classesT = useStylesT();
-// const classesI = useStylesI();
-// const useStyles = makeStyles(styles);
-// const classes = useStyles();
-=======
 
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
@@ -35,8 +9,7 @@ import ConstraintSlider from '../../MapComponents/ConstraintSlider';
 import { Button, Input, Divider, message, Slider } from 'antd';
 import Geocode from 'react-geocode';
 const DE_COOR = { lat:51.1657, lng:10.4515 };
-
->>>>>>> testing1
+const API_KEY="AIzaSyBvZ2t-zd4VirWdKhMQPCz-jMusKgF7ulI"
 class MapsContainer extends Component {
   constructor(props) {
     super(props);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { AutoComplete } from 'antd';
-import CustomInput from "components/CustomInput/CustomInput.js";
+
 
 class MapAutoComplete extends Component {
   constructor(props) {
