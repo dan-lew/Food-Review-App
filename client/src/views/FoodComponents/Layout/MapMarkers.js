@@ -5,8 +5,8 @@ import Autocomplete from 'react-google-autocomplete';
 
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-
-Geocode.setApiKey( "AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic" );
+const API_KEY="AIzaSyBvZ2t-zd4VirWdKhMQPCz-jMusKgF7ulI"
+Geocode.setApiKey(API_KEY);
 
 Geocode.enableDebug();
 

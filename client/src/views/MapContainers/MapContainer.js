@@ -14,7 +14,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 // import styles from "assets/jss/material-kit-react/components/cardStyle";
 // import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 // import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
-
+const API_KEY=""
 const DE_COOR = { lat: 51.1657, lng: 10.4515 };
 // const useStylesT = makeStyles(stylesT);
 // const useStylesI = makeStyles(stylesI);
@@ -156,7 +156,7 @@ class MapsContainer extends Component {
       location: markerLatLng,
       radius: '10000', // Cannot be used with rankBy. Pick your poison!
       type: ['food', 'cafe'], // List of types: https://developers.google.com/places/supported_types
-      query: 'iranian restaurant'
+      query: 'restaurant'
       //rankBy: mapsApi.places.RankBy.DISTANCE, // Cannot be used with radius.
     };
     const latPlace=[];
@@ -253,7 +253,7 @@ class MapsContainer extends Component {
         <Divider />
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: '',
+              key: API_KEY,
               libraries: ['places', 'directions']
             }}
             defaultZoom={8}
@@ -284,22 +284,9 @@ class MapsContainer extends Component {
                 return (
                   <div key={key} className="mb-4">
                     <div className="d-flex mb-2">
-                    {/* <CustomInput  onChange={(event) => this.updateConstraintName(event, key)} 
-                      labelText="Country"
-                      id="first"
-                      formControlProps={{
-                        fullWidth: true,
-                        
-                      }}
-                      inputProps={{
-                       
-                        type: "text",
-                        name: "country",
-                        required:true
-                      }}
-                    /> 
+                    
 
-                      <Input  className="col-4 mr-2" placeholder="Name" onChange={(event) => this.updateConstraintName(event, key)} />*/}
+                      <Input  className="col-4 mr-2" placeholder="Name" onChange={(event) => this.updateConstraintName(event, key)} />
                       <MapAutoComplete
                         autoCompleteService={autoCompleteService}
                         geoCoderService={geoCoderService}
@@ -334,8 +321,8 @@ class MapsContainer extends Component {
           <>
             <Divider />
             <section className="col-12">
-              <div className="d-flex flex-column justify-content-center">
-                <h1 className="mb-4 fw-md">Woow! My favorite foods!</h1>
+              <div  className="d-flex flex-column justify-content-center">
+                <h3  style={{'textAlign':"center"}} className="mb-4 fw-md">Woow! My favorite foods!</h3>
                 <div className="d-flex flex-wrap">
                   {searchResults.map((result, key) => (
                     <PlaceCard info={result} key={key} />
