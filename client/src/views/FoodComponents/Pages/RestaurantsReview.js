@@ -1,10 +1,9 @@
-import React, { useStyles, Fragment } from "react";
-import { Link } from "react-router-dom";
+import React, {  Fragment } from "react";
+
 
 // import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import MapContainer from "../Layout/MapContainer";
+
 import Map from "../Layout/Map";
-import MapMarkers from "../Layout/MapMarkers";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card";
@@ -64,7 +63,7 @@ export default function RestaurantsReview(props) {
             {/* <StarIcon style={{color:"yellow"}}></StarIcon> */}
           </Fragment>
         );
-        break;
+        
       case 2:
         return (
           <Fragment>
@@ -73,7 +72,7 @@ export default function RestaurantsReview(props) {
             <StarIcon style={{ color: "yellow" }}></StarIcon>
           </Fragment>
         );
-        break;
+       
       case 3:
         return (
           <Fragment>
@@ -83,7 +82,7 @@ export default function RestaurantsReview(props) {
             <StarIcon style={{color:"yellow"}}></StarIcon> */}
           </Fragment>
         );
-        break;
+        
       case 4:
         return (
           <Fragment>
@@ -93,7 +92,7 @@ export default function RestaurantsReview(props) {
             <StarIcon style={{ color: "yellow" }}></StarIcon>
           </Fragment>
         );
-        break;
+        
       case 5:
         return (
           <Fragment>
@@ -104,7 +103,7 @@ export default function RestaurantsReview(props) {
             <StarIcon style={{ color: "yellow" }}></StarIcon>
           </Fragment>
         );
-        break;
+        
 
       default:
         return (
@@ -121,7 +120,7 @@ export default function RestaurantsReview(props) {
       <div>
         <Header
           brand={
-            <img
+            <img alt="LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }
@@ -244,7 +243,7 @@ export default function RestaurantsReview(props) {
                       >
                         <GridContainer>
                           <GridItem xs={12} sm={1} md={1} lg={1}>
-                            <img
+                            <img alt="LogoImg"
                               src={restaurantView.user.src}
                               className={
                                 classesI.imgRoundedCircle +

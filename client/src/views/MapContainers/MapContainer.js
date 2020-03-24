@@ -6,8 +6,8 @@ import MapMarker from '../../MapComponents/MapMarker';
 import PlaceCard from '../../MapComponents/PlaceCard';
 //../components/ConstraintSlider
 import ConstraintSlider from '../../MapComponents/ConstraintSlider';
-import { Button, Input, Divider, message, Slider } from 'antd';
-import Geocode from 'react-geocode';
+import { Button, Input, Divider, message } from 'antd';
+
 const DE_COOR = { lat:51.1657, lng:10.4515 };
 
 class MapsContainer extends Component {
@@ -202,7 +202,7 @@ class MapsContainer extends Component {
 
   render() {
 
-    const { constraints, mapsLoaded, germanyLatLng, markers, searchResults,latPlace, lngPlace} = this.state;
+    const { constraints, mapsLoaded, germanyLatLng, markers, searchResults} = this.state;
     const { autoCompleteService, geoCoderService } = this.state; // Google Maps Services
     return (
       <div className="w-100 d-flex py-4 flex-wrap justify-content-center">

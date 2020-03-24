@@ -15,7 +15,7 @@ export default function CardHeaderList(props) {
   const useStylesI = makeStyles(stylesI);
   const classesI = useStylesI();
   console.log(classes);
-  const { ...rest } = props;
+  // const { ...rest } = props;
   return (
     <div>     
         {/* <GridContainer xs={12} sm={12} md={12} lg={12}>
@@ -25,7 +25,7 @@ export default function CardHeaderList(props) {
         </GridContainer> */}
         <GridContainer>
             <GridItem xs={12} sm={1} md={1} lg={1}>
-            <img
+            <img alt="LogoImg"
               src={avatar}
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidUser+" mui--align-middle" 

@@ -1,35 +1,22 @@
-import React, { useStyles, useState, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
-import Grid from "@material-ui/core/Grid";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
 import CardHeader from "components/Card/CardHeader";
-import CardFooter from "components/Card/CardFooter";
-import { container, title } from "assets/jss/material-kit-react.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
-import stylesB from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
-import { cardTitle } from "assets/jss/material-kit-react";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
-import StarIcon from "@material-ui/icons/Star";
 import avatar from "assets/img/faces/avatar.jpg";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Icon from "@material-ui/core/Icon";
 import Datetime from "react-datetime";
-import CustomInput from "components/CustomInput/CustomInput.js";
 import CardHeaderList from "./CardList/CardHeaderList";
 import CardBodyList from "./CardList/CardBodyList";
 import ListRestaurantsReview from "./ReviewList/ListRestaurantsReview";
 import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import Sum from "./ReviewList/Sum";
-import Button from "components/CustomButtons/Button.js";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 
 export default function UserPr(props) {
@@ -39,15 +26,14 @@ export default function UserPr(props) {
   console.log(classesT);
   const useStyles = makeStyles(styles);
   const classes = useStyles();
-  const useStylesB = makeStyles(styles);
-  const classesB = useStylesB();
-  console.log(classes);
-  const { ...rest } = props;
 
-    const [img, setImg] = useState({
-      photo:"",
-    })
-    const {photo} = img;
+  console.log(classes);
+  // const { ...rest } = props;
+
+    // const [img, setImg] = useState({
+    //   photo:"",
+    // })
+    // const {photo} = img;
 
   const [user, setUser] = useState([
     {
@@ -80,21 +66,21 @@ export default function UserPr(props) {
     }
   ]);
 
-  let user1 = [
-    {
-      id: "1",
-      rating: 2,
-      food: "Lasagne",
-      date: new Date(),
-      user: {
-        photo: "https://via.placeholder.com/60x60",
-        description: "bla bla bla bla",
-        name: "user name",
-        rating: 3,
-        price: 20.0
-      }
-    }
-  ];
+  // let user1 = [
+  //   {
+  //     id: "1",
+  //     rating: 2,
+  //     food: "Lasagne",
+  //     date: new Date(),
+  //     user: {
+  //       photo: "https://via.placeholder.com/60x60",
+  //       description: "bla bla bla bla",
+  //       name: "user name",
+  //       rating: 3,
+  //       price: 20.0
+  //     }
+  //   }
+  // ];
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
   const getImgPath = path => {
     console.log(path);
@@ -104,7 +90,7 @@ export default function UserPr(props) {
   console.log("user: ", user);
   let price = [];
   let getPrice = count => {
-    if (count == 0) {
+    if (count === 0) {
       console.log("keine daten");
       return (
         <Fragment>

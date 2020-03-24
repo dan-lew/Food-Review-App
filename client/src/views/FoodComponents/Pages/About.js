@@ -41,7 +41,7 @@ const About = props => {
       <div className="">
         <Header
           brand={
-            <img
+            <img alt = "LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }

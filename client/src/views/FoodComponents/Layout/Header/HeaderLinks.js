@@ -62,29 +62,28 @@ const HeaderLinks = props => {
   );
   const userLinks = (
     <Fragment>
-      {/* <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/editprofile">
-          Edit Profile
+      <ListItem className={classes.listItem}>
+        <Link className={classes.navLink} to="/welcome-user">
+          Search Food{" "}
         </Link>
-      </ListItem> */}
-
-      <ListItem className={classes.listItem}>
-      <Link className={classes.navLink} to="/welcome-user">Welcome User </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>
-      <Link className={classes.navLink} to="/user-profile">Profile </Link>
+        <Link className={classes.navLink} to="/user-profile">
+          Profile{" "}
+        </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>
-      <Link className={classes.navLink}  to="/review-page">User Reviews </Link>
+        <Link className={classes.navLink} to="/review-page">
+          User Reviews{" "}
+        </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} onClick={onLogout} to="/">
           Logout
         </Link>
-
       </ListItem>
     </Fragment>
   );
@@ -95,11 +94,13 @@ const HeaderLinks = props => {
           Home
         </Link>
       </ListItem>
-
+      {isAuthenticated && userLinks}
       {!isAuthenticated && guestLinks}
 
       <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/about">About </Link>
+        <Link className={classes.navLink} to="/about">
+          About{" "}
+        </Link>
       </ListItem>
 
       <ListItem className={classes.listItem}>
@@ -108,7 +109,7 @@ const HeaderLinks = props => {
         </Link>
       </ListItem>
 
-      {isAuthenticated && userLinks}
+      
     </List>
   );
 };

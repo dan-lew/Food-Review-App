@@ -1,7 +1,7 @@
-import React, { useReducer } from 'react';
-import axios from 'axios'
-import AuthContext from './authContext';
-import authReducer from './authReducer';
+// import React, { useReducer } from 'react';
+// import axios from 'axios'
+// import AuthContext from './authContext';
+// import authReducer from './authReducer';
 
   
 import {
@@ -15,7 +15,7 @@ import {
     CLEAR_ERRORS,
     GET_USER_PROFILE,
     EDIT_PROFILE ,
-    USER_ERROR,
+    // USER_ERROR,
     
    
 } from "../type";

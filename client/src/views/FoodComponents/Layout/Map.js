@@ -288,7 +288,7 @@ class Map extends Component{
 			)
 		);
 		let map;
-		let jsonPl="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latVal},${lngVal}&radius=2000&type=restaurant&key=AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic&libraries=places"
+		// let jsonPl="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latVal},${lngVal}&radius=2000&type=restaurant&key=AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic&libraries=places"
 
 		if( this.props.center.lat !== undefined ) {
 			map = <div>

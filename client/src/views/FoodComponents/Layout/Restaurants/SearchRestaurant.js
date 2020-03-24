@@ -1,9 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 //import classBut from 'src/assets/jss/material-kit-react/components/buttonStyle.js'
-import { Link, Switch, Route } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Button from "components/CustomButtons/Button";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import AlertContext from "context/alert/alertContext";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
@@ -13,7 +11,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { makeStyles } from "@material-ui/core/styles";
 import stylesT from "assets/jss/material-kit-react/components/typographyStyle.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-import axios from 'axios'
 import RestaurantContext from '../../../../context/restaurants/restaurantContext'
 
 const  SearchRestaurant=(props)=> {
@@ -42,7 +39,7 @@ const  SearchRestaurant=(props)=> {
 
 // Restaurants list
 const restaurantContext = useContext(RestaurantContext);
-const { restaurants,filtered,error,getCatRestaurant, catrestaurants } = restaurantContext;
+const {getCatRestaurant, catrestaurants } = restaurantContext;
 
 const getAllRestaurant=(value)=>{
   getCatRestaurant(value)
@@ -55,7 +52,7 @@ console.log(catrestaurants)
     category: props.category
   };
   console.log(state);
-  const { ...rest } = state;
+  // const { ...rest } = state;
   const [sendFood, setFood] = useState({
     food: ""
   });
