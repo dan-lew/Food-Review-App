@@ -9,7 +9,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 
 // core components
 import Header from "../FoodComponents/Layout/Header/Header.js";
-import HeaderLinks from "../FoodComponents/Layout/HeaderLogin/HeaderLinksUser.js";
+import HeaderLinks from "../FoodComponents/Layout/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";

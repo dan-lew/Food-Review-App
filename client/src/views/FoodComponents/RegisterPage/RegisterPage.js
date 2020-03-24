@@ -14,7 +14,6 @@ import Email from "@material-ui/icons/Email";
 // import People from "@material-ui/icons/People";
 // core components
 import Header from "../Layout/Header/Header.js";
-import HeaderLinks1 from "components/Header/HeaderLinks1.js";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -52,7 +51,7 @@ const RegisterPage = (props) => {
 
    useEffect(()=> {
           if(isAuthenticated){
-              props.history.push('/login/welcome-user');
+              props.history.push('/welcome-user');
           }
           if(error === 'User already exist'){
               setAlert(error, 'danger');

@@ -241,7 +241,11 @@ class MapsContainer extends Component {
         <Divider />
           <GoogleMapReact
             bootstrapURLKeys={{
+<<<<<<< HEAD
               key: API_KEY,
+=======
+              key: 'AIzaSyD-wdqyhQAUQRDABkb3xKrCAV7Eg6eipvw',
+>>>>>>> testing1
               libraries: ['places', 'directions']
             }}
             defaultZoom={8}

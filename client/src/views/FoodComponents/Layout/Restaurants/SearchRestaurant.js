@@ -101,7 +101,7 @@ console.log(catrestaurants)
                   id="link"
                   className={classesT.primaryText + " " + classesT.link}
                   key={index}
-                  to={`/login/welcome-user/${value}`}
+                  to={`/welcome-user/${value}`}
                 >
                   {" "}
                   {value}{<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}

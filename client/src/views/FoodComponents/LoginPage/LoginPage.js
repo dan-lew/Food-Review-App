@@ -39,7 +39,7 @@ const LoginPage = props => {
 
   useEffect(()=> {
     if(isAuthenticated){
-        props.history.push('/login/welcome-user');//go to profile page
+        props.history.push('/welcome-user');//go to profile page
     }
     if (error === "Invalid email or password") {
       setAlert(error, "danger");
