@@ -56,6 +56,7 @@ class MapAutoComplete extends Component {
             dataSource={dataSource}
             onSelect={this.onSelect}
             onSearch={this.handleSearch}
+            placeholder="City"
           ></AutoComplete>
         </GridItem>
       </GridContainer>

@@ -13,7 +13,7 @@ import CardBody from "components/Card/CardBody";
 import Geocode from "react-geocode";
 
 const DE_COOR = { lat: 51.1657, lng: 10.4515 };
-const API_KEY = "";
+const API_KEY = "AIzaSyBvZ2t-zd4VirWdKhMQPCz-jMusKgF7ulI";
 
 class MapsContainer extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class MapsContainer extends Component {
       latPlace: [],
       restName: [],
       mapCenter: { lat: 51.1657, lng: 10.4515 },
-      zoom: 6,
+      zoom: 5.8,
       cityLocation: { lat: 0, lng: 0 }
     };
   }
@@ -95,7 +95,7 @@ class MapsContainer extends Component {
         lat: lat,
         lng: lng
       },
-      zoom: 15
+      zoom: 12
     });
   };
 
@@ -259,25 +259,26 @@ class MapsContainer extends Component {
         sm={12}
         md={12}
         lg={12}
-        style={{ textAlign: "center" }}
+        style={{ textAlign: "center",  justifyContent:"center" }}
       >
         {/* <div className="w-100 d-flex py-4 flex-wrap justify-content-center"> */}
 
         <h3
           style={{
+            margin:"35px",
             justifyContent: "center",
             textAlign: "center",
             'color': "#9c27b0"
           }}
         >
-          Find some restaurants!
+          Find Some Restaurants!
         </h3>
         {/* Constraints section */}
 
         {/* Maps Section */}
         {/* <GridItem xs={12} sm={12} md={12} > */}
-        <section className="col-8 h-lg " >
-        <Divider />
+        <section style={{'height':'450px', textAlign:"center", paddingLeft:"45px", justifyContent:"center" }} className="col-12 " >
+     
         <GoogleMapReact
           bootstrapURLKeys={{
             key: API_KEY,
@@ -300,7 +301,7 @@ class MapsContainer extends Component {
         </section>
         {/* </GridItem> */}
         {/* <GridItem xs={12} sm={12} md={12} lg={12}> */}
-        <section className="col-4">
+        <section style={{'height':'250px', textAlign:"center", padding:"50px"}} className="col-8">
           {mapsLoaded ? (
             <div>
               {constraints.map((constraint, key) => {
@@ -310,7 +311,7 @@ class MapsContainer extends Component {
                     <div className="d-flex mb-2">
                       <Input
                         className="col-4 mr-2"
-                        placeholder="Name"
+                        placeholder="Country"
                         onChange={event =>
                           this.updateConstraintName(event, key)
                         }
@@ -330,16 +331,25 @@ class MapsContainer extends Component {
                       onChange={value => this.updateConstraintTime(key, value)}
                       text="minutes away by car"
                     />
-                    <Divider />
+                   
                   </div>
                 );
               })}
             </div>
           ) : null}
+          {/* Search Button */}
+          <Button
+            className="fw-md"
+            color="primary"
+            size="sm"
+            onClick={this.handleSearch}
+          >
+            Search!
+          </Button>
         </section>
         {/* </GridItem> */}
-        <div style={{ marginTop: "40px" }}>
-          {/* Search Button */}
+        {/*  <div style={{ marginTop: "40px" }}>
+         Search Button 
           <Button
             className="mt-4 fw-md"
             color="primary"
@@ -347,8 +357,8 @@ class MapsContainer extends Component {
             onClick={this.handleSearch}
           >
             Search!
-          </Button>
-        </div>
+          </Button>  </div>*/}
+      
 
         {/* Results section */}
         {searchResults.length > 0 ? (
@@ -357,7 +367,7 @@ class MapsContainer extends Component {
             <section className="col-12">
               <div className="d-flex flex-column justify-content-center">
                 <h3 style={{ textAlign: "center" }} className="mb-4 fw-md">
-                 Recommended restaurants
+                 Recommended Restaurants
                 </h3>
                 <div style={{ textAlign: "center", justifyContent:'space-evenly' }} className="d-flex flex-wrap">
                   {searchResults.map((result, key) => (

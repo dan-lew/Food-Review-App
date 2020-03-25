@@ -40,10 +40,9 @@ const PlaceCard = ({ info, index }) => {
               height: "200px",
               marginTop: "20px",
               borderRadius: "50%",
-              backgroundColor: "#f0d5f5",
               boxShadow: "2px 2px 12px #969696"
             }}
-             alt="Not Foto"
+             alt="No Photo"
             // alt={photoUrl}
           />
         </Fragment>
