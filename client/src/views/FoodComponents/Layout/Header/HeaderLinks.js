@@ -81,6 +81,12 @@ const HeaderLinks = props => {
       </ListItem>
 
       <ListItem className={classes.listItem}>
+        <Link className={classes.navLink} to="/restaurantsReview">
+          Restaurants Reviews{" "}
+        </Link>
+      </ListItem>
+      
+      <ListItem className={classes.listItem}>
         <Link className={classes.navLink} onClick={onLogout} to="/">
           Logout
         </Link>
