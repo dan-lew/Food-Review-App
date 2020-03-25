@@ -73,8 +73,7 @@ export default function Header(props) {
     [classes.fixed]: fixed
   });
   const brandComponent =<Button className={classes.title}>{brand}</Button>;
-  console.log(brandComponent)
-  console.log("Header: ")
+
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
@@ -142,7 +141,7 @@ Header.propTypes = {
  // logo:PropTypes.string,
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
-  brand: PropTypes.string,
+  brand: PropTypes.object,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
   // this will cause the sidebar to change the color from

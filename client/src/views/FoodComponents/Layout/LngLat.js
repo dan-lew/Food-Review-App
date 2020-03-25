@@ -1,8 +1,8 @@
-let API_KEY="AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI"
+let API_KEY=""
 console.log(API_KEY)
 let	stateProps = {
     root:"https://maps.googleapis.com/maps/api/place/nearbysearch/json",
-    keyApi:"AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI",                     
+    keyApi:"",                     
     location:"",
     lng:"",
     lat:"",
@@ -19,11 +19,11 @@ let typeQuery= type;
 console.log(stateProps.keyApi, " ", typeQuery)
         //https://maps.googleapis.com/maps/api/place/nearbysearch/json
         //?location=53.6424933,10.0465429&radius=2000
-        //&type=restaurant&key=AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI&libraries=places
+        //&type=restaurant&key=&libraries=places
 
 //https://maps.googleapis.com/maps/api/place/findplacefromtext/json?
 //location=53.5510846,9.9936819&radius=2000&type=cafe
-//&key=AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI
+//&key=
 //&libraries=places
         let newUrl = `${stateProps.root}?location=${lat},${lng}&radius=2000&type=${typeQuery}&key=${API_KEY}&libraries=places`;
         // typeQuery.forEach((item)=>{
