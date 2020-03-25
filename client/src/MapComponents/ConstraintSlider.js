@@ -1,16 +1,35 @@
-import React from 'react';
-import { Slider } from 'antd';
+import React from "react";
+import { Slider } from "antd";
+import { CarTwoTone } from "@ant-design/icons";
+import { MuiThemeProvider } from "material-ui";
+import getMuiTheme from "material-ui/styles/getMuiTheme";
 
-const ConstraintSlider = (({ iconType, value, onChange, text }) => {
+const ConstraintSlider = ({ iconType, value, onChange, text }) => {
+  const muiTheme = getMuiTheme({
+    slider: {
+      trackColor: "yellow",
+      selectionColor: "red"
+    }
+  });
+console.log(muiTheme.slider)
   return (
-    < section className="d-flex flex-column" >
-      <div className="d-flex w-100 align-items-center">
-        {/* <Icon className="font-1-5 mr-4" type={iconType} /> */}
-        <Slider className="w-100" value={value} min={0} max={60} onChange={onChange} />
+    <section className="">
+      <div className="">
+        {/* <Icon className="" type={iconType} /> */}
+        <CarTwoTone style={{ fontSize: "25px" }} twoToneColor="#9c27b0" />
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <Slider
+            className=""
+            value={value}
+            min={0}
+            max={60}
+            onChange={onChange}
+          />
+        </MuiThemeProvider>
       </div>
       <span className="text-center">{text}</span>
-    </section >
+    </section>
   );
-});
+};
 
 export default ConstraintSlider;
