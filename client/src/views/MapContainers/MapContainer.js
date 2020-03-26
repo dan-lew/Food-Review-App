@@ -13,7 +13,7 @@ import CardBody from "components/Card/CardBody";
 import Geocode from "react-geocode";
 
 const DE_COOR = { lat: 51.1657, lng: 10.4515 };
-const API_KEY = "";
+const API_KEY = "AIzaSyBvZ2t-zd4VirWdKhMQPCz-jMusKgF7ulI";
 
 class MapsContainer extends Component {
   constructor(props) {

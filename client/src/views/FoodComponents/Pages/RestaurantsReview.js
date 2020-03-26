@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 // import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import MapContainer from "../Layout/MapContainer";
 import Map from "../Layout/Map";
-import MapMarkers from "../Layout/MapMarkers";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card";
@@ -204,7 +203,7 @@ export default function RestaurantsReview(props) {
                         lat: 53.5510846,
                         lng: 9.9936819
                       }}
-                      width="20%"
+                      
                       height="200px"
                       zoom={15}
                     />

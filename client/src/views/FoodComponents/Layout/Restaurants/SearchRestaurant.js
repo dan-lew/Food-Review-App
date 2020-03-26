@@ -57,13 +57,15 @@ console.log(catrestaurants)
   console.log(state);
   const { ...rest } = state;
   const [sendFood, setFood] = useState({
-    food: ""
+    food: "",
+    restaurant:""
   });
-  const { food } = sendFood;
+  const { food,city } = sendFood;
 
   const onChange = e => {
     console.log("input food: ",e.target.name);
     setFood({ ...sendFood, [e.target.name]: e.target.value });
+    console.log("sendFood: ",sendFood)
   };
     
 
@@ -99,20 +101,21 @@ console.log(catrestaurants)
                 <Link 
                   onClick={()=>{getAllRestaurant(value)}}
                   id="link"
-                  className={classesT.primaryText + " " + classesT.link}
+                  className={classesT.primaryText + " " + classesT.restaurant}
                   key={index}
                   to={`/welcome-user/${value}`}
                 >
                   {" "}
-                  {value}{<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
+                  {value}{<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
                 </Link>
               </Fragment>
             );
           })}
         </GridItem>
-        <GridItem>
+        <GridItem xs={12} sm={12} md={12} lg={12}>
           <form onSubmit={searchFood} className={classes.form}>
-            <CustomInput
+            <GridItem xs={12} sm={12} md={8} lg={8}>
+          <CustomInput 
               onChange={onChange}
               labelText="Search for food"
               id="float"
@@ -130,6 +133,26 @@ console.log(catrestaurants)
                 )
               }}
             />
+            </GridItem>
+            <GridItem xs={12} sm={12} md={8} lg={8}>
+            <CustomInput
+              onChange={onChange}
+              labelText="City"
+              id="float"
+              formControlProps={{
+                fullWidth: true
+              }}
+              inputProps={{
+                onChange: onChange,
+                name: "city",
+                type: "text",
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <SearchIcon />
+                  </InputAdornment>
+                )
+              }}
+            /></GridItem>
             <Button color="primary" size="sm" type="submit"> Search </Button>
           </form>
         </GridItem>

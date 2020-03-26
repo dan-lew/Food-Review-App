@@ -63,7 +63,7 @@ export default function WelUser(props) {
     //get data from restaurant with users food
   }
 
-  let listCategory = ["Italian", "Indian", "Japanese", "Greek", "Thai"];
+  let listCategory = ["Italian", "Indian", "Asian","Iranian", "Greek", "Thai","Mediterranean"];
 
   return (
     <div
