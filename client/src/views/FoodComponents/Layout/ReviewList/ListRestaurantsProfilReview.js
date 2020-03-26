@@ -61,7 +61,7 @@ const ListRestaurantsProfilReview = props => {
         <GridItem>
           <GridContainer>
             {catrestaurants.map(restaurant => (
-              <GridItem xs={12} sm={6} md={4} lg={4}>
+              <GridItem xs={12} sm={6} md={4} lg={3}>
                 <CardListRestaurant
                   key={restaurant.id}
                   restaurant={restaurant}
