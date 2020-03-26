@@ -58,7 +58,7 @@ console.log(catrestaurants)
   const { ...rest } = state;
   const [sendFood, setFood] = useState({
     food: "",
-    restaurant:""
+    city:""
   });
   const { food,city } = sendFood;
 
@@ -83,6 +83,7 @@ console.log(catrestaurants)
       setAlert("please complete this field", "danger");
     } else {
       props.searchFunction(food)
+      props.searchFunction(city)
     }
     console.log("searchFood", food);
   };
@@ -114,7 +115,7 @@ console.log(catrestaurants)
         </GridItem>
         <GridItem xs={12} sm={12} md={12} lg={12}>
           <form onSubmit={searchFood} className={classes.form}>
-            <GridItem xs={12} sm={12} md={8} lg={8}>
+            <GridItem xs={12} sm={8} md={6} lg={6}>
           <CustomInput 
               onChange={onChange}
               labelText="Search for food"
@@ -134,7 +135,7 @@ console.log(catrestaurants)
               }}
             />
             </GridItem>
-            <GridItem xs={12} sm={12} md={8} lg={8}>
+            <GridItem xs={12} sm={8} md={6} lg={6}>
             <CustomInput
               onChange={onChange}
               labelText="City"

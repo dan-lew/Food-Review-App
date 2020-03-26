@@ -1,6 +1,6 @@
 import React, { useStyles, Fragment } from "react";
 import { Link } from "react-router-dom";
-
+import { Rate} from "antd";
 // import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import MapContainer from "../Layout/MapContainer";
 import Map from "../Layout/Map";
@@ -48,72 +48,6 @@ export default function RestaurantsReview(props) {
     }
   };
   console.log(restaurantView.rating);
-
-  const starShow = (count) => {
-    for (let i = 0; i <= count; i++) {
-      return <StarIcon style={{ color: "yellow" }}></StarIcon>;
-    }
-  };
-  const ratingStar = rating => {
-    switch (rating) {
-      case 1:
-        return (
-          <Fragment>
-            {starShow(1)}
-            {/* <StarIcon style={{color:"yellow"}}></StarIcon> */}
-          </Fragment>
-        );
-        break;
-      case 2:
-        return (
-          <Fragment>
-            {/* {starShow(2)} */}
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-          </Fragment>
-        );
-        break;
-      case 3:
-        return (
-          <Fragment>
-            {starShow(3)}
-            {/* <StarIcon style={{color:"yellow"}}></StarIcon>
-            <StarIcon style={{color:"yellow"}}></StarIcon>
-            <StarIcon style={{color:"yellow"}}></StarIcon> */}
-          </Fragment>
-        );
-        break;
-      case 4:
-        return (
-          <Fragment>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-          </Fragment>
-        );
-        break;
-      case 5:
-        return (
-          <Fragment>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-            <StarIcon style={{ color: "yellow" }}></StarIcon>
-          </Fragment>
-        );
-        break;
-
-      default:
-        return (
-          <Fragment>
-            {/* kein rating enthalten */}
-            <StarBorderIcon></StarBorderIcon>
-          </Fragment>
-        );
-    }
-  };
 
   return (
     <div>
@@ -172,14 +106,14 @@ export default function RestaurantsReview(props) {
                         }
                       >
                         <p>{restaurantView.food}</p>
-                        <p>{ratingStar(restaurantView.rating)}</p>
+                        <p> Rating - <Rate value={restaurantView.rating}/></p>
                       </CardBody>
                     </Card>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={4} lg={4}>
                     <Card>
                       <CardBody>
-                        <h4>Contact Info</h4>
+                        <h4 style={{color:"#9c27b0"}}>Contact Info</h4>
                         <div
                           style={{
                             borderRadius: "20px",
@@ -256,7 +190,7 @@ export default function RestaurantsReview(props) {
 
                           <GridItem xs={12} sm={12} md={8} lg={8}>
                             <h3>{restaurantView.user.name} </h3>
-                            <p>{ratingStar(restaurantView.user.rating)}</p>
+                            <p> Rating - <Rate value={restaurantView.user.rating}/></p>
                           </GridItem>
                         </GridContainer>
                       </CardHeader>

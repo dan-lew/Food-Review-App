@@ -138,8 +138,8 @@ export default function WelUser(props) {
                <GridContainer>
                 <GridItem>
                   <Switch>
-                    <Route path="/welcome-user/Japanese">
-                      <h1 className={classesT.primaryText + " "+classesT.header} >Japanese</h1>
+                    <Route path="/welcome-user/Iranian">
+                      <h1 className={classesT.primaryText + " "+classesT.header} >Iranian</h1>
                       <ListRestaurantsProfilReview className={classesListR["show"]} category = "Japanese" />
                     </Route>
                     <Route path="/welcome-user/Italian">
@@ -156,6 +156,14 @@ export default function WelUser(props) {
                     </Route>
                     <Route path="/welcome-user/Thai">
                       <h1  className={classesT.primaryText + " "+classesT.header}>Thai</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Thai" />
+                    </Route>
+                    <Route path="/welcome-user/Asian">
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Asian</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Thai" />
+                    </Route>
+                    <Route path="/welcome-user/Mediterranean">
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Mediterranean</h1>
                       <ListRestaurantsProfilReview className={classesListR["show"]} category = "Thai" />
                     </Route>
                   </Switch>
