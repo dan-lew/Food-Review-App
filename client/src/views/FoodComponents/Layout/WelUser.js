@@ -56,8 +56,8 @@ export default function WelUser(props) {
     }
   };
 
-  const handleSearch=(food)=>{
-    console.log(food);
+  const handleSearch=(food,city)=>{
+    console.log(food,city);
     // edit
     //backend 
     //get data from restaurant with users food

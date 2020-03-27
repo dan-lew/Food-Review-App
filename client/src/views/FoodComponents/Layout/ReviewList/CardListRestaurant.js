@@ -33,7 +33,7 @@ const ListRestaurantStyle = {
 };
 
 const CardListRestaurant = ({
-  restaurant: { name, address, city, category, rating, photo }
+  restaurant: { restaurantName, address, city, category, rating, photo }
 }) => {
   const [anchorElBottom, setAnchorElBottom] = useState(null);
   const useStylesListR = makeStyles(ListRestaurantStyle);
@@ -56,7 +56,7 @@ const CardListRestaurant = ({
     }
   };
 
-  console.log(name);
+  console.log(restaurantName);
   return (
     <div>
       <GridContainer>
@@ -94,7 +94,7 @@ const CardListRestaurant = ({
             </div>
             <CardBody>
               {/* zeigt keine name von Restaurant */}
-              <h4 style={{ color: "#9c27b0" }}>{name}</h4>
+              <h4 style={{ color: "#9c27b0" }}>{restaurantName}</h4>
               <p>{address}</p>
               <p>{city}</p>
               <p>{category}</p>

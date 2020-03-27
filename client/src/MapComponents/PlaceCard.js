@@ -33,7 +33,8 @@ const PlaceCard = ({ info, index }) => {
     if (isPicture) {
       return (
         <Fragment>
-          <div style={{ 
+          <div
+            style={{
               width: "200px",
               height: "200px",
               borderRadius: "50%",
@@ -41,21 +42,24 @@ const PlaceCard = ({ info, index }) => {
               justifyContent: "center",
               textAlign: "center",
               alignItems: "center",
-              marginTop:"20px",
-              boxShadow: "0px 0px 10px #969696"}}>
-          <img
-            src={photoUrl}
-            style={{
-              width: "200px",
-              height: "200px",
-              borderRadius: "50%",
-              justifyItems: "center",
-              textAlign: "center",
-              aignItems: "center"
+              marginTop: "20px",
+              boxShadow: "0px 0px 10px #969696"
             }}
-             alt="No Photo"
-            // alt={photoUrl}
-          />
+          >
+            <img
+              src={photoUrl}
+              style={{
+                width: "200px",
+                height: "200px",
+                borderRadius: "50%",
+                justifyItems: "center",
+                textAlign: "center",
+                aignItems: "center",
+                justifySelf:"center"
+              }}
+              alt="No Photo"
+              // alt={photoUrl}
+            />
           </div>
         </Fragment>
       );
@@ -73,14 +77,11 @@ const PlaceCard = ({ info, index }) => {
               justifyItems: "center",
               textAlign: "center",
               alignItems: "center",
-              marginTop:"20px",
+              marginTop: "20px",
               boxShadow: "1px 1px 6px #969696"
-             
             }}
           >
-            <h4>
-              The pictures is not available
-            </h4>
+            <h4>The pictures is not available</h4>
           </div>
         </Fragment>
       );
@@ -124,11 +125,14 @@ const PlaceCard = ({ info, index }) => {
             >
               <Card
                 style={{ textAlign: "center", justifyContent: "space-evenly" }}
-              ><div style={{padding:"10px"}}>
-                <h5 style={{'color':"#9c27b0"}} className="card-title">{name}</h5>
-                <span className="d-block mb-1">{address}</span>
-                <span className="d-block">{distanceText}</span>
-                <span className="d-block">{timeText}</span>
+              >
+                <div style={{ padding: "10px" }}>
+                  <h5 style={{ color: "#9c27b0" }} className="card-title">
+                    {name}
+                  </h5>
+                  <span className="d-block mb-1">{address}</span>
+                  <span className="d-block">{distanceText}</span>
+                  <span className="d-block">{timeText}</span>
                 </div>
                 <CardBody>
                   <ul className="list-group list-group-flush">
