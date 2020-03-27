@@ -72,17 +72,16 @@ const CardListRestaurant = ({
           >
             <div
               style={{
-                width: "200px",
+                width: "150px",
                 marginTop: "10px",
-                height: "300px",
+                height: "180px",
                 alignItems: "center",
                 justifyItems: "center",
                 borderRadius: "10px",
                 boxShadow: "1px 1px 4px #969696",
                 justifyContent: "center",
-                padding: "20px",
+                padding: "10px",
                 alignItems: "center",
-                padding: "20px",
                 display: "block"
               }}
             >
@@ -99,6 +98,7 @@ const CardListRestaurant = ({
               <p>{address}</p>
               <p>{city}</p>
               <p>{category}</p>
+              <hr style={{backgroundColor:"#9c27b0"}}></hr>
               <p>
                 {" "}
                 Rating - <Rate value={rating} />
