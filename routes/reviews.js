@@ -1,8 +1,13 @@
+const mongoose = require("mongoose");
+let Combine=new mongoose.Schema();
+
 const express = require("express");
 const router = express.Router();
 const { uuid } = require("uuidv4");
 const { check, validationResult } = require("express-validator");
 const Review = require("../models/Review.js");
+const Restaurant = require("../models/Restaurants");
+
 const auth = require("../middleware/auth");
 
 // get user reviews 
@@ -16,6 +21,8 @@ router.get("/userReviews", auth, async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+
+
 
 router.post("/foodImgUpload", (req, res) => {
   console.log(req.body)
@@ -35,7 +42,6 @@ router.post("/foodImgUpload", (req, res) => {
 
 router.post(  "/review",
   [
-    
       check("restaurantName", "Restaurant Name is empty")
         .trim()
         .not()
@@ -71,6 +77,8 @@ router.post(  "/review",
       return res.status(400).json({ errors: errors.array() });
     }
     const {
+      userId,
+      restaurantId,
       restaurantName,
       city,
       category,
@@ -79,10 +87,13 @@ router.post(  "/review",
       price,
       photo,
       rating,
-      comment
+      comment,
+
     } = req.body;
     try {
       const newReview = new Review({
+        userId,
+        restaurantId,
         restaurantName,
         city,
         category,
@@ -104,3 +115,23 @@ router.post(  "/review",
   }
 );
 module.exports = router
+
+
+
+
+
+
+// {
+	
+// 	"userId":"5e79e7b8462d9c376031b39a",
+// 	"restaurantId":"5e7073e5fe0c0218cf6eda79",
+// 	"restaurantName":"Sepideh Hamburg",
+// 	"city":"Hamburg",
+// 	"category":"Iranian",
+// 	"nameOfDish":"Kebab",
+// 	"price":"22",
+// 	"photo":"/foodImgUploads/1adcbd3d-44cd-4315-87d4-fa5da16073dfkebab.jpeg",
+// 	"rating":"2",
+// 	"comment":"It was very delicious food"
+	
+// }

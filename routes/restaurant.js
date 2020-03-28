@@ -18,6 +18,21 @@ try {
 }
 });
 
+router.post('/search',async(req,res)=>{
+  try {
+    let city=req.body.city;
+    let restaurantName=req.body.restaurantName;
+    const restaurants = await Restaurant.find(( { $and: [ { city:  city }, { restaurantName: restaurantName  } ] } )).sort({date:-1});
+    res.json(restaurants)
+  }
+   catch (error) {
+    console.log(error.message);
+    res.status(500).json({msg :'Server Error'})
+  }
+})
+
+
+
 router.post('/category',auth,async(req,res)=>{
    // res.send("Restaurant page");
   try {
@@ -32,7 +47,7 @@ router.post('/category',auth,async(req,res)=>{
 // add a restaurant
 router.post("/",
   [
-    check("name")
+    check("restaurantName")
       .trim()
       .not()
       .isEmpty()
@@ -69,10 +84,10 @@ router.post("/",
     if (!errors.isEmpty()) {
      return res.status(400).json({ erorrs : errors.array()});
     }
-    const { name,address,city,country,category,photo,rating} = req.body;
+    const { restaurantName,address,city,country,category,photo,rating} = req.body;
     try {
       const restaurant = new Restaurant({
-        name,
+        restaurantName,
         address,
         city,
         country,
