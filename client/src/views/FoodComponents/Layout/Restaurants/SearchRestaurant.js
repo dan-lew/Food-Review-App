@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 //import classBut from 'src/assets/jss/material-kit-react/components/buttonStyle.js'
-import { Link, Switch, Route } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Button from "components/CustomButtons/Button";
 import LocationOn from "@material-ui/icons/LocationOn";
 import LocalDiningIcon from "@material-ui/icons/LocalDining";
@@ -15,22 +15,23 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { makeStyles } from "@material-ui/core/styles";
 import stylesT from "assets/jss/material-kit-react/components/typographyStyle.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-import axios from "axios";
-import RestaurantContext from "../../../../context/restaurants/restaurantContext";
+import RestaurantContext from '../../../../context/restaurants/restaurantContext'
 
-const SearchRestaurant = props => {
-  //   onst [text,setText]=useState('');
-  //   const onChange=(e)=>setText( e.target.value);
+const  SearchRestaurant=(props)=> {
 
-  //   const onSubmit=(e)=>{
-  //     e.preventDefault();
-  //     if(text===''){
-  //     alertContext.setAlert('Please enter something','light');
-  //     }else{
-  //     githubContext.searchFood(text);
-  //         setText('')
-  //     }
-  // }
+//   onst [text,setText]=useState('');
+//   const onChange=(e)=>setText( e.target.value);
+
+//   const onSubmit=(e)=>{
+//     e.preventDefault();
+//     if(text===''){
+//     alertContext.setAlert('Please enter something','light');
+//     }else{
+//     githubContext.searchFood(text);
+//         setText('')
+//     }
+// }
+
 
   const useStyles = makeStyles(styles);
   const classes = useStyles();
@@ -39,27 +40,23 @@ const SearchRestaurant = props => {
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
 
-  // Restaurants list
-  const restaurantContext = useContext(RestaurantContext);
-  const {
-    restaurants,
-    filtered,
-    error,
-    getCatRestaurant,
-    catrestaurants
-  } = restaurantContext;
 
-  const getAllRestaurant = value => {
-    getCatRestaurant(value);
-    console.log(value);
-  };
-  console.log(catrestaurants);
+// Restaurants list
+const restaurantContext = useContext(RestaurantContext);
+const {getCatRestaurant, catrestaurants } = restaurantContext;
+
+const getAllRestaurant=(value)=>{
+  getCatRestaurant(value)
+  console.log(value)
+}
+console.log(catrestaurants)
+
 
   const state = {
     category: props.category
   };
   console.log(state);
-  const { ...rest } = state;
+  // const { ...rest } = state;
   const [sendFood, setFood] = useState({
     food: "",
     city: ""

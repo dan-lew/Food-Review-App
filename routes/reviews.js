@@ -5,18 +5,16 @@ const { check, validationResult } = require("express-validator");
 const Review = require("../models/Review.js");
 const auth = require("../middleware/auth");
 
-// Review Page
-router.get("/reviews", auth, async (req, res) => {
+// get user reviews 
+router.get("/userReviews", auth, async (req, res) => {
   try {
-    const reviews = await Review.find({ user: req.user.id }).sort({
-      date: -1
-    });
-    res.json(reviews);
+    const reviews = await Review.find({ user: req.user.id });
+    return res.json(reviews);
+     
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Server Error");
   }
-  res.send("this is review-page");
 });
 
 router.post("/foodImgUpload", (req, res) => {

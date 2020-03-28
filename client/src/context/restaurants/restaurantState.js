@@ -4,7 +4,7 @@ import RestaurantContext from './restaurantContext';
 import RestaurantReducer from './restaurantReducer';
 import {
     GET_RESTAURANTS,
-    SEARCH_FOOD,
+    // SEARCH_FOOD,
     RESTAURANT_ERROR,
     SET_LOADING,
     GET_RESTAURANT,

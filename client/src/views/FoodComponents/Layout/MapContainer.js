@@ -1,7 +1,5 @@
-import GoogleMapReact from "google-map-react";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import React, { Component } from "react";
+import GoogleMapReact from 'google-map-react';
+import React,{Component} from 'react';
 
 const API_KEY = "";
 class MapContainer extends Component {

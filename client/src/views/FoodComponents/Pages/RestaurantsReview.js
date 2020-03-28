@@ -1,18 +1,14 @@
-import React, { useStyles, Fragment } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { Rate} from "antd";
 // import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import MapContainer from "../Layout/MapContainer";
 import Map from "../Layout/Map";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
 import CardHeader from "components/Card/CardHeader";
-
 import { makeStyles } from "@material-ui/core/styles";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
-import StarIcon from "@material-ui/icons/Star";
+
 import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
@@ -54,7 +50,7 @@ export default function RestaurantsReview(props) {
       <div>
         <Header
           brand={
-            <img
+            <img alt="LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }
@@ -177,7 +173,7 @@ export default function RestaurantsReview(props) {
                       >
                         <GridContainer>
                           <GridItem xs={12} sm={1} md={1} lg={1}>
-                            <img
+                            <img alt="LogoImg"
                               src={restaurantView.user.src}
                               className={
                                 classesI.imgRoundedCircle +

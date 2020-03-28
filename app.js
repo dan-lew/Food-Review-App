@@ -16,7 +16,6 @@ const resetPassword=require('./routes/resetPassword');
 const editProfile=require('./routes/editProfile');
 
 const reviews = require("./routes/reviews");
-const userReviews = require ("./routes/userReviews")
 const sendMessage = require("./routes/sendMessage")
 const restaurant = require ("./routes/restaurant")
 dotenv.config({path:'./config/config.env'});
@@ -36,7 +35,6 @@ app.use('/api/resetpassword',resetPassword);
 app.use('/api/editprofile',editProfile);
 app.use('/api/restaurant',restaurant);
 app.use("/api/reviews", reviews);
-app.use("/api/userReviews", userReviews);
 app.use("/api/restaurant", restaurant);
 app.use("/api/sendMessage", sendMessage);
 app.use('/api/restaurant',restaurant);

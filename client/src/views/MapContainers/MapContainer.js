@@ -7,13 +7,17 @@ import ConstraintSlider from "../../MapComponents/ConstraintSlider";
 import { Input, Divider, message, Slider } from "antd";
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Card from "components/Card/Card";
-import CardBody from "components/Card/CardBody";
-import Geocode from "react-geocode";
 
-const DE_COOR = { lat: 51.1657, lng: 10.4515 };
-const API_KEY = "AIzaSyBvZ2t-zd4VirWdKhMQPCz-jMusKgF7ulI";
+import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
+import MapAutoComplete from '../../MapComponents/MapAutoComplete';
+import MapMarker from '../../MapComponents/MapMarker';
+import PlaceCard from '../../MapComponents/PlaceCard';
+//../components/ConstraintSlider
+import ConstraintSlider from '../../MapComponents/ConstraintSlider';
+import { Button, Input, Divider, message } from 'antd';
+
+const DE_COOR = { lat:51.1657, lng:10.4515 };
 
 class MapsContainer extends Component {
   constructor(props) {
@@ -243,15 +247,8 @@ class MapsContainer extends Component {
   };
 
   render() {
-    const {
-      constraints,
-      mapsLoaded,
-      germanyLatLng,
-      markers,
-      searchResults,
-      latPlace,
-      lngPlace
-    } = this.state;
+
+    const { constraints, mapsLoaded, germanyLatLng, markers, searchResults} = this.state;
     const { autoCompleteService, geoCoderService } = this.state; // Google Maps Services
     return (
       <GridContainer
