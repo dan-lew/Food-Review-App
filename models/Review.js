@@ -22,7 +22,7 @@ const ReviewSchema=new mongoose.Schema({
         required: true
     },
     dateOfVisit:{
-        type: String,
+        type: Date,
         default:new Date()
     },
     price:{
