@@ -44,7 +44,5 @@ yarn-error.log*
 config.env
 config_d.env
 
-<<<<<<< HEAD
-=======
  /client/src/views/MapContainers/MapContainer0.js
->>>>>>> Rania
+/client/src/views/FoodComponents/Layout/MapContainer.js

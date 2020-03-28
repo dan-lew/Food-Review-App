@@ -56,14 +56,14 @@ export default function WelUser(props) {
     }
   };
 
-  const handleSearch=(food)=>{
-    console.log(food);
+  const handleSearch=(food,city)=>{
+    console.log(food,city);
     // edit
     //backend 
     //get data from restaurant with users food
   }
 
-  let listCategory = ["Italian", "Indian", "Japanese", "Greek", "Thai"];
+  let listCategory = ["Italian", "Indian", "Asian","Iranian", "Greek", "Thai","Mediterranean"];
 
   return (
     <div
@@ -138,9 +138,9 @@ export default function WelUser(props) {
                <GridContainer>
                 <GridItem>
                   <Switch>
-                    <Route path="/welcome-user/Japanese">
-                      <h1 className={classesT.primaryText + " "+classesT.header} >Japanese</h1>
-                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Japanese" />
+                    <Route path="/welcome-user/Iranian">
+                      <h1 className={classesT.primaryText + " "+classesT.header} >Iranian</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Iranian" />
                     </Route>
                     <Route path="/welcome-user/Italian">
                       <h1  className={classesT.primaryText + " "+classesT.header}>Italian</h1>
@@ -157,6 +157,14 @@ export default function WelUser(props) {
                     <Route path="/welcome-user/Thai">
                       <h1  className={classesT.primaryText + " "+classesT.header}>Thai</h1>
                       <ListRestaurantsProfilReview className={classesListR["show"]} category = "Thai" />
+                    </Route>
+                    <Route path="/welcome-user/Asian">
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Asian</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Asian" />
+                    </Route>
+                    <Route path="/welcome-user/Mediterranean">
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Mediterranean</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Mediterranean" />
                     </Route>
                   </Switch>
                 </GridItem>

@@ -72,7 +72,8 @@ export default function SectionCarousel() {
                 </div>
                 <div>
                   <img
-                    src={image7} alt="Seventh slide"     
+                    src={image7}
+                    alt="Seventh slide"
                     className="slick-image"
                   />
                 </div>
@@ -86,9 +87,8 @@ export default function SectionCarousel() {
                   <img src={image10} alt="Ten slide" className="slick-image" />
                 </div>
               </Carousel>
-           
             </Card>
-            
+
             <Card>
               <MapContainer />
             </Card>

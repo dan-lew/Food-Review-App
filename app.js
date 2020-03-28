@@ -30,7 +30,6 @@ app.use(cookieParser());
 app.use(fileupload());
 app.use(express.json({extended:false}));
 
-
 app.use('/api/register',register);
 app.use('/api/login',login);
 app.use('/api/resetpassword',resetPassword);

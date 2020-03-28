@@ -4,8 +4,8 @@ import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import  searchPlaces  from './LngLat'
 import GridContainer from 'components/Grid/GridContainer';
-
-Geocode.setApiKey( "AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic" );
+const API_KEY=""
+Geocode.setApiKey( API_KEY);
 Geocode.enableDebug();
 
 class Map extends Component{
@@ -244,7 +244,7 @@ class Map extends Component{
    let lngVal = this.state.mapPosition.lng;
    console.log("map", latVal, lngVal)
    console.log("plId", )
-    searchPlaces(latVal,lngVal,"restaurant");
+    searchPlaces(latVal,lngVal,"cafe");
 		const AsyncMap = withScriptjs(
 			withGoogleMap(
 				props => (
