@@ -1,11 +1,11 @@
-import React from "react";
+import React , {useContext} from "react";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
 import CardHeader from "components/Card/CardHeader";
 import { Switch, Route } from "react-router-dom";
-
+import AuthContext from "../../../context/auth/authContext";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
@@ -38,6 +38,12 @@ export default function WelUser(props) {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   
+   
+  const authContext = useContext(AuthContext);
+  const { user  } = authContext;
+  console.log("The User =", user);
+
+
   // const [classList, setClassList] = React.useState("notShow");
 
   // const handleShow = () => {
@@ -78,7 +84,7 @@ export default function WelUser(props) {
                 <GridItem xs={12} sm={12} md={12} lg={12}>
                   <Card>
                     <CardHeader color="primary" className={classes.cardHeader}>
-                      Welcome User (Home)
+                    Welcome { `${user.firstname}   ${user.lastname}` }
                     </CardHeader>
                     <CardBody
                       className={
@@ -89,7 +95,7 @@ export default function WelUser(props) {
                     >
                       {/* User foto links */}
                       <img
-                        src={avatar}
+                        src={user.photo}
                         alt="..."
                         className={
                           {

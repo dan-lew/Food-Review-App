@@ -22,8 +22,8 @@ const ReviewSchema=new mongoose.Schema({
         required: true
     },
     dateOfVisit:{
-        type: Date,
-        default:Date.now
+        type: String,
+        default:new Date()
     },
     price:{
         type: Number,

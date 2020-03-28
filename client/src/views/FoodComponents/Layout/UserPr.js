@@ -1,4 +1,5 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useContext, Fragment, useEffect } from "react";
+import AuthContext from "../../../context/auth/authContext";
 import { Link } from "react-router-dom";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
@@ -18,6 +19,7 @@ import ListRestaurantsReview from "./ReviewList/ListRestaurantsReview";
 import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import Sum from "./ReviewList/Sum";
 import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
+import ReviewContext from "../../../context/reviewPage/reviewContext";
 
 export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
@@ -28,14 +30,21 @@ export default function UserPr(props) {
   const classes = useStyles();
 
   console.log(classes);
-  // const { ...rest } = props;
 
-    // const [img, setImg] = useState({
-    //   photo:"",
-    // })
-    // const {photo} = img;
+  const authContext = useContext(AuthContext);
+  const { user } = authContext;
+  console.log("The User =", user);
 
-  const [user, setUser] = useState([
+  const reviewContext = useContext(ReviewContext);
+  const { reviews, getReviews } = reviewContext;
+  console.log(reviews, getReviews);
+
+  useEffect(() => {
+    getReviews();
+  }, []);
+  console.log(reviews);
+
+  const [userData, setUserData] = useState([
     {
       id: "1",
       name: "Restaurant name",
@@ -66,26 +75,27 @@ export default function UserPr(props) {
     }
   ]);
 
-  // let user1 = [
-  //   {
-  //     id: "1",
-  //     rating: 2,
-  //     food: "Lasagne",
-  //     date: new Date(),
-  //     user: {
-  //       photo: "https://via.placeholder.com/60x60",
-  //       description: "bla bla bla bla",
-  //       name: "user name",
-  //       rating: 3,
-  //       price: 20.0
-  //     }
-  //   }
-  // ];
-  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
+  const onChange = e =>
+    setUserData({ ...user, [e.target.name]: e.target.value });
   const getImgPath = path => {
     console.log(path);
-    setUser({ ...user, photo: path });
+    setUserData({ ...userData, photo: path });
   };
+  const getFullDate = (date)=>{
+    let d = new Date(date);
+    var tag = d.getDate();
+    if(tag <= 9){
+      tag = '0'+tag;
+    }
+    var monat = d.getMonth()+1;
+    if(monat <= 9){
+      monat = '0'+monat;
+    }
+    var jahr = d.getFullYear(); 
+    var uhrzeit = "Date of Visit " + tag + "." + monat + "." + jahr 
+    return uhrzeit; 
+
+  }
 
   console.log("user: ", user);
   let price = [];
@@ -100,8 +110,8 @@ export default function UserPr(props) {
     } else {
       for (let i = 0; i < count; i++) {
         console.log("count: ", count);
-        console.log(user[i].user.price);
-        price.push(user[i].user.price);
+        console.log(userData[i].user.price);
+        price.push(userData[i].user.price);
       }
       console.log(price);
       return price;
@@ -130,7 +140,7 @@ export default function UserPr(props) {
                 <GridItem xs={12} sm={12} md={10}>
                   <Card>
                     <CardHeader color="primary" className={classes.cardHeader}>
-                      User Profile
+                      Welcome {`${user.firstname}   ${user.lastname}`}
                     </CardHeader>
                     <CardBody
                       className={
@@ -139,25 +149,25 @@ export default function UserPr(props) {
                         classes.textCenter
                       }
                     >
-                    <div onChange= {onChange}>
-                      {/* User foto links */}
-                      <img
-                        src={avatar}
-                        alt="..."
-                        className={
-                          {
-                            height: "100px",
-                            justifyContent: "center",
-                            width: "100%"
-                          } +
-                          classesT.imgRaised +
-                          " " +
-                          classesT.imgRoundedCircle +
-                          " " +
-                          classesT.imgFluid
-                        }
-                      />
-                      
+                      <div onChange={onChange}>
+                        {/* User foto links */}
+                        <img
+                          src={user.photo}
+                          alt="..."
+                          className={
+                            {
+                              height: "100px",
+                              justifyContent: "center",
+                              width: "100%"
+                            } +
+                            classesT.imgRaised +
+                            " " +
+                            classesT.imgRoundedCircle +
+                            " " +
+                            classesT.imgFluid
+                          }
+                        />
+
                         <p>Edit your profile image...</p>
                         <FileUpload getImgPath={getImgPath} />
                       </div>
@@ -180,7 +190,6 @@ export default function UserPr(props) {
                       >
                         Edit Profile
                       </Link>
-                 
                     </CardBody>
                   </Card>
                 </GridItem>
@@ -346,46 +355,39 @@ export default function UserPr(props) {
                 <GridItem xs={12} sm={12} md={8} lg={12}>
                   <h3 style={{ paddingLeft: "30px" }}>Your reviews...</h3>
                 </GridItem>
-                <GridItem
-                  xs={12}
-                  sm={12}
-                  md={8}
-                  lg={10}
-                  className={classesT.marginLeft}
-                >
-                  <Card>
-                    <CardHeader
-                      style={{}}
-                      color="primary"
-                      className={classes.cardHeader}
-                    >
-                      <CardHeaderList />
-                    </CardHeader>
-                    <CardBody>
-                      <CardBodyList />
-                    </CardBody>
-                  </Card>
-                </GridItem>
-                <GridItem
-                  xs={12}
-                  sm={12}
-                  md={8}
-                  lg={10}
-                  className={classesT.marginLeft}
-                >
-                  <Card>
-                    <CardHeader
-                      style={{}}
-                      color="primary"
-                      className={classes.cardHeader}
-                    >
-                      <CardHeaderList />
-                    </CardHeader>
-                    <CardBody>
-                      <CardBodyList />
-                    </CardBody>
-                  </Card>
-                </GridItem>
+                {reviews !== null &&
+                  reviews.map(item => {
+                    return (
+                      <GridItem
+                        xs={12}
+                        sm={12}
+                        md={8}
+                        lg={10}
+                        className={classesT.marginLeft}
+                      >
+                        <Card>
+                          <CardHeader
+                            style={{}}
+                            color="primary"
+                            className={classes.cardHeader}
+                          
+                          >
+                            <CardHeaderList 
+                            rating={item.rating}
+                            restaurantName={item.restaurantName}
+                            photo={item.photo} 
+                            nameOfDish = {item.nameOfDish}
+                            dateOfVisit = {getFullDate(item.dateOfVisit)}
+                            />
+                          </CardHeader>
+                          <CardBody>
+                            <CardBodyList
+                            comment={item.comment}   />
+                          </CardBody>
+                        </Card>
+                      </GridItem>
+                    );
+                  })}
               </GridContainer>
             </GridItem>
           </GridContainer>

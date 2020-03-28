@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useContext} from "react";
+import AuthContext from "../../../context/auth/authContext"
 import Header from "../Layout/Header/Header.js";
 import HeaderLinks from "../Layout/Header/HeaderLinks.js";
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,6 +15,14 @@ const UsersProfile = props => {
   const classesI = useStylesI();
   console.log(classes);
   const { ...rest } = props;
+
+  const authContext = useContext(AuthContext);
+  const {
+   
+    user
+  } = authContext;
+  console.log("The User =", user);
+
   return (
     <div className="">
       <div className="">
