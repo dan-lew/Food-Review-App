@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import AuthContext from "../../../context/auth/authContext"
+import React, { useContext } from "react";
+import AuthContext from "../../../context/auth/authContext";
 import Header from "../Layout/Header/Header.js";
 import HeaderLinks from "../Layout/Header/HeaderLinks.js";
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,10 +17,7 @@ const UsersProfile = props => {
   const { ...rest } = props;
 
   const authContext = useContext(AuthContext);
-  const {
-   
-    user
-  } = authContext;
+  const { user } = authContext;
   console.log("The User =", user);
 
   return (
@@ -28,7 +25,8 @@ const UsersProfile = props => {
       <div className="">
         <Header
           brand={
-            <img alt="LogoImg"
+            <img
+              alt="LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }

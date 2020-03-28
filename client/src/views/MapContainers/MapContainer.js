@@ -7,16 +7,7 @@ import ConstraintSlider from "../../MapComponents/ConstraintSlider";
 import { Input, Divider, message, Slider } from "antd";
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
-
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-import MapAutoComplete from '../../MapComponents/MapAutoComplete';
-import MapMarker from '../../MapComponents/MapMarker';
-import PlaceCard from '../../MapComponents/PlaceCard';
-//../components/ConstraintSlider
-import ConstraintSlider from '../../MapComponents/ConstraintSlider';
-import { Button, Input, Divider, message } from 'antd';
-
+const API_KEY = "AIzaSyBvZ2t-zd4VirWdKhMQPCz-jMusKgF7ulI";
 const DE_COOR = { lat:51.1657, lng:10.4515 };
 
 class MapsContainer extends Component {

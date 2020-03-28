@@ -81,21 +81,20 @@ export default function UserPr(props) {
     console.log(path);
     setUserData({ ...userData, photo: path });
   };
-  const getFullDate = (date)=>{
+  const getFullDate = date => {
     let d = new Date(date);
     var tag = d.getDate();
-    if(tag <= 9){
-      tag = '0'+tag;
+    if (tag <= 9) {
+      tag = "0" + tag;
     }
-    var monat = d.getMonth()+1;
-    if(monat <= 9){
-      monat = '0'+monat;
+    var monat = d.getMonth() + 1;
+    if (monat <= 9) {
+      monat = "0" + monat;
     }
-    var jahr = d.getFullYear(); 
-    var uhrzeit = "Date of Visit " + tag + "." + monat + "." + jahr 
-    return uhrzeit; 
-
-  }
+    var jahr = d.getFullYear();
+    var uhrzeit = "Date of Visit " + tag + "." + monat + "." + jahr;
+    return uhrzeit;
+  };
 
   console.log("user: ", user);
   let price = [];
@@ -370,19 +369,17 @@ export default function UserPr(props) {
                             style={{}}
                             color="primary"
                             className={classes.cardHeader}
-                          
                           >
-                            <CardHeaderList 
-                            rating={item.rating}
-                            restaurantName={item.restaurantName}
-                            photo={item.photo} 
-                            nameOfDish = {item.nameOfDish}
-                            dateOfVisit = {getFullDate(item.dateOfVisit)}
+                            <CardHeaderList
+                              rating={item.rating}
+                              restaurantName={item.restaurantName}
+                              photo={item.photo}
+                              nameOfDish={item.nameOfDish}
+                              dateOfVisit={getFullDate(item.dateOfVisit)}
                             />
                           </CardHeader>
                           <CardBody>
-                            <CardBodyList
-                            comment={item.comment}   />
+                            <CardBodyList comment={item.comment} />
                           </CardBody>
                         </Card>
                       </GridItem>
