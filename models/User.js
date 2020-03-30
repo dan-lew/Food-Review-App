@@ -39,7 +39,7 @@ const UserSchema=new mongoose.Schema({
     },
     photo:{
         type:String,
-        required: true
+        required: false
     },
     passwordChangeAt:Date,
     passwordResetToken:String,

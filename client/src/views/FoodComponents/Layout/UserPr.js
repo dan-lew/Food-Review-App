@@ -13,6 +13,9 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import avatar from "assets/img/faces/avatar.jpg";
 import Datetime from "react-datetime";
+import DatePicker from "react-datepicker";
+import AlertContext from "../../../context/alert/alertContext";
+import "react-datepicker/dist/react-datepicker.css";
 import CardHeaderList from "./CardList/CardHeaderList";
 import CardBodyList from "./CardList/CardBodyList";
 import ListRestaurantsReview from "./ReviewList/ListRestaurantsReview";
@@ -20,6 +23,7 @@ import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import Sum from "./ReviewList/Sum";
 import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 import ReviewContext from "../../../context/reviewPage/reviewContext";
+import Button from "components/CustomButtons/Button.js";
 
 export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
@@ -36,44 +40,41 @@ export default function UserPr(props) {
   console.log("The User =", user);
 
   const reviewContext = useContext(ReviewContext);
-  const { reviews, getReviews } = reviewContext;
+  const { reviews, getReviews, filterReviews } = reviewContext;
   console.log(reviews, getReviews);
+
+  const alertContext = useContext(AlertContext)
+  const {setAlert} = alertContext;
+  
 
   useEffect(() => {
     getReviews();
   }, []);
   console.log(reviews);
 
-  const [userData, setUserData] = useState([
-    {
-      id: "1",
-      name: "Restaurant name",
-      rating: 2,
-      food: "Lasagne",
-      date: new Date(),
-      user: {
-        photo: "https://via.placeholder.com/60x60",
-        description: "bla bla bla bla",
-        name: "user name",
-        rating: 3,
-        price: 20.0
-      }
-    },
-    {
-      id: "1",
-      name: "Restaurant name",
-      rating: 4,
-      food: "fisch",
-      date: new Date(),
-      user: {
-        photo: "https://via.placeholder.com/60x60",
-        description: "fisch bla bla bla",
-        name: "user2 name",
-        rating: 4,
-        price: 30.0
-      }
+  const [userData, setUserData] = useState([]);
+  // const [dateFilter, setDateFilter] = useState({
+  //   startDate: new Date(),
+  //   endDate: new Date()
+  // });
+
+  const [sendDate, setDate] = useState({ startDate: new Date(), endDate: new Date() });
+  const { startDate, endDate } = sendDate;
+  const onChangeDate = date => {
+    setDate({ ...sendDate, "startDate": date });
+  };
+  // const [setStartDate, setEndDate] = useState(new Date());
+  console.log(startDate, endDate);
+
+  const onSubmit = e => {
+    e.preventDefault();
+    let alert = "Please select dates";
+    if (startDate === "" || endDate === "") {
+      setAlert(alert, "danger");
+    } else {
+      filterReviews(sendDate);
     }
-  ]);
+  };
 
   const onChange = e =>
     setUserData({ ...user, [e.target.name]: e.target.value });
@@ -222,24 +223,13 @@ export default function UserPr(props) {
                       ></InputLabel>
                       <br />
                       <FormControl fullWidth>
-                        <Datetime
-                          inputProps={{
-                            placeholder: "Please choose your Date"
-                          }}
-                          // id="dateodateOfVisitfvisit"
-                          // formControlProps={{
-                          //   fullWidth: true
-                          // }}
-                          // inputProps={{
-                          //   // onChange: onChange,
-                          //   name: "dateOfVisit",
-                          //   type: "date",
-                          //   endAdornment: (
-                          //     <InputAdornment position="end">
-                          //       <i className="fas fa-calendar-alt"></i>
-                          //     </InputAdornment>
-                          //   )
-                          // }}
+                        <DatePicker
+                          selected={startDate}
+                          onChange={onChangeDate}
+                          selectsStart
+                          startDate={startDate}
+                          endDate={endDate}
+                          placeholder="Please choose your Date"
                         />
                       </FormControl>
                     </CardBody>
@@ -260,15 +250,20 @@ export default function UserPr(props) {
                       <InputLabel className={classes.label}></InputLabel>
                       <br />
                       <FormControl fullWidth>
-                        <Datetime
-                          inputProps={{
-                            placeholder: "Please choose your Date"
-                          }}
+                        <DatePicker
+                          selected={endDate}
+                          onChange={onChangeDate}
+                          selectsEnd
+                          startDate={startDate}
+                          endDate={endDate}
+                          minDate={startDate}
+                          placeholder="Please choose your Date"
                         />
                       </FormControl>
                     </CardBody>
                   </Card>
                 </GridItem>
+                <Button onClick = {onSubmit}>Select dates</Button>
               </GridContainer>
               {/* restaurants reviews */}
               <GridContainer>
