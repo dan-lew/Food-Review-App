@@ -24,11 +24,13 @@ import Sum from "./ReviewList/Sum";
 import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 import ReviewContext from "../../../context/reviewPage/reviewContext";
 import Button from "components/CustomButtons/Button.js";
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 
 export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
-
+  const useStylesI = makeStyles(stylesI);
   const classesT = useStylesT();
+  const classesI = useStylesI();
   console.log(classesT);
   const useStyles = makeStyles(styles);
   const classes = useStyles();
@@ -151,6 +153,10 @@ export default function UserPr(props) {
                     >
                       <div onChange={onChange}>
                         {/* User foto links */}
+                        <div className={
+                                classesI.imgRoundedCircle + " " +
+                                classesI.imgFluidUser +
+                                " mui--align-middle " +classesI.imgCut200}>
                         <img
                           src={user.photo}
                           alt="..."
@@ -167,6 +173,7 @@ export default function UserPr(props) {
                             classesT.imgFluid
                           }
                         />
+                        </div>
 
                         <p>Edit your profile image...</p>
                         <FileUpload getImgPath={getImgPath} />

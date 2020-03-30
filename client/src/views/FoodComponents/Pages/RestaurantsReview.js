@@ -37,7 +37,7 @@ export default function RestaurantsReview(props) {
     food: "Lasagne",
     date: new Date(),
     user: {
-      src: "https://via.placeholder.com/60x60",
+      src: "https://via.placeholder.com/60x70",
       description: "bla bla bla bla",
       name: "user name",
       rating: 3
@@ -187,18 +187,21 @@ export default function RestaurantsReview(props) {
                       >
                         <GridContainer>
                           <GridItem xs={12} sm={1} md={1} lg={1}>
-                            <img alt="LogoImg"
+                            <div className={
+                                classesI.imgRoundedCircle + " " +
+                                classesI.imgFluidUser +
+                                " mui--align-middle " +classesI.imgCut
+                              }><img alt="LogoImg"
                               src={restaurantView.user.src}
                               className={
-                                classesI.imgRoundedCircle +
-                                " " +
+                                                               
                                 classesI.imgFluidUser +
                                 " mui--align-middle"
                               }
-                            />
+                            /></div>
                           </GridItem>
 
-                          <GridItem xs={12} sm={12} md={8} lg={8}>
+                          <GridItem xs={12} sm={8} md={8} lg={8}>
                             <h3>{restaurantView.user.name} </h3>
                             <p>
                               {" "}

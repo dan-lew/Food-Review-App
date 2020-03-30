@@ -19,6 +19,17 @@ const imagesStyles = {
   imgRounded: {
     borderRadius: "6px !important"
   },
+  /// edit
+  imgCut: {
+    maxWidth: "60px",
+    height: "60px",
+    overflow: "hidden"
+  },
+  imgCut200: {
+    maxWidth: "200px",
+    height: "200px",
+    overflow: "hidden"
+  },
   imgRoundedCircle: {
     borderRadius: "50% !important"
   },

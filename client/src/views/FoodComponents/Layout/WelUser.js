@@ -17,6 +17,7 @@ import SearchRestaurant from "./Restaurants/SearchRestaurant";
 // restaurants
 import RestaurantContext from "../../../context/restaurants/restaurantContext";
 import AlertContext from "../../../context/alert/alertContext";
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 
 const ListRestaurantStyle = {
   show: {
@@ -34,7 +35,8 @@ export default function WelUser(props) {
   const classesListR = useStylesListR();
   const useStylesT = makeStyles(stylesT);
   const classesT = useStylesT();
-
+  const useStylesI = makeStyles(stylesI);
+  const classesI = useStylesI();
   const useStyles = makeStyles(styles);
   const classes = useStyles();
 
@@ -75,22 +77,33 @@ export default function WelUser(props) {
                       }
                     >
                       {/* User foto links */}
-                      <img
-                        src={user && user.photo}
-                        alt=""
+                      <div
                         className={
-                          {
-                            height: "100px",
-                            justifyContent: "center",
-                            width: "100%"
-                          } +
+                          classesI.imgRoundedCircle +
+                          " " +
                           classesT.imgRaised +
                           " " +
-                          classesT.imgRoundedCircle +
-                          " " +
-                          classesT.imgFluid
+                          classesT.imgFluid +
+                          classesI.imgFluidUser +
+                          " mui--align-middle " +
+                          classesI.imgCut200
                         }
-                      />
+                      >
+                        <img
+                          src={user && user.photo}
+                          alt={user.username}
+                          className={
+                            {
+                              height: "100px",
+                              justifyContent: "center",
+                              width: "100px"
+                            } +
+                            classesT.imgRoundedCircle +
+                            " " +
+                            classesT.imgFluid
+                          }
+                        />
+                      </div>
                     </CardBody>
                   </Card>
                 </GridItem>
