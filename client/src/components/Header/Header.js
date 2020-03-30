@@ -11,24 +11,15 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
-
-import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
-import stylesN from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
-
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
-const useStylesN = makeStyles(stylesN);
 const useStyles = makeStyles(styles);
-const useStylesI = makeStyles(stylesI);
-
 
 export default function Header(props) {
   const classes = useStyles();
-  const classesI = useStylesI();
-  const classesN = useStylesN()
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
@@ -73,7 +64,8 @@ export default function Header(props) {
     [classes.fixed]: fixed
   });
   const brandComponent =<Button className={classes.title}>{brand}</Button>;
-
+  console.log(brandComponent)
+  console.log("Header: ")
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
@@ -141,7 +133,7 @@ Header.propTypes = {
  // logo:PropTypes.string,
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
-  brand: PropTypes.object,
+  brand: PropTypes.string,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
   // this will cause the sidebar to change the color from

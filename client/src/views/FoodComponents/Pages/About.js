@@ -24,6 +24,8 @@ const About = props => {
   const useStylesI = makeStyles(stylesI);
   const classesT = useStylesT();
   const classesI = useStylesI();
+  console.log(classesT);
+
   const useStyles = makeStyles(styles);
   const classes = useStyles();
 
@@ -39,7 +41,7 @@ const About = props => {
       <div className="">
         <Header
           brand={
-            <img
+            <img alt = "LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }

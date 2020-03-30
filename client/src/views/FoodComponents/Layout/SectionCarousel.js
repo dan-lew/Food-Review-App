@@ -24,15 +24,15 @@ import styles from "assets/jss/material-kit-react/views/componentsSections/carou
 import MapContainer from "../../MapContainers/MapContainer.js";
 
 import "../../../App.css";
-import stylesC from "assets/jss/material-kit-react/views/components.js";
+
 import "antd/dist/antd.css";
 
-const useStylesC = makeStyles(stylesC);
+
 const useStyles = makeStyles(styles);
 
 export default function SectionCarousel() {
   const classes = useStyles();
-  const classesC = useStylesC();
+
   const settings = {
     dots: true,
     infinite: true,
@@ -72,8 +72,7 @@ export default function SectionCarousel() {
                 </div>
                 <div>
                   <img
-                    src={image7}
-                    alt="Seventh slide"
+                    src={image7} alt="Seventh slide"     
                     className="slick-image"
                   />
                 </div>
@@ -87,8 +86,9 @@ export default function SectionCarousel() {
                   <img src={image10} alt="Ten slide" className="slick-image" />
                 </div>
               </Carousel>
+           
             </Card>
-
+            
             <Card>
               <MapContainer />
             </Card>

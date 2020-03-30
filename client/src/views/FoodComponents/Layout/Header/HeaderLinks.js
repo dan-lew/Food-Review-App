@@ -47,12 +47,12 @@ const HeaderLinks = props => {
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
+        <Link className={classes.navLink} to="/about">About </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/sendMessagePage">
           Contact Us
         </Link>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/about">About </Link>
       </ListItem>
     </Fragment>
   );
@@ -76,12 +76,12 @@ const HeaderLinks = props => {
       <Link className={classes.navLink}  to="/review-page">Add Review </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
+        <Link className={classes.navLink} to="/about">About </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/sendMessagePage">
           Contact Us
         </Link>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/about">About </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} onClick={onLogout} to="/">

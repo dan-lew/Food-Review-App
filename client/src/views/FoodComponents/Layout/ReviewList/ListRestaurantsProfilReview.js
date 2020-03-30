@@ -5,7 +5,6 @@
 // import Card from "components/Card/Card.js";
 // import CardBody from "components/Card/CardBody.js";
 // import CardHeader from "components/Card/CardHeader.js";
-// import ListSelectFoodReview from "./ListSelectFoodReview";
 // import { Switch, Route, Link } from "react-router-dom";
 // const useStyles = makeStyles(styles);
 import React, { useState, useEffect, useContext } from "react";
@@ -16,43 +15,21 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesB from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import CardListRestaurant from "./CardListRestaurant";
-// import update from 'immutability-helper';
-
 import RestaurantContext from "../../../../context/restaurants/restaurantContext";
-import ListRestaurantsReview from "./ListRestaurantsReview";
 const useStylesB = makeStyles(stylesB);
 const useStylesT = makeStyles(stylesT);
 
-const ListFoodStyle = {
-  show: {
-    display: "block"
-  },
-  notShow: {
-    display: "none"
-  }
-};
 
-const ListRestaurantsProfilReview = props => {
-  const useStylesListF = makeStyles(ListFoodStyle);
-  const classesListF = useStylesListF();
-  const useStyles = makeStyles(styles);
-  const classesB = useStylesB();
-  const classesT = useStylesT();
+const ListRestaurantsProfilReview=(props)=> {
 
   // Restaurants list
   const restaurantContext = useContext(RestaurantContext);
-  const {
-    restaurants,
-    filtered,
-    error,
-    getCatRestaurant,
-    catrestaurants
-  } = restaurantContext;
-  useEffect(() => {
-    getCatRestaurant(props.category);
-    console.log("use effect in list restaurants profile review");
-  }, []);
-  console.log(catrestaurants);
+  const { getCatRestaurant, catrestaurants } = restaurantContext;
+  useEffect(()=>{
+    getCatRestaurant(props.category)
+    console.log('use effect in list restaurants profile review')
+  },[])
+  console.log(catrestaurants)
 
 
   return (
@@ -68,8 +45,7 @@ const ListRestaurantsProfilReview = props => {
                 />
               </GridItem> //<div>{user.login}</div>
             ))}
-            {/* // edit */}
-            {/* <ListSelectFoodReview /> */}
+           
           </GridContainer>
         </GridItem>
         <GridItem></GridItem>

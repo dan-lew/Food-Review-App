@@ -6,6 +6,7 @@ import ReactStars from "react-stars";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import {Redirect} from 'react-router-dom'
 
 // core components
 import Header from "../FoodComponents/Layout/Header/Header.js";
@@ -23,7 +24,6 @@ import FileUpload from "./components/FileUpload";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/reviewpgbg.jpg";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
-import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import Logo from "assets/img/Logo-FR-124.png";
 const useStyles = makeStyles(styles);
 
@@ -32,9 +32,8 @@ const ReviewPage = props => {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-  const useStylesT = makeStyles(stylesT);
+  
   const useStylesI = makeStyles(stylesI);
-  const classesT = useStylesT();
   const classesI = useStylesI();
   const classes = useStyles();
   const { ...rest } = props;
@@ -43,6 +42,7 @@ const ReviewPage = props => {
   const authContext = useContext(AuthContext);
   const { registerReview } = authContext;
 
+  const [redirect,setRedirect] = useState(false)
   const [review, setReview] = useState({
     restaurantName: "",
     city: "",
@@ -110,6 +110,7 @@ const ReviewPage = props => {
           comment
         });
         console.log(registerReview);
+        setRedirect(true)
       }
     } catch (error) {
       setAlert(error.msg, "danger");
@@ -118,9 +119,10 @@ const ReviewPage = props => {
 
   return (
     <div>
+      {redirect ? <Redirect to='/user-profile'/> : null}
       <Header
         brand={
-          <img
+          <img alt="LogoImg"
             className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
             src={Logo}
           />

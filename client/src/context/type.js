@@ -1,5 +1,8 @@
 
+
 export const ADD_REVIEW = " ADD_REVIEW";
+export const GET_REVIEWS = " GET_REVIEWS";
+export const REVIEWS_ERROR = "REVIEWS_ERROR";
 export const DELETE_REVIEW = " DELETE_REVIEW";
 export const UPDATE_REVIEW = " UPDATE_REVIEW";
 export const FILTER_REVIEW = " FILTER_REVIEW";
@@ -12,6 +15,8 @@ export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 export const USER_LOADED = "USER_LOADED";
 export const AUTH_ERROR = "AUTH_ERROR";
+
+export const REGISTER_REVIEW = "REGISTER_REVIEW";
 
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";

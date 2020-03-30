@@ -96,9 +96,9 @@ const EditUserProfilePage = props => {
   const onFocus = e => {
     return (e.target.type = "date");
   };
-  const onBlur = e => {
-    return (e.target.type = "text");
-  };
+  // const onBlur = e => {
+  //   return (e.target.type = "text");
+  // };
   const onSubmit = e => {
     e.preventDefault();
     console.log(client);
@@ -139,7 +139,7 @@ const EditUserProfilePage = props => {
     <div>
       <Header
         brand={
-          <img
+          <img alt= "LogoImg"
             className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
             src={Logo}
           />

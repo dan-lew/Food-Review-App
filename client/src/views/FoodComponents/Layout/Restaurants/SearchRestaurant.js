@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 //import classBut from 'src/assets/jss/material-kit-react/components/buttonStyle.js'
-import { Link, Switch, Route } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Button from "components/CustomButtons/Button";
 import LocationOn from "@material-ui/icons/LocationOn";
 import LocalDiningIcon from "@material-ui/icons/LocalDining";
@@ -15,80 +15,61 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { makeStyles } from "@material-ui/core/styles";
 import stylesT from "assets/jss/material-kit-react/components/typographyStyle.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-import axios from "axios";
-import RestaurantContext from "../../../../context/restaurants/restaurantContext";
+import RestaurantContext from '../../../../context/restaurants/restaurantContext'
 
-const SearchRestaurant = props => {
-  //   const [text,setText]=useState('');
-  //   const onChange=(e)=>setText( e.target.value);
 
-  //   const onSubmit=(e)=>{
-  //     e.preventDefault();
-  //     if(text===''){
-  //     alertContext.setAlert('Please enter something','light');
-  //     }else{
-  //     githubContext.searchFood(text);
-  //         setText('')
-  //     }
-  // }
-
+const  SearchRestaurant=()=> {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   const useStylesT = makeStyles(stylesT);
   const classesT = useStylesT();
+
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
-
-  // Restaurants list
   const restaurantContext = useContext(RestaurantContext);
-  const {
-    restaurants,
-    filtered,
-    error,
-    getCatRestaurant,
-    catrestaurants
-  } = restaurantContext;
+  const {getCatRestaurant, catrestaurants,searchFood} = restaurantContext;
+  
+  let listCategory = ["Italian", "Indian", "Asian","Iranian", "Greek", "Thai","Mediterranean"];
 
-  const getAllRestaurant = value => {
-    getCatRestaurant(value);
-    console.log(value);
-  };
-  console.log(catrestaurants);
-
+  const getAllRestaurant=(value)=>{
+    getCatRestaurant(value)
+    console.log(value)
+  }
   const state = {
-    category: props.category
-  };
-  console.log(state);
-  const { ...rest } = state;
-  const [sendFood, setFood] = useState({
-    food: "",
-    city: ""
-  });
-  const { food, city } = sendFood;
-
-  const onChange = e => {
-    console.log("input food: ", e.target.name);
-    setFood({ ...sendFood, [e.target.name]: e.target.value });
-    console.log("sendFood: ", sendFood);
+    category: listCategory
   };
 
   let btnS = [];
   btnS.push(state.category);
-  useEffect(() => {
-    //createBtnS();
-  });
 
-  const searchFood = e => {
+ //-------------------------------------------------------
+
+  const [sendFood,setFood]=useState({ food:'',city:'' });
+  const {food,city}=sendFood;
+
+  const onChange=(e)=>{
+    setFood({ ...sendFood, [e.target.name]:e.target.value})
+  }
+
+  const onSubmit = (e) => {
     e.preventDefault();
+      let alert = " Please complete all the fields";
+      try{
+        if(food === '' || city === '' ){
+          setAlert(alert,'danger')
+        }   
+        else {
+          searchFood(sendFood.food,sendFood.city);
+          console.log(sendFood.food,sendFood.city);
+          console.log(catrestaurants)
+            // setFood('');
+        }
+      }
+      catch(error){
+        setAlert(error.msg, 'danger')
 
-    if (food === "" || city === "") {
-      // zeigt ganz oben
-      setAlert("please complete this field", "danger");
-    } else {
-      props.searchFunction(food, city);
+      }
     }
-    console.log("searchFood", food, city);
-  };
 
   return (
     <div>
@@ -97,8 +78,6 @@ const SearchRestaurant = props => {
       <GridContainer>
         <GridItem xs={10} sm={10} md={12} lg={12}>
           {btnS[0].map((value, index) => {
-            // console.log(value);
-            // console.log(index, value);
             return (
               <Fragment key={index}>
                 <Link
@@ -122,56 +101,46 @@ const SearchRestaurant = props => {
           })}
         </GridItem>
         <GridItem xs={12} sm={12} md={12} lg={12}>
-          <form onSubmit={searchFood} className={classes.form}>
-            <GridContainer>
-              {/*  */}
-              <GridItem xs={10} sm={10} md={6} lg={4}>
-                <CustomInput
-                  onChange={onChange}
+          <form onSubmit={onSubmit} className={classes.form}>
+            <GridItem xs={12} sm={8} md={6} lg={6}>
+              <CustomInput 
+                  onChangeFunction={onChange}
                   labelText="Search for food"
                   id="float"
                   formControlProps={{
                     fullWidth: true
                   }}
                   inputProps={{
-                    onChange: onChange,
                     name: "food",
                     type: "text",
                     endAdornment: (
                       <InputAdornment position="end">
-                        <LocalDiningIcon />
+                        <SearchIcon />
                       </InputAdornment>
                     )
                   }}
                 />
               </GridItem>
-              {/*  */}
-              <GridItem xs={10} sm={10} md={6} lg={4} >
+              <GridItem xs={12} sm={8} md={6} lg={6}>
                 <CustomInput
-                  onChange={onChange}
+                  onChangeFunction={onChange}
                   labelText="City"
                   id="float"
                   formControlProps={{
                     fullWidth: true
                   }}
                   inputProps={{
-                    onChange: onChange,
                     name: "city",
                     type: "text",
                     endAdornment: (
                       <InputAdornment position="end">
-                        <LocationOn />
+                        <SearchIcon />
                       </InputAdornment>
                     )
                   }}
                 />
               </GridItem>
-            </GridContainer>
-          
-              <Button color="primary" size="sm" type="submit">
-                Search
-              </Button>
-            
+            <Button color="primary" size="sm" type="submit"> Search </Button>
           </form>
         </GridItem>
       </GridContainer>

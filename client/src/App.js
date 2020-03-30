@@ -3,8 +3,9 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 
 import "assets/scss/material-kit-react.scss?v=1.8.0";
+ 
 // pages for this product
-import Components from "views/Components/Components.js";
+// import Components from "views/Components/Components.js";
 // import LandingPage from "views/LandingPage/LandingPage.js";
 import LoginPage from "views/FoodComponents/LoginPage/LoginPage.js";
 import SendMessagePage from "views/sendMessagePage/sendMessagePage";
@@ -22,7 +23,7 @@ import RegisterPage from "views/FoodComponents/RegisterPage/RegisterPage";
 import ForgetPassword from "views/FoodComponents/ForgetPassword/ForgetPassword";
 import EditUserProfile from "views/FoodComponents/EditUserProfile/EditUserProfilePage";
 import RestaurantState from './context/restaurants/restaurantState';
-import PrivateRoute from './components/routing/PrivateRoute'
+import PrivateRoute from './components/Routing/PrivateRoute'
 var hist = createBrowserHistory();
 
 function App() {

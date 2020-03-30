@@ -1,11 +1,9 @@
-import React, { useStyles } from "react";
+import React from "react";
 import Header from "../Layout/Header/Header.js";
 import HeaderLinks from "../Layout/Header/HeaderLinks.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import WelUser from "../Layout/WelUser";
-import GridContainer from "components/Grid/GridContainer";
-import GridItem from "components/Grid/GridItem";
 //import stylesM from '../../../assets/jss/material-kit-react.js'
 import Logo from "assets/img/Logo-FR-124.png";
 //import HeaderRights from "../Layout/Header/HeaderRights";
@@ -23,7 +21,7 @@ export default function WelcomeUser(props) {
       <div className="">
         <Header
           brand={
-            <img
+            <img alt= "LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }

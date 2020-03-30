@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
 import Message from "./message";
 import ProgressBar from "./ProgressBar";

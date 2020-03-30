@@ -1,21 +1,14 @@
+
 import React from 'react';
 //import { Icon } from 'antd';
-import { EnvironmentTwoTone } from "@ant-design/icons";
-import GridContainer from "components/Grid/GridContainer";
-import GridItem from "components/Grid/GridItem";
 
-const MapMarker = ({ name, key }) => {
+const MapMarker = (({ name, key}) => {
   return (
     <div key={key}>
-      <GridItem>
-        <span className="brand-red">{name}</span>
-        <EnvironmentTwoTone
-          style={{ fontSize: "30px" }}
-          twoToneColor="#9c27b0"
-        />
-      </GridItem>
+      <span className="brand-red">{name}</span>
+      {/* <Icon className="font-1-5" type="environment" theme="twoTone" twoToneColor="#fd0000" /> */}
     </div>
   );
-};
+});
 
 export default MapMarker;

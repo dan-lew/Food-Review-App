@@ -13,7 +13,7 @@ import CardBody from "components/Card/CardBody";
 import Geocode from "react-geocode";
 
 const DE_COOR = { lat: 51.1657, lng: 10.4515 };
-const API_KEY = "AIzaSyBvZ2t-zd4VirWdKhMQPCz-jMusKgF7ulI";
+const API_KEY = "AIzaSyD-wdqyhQAUQRDABkb3xKrCAV7Eg6eipvw";
 
 class MapsContainer extends Component {
   constructor(props) {
@@ -233,15 +233,8 @@ class MapsContainer extends Component {
   };
 
   render() {
-    const {
-      constraints,
-      mapsLoaded,
-      germanyLatLng,
-      markers,
-      searchResults,
-      latPlace,
-      lngPlace
-    } = this.state;
+
+    const { constraints, mapsLoaded, germanyLatLng, markers, searchResults} = this.state;
     const { autoCompleteService, geoCoderService } = this.state; // Google Maps Services
     return (
       <GridContainer
