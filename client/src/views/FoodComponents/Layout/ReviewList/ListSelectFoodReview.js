@@ -1,6 +1,6 @@
 // ListSelectFoodReview.js
 
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment,useContext } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -19,8 +19,12 @@ import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import StarIcon from "@material-ui/icons/Star";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import CardListRestaurant from "./CardListRestaurant";
+import RestaurantContext from "../../../../context/restaurants/restaurantContext";
 
-export default function ListSelectFoodReview(props) {
+ const ListSelectFoodReview=props=> {
+  const restaurantContext = useContext(RestaurantContext);
+  const {getCatRestaurant, catrestaurants,searchFood } = restaurantContext;
+
   const useStyles = makeStyles(styles);
   const useStylesB = makeStyles(stylesB);
   const useStylesI = makeStyles(stylesI);
@@ -28,23 +32,7 @@ export default function ListSelectFoodReview(props) {
   const classes = useStyles();
   const classesI = useStylesI();
   const classesT = useStylesT();
-  console.log(classes);
 
-  let restaurantsState = {
-    id: "1",
-    url: "",
-    img: { src: "https://via.placeholder.com/180x130" },
-    name: "Restaurant name",
-    rating: "",
-    isLoading: "false",
-    category: "",
-    count: 0
-  };
-  console.log("state ", restaurantsState.count);
-  console.log(restaurantsState.img.src);
-  const [restaurants, setRestaurants] = useState(restaurantsState.count);
-
-  const { id, category, count, url, img, name, rating } = props;
   const ListFoodStyle = {
     show: {
       display: "block"
@@ -63,12 +51,14 @@ export default function ListSelectFoodReview(props) {
     }
   };
 
-  let setRest = props => {
-    console.log("restaurant");
-    console.log(props)
-    return props;
-   
-  };
+
+  useEffect(() => {
+    searchFood(props.name,props.city);
+  }, []);
+  console.log(catrestaurants);
+
+
+
 
   let starRat = props => {
     if (props.length === 0) {
@@ -89,25 +79,27 @@ export default function ListSelectFoodReview(props) {
     }
   };
 
-  useEffect(() => {
-    function dataShow(data) {
-      setRestaurants(data);
-    }
-    setRest();
-  });
 
   return (
     <div>
       {/* Grid for shows for restaurants */}
       <GridContainer>
         <GridItem>
-          <Card>
-            <CardBody>
-              <CardListRestaurant data={restaurantsState} />
-            </CardBody>
-          </Card>
+          <GridContainer>
+            {catrestaurants.map(restaurant => (
+              <GridItem xs={12} sm={6} md={4} lg={3}>
+                <CardListRestaurant
+                  key={restaurant.id}
+                  restaurant={restaurant}
+                />
+              </GridItem> 
+            ))}
+           
+          </GridContainer>
         </GridItem>
       </GridContainer>
     </div>
   );
 }
+
+export default  ListSelectFoodReview

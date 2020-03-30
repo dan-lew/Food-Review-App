@@ -293,6 +293,3 @@ try{
 export default RegisterPage;  
 
 
-
-
-

@@ -1,8 +1,25 @@
-import React, { useEffect ,useContext} from "react";
+// ListRestaurantsProfilReview.js
+
+// import List from "@material-ui/core/List";
+// import ListItem from "@material-ui/core/ListItem";
+// import Card from "components/Card/Card.js";
+// import CardBody from "components/Card/CardBody.js";
+// import CardHeader from "components/Card/CardHeader.js";
+ import ListSelectFoodReview from "./ListSelectFoodReview";
+// import { Switch, Route, Link } from "react-router-dom";
+// const useStyles = makeStyles(styles);
+import React, { useState, useEffect, useContext } from "react";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
-import CardListRestaurant from './CardListRestaurant'
-import RestaurantContext from '../../../../context/restaurants/restaurantContext'
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "assets/jss/material-kit-react/views/components.js";
+import stylesB from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
+import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
+import CardListRestaurant from "./CardListRestaurant";
+import RestaurantContext from "../../../../context/restaurants/restaurantContext";
+import ListRestaurantsReview from "./ListRestaurantsReview";
+const useStylesB = makeStyles(stylesB);
+const useStylesT = makeStyles(stylesT);
 
 
 const ListRestaurantsProfilReview=(props)=> {

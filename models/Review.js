@@ -5,10 +5,6 @@ const ReviewSchema=new mongoose.Schema({
         type : mongoose.Schema.Types.ObjectId,
         ref: 'users',
     },
-    restaurantId:{
-        type : mongoose.Schema.Types.ObjectId,
-        ref: 'restaurants',
-    },
     restaurantName:{
         type: String,
         required:true,

@@ -18,9 +18,8 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
 const useStyles = makeStyles(styles);
 
-export default function Header(props) {
+export default function HeaderLogin(props) {
   const classes = useStyles();
-
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -55,24 +54,18 @@ export default function Header(props) {
     }
   };
   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
- 
-  
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
-  const brandComponent =<Button className={classes.title}>{brand}</Button>;
-  console.log(brandComponent)
-  console.log("Header: ")
+  const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
-     
         {leftLinks !== undefined ? brandComponent : null}
         <div className={classes.flex}>
-         
           {leftLinks !== undefined ? (
             <Hidden smDown implementation="css">
               {leftLinks}
@@ -114,11 +107,11 @@ export default function Header(props) {
   );
 }
 
-Header.defaultProp = {
+HeaderLogin.defaultProp = {
   color: "white"
 };
 
-Header.propTypes = {
+HeaderLogin.propTypes = {
   color: PropTypes.oneOf([
     "primary",
     "info",
@@ -130,10 +123,11 @@ Header.propTypes = {
     "rose",
     "dark"
   ]),
- // logo:PropTypes.string,
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
-  brand: PropTypes.string,
+  // edit 
+  //brand: PropTypes.string,
+  brand: PropTypes.object,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
   // this will cause the sidebar to change the color from

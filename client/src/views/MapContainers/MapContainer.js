@@ -7,8 +7,13 @@ import ConstraintSlider from "../../MapComponents/ConstraintSlider";
 import { Input, Divider, message, Slider } from "antd";
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
-const API_KEY = "AIzaSyBvZ2t-zd4VirWdKhMQPCz-jMusKgF7ulI";
-const DE_COOR = { lat:51.1657, lng:10.4515 };
+import GridItem from "components/Grid/GridItem.js";
+import Card from "components/Card/Card";
+import CardBody from "components/Card/CardBody";
+import Geocode from "react-geocode";
+
+const DE_COOR = { lat: 51.1657, lng: 10.4515 };
+const API_KEY = "AIzaSyD-wdqyhQAUQRDABkb3xKrCAV7Eg6eipvw";
 
 class MapsContainer extends Component {
   constructor(props) {

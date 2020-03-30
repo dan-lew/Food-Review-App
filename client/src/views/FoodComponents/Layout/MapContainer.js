@@ -1,7 +1,7 @@
 import GoogleMapReact from 'google-map-react';
 import React,{Component} from 'react';
 
-const API_KEY = "";
+const API_KEY = "AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic"
 class MapContainer extends Component {
   render() {
     return (

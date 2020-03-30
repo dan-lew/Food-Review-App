@@ -15,7 +15,8 @@ import ListRestaurantsProfilReview from "./ReviewList/ListRestaurantsProfilRevie
 import SearchRestaurant from "./Restaurants/SearchRestaurant";
 // import Sum from "./ReviewList/Sum";
 // restaurants
-// import RestaurantContext from '../../../context/restaurants/restaurantContext'
+import RestaurantContext from '../../../context/restaurants/restaurantContext'
+import AlertContext from "../../../context/alert/alertContext";
 
 const ListRestaurantStyle = {
   show: {
@@ -38,30 +39,15 @@ export default function WelUser(props) {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   
-   
+  const [classList, setClassList] = React.useState("notShow");
+  const alertContext = useContext(AlertContext);
+  const { setAlert } = alertContext;
+  const restaurantContext = useContext(RestaurantContext);
+  const {searchFood } = restaurantContext;
+  
   const authContext = useContext(AuthContext);
   const { user  } = authContext;
   console.log("The User =", user);
-
-
-  // const [classList, setClassList] = React.useState("notShow");
-
-  // const handleShow = () => {
-  //   if (classList === "show") {
-  //     setClassList("notShow");
-  //   } else {
-  //     setClassList("show");
-  //   }
-  // };
-
-  const handleSearch=(food,city)=>{
-    console.log(food,city);
-    // edit
-    //backend 
-    //get data from restaurant with users food
-  }
-
-  let listCategory = ["Italian", "Indian", "Asian","Iranian", "Greek", "Thai","Mediterranean"];
 
   return (
     <div
@@ -121,9 +107,7 @@ export default function WelUser(props) {
                 <GridItem className={classesT.marginLeft}>
                   <Card>
                     <CardBody>
-                      <SearchRestaurant                    
-                        category={listCategory} 
-                        searchFunction={handleSearch}
+                      <SearchRestaurant  searchFood={searchFood}      
                       />
                     </CardBody>
                   </Card>

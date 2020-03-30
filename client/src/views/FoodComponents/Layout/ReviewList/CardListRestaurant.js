@@ -47,15 +47,6 @@ const CardListRestaurant = ({
   const classesP = useStylesP();
 
   const [classList, setClassList] = React.useState("notShow");
-  const handleShow = () => {
-    if (classList === "show") {
-      setClassList("notShow");
-    } else {
-      setClassList("show");
-    }
-  };
-
-  console.log(restaurantName);
   return (
     <div>
       <GridContainer>
@@ -97,7 +88,7 @@ const CardListRestaurant = ({
               <p>{address}</p>
               <p>{city}</p>
               <p>{category}</p>
-              <hr style={{backgroundColor:"#9c27b0"}}></hr>
+              <hr style={{color:"#9c27b0"}}></hr>
               <p>
                 {" "}
                 Rating - <Rate value={rating} />
@@ -109,78 +100,6 @@ const CardListRestaurant = ({
     </div>
   );
 
-  // return (
-  //   <div>
-  //     {" "}
-  //     <GridContainer>
-  //       <GridItem xs={12} sm={6} md={4} lg={3}>
-  //         {/* <img
-  //           // style={{ height: "130px", width: "180px", display: "block" }}
-  //           style={{ display: "block" }}
-  //           className={classesI.imgCardTop}
-  //           src={props.data.img.src}
-  //           onClick={event => setAnchorElBottom(event.currentTarget)}
-  //           // onClick={handleShow}
-  //         /> */}
-  //         {/* </Fragment> */}
-  //         <CardBody>
-  //           {/* <h4>{props.data.name}</h4> */}
-  //         </CardBody>
-  //         <Popover
-  //           classes={{
-  //             paper: classesP.popover
-  //           }}
-  //           open={Boolean(anchorElBottom)}
-  //           anchorEl={anchorElBottom}
-  //           onClose={() => setAnchorElBottom(null)}
-  //           anchorOrigin={{
-  //             vertical: "bottom",
-  //             horizontal: "center"
-  //           }}
-  //           transformOrigin={{
-  //             vertical: "top",
-  //             horizontal: "center"
-  //           }}
-  //         >
-  //           <div className={classesP.popoverBody}>
-  //             <SelectFood />
-  //           </div>
-  //         </Popover>
-  //       </GridItem>
-  //       <GridItem className={classesListR[classList]}>
-  //         <SelectFood />
-  //         {/* <Card>
-  //           {" "}
-  //           <CardHeader color="primary">Select food review for : </CardHeader>
-  //           <CardBody>
-  //             <Link
-  //               style={{ color: "#9c27b0" }}
-  //               className={classes.navLink}
-  //               to="/foodRating"
-  //             >
-  //               Lasagne
-  //             </Link>
-  //             <br></br>
-  //             <Link
-  //               style={{ color: "#9c27b0" }}
-  //               className={classes.navLink}
-  //               to="/foodRating"
-  //             >
-  //               Spaghetti
-  //             </Link>
-  //             <br></br>
-  //             <Link
-  //               style={{ color: "#9c27b0" }}
-  //               className={classes.navLink}
-  //               to="/foodRating"
-  //             >
-  //               Pasta
-  //             </Link>
-  //           </CardBody>
-  //         </Card> */}
-  //       </GridItem>
-  //     </GridContainer>
-  //   </div>
-  // );
+  
 };
 export default CardListRestaurant;
