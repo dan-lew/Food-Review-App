@@ -16,7 +16,7 @@ console.log(stateProps)
 
 const searchPlaces=(lat,lng,type)=>{
 let typeQuery= type;
-console.log(stateProps.keyApi, " ", typeQuery)
+console.log("keyApi ",stateProps.keyApi, "typeQuery ", typeQuery)
         //https://maps.googleapis.com/maps/api/place/nearbysearch/json
         //?location=53.6424933,10.0465429&radius=2000
         //&type=restaurant&key=AIzaSyB6VLqKGeKFRhs_5UC3Tj-pRUVNmCYOiuI&libraries=places

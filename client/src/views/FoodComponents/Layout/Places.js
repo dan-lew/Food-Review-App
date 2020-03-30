@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { GoogleComponent } from 'react-google-location'
-import RestaurantsList from './Restaurants/RestaurantsList'
 import InputField from './InputFields'
 
 const API_KEY = "AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic"  // how to get key - step are below

@@ -17,7 +17,8 @@ import {
   GET_USER_PROFILE,
   EDIT_PROFILE,
   USER_ERROR,
-  LOGOUT
+  LOGOUT,
+  REGISTER_REVIEW
 } from "../type";
 
 const AuthState = props => {
@@ -81,10 +82,10 @@ const AuthState = props => {
       const res = await axios.post("/api/reviews/review", formData, config);
       
       dispatch({
-        type: REGISTER_SUCCESS,
+        type:   REGISTER_SUCCESS,
         payload: res.data
       });
-      loadUser();
+      
     } catch (error) {
       dispatch({
         type: REGISTER_FAIL,
@@ -144,9 +145,9 @@ const AuthState = props => {
                payload: res.data 
               });
   } 
-  catch (err) { 
-    dispatch({ type: FORGOT_PASSWORD_FAILER,  payload: err.response.data.msg });  
-}
+    catch (err) { 
+      dispatch({ type: FORGOT_PASSWORD_FAILER,  payload: err.response.data.msg });  
+  }
   }
 
 
@@ -218,7 +219,8 @@ const get_user_profile = async ()=>{
         forgot_password,
         get_user_profile,
         edit_profile,
-        logout
+        logout,
+
       }}
     >
       {props.children}

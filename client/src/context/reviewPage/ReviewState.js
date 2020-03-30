@@ -16,7 +16,7 @@ import {
   // SET_ALERT,
   // REMOVE_ALERT
 } from "../type";
-import restaurantContext from "context/restaurants/restaurants/restaurantContext";
+// import restaurantContext from "context/restaurants/restaurants/restaurantContext";
 
 const ReviewState = props => {
   const initialState = {

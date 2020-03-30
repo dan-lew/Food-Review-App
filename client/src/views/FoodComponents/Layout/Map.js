@@ -244,7 +244,7 @@ class Map extends Component{
    let lngVal = this.state.mapPosition.lng;
    console.log("map", latVal, lngVal)
    console.log("plId", )
-    searchPlaces(latVal,lngVal,"restaurant");
+    searchPlaces(latVal,lngVal,"cafe");
 		const AsyncMap = withScriptjs(
 			withGoogleMap(
 				props => (

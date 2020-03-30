@@ -6,6 +6,7 @@ import ReactStars from "react-stars";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import {Redirect} from 'react-router-dom'
 
 // core components
 import Header from "../FoodComponents/Layout/Header/Header.js";
@@ -41,6 +42,7 @@ const ReviewPage = props => {
   const authContext = useContext(AuthContext);
   const { registerReview } = authContext;
 
+  const [redirect,setRedirect] = useState(false)
   const [review, setReview] = useState({
     restaurantName: "",
     city: "",
@@ -108,6 +110,7 @@ const ReviewPage = props => {
           comment
         });
         console.log(registerReview);
+        setRedirect(true)
       }
     } catch (error) {
       setAlert(error.msg, "danger");
@@ -116,6 +119,7 @@ const ReviewPage = props => {
 
   return (
     <div>
+      {redirect ? <Redirect to='/user-profile'/> : null}
       <Header
         brand={
           <img alt="LogoImg"

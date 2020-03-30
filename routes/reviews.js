@@ -97,7 +97,8 @@ router.post(  "/review",
 
       const review = await newReview.save();
       console.log("Your review has been saved!", review);
-     res.redirect("../reviews/review");
+     //res.redirect("../reviews/review");
+      res.send('Review saved')
     } catch (error) {
       res.status(500).send("Server Error");
     }
