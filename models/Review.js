@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ReviewSchema=new mongoose.Schema({
-    userId: {
+    user: {
         type : mongoose.Schema.Types.ObjectId,
         ref: 'users',
     },
@@ -27,7 +27,7 @@ const ReviewSchema=new mongoose.Schema({
     },
     dateOfVisit:{
         type: Date,
-        default:Date.now
+        default:new Date()
     },
     price:{
         type: Number,
