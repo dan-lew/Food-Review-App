@@ -42,6 +42,11 @@ const ReviewState = props => {
     dispatch({ type: ADD_REVIEW, payload: review });
   };
 
+  const filterReviews = async (date) => { 
+    const res = await axios.post("/api/reviews/dateFilter", date);
+    dispatch({ type: FILTER_REVIEW, payload: res.data });
+  };
+
   const updateReview = review => {
     dispatch({ type: UPDATE_REVIEW, payload: review });
   };
@@ -56,10 +61,6 @@ const ReviewState = props => {
 
   const clearCurrent = () => {
     dispatch({ type: CLEAR_CURRENT });
-  };
-
-  const filterReviews = text => {
-    dispatch({ type: FILTER_REVIEW, payload: text });
   };
 
   const clearFilter = () => {

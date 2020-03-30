@@ -103,4 +103,20 @@ router.post(
     }
   }
 );
+// Get reviews with date filter
+router.post("/dateFilter", async (req,res) => {
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
+
+  try {
+    const reviews = await Review.find({
+      dateOfVisit: { $gte: startDate, $lte: endDate }
+    });
+    return res.json(reviews);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 module.exports = router;

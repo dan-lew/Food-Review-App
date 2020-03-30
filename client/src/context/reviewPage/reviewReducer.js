@@ -30,6 +30,11 @@ export default (state, action) => {
         ...state,
         reviews: [...state.reviews, action.payload]
       };
+      case FILTER_REVIEW:
+        return {
+          ...state,
+          reviews:[...state.reviews, action.payload]
+        };
     case DELETE_REVIEW:
       return {
         ...state,
@@ -52,18 +57,7 @@ export default (state, action) => {
           item.id === action.payload.id ? action.payload : item
         )
       };
-    case FILTER_REVIEW:
-      return {
-        ...state,
-        filtered: state.reviews.filter(review => {
-          const regx = new RegExp(`${action.payload}`, "gi"); // (g)global and (i)caseInsensitive
-          return (
-            review.name.match(regx) ||
-            review.email.match(regx) ||
-            review.phone.match(regx)
-          );
-        })
-      };
+
     case CLEAR_FILTER:
       return {
         ...state,
