@@ -24,6 +24,7 @@ import SearchRestaurant from "./Restaurants/SearchRestaurant";
 import Sum from "./ReviewList/Sum";
 // restaurants
 import RestaurantContext from '../../../context/restaurants/restaurantContext'
+import AlertContext from "../../../context/alert/alertContext";
 
 const ListRestaurantStyle = {
   show: {
@@ -47,23 +48,12 @@ export default function WelUser(props) {
   const classes = useStyles();
   
   const [classList, setClassList] = React.useState("notShow");
-
-  const handleShow = () => {
-    if (classList === "show") {
-      setClassList("notShow");
-    } else {
-      setClassList("show");
-    }
-  };
-
-  const handleSearch=(food)=>{
-    console.log(food);
-    // edit
-    //backend 
-    //get data from restaurant with users food
-  }
-
-  let listCategory = ["Italian", "Indian", "Japanese", "Greek", "Thai"];
+  const alertContext = useContext(AlertContext);
+  const { setAlert } = alertContext;
+  const restaurantContext = useContext(RestaurantContext);
+  const {searchFood } = restaurantContext;
+  
+ 
 
   return (
     <div
@@ -123,9 +113,7 @@ export default function WelUser(props) {
                 <GridItem className={classesT.marginLeft}>
                   <Card>
                     <CardBody>
-                      <SearchRestaurant                    
-                        category={listCategory} 
-                        searchFunction={handleSearch}
+                      <SearchRestaurant  searchFood={searchFood}      
                       />
                     </CardBody>
                   </Card>
@@ -138,9 +126,9 @@ export default function WelUser(props) {
                <GridContainer>
                 <GridItem>
                   <Switch>
-                    <Route path="/welcome-user/Japanese">
-                      <h1 className={classesT.primaryText + " "+classesT.header} >Japanese</h1>
-                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Japanese" />
+                    <Route path="/welcome-user/Iranian">
+                      <h1 className={classesT.primaryText + " "+classesT.header} >Iranian</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Iranian" />
                     </Route>
                     <Route path="/welcome-user/Italian">
                       <h1  className={classesT.primaryText + " "+classesT.header}>Italian</h1>
@@ -157,6 +145,14 @@ export default function WelUser(props) {
                     <Route path="/welcome-user/Thai">
                       <h1  className={classesT.primaryText + " "+classesT.header}>Thai</h1>
                       <ListRestaurantsProfilReview className={classesListR["show"]} category = "Thai" />
+                    </Route>
+                    <Route path="/welcome-user/Asian">
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Asian</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Asian" />
+                    </Route>
+                    <Route path="/welcome-user/Mediterranean">
+                      <h1  className={classesT.primaryText + " "+classesT.header}>Mediterranean</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Mediterranean" />
                     </Route>
                   </Switch>
                 </GridItem>

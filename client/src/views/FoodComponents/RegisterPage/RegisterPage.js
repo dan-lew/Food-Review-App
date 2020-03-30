@@ -301,6 +301,3 @@ try{
 export default RegisterPage;  
 
 
-
-
-

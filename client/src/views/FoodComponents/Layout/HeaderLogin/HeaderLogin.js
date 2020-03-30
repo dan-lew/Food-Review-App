@@ -11,25 +11,15 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
-
-import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
-import stylesN from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
-
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
-const useStylesN = makeStyles(stylesN);
 const useStyles = makeStyles(styles);
-const useStylesI = makeStyles(stylesI);
 
-
-export default function Header(props) {
+export default function HeaderLogin(props) {
   const classes = useStyles();
-  const classesI = useStylesI();
-  const classesN = useStylesN()
-
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -64,24 +54,18 @@ export default function Header(props) {
     }
   };
   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
- 
-  
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
-  const brandComponent =<Button className={classes.title}>{brand}</Button>;
-  console.log(brandComponent)
-  console.log("Header: ")
+  const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
-     
         {leftLinks !== undefined ? brandComponent : null}
         <div className={classes.flex}>
-         
           {leftLinks !== undefined ? (
             <Hidden smDown implementation="css">
               {leftLinks}
@@ -123,11 +107,11 @@ export default function Header(props) {
   );
 }
 
-Header.defaultProp = {
+HeaderLogin.defaultProp = {
   color: "white"
 };
 
-Header.propTypes = {
+HeaderLogin.propTypes = {
   color: PropTypes.oneOf([
     "primary",
     "info",
@@ -139,10 +123,11 @@ Header.propTypes = {
     "rose",
     "dark"
   ]),
- // logo:PropTypes.string,
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
-  brand: PropTypes.string,
+  // edit 
+  //brand: PropTypes.string,
+  brand: PropTypes.object,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
   // this will cause the sidebar to change the color from

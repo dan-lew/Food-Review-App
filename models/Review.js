@@ -1,13 +1,9 @@
 const mongoose = require('mongoose');
 
 const ReviewSchema=new mongoose.Schema({
-    userId: {
+    user: {
         type : mongoose.Schema.Types.ObjectId,
         ref: 'users',
-    },
-    restaurantId:{
-        type : mongoose.Schema.Types.ObjectId,
-        ref: 'restaurants',
     },
     restaurantName:{
         type: String,

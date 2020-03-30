@@ -13,7 +13,7 @@ import CardBody from "components/Card/CardBody";
 import Geocode from "react-geocode";
 
 const DE_COOR = { lat: 51.1657, lng: 10.4515 };
-const API_KEY = "AIzaSyBvZ2t-zd4VirWdKhMQPCz-jMusKgF7ulI";
+const API_KEY = "AIzaSyD-wdqyhQAUQRDABkb3xKrCAV7Eg6eipvw";
 
 class MapsContainer extends Component {
   constructor(props) {
@@ -309,7 +309,7 @@ class MapsContainer extends Component {
                 return (
                   <div key={key} className="mb-4">
                     <div className="d-flex mb-2">
-                      <Input
+                    <Input
                         className="col-4 mr-2"
                         placeholder="Country"
                         onChange={event =>
@@ -348,17 +348,6 @@ class MapsContainer extends Component {
           </Button>
         </section>
         {/* </GridItem> */}
-        {/*  <div style={{ marginTop: "40px" }}>
-         Search Button 
-          <Button
-            className="mt-4 fw-md"
-            color="primary"
-            size="sm"
-            onClick={this.handleSearch}
-          >
-            Search!
-          </Button>  </div>*/}
-      
 
         {/* Results section */}
         {searchResults.length > 0 ? (

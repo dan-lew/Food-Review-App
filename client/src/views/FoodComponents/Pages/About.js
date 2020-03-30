@@ -24,6 +24,8 @@ const About = props => {
   const useStylesI = makeStyles(stylesI);
   const classesT = useStylesT();
   const classesI = useStylesI();
+  console.log(classesT);
+
   const useStyles = makeStyles(styles);
   const classes = useStyles();
 

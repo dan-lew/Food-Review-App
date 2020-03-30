@@ -33,18 +33,30 @@ const PlaceCard = ({ info, index }) => {
     if (isPicture) {
       return (
         <Fragment>
+          <div style={{ 
+              width: "200px",
+              height: "200px",
+              borderRadius: "50%",
+              margin: "auto",
+              justifyContent: "center",
+              textAlign: "center",
+              alignItems: "center",
+              marginTop:"20px",
+              boxShadow: "0px 0px 10px #969696"}}>
           <img
             src={photoUrl}
             style={{
               width: "200px",
               height: "200px",
-              marginTop: "20px",
               borderRadius: "50%",
-              boxShadow: "2px 2px 12px #969696"
+              justifyItems: "center",
+              textAlign: "center",
+              aignItems: "center"
             }}
              alt="No Photo"
             // alt={photoUrl}
           />
+          </div>
         </Fragment>
       );
     } else if (isPicture) {
@@ -61,10 +73,9 @@ const PlaceCard = ({ info, index }) => {
               justifyItems: "center",
               textAlign: "center",
               alignItems: "center",
-              display: "grid",
               marginTop:"20px",
-              boxShadow: "2px 2px 12px #969696"
-              //, flexWrap: "wrap"
+              boxShadow: "1px 1px 6px #969696"
+             
             }}
           >
             <h4>
@@ -113,12 +124,12 @@ const PlaceCard = ({ info, index }) => {
             >
               <Card
                 style={{ textAlign: "center", justifyContent: "space-evenly" }}
-              >
+              ><div style={{padding:"10px"}}>
                 <h5 style={{'color':"#9c27b0"}} className="card-title">{name}</h5>
                 <span className="d-block mb-1">{address}</span>
                 <span className="d-block">{distanceText}</span>
                 <span className="d-block">{timeText}</span>
-
+                </div>
                 <CardBody>
                   <ul className="list-group list-group-flush">
                     {openNow ? (

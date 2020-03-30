@@ -4,8 +4,8 @@ import Geocode from "react-geocode";
 import Autocomplete from 'react-google-autocomplete';
 import  searchPlaces  from './LngLat'
 import GridContainer from 'components/Grid/GridContainer';
-const API_KEY=""
-Geocode.setApiKey( API_KEY);
+
+Geocode.setApiKey( "AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic" );
 Geocode.enableDebug();
 
 class Map extends Component{

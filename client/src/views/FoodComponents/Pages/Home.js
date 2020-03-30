@@ -4,7 +4,6 @@ import React, { useStyles } from "react";
 // import MapMarkers from "../Layout/MapMarkers";
 // import Places from "../Layout/Places";
 import SectionCarousel from "../Layout/SectionCarousel";
-import RestaurantsList from "../Layout/Restaurants/RestaurantsList";
 import Footer from "../Layout/Footer";
 import Header from "../Layout/Header/Header";
 import HeaderLinks from "../Layout/Header/HeaderLinks";

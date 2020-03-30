@@ -51,17 +51,11 @@ const HeaderLinks = props => {
           Contact Us
         </Link>
       </ListItem>
-
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/about">About </Link>
       </ListItem>
-
-  
     </Fragment>
   );
-
-
-  
   const userLinks = (
     <Fragment>
       {/* <ListItem className={classes.listItem}>
@@ -75,16 +69,12 @@ const HeaderLinks = props => {
       <ListItem className={classes.listItem}>
       <Link className={classes.navLink} to="/user-profile"> Profile </Link>
       </ListItem>
-
-
       <ListItem className={classes.listItem}>
       <Link className={classes.navLink}  to="/restaurantsReview">Food Reviews </Link>
       </ListItem>
-
       <ListItem className={classes.listItem}>
       <Link className={classes.navLink}  to="/review-page">Add Review </Link>
       </ListItem>
-
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/sendMessagePage">
           Contact Us
@@ -93,8 +83,6 @@ const HeaderLinks = props => {
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/about">About </Link>
       </ListItem>
-
-     
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} onClick={onLogout} to="/">
           Logout
@@ -110,8 +98,6 @@ const HeaderLinks = props => {
         </Link>
       </ListItem>
       {!isAuthenticated && guestLinks}
-    
-
       {isAuthenticated && userLinks}
     </List>
   );

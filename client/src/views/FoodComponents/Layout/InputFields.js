@@ -1,6 +1,6 @@
 import React from 'react'
 import { GoogleComponent } from 'react-google-location'
-const API_KEY = "" 
+const API_KEY = "AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic" 
 
 
 export default function InputFields(props) {
