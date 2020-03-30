@@ -19,7 +19,7 @@ import axios from "axios";
 import RestaurantContext from "../../../../context/restaurants/restaurantContext";
 
 const SearchRestaurant = props => {
-  //   onst [text,setText]=useState('');
+  //   const [text,setText]=useState('');
   //   const onChange=(e)=>setText( e.target.value);
 
   //   const onSubmit=(e)=>{
@@ -95,7 +95,7 @@ const SearchRestaurant = props => {
       <h3>Choose your cuisine... </h3>
 
       <GridContainer>
-        <GridItem xs={10} sm={10} md={10} lg={10}>
+        <GridItem xs={10} sm={10} md={12} lg={12}>
           {btnS[0].map((value, index) => {
             // console.log(value);
             // console.log(index, value);
@@ -110,14 +110,11 @@ const SearchRestaurant = props => {
                   key={index}
                   to={`/welcome-user/${value}`}
                 >
-                  {" "}
-                  <GridContainer>
-                    <GridItem>{value}</GridItem>
-                  </GridContainer>
+                {value}
                   {
-                    // <span>
-                    //   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    // </span>
+                    <span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
                   }
                 </Link>
               </Fragment>
@@ -127,6 +124,7 @@ const SearchRestaurant = props => {
         <GridItem xs={12} sm={12} md={12} lg={12}>
           <form onSubmit={searchFood} className={classes.form}>
             <GridContainer>
+              {/*  */}
               <GridItem xs={10} sm={10} md={6} lg={4}>
                 <CustomInput
                   onChange={onChange}
@@ -147,7 +145,8 @@ const SearchRestaurant = props => {
                   }}
                 />
               </GridItem>
-              <GridItem xs={10} sm={10} md={6} lg={4}>
+              {/*  */}
+              <GridItem xs={10} sm={10} md={6} lg={4} >
                 <CustomInput
                   onChange={onChange}
                   labelText="City"
@@ -168,10 +167,11 @@ const SearchRestaurant = props => {
                 />
               </GridItem>
             </GridContainer>
-            <Button color="primary" size="sm" type="submit">
-              {" "}
-              Search{" "}
-            </Button>
+          
+              <Button color="primary" size="sm" type="submit">
+                Search
+              </Button>
+            
           </form>
         </GridItem>
       </GridContainer>

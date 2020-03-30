@@ -1,6 +1,6 @@
 import React, { useStyles, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Rate} from "antd";
+import { Rate } from "antd";
 // import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import MapContainer from "../Layout/MapContainer";
 import Map from "../Layout/Map";
@@ -19,7 +19,7 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 import Logo from "assets/img/Logo-FR-124.png";
 import Header from "../Layout/Header/Header.js";
 import HeaderLinks from "../Layout/Header/HeaderLinks.js";
- 
+
 export default function RestaurantsReview(props) {
   const useStylesT = makeStyles(stylesT);
   const useStylesI = makeStyles(stylesI);
@@ -106,14 +106,17 @@ export default function RestaurantsReview(props) {
                         }
                       >
                         <p>{restaurantView.food}</p>
-                        <p> Rating - <Rate value={restaurantView.rating}/></p>
+                        <p>
+                          {" "}
+                          Rating - <Rate value={restaurantView.rating} />
+                        </p>
                       </CardBody>
                     </Card>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={4} lg={4}>
                     <Card>
                       <CardBody>
-                        <h4 style={{color:"#9c27b0"}}>Contact Info</h4>
+                        <h4 style={{ color: "#9c27b0" }}>Contact Info</h4>
                         <div
                           style={{
                             borderRadius: "20px",
@@ -129,7 +132,19 @@ export default function RestaurantsReview(props) {
                       </CardBody>
                     </Card>
                   </GridItem>
-                  <GridItem>
+                  <GridItem
+                    xs={12}
+                    sm={10}
+                    md={8}
+                    lg={8}
+                    style={{
+                      alignItems: "space-around",
+                      textAlign: "center",
+                      flex: 1,
+                      flexDirection: "column",
+                      justifyContent: "space-between"
+                    }}
+                  >
                     {/* MapContainer */}
                     <Map
                       google={props.google}
@@ -137,7 +152,6 @@ export default function RestaurantsReview(props) {
                         lat: 53.5510846,
                         lng: 9.9936819
                       }}
-                      
                       height="200px"
                       zoom={15}
                     />
@@ -190,7 +204,11 @@ export default function RestaurantsReview(props) {
 
                           <GridItem xs={12} sm={12} md={8} lg={8}>
                             <h3>{restaurantView.user.name} </h3>
-                            <p> Rating - <Rate value={restaurantView.user.rating}/></p>
+                            <p>
+                              {" "}
+                              Rating -{" "}
+                              <Rate value={restaurantView.user.rating} />
+                            </p>
                           </GridItem>
                         </GridContainer>
                       </CardHeader>

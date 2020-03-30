@@ -7,13 +7,13 @@ class MapAutoComplete extends Component {
   
   // Runs a search on the current value as the user types in the AutoComplete field.
   handleSearch = ((value) => {
-    const { autoCompleteService, singaporeLatLng } = this.state;
+    const { autoCompleteService, LatLng } = this.state;
     
     // Search only if there is a string
     if (value.length > 0) {
       const searchQuery = {
         input: value,
-        location: singaporeLatLng, // Search within Singapore
+        location: LatLng, 
         radius: 30000, // in Meters. 30km
       };
       autoCompleteService.getQueryPredictions(searchQuery, ((response) => {
