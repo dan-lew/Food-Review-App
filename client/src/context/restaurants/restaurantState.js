@@ -11,7 +11,6 @@ import {
 
 const RestaurantState = props => {
     const initialState = {
-        restaurants:[],
         restaurant:{},
         catrestaurants:[],
         filtered:[],

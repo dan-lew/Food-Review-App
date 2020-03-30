@@ -5,7 +5,6 @@
 // import Card from "components/Card/Card.js";
 // import CardBody from "components/Card/CardBody.js";
 // import CardHeader from "components/Card/CardHeader.js";
- import ListSelectFoodReview from "./ListSelectFoodReview";
 // import { Switch, Route, Link } from "react-router-dom";
 // const useStyles = makeStyles(styles);
 import React, { useState, useEffect, useContext } from "react";
@@ -17,7 +16,6 @@ import stylesB from "assets/jss/material-kit-react/views/componentsSections/basi
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import CardListRestaurant from "./CardListRestaurant";
 import RestaurantContext from "../../../../context/restaurants/restaurantContext";
-import ListRestaurantsReview from "./ListRestaurantsReview";
 const useStylesB = makeStyles(stylesB);
 const useStylesT = makeStyles(stylesT);
 
@@ -62,8 +60,7 @@ const ListRestaurantsProfilReview = props => {
                 />
               </GridItem> //<div>{user.login}</div>
             ))}
-            {/* // edit */}
-            {/* <ListSelectFoodReview /> */}
+           
           </GridContainer>
         </GridItem>
         <GridItem></GridItem>
