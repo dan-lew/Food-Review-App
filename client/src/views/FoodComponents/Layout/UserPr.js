@@ -96,6 +96,15 @@ export default function UserPr(props) {
     }
   ];
   const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
+
+  const [startDate,setStartDate]=useState('');
+  const [endDate,setEndDate]=useState('');
+
+  // const onChangeDate=(e)=>{
+  //   setFood({ ...sendFood, [e.target.name]:e.target.value})
+  // }
+
+
   const getImgPath = path => {
     console.log(path);
     setUser({ ...user, photo: path });
@@ -232,25 +241,15 @@ export default function UserPr(props) {
                           inputProps={{
                             placeholder: "Please choose your Date"
                           }}
-                          // id="dateodateOfVisitfvisit"
-                          // formControlProps={{
-                          //   fullWidth: true
-                          // }}
-                          // inputProps={{
-                          //   // onChange: onChange,
-                          //   name: "dateOfVisit",
-                          //   type: "date",
-                          //   endAdornment: (
-                          //     <InputAdornment position="end">
-                          //       <i className="fas fa-calendar-alt"></i>
-                          //     </InputAdornment>
-                          //   )
-                          // }}
                         />
                       </FormControl>
                     </CardBody>
                   </Card>
                 </GridItem>
+
+                <GridItem xs={12} sm={8} md={6} lg={6}>
+                
+              </GridItem>
                 <GridItem
                   xs={12}
                   sm={6}
@@ -269,6 +268,7 @@ export default function UserPr(props) {
                         <Datetime
                           inputProps={{
                             placeholder: "Please choose your Date"
+                            
                           }}
                         />
                       </FormControl>

@@ -59,8 +59,7 @@ const  SearchRestaurant=()=> {
         }   
         else {
           searchFood(sendFood.food,sendFood.city);
-          console.log(sendFood.food,sendFood.city);
-          console.log(catrestaurants)
+       
             // setFood('');
         }
       }
