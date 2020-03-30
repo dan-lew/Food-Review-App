@@ -7,7 +7,7 @@ import {
 
 export default (state , action) => {
     switch(action.type) {
-        
+     
         case GET_CATRESTAURANT:
             return{
                 ...state,
@@ -18,7 +18,7 @@ export default (state , action) => {
         case SEARCH_FOOD:
             return {
                 ...state,
-                restaurants: action.payload,
+                catrestaurants: action.payload,
                 loading:false
             }
 

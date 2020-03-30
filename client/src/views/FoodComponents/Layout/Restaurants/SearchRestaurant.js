@@ -18,7 +18,7 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import RestaurantContext from '../../../../context/restaurants/restaurantContext'
 
 
-const  SearchRestaurant=(props)=> {
+const  SearchRestaurant=()=> {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   const useStylesT = makeStyles(stylesT);
@@ -27,7 +27,7 @@ const  SearchRestaurant=(props)=> {
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
   const restaurantContext = useContext(RestaurantContext);
-  const {getCatRestaurant, catrestaurants} = restaurantContext;
+  const {getCatRestaurant, catrestaurants,searchFood} = restaurantContext;
   
   let listCategory = ["Italian", "Indian", "Asian","Iranian", "Greek", "Thai","Mediterranean"];
 
@@ -59,8 +59,9 @@ const  SearchRestaurant=(props)=> {
           setAlert(alert,'danger')
         }   
         else {
-          props.searchFood(sendFood.food,sendFood.city);
-          console.log(sendFood.food,sendFood.city)
+          searchFood(sendFood.food,sendFood.city);
+          console.log(sendFood.food,sendFood.city);
+          console.log(catrestaurants)
             // setFood('');
         }
       }

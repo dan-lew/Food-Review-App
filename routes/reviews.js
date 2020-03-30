@@ -83,6 +83,7 @@ router.post(  "/review",
     } = req.body;
     try {
       const newReview = new Review({
+        user:req.user.id,
         restaurantName,
         city,
         category,
