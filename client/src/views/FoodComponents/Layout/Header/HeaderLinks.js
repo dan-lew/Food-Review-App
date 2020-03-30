@@ -54,9 +54,6 @@ const HeaderLinks = props => {
           Contact Us
         </Link>
       </ListItem>
-      <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/about">About </Link>
-      </ListItem>
     </Fragment>
   );
   const userLinks = (
@@ -85,9 +82,6 @@ const HeaderLinks = props => {
         <Link className={classes.navLink} to="/sendMessagePage">
           Contact Us
         </Link>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/about">About </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} onClick={onLogout} to="/">
