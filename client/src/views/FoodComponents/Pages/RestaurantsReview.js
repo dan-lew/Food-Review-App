@@ -132,12 +132,12 @@ export default function RestaurantsReview(props) {
                 </GridContainer>
               </GridItem>
               <GridItem xs={12} sm={12} md={12} lg={12}>
-                <GridContainer className={classesT.marginLeft}>
+                <GridContainer className={classesT.marginCenter}>
                   <GridItem
                     xs={12}
-                    sm={10}
-                    md={5}
-                    lg={5}
+                    sm={12}
+                    md={8}
+                    lg={8}
                     style={{
                       alignItems: "space-around",
                       textAlign: "center",
@@ -158,65 +158,68 @@ export default function RestaurantsReview(props) {
                     />
                     <br></br>
                   </GridItem>
-                  <GridItem xs={12} sm={12} md={6} lg={6}>
+                  <GridItem
+                    className={classesT.marginCenter}
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                  >
                     {/* reviews rating*/}
-                    <GridContainer>
-                      <GridItem xs={12} sm={12} md={12} lg={12}>
-                        <h3 style={{ paddingLeft: "30px" }}>Your reviews...</h3>
-                      </GridItem>
+                    <GridContainer className={classesT.marginCenter}>
                       <GridItem
+                        className={classesT.marginCenter}
                         xs={12}
                         sm={12}
-                        md={12}
-                        lg={12}
-                        className={classesT.marginLeft}
+                        md={10}
+                        lg={8}
                       >
-                        <Card>
-                          <CardHeader
-                            color="primary"
-                            className={classes.cardHeader}
-                          >
-                            <GridContainer>
-                              <GridItem xs={12} sm={3} md={3} lg={3}>
-                                <div
-                                  className={
-                                    classesI.Raised +
-                                    " " +
-                                    classesI.imgFluidUser +
-                                    " mui--align-middle "
-                                  }
-                                >
-                                  <img
-                                    alt="Photo"
-                                    src={restaurantView.user.src}
-                                    className={
-                                      classesI.imgFluidUser +
-                                      " mui--align-middle" +
-                                      " " +
-                                      classesI.imgShadow +
-                                      " " +
-                                      classesI.imgRounded
-                                    }
-                                  />
-                                </div>
-                              </GridItem>
+                        <GridItem>
+                          <h3 style={{ paddingLeft: "30px" }}>
+                            Your reviews...
+                          </h3>
+                        </GridItem>
+                        
+                          <Card>
+                            <CardHeader
+                              color="primary"
+                              className={classes.cardHeader}
+                            >
+                              <GridContainer>
+                                <GridItem xs={12} sm={3} md={3} lg={3}>
+                                 
+                                    <img
+                                      alt="Photo"
+                                      src={restaurantView.user.src}
+                                      className={
+                                        classesI.imgFluidUser +
+                                        " mui--align-middle" +
+                                        " " +
+                                        classesI.imgShadow +
+                                        " " +
+                                        classesI.imgRounded
+                                      }
+                                    />
+                                 
+                                </GridItem>
 
-                              <GridItem xs={12} sm={7} md={7} lg={7}>
-                                <h4>{restaurantView.user.name} </h4>
-                                <p>
-                                  {" "}
-                                  Rating -{" "}
-                                  <Rate value={restaurantView.user.rating} />
-                                </p>
-                              </GridItem>
-                            </GridContainer>
-                          </CardHeader>
-                          <CardBody>
-                            <div>
-                              <p>{restaurantView.user.description}</p>
-                            </div>
-                          </CardBody>
-                        </Card>
+                                <GridItem xs={12} sm={7} md={7} lg={7}>
+                                  <h4>{restaurantView.user.name} </h4>
+                                  <p>
+                                    {" "}
+                                    Rating -{" "}
+                                    <Rate value={restaurantView.user.rating} />
+                                  </p>
+                                </GridItem>
+                              </GridContainer>
+                            </CardHeader>
+                            <CardBody>
+                              <div>
+                                <p>{restaurantView.user.description}</p>
+                              </div>
+                            </CardBody>
+                          </Card>
+                       
                       </GridItem>
                     </GridContainer>
                   </GridItem>
@@ -225,7 +228,7 @@ export default function RestaurantsReview(props) {
             </GridContainer>
           </CardBody>
         </Card>
-      </div> 
+      </div>
     </div>
   );
 }

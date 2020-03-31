@@ -123,12 +123,9 @@ export default function UserPr(props) {
   };
 
   return (
-    <div
-      // style={{ paddingTop: "50px", width: "90%" }}
-      className={classesT.marginCenter}
-    >
+    <div className={classesT.marginCenter}>
       <Card
-        style={{ paddingTop: "50px", width: "90%" }}
+        style={{ paddingTop: "80px", width: "90%" }}
         className={classesT.marginCenter}
       >
         <CardBody className={classesT.marginCenter}>
@@ -155,21 +152,24 @@ export default function UserPr(props) {
                     >
                       <div onChange={onChange}>
                         {/* User foto links */}
-                       
-                          <img
-                            src={user.photo}
-                            alt="..."
-                            className={
-                              {
-                                height: "100px",
-                                justifyContent: "center",
-                                width: "100%"
-                              } + 
-                              " " +
-                              classesT.imgFluid+" "+ classesI.imgRounded+" "+ classesI.imgShadow
-                            }
-                          />
-                      
+
+                        <img
+                          src={user.photo}
+                          alt="..."
+                          className={
+                            {
+                              height: "100px",
+                              justifyContent: "center",
+                              width: "100%"
+                            } +
+                            " " +
+                            classesT.imgFluid +
+                            " " +
+                            classesI.imgRounded +
+                            " " +
+                            classesI.imgShadow
+                          }
+                        />
 
                         <p>Edit your profile image...</p>
                         <FileUpload getImgPath={getImgPath} />
@@ -351,7 +351,7 @@ export default function UserPr(props) {
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12} lg={6}>
                   {/* style={{paddingLeft:"30px"}}  */}
-                  <h3 >Your reviews...</h3>
+                  <h3>Your reviews...</h3>
                 </GridItem>
                 {reviews !== null &&
                   reviews.map(item => {
