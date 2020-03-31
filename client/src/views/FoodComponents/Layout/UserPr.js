@@ -126,9 +126,7 @@ export default function UserPr(props) {
   };
 
   return (
-    <div
-      className={classesT.marginCenter}
-    >
+    <div className={classesT.marginCenter}>
       <Card
         style={{ paddingTop: "80px", width: "90%" }}
         className={classesT.marginCenter}
@@ -139,11 +137,11 @@ export default function UserPr(props) {
               xs={12}
               sm={12}
               md={4}
-              lg={5}
+              lg={4}
               className={classesT.marginCenter}
             >
               <GridContainer className={classesT.marginLeft}>
-                <GridItem xs={12} sm={12} md={12} lg={12}>
+                <GridItem xs={12} sm={12} md={10} lg={10}>
                   <Card>
                     <CardHeader color="primary" className={classes.cardHeader}>
                       Welcome {`${user.firstname}   ${user.lastname}`}
@@ -155,21 +153,19 @@ export default function UserPr(props) {
                         classes.textCenter
                       }
                     >
-                      <div  className={
-                        { display: "flex", alignItems: "center" } +
-                        " " +
-                        classes.textCenter
-                      } style={{width:"100%",height:"auto", justifyContent: "center", alignItems:"center", overflow: "hidden"}} onChange={onChange}>
+                      <div onChange={onChange}>
                         {/* User foto links */}
+
                         <img
-                          src={userPhoto(user)}
-                          alt="Please upload your profile picture"
+                          src={user.photo}
+                          alt="..."
                           className={
                             {
-                              // height: "100px",
+                              height: "100px",
                               justifyContent: "center",
                               width: "100%"
                             } +
+                            " " +
                             classesT.imgFluid +
                             " " +
                             classesI.imgRounded +
@@ -177,6 +173,8 @@ export default function UserPr(props) {
                             classesI.imgShadow
                           }
                         />
+
+                        <p></p>
                         <FileUpload getImgPath={getImgPath} />
                       </div>
                     </CardBody>
@@ -210,7 +208,7 @@ export default function UserPr(props) {
                 ></GridItem>
               </GridContainer>
             </GridItem>
-            <GridItem xs={12} sm={12} md={8} lg={7}>
+            <GridItem xs={12} sm={12} md={8} lg={8}>
               {/* datapicker*/}
               <GridContainer style={{ paddingTop: "90px" }}>
                 <GridItem
@@ -271,7 +269,7 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-                <Button onClick = {onSubmit}>Select dates</Button>
+                <Button onClick={onSubmit}>Select dates</Button>
               </GridContainer>
               {/* restaurants reviews */}
               <GridContainer>
@@ -355,7 +353,8 @@ export default function UserPr(props) {
               {/* reviews rating*/}
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12} lg={6}>
-                  <h3 >Your reviews...</h3>
+                  {/* style={{paddingLeft:"30px"}}  */}
+                  <h3>Your reviews...</h3>
                 </GridItem>
                 {reviews !== null &&
                   reviews.map(item => {
@@ -369,7 +368,6 @@ export default function UserPr(props) {
                       >
                         <Card>
                           <CardHeader
-                            style={{}}
                             color="primary"
                             className={classes.cardHeader}
                           >
