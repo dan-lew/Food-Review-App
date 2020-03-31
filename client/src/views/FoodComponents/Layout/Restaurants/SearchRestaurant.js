@@ -125,7 +125,7 @@ const  SearchRestaurant=()=> {
                   }}
                 />
               </GridItem>
-              <GridItem xs={10} sm={10} md={5} lg={4}>
+              <GridItem xs={10} sm={10} md={6} lg={6}>
                 <CustomInput
                   onChangeFunction={onChange}
                   labelText="City"
