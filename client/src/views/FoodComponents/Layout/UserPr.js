@@ -63,8 +63,11 @@ export default function UserPr(props) {
 
   const [sendDate, setDate] = useState({ startDate: new Date(), endDate: new Date() });
   const { startDate, endDate } = sendDate;
-  const onChangeDate = date => {
+  const onChangeStartDate = date => {
     setDate({ ...sendDate, "startDate": date });
+  };
+  const onChangeEndDate = date => {
+    setDate({ ...sendDate, "endDate": date });
   };
   // const [setStartDate, setEndDate] = useState(new Date());
   console.log(startDate, endDate);
@@ -229,7 +232,7 @@ export default function UserPr(props) {
                       <FormControl fullWidth>
                         <DatePicker
                           selected={startDate}
-                          onChange={onChangeDate}
+                          onChange={onChangeStartDate}
                           selectsStart
                           startDate={startDate}
                           endDate={endDate}
@@ -256,7 +259,7 @@ export default function UserPr(props) {
                       <FormControl fullWidth>
                         <DatePicker
                           selected={endDate}
-                          onChange={onChangeDate}
+                          onChange={onChangeEndDate}
                           selectsEnd
                           startDate={startDate}
                           endDate={endDate}

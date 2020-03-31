@@ -8,23 +8,6 @@ const Restaurant = require("../models/Restaurants");
 const Reviews = require("../models/Review");
 
 
-// Get all restaurants from DB
-
-// router.get("/",auth,async(req, res) => {
-//   // res.send("Restaurant page");
-// try {
-//   const restaurants = await Restaurant.find().sort({date:-1});
-//   res.json(restaurants)
-// } catch (error) {
-//   console.log(error.message);
-//   res.status(500).json({msg :'Server Error'})
-// }
-// });
-
-
-
-
-// Get all restaurants from DB  
 
 router.post('/',auth,async(req,res)=>{
   // res.send("Restaurant page");
@@ -55,10 +38,6 @@ router.post('/category',auth,async(req,res)=>{
     res.status(500).json({msg :'Server Error'})
   }
 })
-
-
-
-
 
 
 // add a restaurant

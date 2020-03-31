@@ -61,7 +61,7 @@ router.post(
       .trim()
       .not()
       .isEmpty()
-      // .isLength({ min: 10 })
+    // .isLength({ min: 10 })
   ],
   auth,
   async (req, res) => {
@@ -104,13 +104,16 @@ router.post(
   }
 );
 // Get reviews with date filter
-router.post("/dateFilter", async (req,res) => {
+router.post("/dateFilter", auth, async (req, res) => {
   const startDate = req.body.startDate;
   const endDate = req.body.endDate;
 
   try {
     const reviews = await Review.find({
-      dateOfVisit: { $gte: startDate, $lte: endDate }
+      $and: [
+        { user: req.user.id },
+        { dateOfVisit: { $gte: startDate, $lte: endDate } }
+      ]
     });
     return res.json(reviews);
   } catch (error) {
