@@ -30,11 +30,10 @@ export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
   const useStylesI = makeStyles(stylesI);
   const classesT = useStylesT();
-  const classesI = useStylesI();
   console.log(classesT);
   const useStyles = makeStyles(styles);
   const classes = useStyles();
-
+  const classesI = useStylesI();
   console.log(classes);
   const userPhoto =(userPr)=>{
     if(userPr.photo){
@@ -62,13 +61,10 @@ export default function UserPr(props) {
 
   const [userData, setUserData] = useState([]);
 
-  const [sendDate, setDate] = useState({
-    startDate: new Date(),
-    endDate: new Date()
-  });
+  const [sendDate, setDate] = useState({ startDate: new Date(), endDate: new Date() });
   const { startDate, endDate } = sendDate;
   const onChangeDate = date => {
-    setDate({ ...sendDate, startDate: date });
+    setDate({ ...sendDate, "startDate": date });
   };
   // const [setStartDate, setEndDate] = useState(new Date());
   console.log(startDate, endDate);
@@ -130,7 +126,9 @@ export default function UserPr(props) {
   };
 
   return (
-    <div className={classesT.marginCenter}>
+    <div
+      className={classesT.marginCenter}
+    >
       <Card
         style={{ paddingTop: "80px", width: "90%" }}
         className={classesT.marginCenter}
@@ -159,7 +157,6 @@ export default function UserPr(props) {
                     >
                       <div onChange={onChange}>
                         {/* User foto links */}
-
                         <img
                           src={userPhoto(user)}
                           alt="Please upload your profile picture"
@@ -169,7 +166,6 @@ export default function UserPr(props) {
                               justifyContent: "center",
                               width: "100%"
                             } +
-                            " " +
                             classesT.imgFluid +
                             " " +
                             classesI.imgRounded +
@@ -243,10 +239,6 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-
-                <GridItem xs={12} sm={8} md={6} lg={6}>
-                
-              </GridItem>
                 <GridItem
                   xs={12}
                   sm={6}
@@ -275,7 +267,7 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-                <Button onClick={onSubmit}>Select dates</Button>
+                <Button onClick = {onSubmit}>Select dates</Button>
               </GridContainer>
               {/* restaurants reviews */}
               <GridContainer>
@@ -359,8 +351,7 @@ export default function UserPr(props) {
               {/* reviews rating*/}
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12} lg={6}>
-                  {/* style={{paddingLeft:"30px"}}  */}
-                  <h3>Your reviews...</h3>
+                  <h3 >Your reviews...</h3>
                 </GridItem>
                 {reviews !== null &&
                   reviews.map(item => {
@@ -374,6 +365,7 @@ export default function UserPr(props) {
                       >
                         <Card>
                           <CardHeader
+                            style={{}}
                             color="primary"
                             className={classes.cardHeader}
                           >
