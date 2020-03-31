@@ -104,7 +104,7 @@ export default function WelUser(props) {
                   </Card>
                 </GridItem>
               </GridContainer>
-            </GridItem>
+              </GridItem>
             <GridItem xs={12} sm={12} md={8} lg={8}>
               {/* data search*/}
               <GridContainer>

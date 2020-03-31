@@ -130,6 +130,8 @@ router.post("/",
 
   let restaurants = await Reviews.find({$and:[{nameOfDish:nameOfDish},{city:city}]})
 
+  console.log(restaurants)
+
   let restaurantsList = [];
 
   restaurants.forEach(element => {
