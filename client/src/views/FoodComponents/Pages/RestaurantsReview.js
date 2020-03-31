@@ -188,7 +188,7 @@ export default function RestaurantsReview(props) {
                         <GridContainer>
                           <GridItem xs={12} sm={1} md={1} lg={1}>
                             <div className={
-                                classesI.imgRoundedCircle + " " +
+                                classesI.Raised+ " " +
                                 classesI.imgFluidUser +
                                 " mui--align-middle " +classesI.imgCut
                               }><img alt="LogoImg"

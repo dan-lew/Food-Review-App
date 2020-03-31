@@ -26,40 +26,29 @@ export default function CardHeaderList(props) {
 
   return (
     <div>
-      {/* <GridContainer xs={12} sm={12} md={12} lg={12}>
-            <GridItem style={{textAlign:"right"}}>
-            Date:{" "}
-            </GridItem>
-        </GridContainer> */}
+      
       <GridContainer>
-        <GridItem xs={12} sm={1} md={1} lg={1}>
+        <GridItem xs={12} sm={2} md={2} lg={2}>
           <img
-            alt="not working"
+            alt="No Photo"
             src={photo}
             className={
-              classesI.imgRoundedCircle +
-              " " +
               classesI.imgFluidUser +
-              " mui--align-middle"
+              " mui--align-middle"+" "+ classesI.imgRounded+" "+ classesI.imgShadow
             }
           />
         </GridItem>
 
-        <GridItem xs={12} sm={5} md={4} lg={3}>
+        <GridItem xs={12} sm={5} md={5} lg={4}>
           {props.restaurantName}
           <br></br>
           {props.nameOfDish}
         </GridItem>
 
-        <GridItem xs={12} sm={4} md={6} lg={5}>
+        <GridItem xs={12} sm={4} md={4} lg={5}>
           {props.dateOfVisit}
           <Rate value={props.rating} />
           
-          {/* <StarIcon />
-          <StarIcon />
-          <StarIcon />
-          <StarBorderIcon rating={props.rating} />
-          <StarBorderIcon /> */}
         </GridItem>
       </GridContainer>
     </div>

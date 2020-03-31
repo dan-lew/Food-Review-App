@@ -45,9 +45,8 @@ export default function UserPr(props) {
   const { reviews, getReviews, filterReviews } = reviewContext;
   console.log(reviews, getReviews);
 
-  const alertContext = useContext(AlertContext)
-  const {setAlert} = alertContext;
-  
+  const alertContext = useContext(AlertContext);
+  const { setAlert } = alertContext;
 
   useEffect(() => {
     getReviews();
@@ -60,10 +59,13 @@ export default function UserPr(props) {
   //   endDate: new Date()
   // });
 
-  const [sendDate, setDate] = useState({ startDate: new Date(), endDate: new Date() });
+  const [sendDate, setDate] = useState({
+    startDate: new Date(),
+    endDate: new Date()
+  });
   const { startDate, endDate } = sendDate;
   const onChangeDate = date => {
-    setDate({ ...sendDate, "startDate": date });
+    setDate({ ...sendDate, startDate: date });
   };
   // const [setStartDate, setEndDate] = useState(new Date());
   console.log(startDate, endDate);
@@ -153,27 +155,21 @@ export default function UserPr(props) {
                     >
                       <div onChange={onChange}>
                         {/* User foto links */}
-                        <div className={
-                                classesI.imgRoundedCircle + " " +
-                                classesI.imgFluidUser +
-                                " mui--align-middle " +classesI.imgCut200}>
-                        <img
-                          src={user.photo}
-                          alt="..."
-                          className={
-                            {
-                              height: "100px",
-                              justifyContent: "center",
-                              width: "100%"
-                            } +
-                            classesT.imgRaised +
-                            " " +
-                            classesT.imgRoundedCircle +
-                            " " +
-                            classesT.imgFluid
-                          }
-                        />
-                        </div>
+                       
+                          <img
+                            src={user.photo}
+                            alt="..."
+                            className={
+                              {
+                                height: "100px",
+                                justifyContent: "center",
+                                width: "100%"
+                              } + 
+                              " " +
+                              classesT.imgFluid+" "+ classesI.imgRounded+" "+ classesI.imgShadow
+                            }
+                          />
+                      
 
                         <p>Edit your profile image...</p>
                         <FileUpload getImgPath={getImgPath} />
@@ -270,7 +266,7 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-                <Button onClick = {onSubmit}>Select dates</Button>
+                <Button onClick={onSubmit}>Select dates</Button>
               </GridContainer>
               {/* restaurants reviews */}
               <GridContainer>
@@ -347,14 +343,15 @@ export default function UserPr(props) {
             <GridItem
               xs={12}
               sm={12}
-              md={10}
+              md={12}
               lg={8}
-              className={classesT.marginLeft}
+              className={classesT.marginCenter}
             >
               {/* reviews rating*/}
               <GridContainer>
-                <GridItem xs={12} sm={12} md={8} lg={12}>
-                  <h3 style={{ paddingLeft: "30px" }}>Your reviews...</h3>
+                <GridItem xs={12} sm={12} md={12} lg={6}>
+                  {/* style={{paddingLeft:"30px"}}  */}
+                  <h3 >Your reviews...</h3>
                 </GridItem>
                 {reviews !== null &&
                   reviews.map(item => {
@@ -362,13 +359,12 @@ export default function UserPr(props) {
                       <GridItem
                         xs={12}
                         sm={12}
-                        md={8}
-                        lg={10}
-                        className={classesT.marginLeft}
+                        md={12}
+                        lg={12}
+                        className={classesT.marginCenter}
                       >
                         <Card>
                           <CardHeader
-                            style={{}}
                             color="primary"
                             className={classes.cardHeader}
                           >

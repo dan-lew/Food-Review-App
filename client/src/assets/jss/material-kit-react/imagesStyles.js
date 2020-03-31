@@ -26,13 +26,17 @@ const imagesStyles = {
     overflow: "hidden"
   },
   imgCut200: {
-    maxWidth: "200px",
-    height: "200px",
+    maxWidth: "250px",
+    height: "250px",
     overflow: "hidden"
   },
   imgRoundedCircle: {
     borderRadius: "50% !important"
   },
+  imgShadow:{
+    boxShadow:"1px 1px 8px #969696",
+  },
+
   imgRaised: {
     boxShadow:
       "0 5px 15px -8px rgba(0, 0, 0, 0.54), 0 8px 10px -5px rgba(0, 0, 0, 0.2)"

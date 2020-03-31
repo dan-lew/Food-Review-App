@@ -77,33 +77,24 @@ export default function WelUser(props) {
                       }
                     >
                       {/* User foto links */}
-                      <div
+
+                      <img
+                        src={user && user.photo}
+                        alt=""
                         className={
-                          classesI.imgRoundedCircle +
-                          " " +
-                          classesT.imgRaised +
+                          {
+                            height: "100px",
+                            justifyContent: "center",
+                            width: "100px"
+                          } +
                           " " +
                           classesT.imgFluid +
-                          classesI.imgFluidUser +
-                          " mui--align-middle " +
-                          classesI.imgCut200
+                          " " +
+                          classesI.imgRounded +
+                          " " +
+                          classesI.imgShadow
                         }
-                      >
-                        <img
-                          src={user && user.photo}
-                          alt={user.username}
-                          className={
-                            {
-                              height: "100px",
-                              justifyContent: "center",
-                              width: "100px"
-                            } +
-                            classesT.imgRoundedCircle +
-                            " " +
-                            classesT.imgFluid
-                          }
-                        />
-                      </div>
+                      />
                     </CardBody>
                   </Card>
                 </GridItem>
