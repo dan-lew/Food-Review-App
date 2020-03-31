@@ -139,11 +139,11 @@ export default function UserPr(props) {
               xs={12}
               sm={12}
               md={4}
-              lg={4}
+              lg={5}
               className={classesT.marginCenter}
             >
               <GridContainer className={classesT.marginLeft}>
-                <GridItem xs={12} sm={12} md={10}>
+                <GridItem xs={12} sm={12} md={12} lg={12}>
                   <Card>
                     <CardHeader color="primary" className={classes.cardHeader}>
                       Welcome {`${user.firstname}   ${user.lastname}`}
@@ -155,14 +155,18 @@ export default function UserPr(props) {
                         classes.textCenter
                       }
                     >
-                      <div onChange={onChange}>
+                      <div  className={
+                        { display: "flex", alignItems: "center" } +
+                        " " +
+                        classes.textCenter
+                      } style={{width:"100%",height:"auto", justifyContent: "center", alignItems:"center", overflow: "hidden"}} onChange={onChange}>
                         {/* User foto links */}
                         <img
                           src={userPhoto(user)}
                           alt="Please upload your profile picture"
                           className={
                             {
-                              height: "100px",
+                              // height: "100px",
                               justifyContent: "center",
                               width: "100%"
                             } +
@@ -206,7 +210,7 @@ export default function UserPr(props) {
                 ></GridItem>
               </GridContainer>
             </GridItem>
-            <GridItem xs={12} sm={12} md={8} lg={8}>
+            <GridItem xs={12} sm={12} md={8} lg={7}>
               {/* datapicker*/}
               <GridContainer style={{ paddingTop: "90px" }}>
                 <GridItem
