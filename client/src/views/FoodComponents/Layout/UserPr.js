@@ -138,7 +138,7 @@ export default function UserPr(props) {
               className={classesT.marginCenter}
             >
               <GridContainer className={classesT.marginLeft}>
-                <GridItem xs={12} sm={12} md={10}>
+                <GridItem xs={12} sm={12} md={10} lg={10}>
                   <Card>
                     <CardHeader color="primary" className={classes.cardHeader}>
                       Welcome {`${user.firstname}   ${user.lastname}`}
