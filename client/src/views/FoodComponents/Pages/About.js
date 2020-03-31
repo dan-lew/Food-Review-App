@@ -71,7 +71,7 @@ const About = props => {
             <GridItem xs={12} sm={6} md={4} lg={4}>
               <Card style={{ textAlign: "center", height: "740px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  Mahdieh
+                <h4 style={{fontWeight:"bolder"}}>Mahdieh</h4>
                 </CardHeader>
                 <CardBody>
                   <img src={profile1} alt="..." className={imageClasses} />
@@ -136,7 +136,7 @@ const About = props => {
             <GridItem xs={12} sm={6} md={4} lg={4}>
               <Card style={{ textAlign: "center", height: "740px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  Daniel
+                  <h4 style={{fontWeight:"bolder"}}>Daniel</h4>
                 </CardHeader>
                 <CardBody>
                   <img src={profile} alt="..." className={imageClasses} />
@@ -201,7 +201,7 @@ const About = props => {
             <GridItem xs={12} sm={6} md={4} lg={4}>
               <Card style={{ textAlign: "center", height: "740px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  Rania
+                <h4 style={{fontWeight:"bolder"}}>Rania</h4>
                 </CardHeader>
                 <CardBody>
                   <img src={profile2} alt="..." className={imageClasses} />

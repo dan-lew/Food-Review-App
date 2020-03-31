@@ -35,21 +35,20 @@ export default function UserPr(props) {
   const classes = useStyles();
   const classesI = useStylesI();
   console.log(classes);
-  const userPhoto =(userPr)=>{
-    if(userPr.photo){
-      return userPr.photo
+  const userPhoto = userPr => {
+    if (userPr.photo) {
+      return userPr.photo;
     }
     return avatar;
-
-  }
+  };
 
   const authContext = useContext(AuthContext);
-  const { user ,loadUser } = authContext;
+  const { user, loadUser } = authContext;
   console.log("The User =", user);
 
-  const alertContext = useContext(AlertContext)
-  const {setAlert} = alertContext;
-  
+  const alertContext = useContext(AlertContext);
+  const { setAlert } = alertContext;
+
   const reviewContext = useContext(ReviewContext);
   const { reviews, getReviews, filterReviews } = reviewContext;
   console.log(reviews, getReviews);
@@ -61,13 +60,16 @@ export default function UserPr(props) {
 
   const [userData, setUserData] = useState([]);
 
-  const [sendDate, setDate] = useState({ startDate: new Date(), endDate: new Date() });
+  const [sendDate, setDate] = useState({
+    startDate: new Date(),
+    endDate: new Date()
+  });
   const { startDate, endDate } = sendDate;
   const onChangeStartDate = date => {
-    setDate({ ...sendDate, "startDate": date });
+    setDate({ ...sendDate, startDate: date });
   };
   const onChangeEndDate = date => {
-    setDate({ ...sendDate, "endDate": date });
+    setDate({ ...sendDate, endDate: date });
   };
   // const [setStartDate, setEndDate] = useState(new Date());
   console.log(startDate, endDate);
@@ -105,8 +107,6 @@ export default function UserPr(props) {
     return uhrzeit;
   };
 
-
-
   console.log("user: ", user);
   let price = [];
   let getPrice = count => {
@@ -129,9 +129,7 @@ export default function UserPr(props) {
   };
 
   return (
-    <div
-      className={classesT.marginCenter}
-    >
+    <div className={classesT.marginCenter}>
       <Card
         style={{ paddingTop: "80px", width: "90%" }}
         className={classesT.marginCenter}
@@ -146,7 +144,7 @@ export default function UserPr(props) {
               className={classesT.marginCenter}
             >
               <GridContainer className={classesT.marginLeft}>
-                <GridItem xs={12} sm={12} md={10}>
+                <GridItem xs={12} sm={12} md={10} lg={10}>
                   <Card>
                     <CardHeader color="primary" className={classes.cardHeader}>
                       Welcome {`${user.firstname}   ${user.lastname}`}
@@ -160,6 +158,7 @@ export default function UserPr(props) {
                     >
                       <div onChange={onChange}>
                         {/* User foto links */}
+
                         <img
                           src={userPhoto(user)}
                           alt="Please upload your profile picture"
@@ -169,6 +168,7 @@ export default function UserPr(props) {
                               justifyContent: "center",
                               width: "100%"
                             } +
+                            " " +
                             classesT.imgFluid +
                             " " +
                             classesI.imgRounded +
@@ -176,6 +176,8 @@ export default function UserPr(props) {
                             classesI.imgShadow
                           }
                         />
+
+                        <p></p>
                         <FileUpload getImgPath={getImgPath} />
                       </div>
                     </CardBody>
@@ -270,7 +272,9 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-                <Button onClick = {onSubmit}>Select dates</Button>
+                <Button color="info" onClick={onSubmit}>
+                  Select dates
+                </Button>
               </GridContainer>
               {/* restaurants reviews */}
               <GridContainer>
@@ -354,7 +358,8 @@ export default function UserPr(props) {
               {/* reviews rating*/}
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12} lg={6}>
-                  <h3 >Your reviews...</h3>
+                  {/* style={{paddingLeft:"30px"}}  */}
+                  <h3>Your reviews...</h3>
                 </GridItem>
                 {reviews !== null &&
                   reviews.map(item => {
@@ -368,7 +373,6 @@ export default function UserPr(props) {
                       >
                         <Card>
                           <CardHeader
-                            style={{}}
                             color="primary"
                             className={classes.cardHeader}
                           >
