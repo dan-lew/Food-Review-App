@@ -243,6 +243,10 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
+
+                <GridItem xs={12} sm={8} md={6} lg={6}>
+                
+              </GridItem>
                 <GridItem
                   xs={12}
                   sm={6}

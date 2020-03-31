@@ -106,7 +106,7 @@ export default function WelUser(props) {
                   </Card>
                 </GridItem>
               </GridContainer>
-            </GridItem>
+              </GridItem>
             <GridItem xs={12} sm={12} md={8} lg={8}>
               {/* data search*/}
               <GridContainer>
@@ -124,22 +124,11 @@ export default function WelUser(props) {
             <GridItem>
               <GridContainer>
                 <GridItem>
-                  <Switch>
-                    <Route path="/welcome-user">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                      />
-                    </Route>
+                <Switch>
+                    
                     <Route path="/welcome-user/Iranian">
-                      <h1
-                        className={classesT.primaryText + " " + classesT.header}
-                      >
-                        Iranian
-                      </h1>
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category={props.category}
-                      />
+                      <h1 className={classesT.primaryText + " "+classesT.header} >Iranian</h1>
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Iranian"/>
                     </Route>
                     <Route path="/welcome-user/Italian">
                       <h1
@@ -207,6 +196,9 @@ export default function WelUser(props) {
                         category="Mediterranean"
                       />
                     </Route>
+                   <Route path="/welcome-user">
+                      <ListRestaurantsProfilReview className={classesListR["show"]} category=''/>
+                    </Route> 
                   </Switch>
                 </GridItem>
               </GridContainer>
