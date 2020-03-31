@@ -17,6 +17,7 @@ import SearchRestaurant from "./Restaurants/SearchRestaurant";
 // restaurants
 import RestaurantContext from "../../../context/restaurants/restaurantContext";
 import AlertContext from "../../../context/alert/alertContext";
+import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 
 const ListRestaurantStyle = {
   show: {
@@ -41,7 +42,8 @@ export default function WelUser(props) {
   const classesListR = useStylesListR();
   const useStylesT = makeStyles(stylesT);
   const classesT = useStylesT();
-
+  const useStylesI = makeStyles(stylesI);
+  const classesI = useStylesI();
   const useStyles = makeStyles(styles);
   const classes = useStyles();
 
@@ -82,6 +84,7 @@ export default function WelUser(props) {
                       }
                     >
                       {/* User foto links */}
+
                       <img
                         src={userPhoto(user)}
                         alt=""
@@ -89,13 +92,14 @@ export default function WelUser(props) {
                           {
                             height: "100px",
                             justifyContent: "center",
-                            width: "100%"
+                            width: "100px"
                           } +
-                          classesT.imgRaised +
                           " " +
-                          classesT.imgRaised +
+                          classesT.imgFluid +
                           " " +
-                          classesT.imgFluid
+                          classesI.imgRounded +
+                          " " +
+                          classesI.imgShadow
                         }
                       />
                     </CardBody>

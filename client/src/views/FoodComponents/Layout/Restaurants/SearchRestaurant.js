@@ -76,7 +76,7 @@ const  SearchRestaurant=()=> {
       <h3>Choose your cuisine... </h3>
 
       <GridContainer>
-        <GridItem xs={10} sm={10} md={10} lg={10}>
+        <GridItem xs={10} sm={10} md={12} lg={12}>
           {btnS[0].map((value, index) => {
             return (
               <Fragment key={index}>
@@ -98,10 +98,11 @@ const  SearchRestaurant=()=> {
         </GridItem>
         <GridItem xs={12} sm={12} md={12} lg={12}>
           <form onSubmit={onSubmit} className={classes.form}>
-            <GridItem xs={12} sm={8} md={6} lg={6}>
+          <GridContainer xs={12} sm={12} md={12} lg={12}>
+          <GridItem xs={10} sm={10} md={5} lg={4}>
               <CustomInput 
                   onChangeFunction={onChange}
-                  labelText="Search for food"
+                  labelText="Food"
                   id="float"
                   formControlProps={{
                     fullWidth: true
@@ -111,13 +112,13 @@ const  SearchRestaurant=()=> {
                     type: "text",
                     endAdornment: (
                       <InputAdornment position="end">
-                        <SearchIcon />
+                        <LocalDiningIcon />
                       </InputAdornment>
                     )
                   }}
                 />
               </GridItem>
-              <GridItem xs={12} sm={8} md={6} lg={6}>
+              <GridItem xs={10} sm={10} md={5} lg={4}>
                 <CustomInput
                   onChangeFunction={onChange}
                   labelText="City"
@@ -130,12 +131,12 @@ const  SearchRestaurant=()=> {
                     type: "text",
                     endAdornment: (
                       <InputAdornment position="end">
-                        <SearchIcon />
+                       <LocationOn />
                       </InputAdornment>
                     )
                   }}
                 />
-              </GridItem>
+              </GridItem></GridContainer>
             <Button color="primary" size="sm" type="submit"> Search </Button>
           </form>
         </GridItem>

@@ -109,9 +109,7 @@ const PlaceCard = ({ info, index }) => {
             key={index}
             style={{
               justifyContent: "center",
-              // 'display':'grid',
               textAlign: "center"
-              // alignItems: "center"
             }}
           >
             {imgShow(isPicture)}
@@ -156,56 +154,3 @@ const PlaceCard = ({ info, index }) => {
 };
 
 export default PlaceCard;
-
-// switch (isPicture) {
-//   case true:
-
-//     return (
-//       <Fragment>
-//         <img
-//           src={photoUrl}
-//           style={{
-//             width: "200px",
-//             height: "200px",
-//             "border-radius": "50%",
-//             border: "2px #9c27b0 solid",
-//             boxShadow: "2px 2px 5px #9c27b0"
-//             //   justifyContent: "center",
-//             //  textAlign: "center",
-//             //   alignItems: "center",
-//             //'display': 'grid',
-//             // flexWrap: "wrap"
-//           }}
-//           // alt="Restaurant"
-//           alt={photoUrl}
-//         />
-//       </Fragment>
-//     );
-//     break;
-//   case false:
-//   return(  <Fragment>
-//       <div
-//         style={{
-//           backgroundColor: "#CBA6E8",
-//           width: "200px",
-//           height: "200px",
-//           "border-radius": "50%",
-//           justifyContent: "center",
-//           textAlign: "center",
-//           alignItems: "center",
-//           display: "grid"
-//           //, flexWrap: "wrap"
-//         }}
-//       >
-//         <h4
-//         // style={{
-//         //   // justifyItems: 'center',
-//         //   // 'display': 'grid',
-//         //   // alignContent: 'center'
-//         // }}
-//         >
-//           The pictures is not available
-//         </h4>
-//       </div>
-//     </Fragment>);
-// }
