@@ -272,7 +272,7 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-                <Button color="info" onClick={onSubmit}>
+                <Button  className={classesT.buttonInfo} onClick={onSubmit}>
                   Select dates
                 </Button>
               </GridContainer>
