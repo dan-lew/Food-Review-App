@@ -31,7 +31,7 @@ const ListRestaurantStyle = {
 
 export default function WelUser(props) {
   const userPhoto = userPr => {
-    if (userPr.photo) {
+    if (userPr && userPr.photo) {
       return userPr.photo;
     }
     return avatar;

@@ -31,7 +31,7 @@ const ReviewSchema=new mongoose.Schema({
     },
     photo:{
         type:String,
-        required: false
+        required: true
     },
     rating:{
         type: Number,
