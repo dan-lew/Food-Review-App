@@ -37,7 +37,7 @@ export default function CardHeaderList(props) {
             alt="not working"
             src={photo}
             className={
-              classesI.imgRoundedCircle +
+              classesI.imgRaised +
               " " +
               classesI.imgFluidUser +
               " mui--align-middle"
@@ -54,12 +54,6 @@ export default function CardHeaderList(props) {
         <GridItem xs={12} sm={4} md={6} lg={5}>
           {props.dateOfVisit}
           <Rate value={props.rating} />
-          
-          {/* <StarIcon />
-          <StarIcon />
-          <StarIcon />
-          <StarBorderIcon rating={props.rating} />
-          <StarBorderIcon /> */}
         </GridItem>
       </GridContainer>
     </div>

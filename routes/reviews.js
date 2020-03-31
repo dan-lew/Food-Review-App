@@ -61,7 +61,7 @@ router.post(
       .trim()
       .not()
       .isEmpty()
-      .isLength({ min: 10 })
+      // .isLength({ min: 10 })
   ],
   auth,
   async (req, res) => {

@@ -11,7 +11,7 @@ import styles from "assets/jss/material-kit-react/views/components";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import avatar from "assets/img/faces/avatar.jpg";
+import avatar from "assets/img/Logo-FR-124.png";
 import Datetime from "react-datetime";
 import DatePicker from "react-datepicker";
 import AlertContext from "../../../context/alert/alertContext";
@@ -34,18 +34,24 @@ export default function UserPr(props) {
   const classes = useStyles();
 
   console.log(classes);
+  const userPhoto =(userPr)=>{
+    if(userPr.photo){
+      return userPr.photo
+    }
+    return avatar;
+
+  }
 
   const authContext = useContext(AuthContext);
-  const { user } = authContext;
+  const { user ,loadUser } = authContext;
   console.log("The User =", user);
-
-  const reviewContext = useContext(ReviewContext);
-  const { reviews, getReviews, filterReviews } = reviewContext;
-  console.log(reviews, getReviews);
 
   const alertContext = useContext(AlertContext)
   const {setAlert} = alertContext;
   
+  const reviewContext = useContext(ReviewContext);
+  const { reviews, getReviews, filterReviews } = reviewContext;
+  console.log(reviews, getReviews);
 
   useEffect(() => {
     getReviews();
@@ -53,10 +59,6 @@ export default function UserPr(props) {
   console.log(reviews);
 
   const [userData, setUserData] = useState([]);
-  // const [dateFilter, setDateFilter] = useState({
-  //   startDate: new Date(),
-  //   endDate: new Date()
-  // });
 
   const [sendDate, setDate] = useState({ startDate: new Date(), endDate: new Date() });
   const { startDate, endDate } = sendDate;
@@ -81,6 +83,8 @@ export default function UserPr(props) {
   const getImgPath = path => {
     console.log(path);
     setUserData({ ...userData, photo: path });
+    // Load the user Data
+    loadUser();
   };
   const getFullDate = date => {
     let d = new Date(date);
@@ -96,6 +100,8 @@ export default function UserPr(props) {
     var uhrzeit = "Date of Visit " + tag + "." + monat + "." + jahr;
     return uhrzeit;
   };
+
+
 
   console.log("user: ", user);
   let price = [];
@@ -152,8 +158,8 @@ export default function UserPr(props) {
                       <div onChange={onChange}>
                         {/* User foto links */}
                         <img
-                          src={user.photo}
-                          alt="..."
+                          src={userPhoto(user)}
+                          alt="Please upload your profile picture"
                           className={
                             {
                               height: "100px",
@@ -162,13 +168,11 @@ export default function UserPr(props) {
                             } +
                             classesT.imgRaised +
                             " " +
-                            classesT.imgRoundedCircle +
+                            classesT.imgRaised +
                             " " +
                             classesT.imgFluid
                           }
                         />
-
-                        <p>Edit your profile image...</p>
                         <FileUpload getImgPath={getImgPath} />
                       </div>
                     </CardBody>
