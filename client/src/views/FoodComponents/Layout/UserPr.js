@@ -35,21 +35,20 @@ export default function UserPr(props) {
   const classes = useStyles();
   const classesI = useStylesI();
   console.log(classes);
-  const userPhoto =(userPr)=>{
-    if(userPr.photo){
-      return userPr.photo
+  const userPhoto = userPr => {
+    if (userPr.photo) {
+      return userPr.photo;
     }
     return avatar;
-
-  }
+  };
 
   const authContext = useContext(AuthContext);
-  const { user ,loadUser } = authContext;
+  const { user, loadUser } = authContext;
   console.log("The User =", user);
 
-  const alertContext = useContext(AlertContext)
-  const {setAlert} = alertContext;
-  
+  const alertContext = useContext(AlertContext);
+  const { setAlert } = alertContext;
+
   const reviewContext = useContext(ReviewContext);
   const { reviews, getReviews, filterReviews } = reviewContext;
   console.log(reviews, getReviews);
@@ -61,13 +60,16 @@ export default function UserPr(props) {
 
   const [userData, setUserData] = useState([]);
 
-  const [sendDate, setDate] = useState({ startDate: new Date(), endDate: new Date() });
+  const [sendDate, setDate] = useState({
+    startDate: new Date(),
+    endDate: new Date()
+  });
   const { startDate, endDate } = sendDate;
   const onChangeStartDate = date => {
-    setDate({ ...sendDate, "startDate": date });
+    setDate({ ...sendDate, startDate: date });
   };
   const onChangeEndDate = date => {
-    setDate({ ...sendDate, "endDate": date });
+    setDate({ ...sendDate, endDate: date });
   };
   // const [setStartDate, setEndDate] = useState(new Date());
   console.log(startDate, endDate);
@@ -104,8 +106,6 @@ export default function UserPr(props) {
     var uhrzeit = "Date of Visit " + tag + "." + monat + "." + jahr;
     return uhrzeit;
   };
-
-
 
   console.log("user: ", user);
   let price = [];
@@ -272,7 +272,9 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-                <Button onClick={onSubmit}>Select dates</Button>
+                <Button color="info" onClick={onSubmit}>
+                  Select dates
+                </Button>
               </GridContainer>
               {/* restaurants reviews */}
               <GridContainer>
