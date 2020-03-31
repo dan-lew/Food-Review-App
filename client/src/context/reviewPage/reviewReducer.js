@@ -30,11 +30,12 @@ export default (state, action) => {
         ...state,
         reviews: [...state.reviews, action.payload]
       };
-      case FILTER_REVIEW:
-        return {
-          ...state,
-          reviews:[...state.reviews, action.payload]
-        };
+    case FILTER_REVIEW:
+      return {
+        ...state,
+        reviews:  action.payload,
+        loading: false
+      };
     case DELETE_REVIEW:
       return {
         ...state,

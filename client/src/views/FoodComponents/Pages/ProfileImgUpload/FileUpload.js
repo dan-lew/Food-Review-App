@@ -77,10 +77,10 @@ const FileUpload = (props) => {
         <ProgressBar percentage={uploadPercentage} />
         <input
           type="button" onClick={onSubmitImg}
-          value="Upload Photo"
+          value="Upload Profile Photo"
           className="btn btn-info btn-block mt-2"
         />
-       {uploadedFile ? (
+       {/* {uploadedFile ? (
         <div className="row mt-5">
           <div className="col-md-6 m-auto">
             <img
@@ -90,7 +90,7 @@ const FileUpload = (props) => {
             />
           </div>
         </div>
-      ) : null}
+      ) : null} */}
     </Fragment>
   );
 };

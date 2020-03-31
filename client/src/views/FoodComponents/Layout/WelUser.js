@@ -9,7 +9,7 @@ import AuthContext from "../../../context/auth/authContext";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
-import avatar from "assets/img/faces/avatar.jpg";
+import avatar from "assets/img/Logo-FR-124.png";
 import ListRestaurantsProfilReview from "./ReviewList/ListRestaurantsProfilReview";
 // import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import SearchRestaurant from "./Restaurants/SearchRestaurant";
@@ -30,6 +30,13 @@ const ListRestaurantStyle = {
 };
 
 export default function WelUser(props) {
+  const userPhoto = userPr => {
+    if (userPr && userPr.photo) {
+      return userPr.photo;
+    }
+    return avatar;
+  };
+  
   const useStylesListR = makeStyles(ListRestaurantStyle);
   const classesListR = useStylesListR();
   const useStylesT = makeStyles(stylesT);
@@ -76,7 +83,7 @@ export default function WelUser(props) {
                     >
                       {/* User foto links */}
                       <img
-                        src={user && user.photo}
+                        src={userPhoto(user)}
                         alt=""
                         className={
                           {
@@ -86,7 +93,7 @@ export default function WelUser(props) {
                           } +
                           classesT.imgRaised +
                           " " +
-                          classesT.imgRoundedCircle +
+                          classesT.imgRaised +
                           " " +
                           classesT.imgFluid
                         }
