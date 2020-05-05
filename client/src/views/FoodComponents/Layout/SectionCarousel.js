@@ -24,15 +24,15 @@ import styles from "assets/jss/material-kit-react/views/componentsSections/carou
 import MapContainer from "../../MapContainers/MapContainer.js";
 
 import "../../../App.css";
-import stylesC from "assets/jss/material-kit-react/views/components.js";
+
 import "antd/dist/antd.css";
 
-const useStylesC = makeStyles(stylesC);
+
 const useStyles = makeStyles(styles);
 
 export default function SectionCarousel() {
   const classes = useStyles();
-  const classesC = useStylesC();
+
   const settings = {
     dots: true,
     infinite: true,

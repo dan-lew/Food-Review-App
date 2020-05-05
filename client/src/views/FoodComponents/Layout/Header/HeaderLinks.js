@@ -47,41 +47,49 @@ const HeaderLinks = props => {
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/sendMessagePage">
-          Contact Us
+        <Link className={classes.navLink} to="/about">
+          About{" "}
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/about">About </Link>
+        <Link className={classes.navLink} to="/sendMessagePage">
+          Contact Us
+        </Link>
       </ListItem>
     </Fragment>
   );
   const userLinks = (
     <Fragment>
-      {/* <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/editprofile">
-          Edit Profile
+      <ListItem className={classes.listItem}>
+        <Link className={classes.navLink} to="/welcome-user">
+          Welcome User{" "}
         </Link>
-      </ListItem> */}
-      <ListItem className={classes.listItem}>
-      <Link className={classes.navLink} to="/welcome-user">Welcome User </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-      <Link className={classes.navLink} to="/user-profile"> Profile </Link>
+        <Link className={classes.navLink} to="/user-profile">
+          {" "}
+          Profile{" "}
+        </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-      <Link className={classes.navLink}  to="/restaurantsReview">Food Reviews </Link>
+        <Link className={classes.navLink} to="/restaurantsReview">
+          Food Reviews{" "}
+        </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-      <Link className={classes.navLink}  to="/review-page">Add Review </Link>
+        <Link className={classes.navLink} to="/review-page">
+          Add Review{" "}
+        </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Link className={classes.navLink} to="/about">
+          About{" "}
+        </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} to="/sendMessagePage">
           Contact Us
         </Link>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Link className={classes.navLink} to="/about">About </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Link className={classes.navLink} onClick={onLogout} to="/">

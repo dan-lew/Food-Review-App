@@ -1,14 +1,11 @@
-import React, { useStyles } from "react";
+import React from "react";
 //import Carousels from './Carousels'
 // import Map from "../Layout/MapR";
 // import MapMarkers from "../Layout/MapMarkers";
 // import Places from "../Layout/Places";
 import SectionCarousel from "../Layout/SectionCarousel";
-import Footer from "../Layout/Footer";
 import Header from "../Layout/Header/Header";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
@@ -28,7 +25,7 @@ const Home = props => {
       <div className="">
         <Header
           brand={
-            <img
+            <img alt="LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }

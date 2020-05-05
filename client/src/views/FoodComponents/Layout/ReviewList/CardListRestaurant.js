@@ -1,20 +1,20 @@
-import React, { Fragment, useState } from "react";
+import React ,{useState}from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer";
 import { Rate } from "antd";
 import GridItem from "components/Grid/GridItem";
-import { Switch, Route, Link } from "react-router-dom";
+// import { Switch, Route, Link } from "react-router-dom";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-import CardHeader from "components/Card/CardHeader.js";
+// import CardHeader from "components/Card/CardHeader.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import stylesB from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesP from "assets/jss/material-kit-react/popoverStyles.js";
 // import img from "../../../../photos/restaurant/kebab.jpeg"
-import SelectFood from "./SelectFood";
-import Popover from "@material-ui/core/Popover";
+// import SelectFood from "./SelectFood";
+// import Popover from "@material-ui/core/Popover";
 
 const useStyles = makeStyles(styles);
 const useStylesB = makeStyles(stylesB);
@@ -31,7 +31,6 @@ const ListRestaurantStyle = {
     //visibility: "hidden"
   }
 };
-
 const CardListRestaurant = ({
   restaurant: { restaurantName, address, city, category, rating, photo }
 }) => {
@@ -48,7 +47,6 @@ const CardListRestaurant = ({
   const classesP = useStylesP();
 
   const [classList, setClassList] = React.useState("notShow");
-
   return (
     <div>
       <GridContainer>

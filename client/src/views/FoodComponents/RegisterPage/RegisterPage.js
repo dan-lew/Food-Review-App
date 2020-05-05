@@ -1,20 +1,12 @@
-
 import React , { useState , useContext , useEffect} from 'react';
 import AlertContext from '../../../context/alert/alertContext' ;
 import AuthContext from '../../../context/auth/authContext' ;
 import Alerts from '../Layout/Alert'
-
-   
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
 import Email from "@material-ui/icons/Email";
-// import People from "@material-ui/icons/People";
-// core components
 import Header from "../Layout/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
@@ -57,7 +49,7 @@ const RegisterPage = (props) => {
               setAlert(error, 'danger');
               clearErrors()
           }
-      },[error,isAuthenticated,props.history])
+      },[error, clearErrors, setAlert, isAuthenticated,props.history])
       
       const [user , setUser ] = useState({
           firstname : '',
@@ -115,7 +107,7 @@ try{
     <div>
     <Header
           brand={
-            <img
+            <img alt="LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }

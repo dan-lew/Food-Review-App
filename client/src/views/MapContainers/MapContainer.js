@@ -170,17 +170,7 @@ class MapsContainer extends Component {
         const { rating, name } = restaurantPlace;
         const address = restaurantPlace.formatted_address; // e.g 80 mandai Lake Rd,
         total_Addresses.push(address);
-        // console.log('restaurantPlace.geometry.viewpport', restaurantPlace.geometry.viewport.Ua.i)
-        // Geocode.fromAddress(address).then(
-        //   response => {
-        //     const { lat, lng } = response.results[0].geometry.location;
-        //     console.log(lat, lng);
-        //   },
-        //   error => {
-        //     console.error(error);
-        //   }
-        // );
-
+ 
         latPlace[i] = restaurantPlace.geometry.viewport.Za.i;
         lngPlace[i] = restaurantPlace.geometry.viewport.Ua.i;
 
@@ -243,15 +233,8 @@ class MapsContainer extends Component {
   };
 
   render() {
-    const {
-      constraints,
-      mapsLoaded,
-      germanyLatLng,
-      markers,
-      searchResults,
-      latPlace,
-      lngPlace
-    } = this.state;
+
+    const { constraints, mapsLoaded, germanyLatLng, markers, searchResults} = this.state;
     const { autoCompleteService, geoCoderService } = this.state; // Google Maps Services
     return (
       <GridContainer

@@ -6,7 +6,7 @@ export default function ListFoodsReview(props) {
     const useStyles = makeStyles(styles);
     const classes = useStyles();
     console.log(classes)
-    const { ...rest } = props;
+    // const { ...rest } = props;
 
     return (
         <div>

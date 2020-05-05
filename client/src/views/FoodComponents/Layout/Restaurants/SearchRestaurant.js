@@ -2,8 +2,6 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 //import classBut from 'src/assets/jss/material-kit-react/components/buttonStyle.js'
 import { Link, Switch, Route,NavLink,Redirect } from "react-router-dom";
 import Button from "components/CustomButtons/Button";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import LocationOn from "@material-ui/icons/LocationOn";
 import LocalDiningIcon from "@material-ui/icons/LocalDining";
 import AlertContext from "context/alert/alertContext";
@@ -15,7 +13,6 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { makeStyles } from "@material-ui/core/styles";
 import stylesT from "assets/jss/material-kit-react/components/typographyStyle.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-import axios from 'axios'
 import RestaurantContext from '../../../../context/restaurants/restaurantContext'
 
 
@@ -111,7 +108,7 @@ const  SearchRestaurant=()=> {
             <GridItem xs={12} sm={8} md={6} lg={6}>
               <CustomInput 
                   onChangeFunction={onChange}
-                  labelText="Search for food"
+                  labelText="Food"
                   id="float"
                   formControlProps={{
                     fullWidth: true
@@ -122,13 +119,13 @@ const  SearchRestaurant=()=> {
                     value: food,
                     endAdornment: (
                       <InputAdornment position="end">
-                        <SearchIcon />
+                        <LocalDiningIcon />
                       </InputAdornment>
                     )
                   }}
                 />
               </GridItem>
-              <GridItem xs={12} sm={8} md={6} lg={6}>
+              <GridItem xs={10} sm={10} md={6} lg={6}>
                 <CustomInput
                   onChangeFunction={onChange}
                   labelText="City"
@@ -156,5 +153,5 @@ const  SearchRestaurant=()=> {
       </GridContainer>
     </div>
   );
-}
-export default SearchRestaurant
+};
+export default SearchRestaurant;

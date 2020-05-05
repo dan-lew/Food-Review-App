@@ -7,6 +7,8 @@ import setAuthToken from "../../utility/setAuthToken";
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
+  REG_MAILSUCCESS,
+  REG_MAILFAIL,
   USER_LOADED,
   CLEAR_ERRORS,
   LOGIN_SUCCESS,
@@ -102,13 +104,13 @@ const AuthState = props => {
   try {
     const res = await axios.post("/api/sendMessage/", formData, config);
     dispatch({
-      type: REGISTER_SUCCESS,
+      type:  REG_MAILSUCCESS,
       payload: res.data
     });
-    loadUser();
+  
   } catch (error) {
     dispatch({
-      type: REGISTER_FAIL,
+      type: REG_MAILFAIL,
       payload: error.response.data.msg
     });
   }

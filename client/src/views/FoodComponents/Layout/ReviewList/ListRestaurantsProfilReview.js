@@ -19,32 +19,17 @@ import RestaurantContext from "../../../../context/restaurants/restaurantContext
 const useStylesB = makeStyles(stylesB);
 const useStylesT = makeStyles(stylesT);
 
-const ListFoodStyle = {
-  show: {
-    display: "block"
-  },
-  notShow: {
-    display: "none"
-  }
-};
 
-const ListRestaurantsProfilReview = props => {
-
-  const useStylesListF = makeStyles(ListFoodStyle);
-  const classesListF = useStylesListF();
-  const useStyles = makeStyles(styles);
-  const classesB = useStylesB();
-  const classesT = useStylesT();
+const ListRestaurantsProfilReview=(props)=> {
 
   // Restaurants list
   const restaurantContext = useContext(RestaurantContext);
-  const {getCatRestaurant, catrestaurants,searchFood } = restaurantContext;
-
-  useEffect(() => {
-    getCatRestaurant(props.category);
-    console.log("use effect in list restaurants profile review");
-  }, []);
-  console.log(catrestaurants);
+  const { getCatRestaurant, catrestaurants } = restaurantContext;
+  useEffect(()=>{
+    getCatRestaurant(props.category)
+    console.log('use effect in list restaurants profile review')
+  },[])
+  console.log(catrestaurants)
 
 
   return (

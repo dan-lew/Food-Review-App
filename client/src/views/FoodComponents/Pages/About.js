@@ -42,6 +42,7 @@ const About = props => {
         <Header
           brand={
             <img
+              alt="LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }
@@ -68,9 +69,9 @@ const About = props => {
           </h2>
           <GridContainer>
             <GridItem xs={12} sm={6} md={4} lg={4}>
-              <Card style={{ textAlign: "center",height:"740px" }}>
+              <Card style={{ textAlign: "center", height: "740px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  Mahdieh
+                <h4 style={{fontWeight:"bolder"}}>Mahdieh</h4>
                 </CardHeader>
                 <CardBody>
                   <img src={profile1} alt="..." className={imageClasses} />
@@ -79,16 +80,22 @@ const About = props => {
                       style={{ textAlign: "justify", paddingTop: "20px" }}
                       className={classesT.quoteAuthor}
                     >
-                      <h3  style={{ textAlign: "center" }} className={classesT.mutedText}>Webdeveloper</h3>
-                      Some Text About Mahdieh. Lorem ipsum, dolor sit amet
-                      consectetur adipisicing elit. Cum ullam minus earum quae
-                      dolores blanditiis molestias vero iure rerum vitae
-                      eligendi odit aliquam quasi architecto iste corporis
-                      sapiente, temporibus magni. Lorem, ipsum dolor sit amet
-                      consectetur adipisicing elit. Nemo, voluptatum deleniti.
-                      Laborum facilis animi vel ipsum.
+                      <h3
+                        style={{ textAlign: "center" }}
+                        className={classesT.mutedText}
+                      >
+                        Web Developer
+                      </h3>
+                      After teaching mathematics and basic programming to
+                      schools in Iran, I decided to further my knowledge in IT
+                      so in 2005, I started studying computer science. A keen
+                      traveller, I studied in India and Sweeden before settling
+                      in Germany. Since 2014, I gained experience as a
+                      programmer in a variety of roles within the electronics
+                      industry. I decided to further my career within the IT
+                      industry so I joined DCI to build my skills as a web
+                      developer.
                     </p>
-                    
                   </GridItem>
                 </CardBody>
                 <CardFooter
@@ -127,9 +134,9 @@ const About = props => {
             </GridItem>
 
             <GridItem xs={12} sm={6} md={4} lg={4}>
-              <Card style={{ textAlign: "center",height:"740px" }}>
+              <Card style={{ textAlign: "center", height: "740px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  Daniel
+                  <h4 style={{fontWeight:"bolder"}}>Daniel</h4>
                 </CardHeader>
                 <CardBody>
                   <img src={profile} alt="..." className={imageClasses} />
@@ -137,10 +144,15 @@ const About = props => {
                     style={{ textAlign: "justify", paddingTop: "20px" }}
                     xs={12}
                     sm={12}
-                    md={12} 
+                    md={12}
                     lg={12}
                   >
-                    <h3  style={{ textAlign: "center" }} className={classesT.mutedText}>Webdeveloper</h3>
+                    <h3
+                      style={{ textAlign: "center" }}
+                      className={classesT.mutedText}
+                    >
+                      Web Developer
+                    </h3>
                     <p className={classesT.description}>
                       Since relocating to Hamburg from England in October 2016,
                       I worked with an events company who provide recruitment
@@ -187,28 +199,33 @@ const About = props => {
               </Card>
             </GridItem>
             <GridItem xs={12} sm={6} md={4} lg={4}>
-              <Card style={{ textAlign: "center",height:"740px" }}>
+              <Card style={{ textAlign: "center", height: "740px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  Rania
+                <h4 style={{fontWeight:"bolder"}}>Rania</h4>
                 </CardHeader>
                 <CardBody>
                   <img src={profile2} alt="..." className={imageClasses} />
-                  <GridItem 
+                  <GridItem
                     style={{ paddingTop: "20px", textAlign: "justify" }}
                     xs={12}
                     sm={12}
                     md={12}
                     lg={12}
                   >
-                    <h3  style={{ textAlign: "center" }} className={classesT.mutedText}>Webdeveloper</h3>
+                    <h3
+                      style={{ textAlign: "center" }}
+                      className={classesT.mutedText}
+                    >
+                      Webdeveloper
+                    </h3>
                     <p className={classesT.description}>
-                      I have been in Hamburg since 1994. I am a computer
-                      scientist. In 2001 I decided to start my new long journey
-                      into IT and got into the IT industry. Since then I have
-                      continuously learned, improved and worked on my acquired
-                      knowledge in various new technologies and would like to
-                      stay in IT
-                     
+                      26 years ago I relocated from Uzbekistan to Germany and in
+                      2001, I started a new journey into IT. I started studying
+                      computer science and have since built up experience within
+                      the IT industry. I have continuously learned, improved and
+                      worked on my acquired knowledge in various new
+                      technologies. Now, I am keen to pursue my career as a web
+                      developer within the technology industry.
                     </p>
                   </GridItem>
                 </CardBody>

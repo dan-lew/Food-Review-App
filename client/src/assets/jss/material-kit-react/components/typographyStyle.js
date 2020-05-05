@@ -78,6 +78,9 @@ const typographyStyle = {
   },
   link:{
     textTransform:"uppercase"
+  },
+  restaurant:{
+    fontSize:"16px"
   }
 };
 

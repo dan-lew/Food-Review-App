@@ -2,17 +2,11 @@ import React, { useState, useContext, useEffect } from "react";
 import Alerts from "../Layout/Alert";
 import AlertContext from "../../../context/alert/alertContext";
 import AuthContext from "../../../context/auth/authContext";
-
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
 import Email from "@material-ui/icons/Email";
-// import People from "@material-ui/icons/People";
-// core components
 import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
@@ -23,7 +17,6 @@ import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/sushi.jpg";
-import loginStyle from "assets/jss/material-kit-react/views/componentsSections/loginStyle";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
@@ -45,7 +38,7 @@ const LoginPage = props => {
       setAlert(error, "danger");
       clearErrors();
     }
-  }, [error, isAuthenticated, props.history]);
+  }, [error, clearErrors, setAlert, isAuthenticated, props.history]);
 
   const [user, setUser] = useState({
     email: "",
@@ -82,7 +75,7 @@ const LoginPage = props => {
     <div>
       <Header
         brand={
-          <img
+          <img alt="LogoImg"
             className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
             src={Logo}
           />
