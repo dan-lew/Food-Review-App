@@ -40,8 +40,8 @@ export default function RestaurantsReview(props) {
       src: "https://via.placeholder.com/60x70",
       description: "bla bla bla bla",
       name: "user name",
-      rating: 3
-    }
+      rating: 3,
+    },
   };
   console.log(restaurantView.rating);
 
@@ -63,7 +63,7 @@ export default function RestaurantsReview(props) {
           color="dark"
           changeColorOnScroll={{
             height: 100,
-            color: "white"
+            color: "white",
           }}
           {...rest}
         />
@@ -117,7 +117,7 @@ export default function RestaurantsReview(props) {
                         <div
                           style={{
                             borderRadius: "20px",
-                            borderColor: "#9c27b0"
+                            borderColor: "#9c27b0",
                           }}
                         >
                           <p>
@@ -143,7 +143,7 @@ export default function RestaurantsReview(props) {
                       textAlign: "center",
                       flex: 1,
                       flexDirection: "column",
-                      justifyContent: "space-between"
+                      justifyContent: "space-between",
                     }}
                   >
                     {/* MapContainer */}
@@ -151,7 +151,7 @@ export default function RestaurantsReview(props) {
                       google={props.google}
                       center={{
                         lat: 53.5510846,
-                        lng: 9.9936819
+                        lng: 9.9936819,
                       }}
                       height="200px"
                       zoom={15}
@@ -179,47 +179,44 @@ export default function RestaurantsReview(props) {
                             Your reviews...
                           </h3>
                         </GridItem>
-                        
-                          <Card>
-                            <CardHeader
-                              color="primary"
-                              className={classes.cardHeader}
-                            >
-                              <GridContainer>
-                                <GridItem xs={12} sm={3} md={3} lg={3}>
-                                 
-                                    <img
-                                      alt="Photo"
-                                      src={restaurantView.user.src}
-                                      className={
-                                        classesI.imgFluidUser +
-                                        " mui--align-middle" +
-                                        " " +
-                                        classesI.imgShadow +
-                                        " " +
-                                        classesI.imgRounded
-                                      }
-                                    />
-                                 
-                                </GridItem>
 
-                                <GridItem xs={12} sm={7} md={7} lg={7}>
-                                  <h4>{restaurantView.user.name} </h4>
-                                  <p>
-                                    {" "}
-                                    Rating -{" "}
-                                    <Rate value={restaurantView.user.rating} />
-                                  </p>
-                                </GridItem>
-                              </GridContainer>
-                            </CardHeader>
-                            <CardBody>
-                              <div>
-                                <p>{restaurantView.user.description}</p>
-                              </div>
-                            </CardBody>
-                          </Card>
-                       
+                        <Card>
+                          <CardHeader
+                            color="primary"
+                            className={classes.cardHeader}
+                          >
+                            <GridContainer>
+                              <GridItem xs={12} sm={3} md={3} lg={3}>
+                                <img
+                                  alt="Photo"
+                                  src={restaurantView.user.src}
+                                  className={
+                                    classesI.imgFluidUser +
+                                    " mui--align-middle" +
+                                    " " +
+                                    classesI.imgShadow +
+                                    " " +
+                                    classesI.imgRounded
+                                  }
+                                />
+                              </GridItem>
+
+                              <GridItem xs={12} sm={7} md={7} lg={7}>
+                                <h4>{restaurantView.user.name} </h4>
+                                <p>
+                                  {" "}
+                                  Rating -{" "}
+                                  <Rate value={restaurantView.user.rating} />
+                                </p>
+                              </GridItem>
+                            </GridContainer>
+                          </CardHeader>
+                          <CardBody>
+                            <div>
+                              <p>{restaurantView.user.description}</p>
+                            </div>
+                          </CardBody>
+                        </Card>
                       </GridItem>
                     </GridContainer>
                   </GridItem>

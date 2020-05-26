@@ -21,23 +21,23 @@ import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 
 const ListRestaurantStyle = {
   show: {
-    display: "block"
+    display: "block",
     // visibility: "visible"
   },
   notShow: {
-    display: "none"
+    display: "none",
     //visibility: "hidden"
-  }
+  },
 };
 
 export default function WelUser(props) {
-  const userPhoto = userPr => {
+  const userPhoto = (userPr) => {
     if (userPr && userPr.photo) {
       return userPr.photo;
     }
     return avatar;
   };
-  
+
   const useStylesListR = makeStyles(ListRestaurantStyle);
   const classesListR = useStylesListR();
   const useStylesT = makeStyles(stylesT);
@@ -92,7 +92,7 @@ export default function WelUser(props) {
                           {
                             height: "100px",
                             justifyContent: "center",
-                            width: "100px"
+                            width: "100px",
                           } +
                           " " +
                           classesT.imgFluid +
@@ -106,7 +106,7 @@ export default function WelUser(props) {
                   </Card>
                 </GridItem>
               </GridContainer>
-              </GridItem>
+            </GridItem>
             <GridItem xs={12} sm={12} md={8} lg={8}>
               {/* data search*/}
               <GridContainer>
@@ -124,11 +124,17 @@ export default function WelUser(props) {
             <GridItem>
               <GridContainer>
                 <GridItem>
-                <Switch>
-                    
+                  <Switch>
                     <Route path="/welcome-user/Iranian">
-                      <h1 className={classesT.primaryText + " "+classesT.header} >Iranian</h1>
-                      <ListRestaurantsProfilReview className={classesListR["show"]} category = "Iranian"/>
+                      <h1
+                        className={classesT.primaryText + " " + classesT.header}
+                      >
+                        Iranian
+                      </h1>
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Iranian"
+                      />
                     </Route>
                     <Route path="/welcome-user/Italian">
                       <h1
@@ -196,9 +202,17 @@ export default function WelUser(props) {
                         category="Mediterranean"
                       />
                     </Route>
-                   <Route path="/welcome-user">
-                      <ListRestaurantsProfilReview className={classesListR["show"]} category=''/>
-                    </Route> 
+                    <Route path="/welcome-user/American">
+                    <h1
+                        className={classesT.primaryText + " " + classesT.header}
+                      >
+                        American
+                      </h1>
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="American"
+                      />
+                    </Route>
                   </Switch>
                 </GridItem>
               </GridContainer>
