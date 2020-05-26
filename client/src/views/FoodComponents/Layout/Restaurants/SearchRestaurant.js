@@ -105,7 +105,7 @@ const  SearchRestaurant=()=> {
         <GridItem xs={12} sm={12} md={12} lg={12}>
           <form onSubmit={onSubmit} className={classes.form}>
           <GridContainer xs={12} sm={12} md={12} lg={12}>
-            <GridItem xs={12} sm={8} md={6} lg={6}>
+            <GridItem xs={12} sm={10} md={6} lg={6}>
               <CustomInput 
                   onChangeFunction={onChange}
                   labelText="Food"

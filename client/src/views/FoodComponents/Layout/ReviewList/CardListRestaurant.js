@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer";
 import { Rate } from "antd";
@@ -6,12 +6,15 @@ import GridItem from "components/Grid/GridItem";
 // import { Switch, Route, Link } from "react-router-dom";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
+//import RestaurantsReview from 'views/FoodComponents/Pages/RestaurantsReview';
+import { Link } from "react-router-dom";
 // import CardHeader from "components/Card/CardHeader.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import stylesB from "assets/jss/material-kit-react/views/componentsSections/basicsStyle.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesP from "assets/jss/material-kit-react/popoverStyles.js";
+
 // import img from "../../../../photos/restaurant/kebab.jpeg"
 // import SelectFood from "./SelectFood";
 // import Popover from "@material-ui/core/Popover";
@@ -23,16 +26,16 @@ const useStylesT = makeStyles(stylesT);
 
 const ListRestaurantStyle = {
   show: {
-    display: "block"
+    display: "block",
     // visibility: "visible"
   },
   notShow: {
-    display: "none"
+    display: "none",
     //visibility: "hidden"
-  }
+  },
 };
 const CardListRestaurant = ({
-  restaurant: { restaurantName, address, city, category, rating, photo }
+  restaurant: { restaurantName, address, city, category, rating, photo },
 }) => {
   const [anchorElBottom, setAnchorElBottom] = useState(null);
   const useStylesListR = makeStyles(ListRestaurantStyle);
@@ -57,7 +60,7 @@ const CardListRestaurant = ({
               alignContent: "space-around",
               flex: 1,
               flexDirection: "column",
-              textAlign: "center"
+              textAlign: "center",
             }}
           >
             <div
@@ -72,7 +75,7 @@ const CardListRestaurant = ({
                 justifyContent: "center",
                 padding: "10px",
                 alignItems: "center",
-                display: "block"
+                display: "block",
               }}
             >
               <img
@@ -83,12 +86,14 @@ const CardListRestaurant = ({
               />
             </div>
             <CardBody>
-              {/* zeigt keine name von Restaurant */}
-              <h4 style={{ color: "#9c27b0" }}>{restaurantName}</h4>
+              {/* zeigt keine name von Restaurant */}                                             
+              <Link className={classes.navLink}  to={{pathname:"/restaurantsReview", state:restaurantName}}>
+                <h4 style={{ color: "#9c27b0" }}>{restaurantName}</h4>
+              </Link>
               <p>{address}</p>
               <p>{city}</p>
               <p>{category}</p>
-              <hr style={{color:"#9c27b0"}}></hr>
+              <hr style={{ color: "#9c27b0" }}></hr>
               <p>
                 {" "}
                 Rating - <Rate value={rating} />
@@ -99,7 +104,5 @@ const CardListRestaurant = ({
       </GridContainer>
     </div>
   );
-
-  
 };
 export default CardListRestaurant;

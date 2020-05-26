@@ -26,10 +26,10 @@ export default function RestaurantsReview(props) {
   const classesI = useStylesI();
   console.log(classes);
   const { ...rest } = props;
-
+  console.log(props);
   let restaurantView = {
     id: "1",
-    name: "Restaurant name",
+    name: props.location.state,
     url: "wwww.restaurant.de",
     phone: "12345",
     email: "restaurant@gmail.com",
@@ -92,7 +92,7 @@ export default function RestaurantsReview(props) {
                         color="primary"
                         className={classes.cardHeader}
                       >
-                        Restaurant name
+                          {restaurantView.name}
                       </CardHeader>
                       {/* <h3  color="primary">Restaurant name</h3> */}
                       <CardBody
@@ -121,7 +121,7 @@ export default function RestaurantsReview(props) {
                           }}
                         >
                           <p>
-                            Website: {restaurantView.url}
+                            Website: {restaurantView.name}
                             <br></br>Tel: {restaurantView.phone}
                             <br></br>Email: {restaurantView.email}{" "}
                           </p>
