@@ -58,25 +58,35 @@ export default function WelUser(props) {
   console.log("The User =", user);
 
   return (
-    <div className={classesT.marginCenter} style={{ width: "90%" }}>
-      <Card className={classesT.marginCenter} style={{ paddingTop: "140px" }}>
-        <CardBody className={classesT.marginCenter}>
-          <GridContainer className={classesT.marginCenter}>
-            <GridItem
-              xs={12}
-              sm={12}
-              md={4}
-              lg={4}
-              className={classesT.marginCenter}
-            >
-              <GridContainer className={classesT.marginLeft}>
-                {/* Foto */}
-                <GridItem xs={12} sm={12} md={12} lg={12}>
-                  <Card>
+    <div className={classesT.marginCenter}>
+    <Card
+      style={{ paddingTop: "80px", width: "90%" }}
+      className={classesT.marginCenter}
+    >
+      <CardBody className={classesT.marginCenter}>
+      <GridContainer xs={12}
+            sm={12}
+            md={12}
+            lg={12 } ></GridContainer>
+        <GridContainer className={classesT.marginCenter}>
+          <GridItem
+            xs={12}
+            sm={12}
+            md={4}
+            lg={4}
+            className={classesT.marginCenter}
+          >                                                                                                                                                                                                                                                                                                                                                               
+            <GridContainer className={classesT.marginLeft}>
+              <GridItem xs={12} sm={12} md={11} lg={11}>
+                <Card  className={
+                        { display: "flex", alignItems: "center" } +
+                        " " +
+                        classes.textCenter
+                      }>
                     <CardHeader color="primary" className={classes.cardHeader}>
                       {user && ` Welcome ${user.firstname}   ${user.lastname}`}
                     </CardHeader>
-                    <CardBody
+                    <CardBody 
                       className={
                         { display: "flex", alignItems: "center" } +
                         " " +
@@ -147,17 +157,7 @@ export default function WelUser(props) {
                         category="Italian"
                       />
                     </Route>
-                    <Route path="/welcome-user/Indian">
-                      <h1
-                        className={classesT.primaryText + " " + classesT.header}
-                      >
-                        Indian
-                      </h1>
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Indian"
-                      />
-                    </Route>
+                    
                     <Route path="/welcome-user/Greek">
                       <h1
                         className={classesT.primaryText + " " + classesT.header}
@@ -169,7 +169,17 @@ export default function WelUser(props) {
                         category="Greek"
                       />
                     </Route>
-                    <Route path="/welcome-user/Thai">
+                   <Route path="/welcome-user/Indian">
+                      <h1
+                        className={classesT.primaryText + " " + classesT.header}
+                      >
+                        Indian
+                      </h1>
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Indian"
+                      />
+                    </Route><Route path="/welcome-user/Thai">
                       <h1
                         className={classesT.primaryText + " " + classesT.header}
                       >
@@ -190,7 +200,7 @@ export default function WelUser(props) {
                         className={classesListR["show"]}
                         category="Asian"
                       />
-                    </Route>
+                    </Route> 
                     <Route path="/welcome-user/Mediterranean">
                       <h1
                         className={classesT.primaryText + " " + classesT.header}
@@ -218,6 +228,7 @@ export default function WelUser(props) {
               </GridContainer>
             </GridItem>
           </GridContainer>
+       
         </CardBody>
       </Card>
     </div>
