@@ -1,8 +1,4 @@
 import React from "react";
-//import Carousels from './Carousels'
-// import Map from "../Layout/MapR";
-// import MapMarkers from "../Layout/MapMarkers";
-// import Places from "../Layout/Places";
 import SectionCarousel from "../Layout/SectionCarousel";
 import Header from "../Layout/Header/Header";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
@@ -49,15 +45,8 @@ const Home = props => {
       >
         <Card className={classesT.marginCenter}>
           <SectionCarousel />
-
-          {/* <div className="" style={{ height: "100vh" }}>
-            <GridContainer className={classesT.marginCenter}>
-              <GridItem xs={12} sm={12} md={12} lg={12}></GridItem>
-            </GridContainer>
-          </div> */}
         </Card>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };

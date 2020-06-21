@@ -44,6 +44,7 @@ const RestaurantState = props => {
             nameOfDish:name,
             city:city
         };
+        console.log("data: ", data);
         try {
             const res = await axios.post('/api/restaurant/getrestaurantfood',data);
             dispatch({

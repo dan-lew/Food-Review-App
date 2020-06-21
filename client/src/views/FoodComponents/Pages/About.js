@@ -216,7 +216,7 @@ const About = props => {
                       style={{ textAlign: "center" }}
                       className={classesT.mutedText}
                     >
-                      Webdeveloper
+                      Web Developer
                     </h3>
                     <p className={classesT.description}>
                       26 years ago I relocated from Uzbekistan to Germany and in

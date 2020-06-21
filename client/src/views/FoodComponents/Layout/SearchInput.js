@@ -9,17 +9,10 @@ import LocalDiningIcon from '@material-ui/icons/LocalDining';
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "components/CustomButtons/Button.js";
-import IconButton from '@material-ui/core/IconButton';
-import Icon from '@material-ui/core/Icon';
-import Place from './Place'
-
-
 import styles from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+
 const useStyles = makeStyles(styles);
 
 export default function SearchInput() {

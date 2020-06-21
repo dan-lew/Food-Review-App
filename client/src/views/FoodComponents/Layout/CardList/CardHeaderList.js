@@ -1,6 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import StarBorderIcon from "@material-ui/icons/StarBorder";
-import StarIcon from "@material-ui/icons/Star";
+import React, { useContext } from "react";
 import avatar from "assets/img/Logo-FR-124.png";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components.js";
@@ -26,7 +24,6 @@ export default function CardHeaderList(props) {
 
   return (
     <div>
-      
       <GridContainer>
         <GridItem xs={12} sm={2} md={2} lg={2}>
           <img
@@ -34,7 +31,11 @@ export default function CardHeaderList(props) {
             src={photo}
             className={
               classesI.imgFluidUser +
-              " mui--align-middle"+" "+ classesI.imgRounded+" "+ classesI.imgShadow
+              " mui--align-middle" +
+              " " +
+              classesI.imgRounded +
+              " " +
+              classesI.imgShadow
             }
           />
         </GridItem>
@@ -48,7 +49,6 @@ export default function CardHeaderList(props) {
         <GridItem xs={12} sm={4} md={4} lg={5}>
           {props.dateOfVisit}
           <Rate value={props.rating} />
-          
         </GridItem>
       </GridContainer>
     </div>

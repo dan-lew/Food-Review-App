@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { uuid } = require("uuidv4");
+const { uuid } = require("uuid");
 const { check, validationResult } = require("express-validator");
 const Review = require("../models/Review.js");
 const auth = require("../middleware/auth");
@@ -116,6 +116,20 @@ router.post("/dateFilter", auth, async (req, res) => {
       ]
     });
     return res.json(reviews);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+// Get reviews with dataReviewFilter
+router.post("/dataReviewFilter", auth, async (req, res) => {
+  const restaurantN = req.body.restaurantName;
+
+  try {
+    const reviewsCategory = await Review.find(
+        { restaurantName: restaurantN });
+        console.log("reviewsCategory: ", reviewsCategory);
+    return res.json(reviewsCategory);
   } catch (error) {
     console.log(error.message);
     res.status(500).send("Server Error");

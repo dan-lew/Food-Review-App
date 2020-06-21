@@ -12,7 +12,6 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import avatar from "assets/img/Logo-FR-124.png";
-import Datetime from "react-datetime";
 import DatePicker from "react-datepicker";
 import AlertContext from "../../../context/alert/alertContext";
 import "react-datepicker/dist/react-datepicker.css";
@@ -35,7 +34,7 @@ export default function UserPr(props) {
   const classes = useStyles();
   const classesI = useStylesI();
   console.log(classes);
-  const userPhoto = userPr => {
+  const userPhoto = (userPr) => {
     if (userPr.photo) {
       return userPr.photo;
     }
@@ -56,25 +55,26 @@ export default function UserPr(props) {
   useEffect(() => {
     getReviews();
   }, []);
-  console.log(reviews);
+  console.log("reviews: ", reviews);
 
   const [userData, setUserData] = useState([]);
+  console.log("userData", userData);
 
   const [sendDate, setDate] = useState({
     startDate: new Date(),
-    endDate: new Date()
+    endDate: new Date(),
   });
   const { startDate, endDate } = sendDate;
-  const onChangeStartDate = date => {
+  const onChangeStartDate = (date) => {
     setDate({ ...sendDate, startDate: date });
   };
-  const onChangeEndDate = date => {
+  const onChangeEndDate = (date) => {
     setDate({ ...sendDate, endDate: date });
   };
   // const [setStartDate, setEndDate] = useState(new Date());
   console.log(startDate, endDate);
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     let alert = "Please select dates";
     if (startDate === "" || endDate === "") {
@@ -84,15 +84,15 @@ export default function UserPr(props) {
     }
   };
 
-  const onChange = e =>
+  const onChange = (e) =>
     setUserData({ ...user, [e.target.name]: e.target.value });
-  const getImgPath = path => {
+  const getImgPath = (path) => {
     console.log(path);
     setUserData({ ...userData, photo: path });
     // Load the user Data
     loadUser();
   };
-  const getFullDate = date => {
+  const getFullDate = (date) => {
     let d = new Date(date);
     var tag = d.getDate();
     if (tag <= 9) {
@@ -108,25 +108,8 @@ export default function UserPr(props) {
   };
 
   console.log("user: ", user);
-  let price = [];
-  let getPrice = count => {
-    if (count === 0) {
-      console.log("keine daten");
-      return (
-        <Fragment>
-          <h3>Keine Angaben</h3>
-        </Fragment>
-      );
-    } else {
-      for (let i = 0; i < count; i++) {
-        console.log("count: ", count);
-        console.log(userData[i].user.price);
-        price.push(userData[i].user.price);
-      }
-      console.log(price);
-      return price;
-    }
-  };
+ 
+
 
   return (
     <div className={classesT.marginCenter}>
@@ -166,7 +149,7 @@ export default function UserPr(props) {
                             {
                               height: "100px",
                               justifyContent: "center",
-                              width: "100%"
+                              width: "100%",
                             } +
                             " " +
                             classesT.imgFluid +
@@ -176,7 +159,6 @@ export default function UserPr(props) {
                             classesI.imgShadow
                           }
                         />
-
                         <p></p>
                         <FileUpload getImgPath={getImgPath} />
                       </div>
@@ -272,7 +254,7 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-                <Button  className={classesT.buttonInfo} onClick={onSubmit}>
+                <Button className={classesT.buttonInfo} onClick={onSubmit}>
                   Select dates
                 </Button>
               </GridContainer>
@@ -281,22 +263,22 @@ export default function UserPr(props) {
                 <GridItem
                   xs={12}
                   sm={12}
-                  md={6}
-                  lg={6}
+                  md={4}
+                  lg={4}
                   className={classesT.marginLeft}
                 >
-                  <h4>Number of restaurants</h4>
+                  <h4>Restaurantsreview</h4>
                 </GridItem>
                 <GridItem
                   xs={12}
                   sm={12}
-                  md={6}
-                  lg={6}
+                  md={8}
+                  lg={8}
                   className={classesT.marginLeft}
                 >
                   <Card>
                     <CardBody>
-                      <ListRestaurantsReview />
+                      <ListRestaurantsReview restaurantName={reviews} />
                     </CardBody>
                   </Card>
                 </GridItem>
@@ -304,8 +286,8 @@ export default function UserPr(props) {
                 <GridItem
                   xs={12}
                   sm={12}
-                  md={6}
-                  lg={6}
+                  md={4}
+                  lg={4}
                   className={classesT.marginLeft}
                 >
                   <h4>Top Foods reviewed</h4>
@@ -313,21 +295,21 @@ export default function UserPr(props) {
                 <GridItem
                   xs={12}
                   sm={12}
-                  md={6}
-                  lg={6}
+                  md={8}
+                  lg={8}
                   className={classesT.marginLeft}
                 >
                   <Card>
                     <CardBody>
-                      <ListFoodsReview />
+                      <ListFoodsReview foodReview={reviews} />
                     </CardBody>
                   </Card>
                 </GridItem>
                 <GridItem
                   xs={12}
                   sm={12}
-                  md={10}
-                  lg={6}
+                  md={4}
+                  lg={4}
                   className={classesT.marginLeft}
                 >
                   <h4>Total Spent on food for this period </h4>
@@ -336,13 +318,12 @@ export default function UserPr(props) {
                   xs={12}
                   sm={12}
                   md={8}
-                  lg={6}
+                  lg={8}
                   className={classesT.marginLeft}
                 >
                   <Card>
                     <CardBody>
-                      {/* <Sum price={user1[].user.price}/> */}
-                      <Sum price={getPrice(user.length)} />
+                      <Sum price={reviews} />
                     </CardBody>
                   </Card>
                 </GridItem>
@@ -362,7 +343,7 @@ export default function UserPr(props) {
                   <h3>Your reviews...</h3>
                 </GridItem>
                 {reviews !== null &&
-                  reviews.map(item => {
+                  reviews.map((item) => {
                     return (
                       <GridItem
                         xs={12}
