@@ -24,7 +24,6 @@ import FileUpload from "./components/FileUpload";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/reviewpgbg.jpg";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
-import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import Logo from "assets/img/Logo-FR-124.png";
 const useStyles = makeStyles(styles);
 
@@ -33,9 +32,8 @@ const ReviewPage = props => {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-  const useStylesT = makeStyles(stylesT);
+  
   const useStylesI = makeStyles(stylesI);
-  const classesT = useStylesT();
   const classesI = useStylesI();
   const classes = useStyles();
   const { ...rest } = props;
@@ -124,7 +122,7 @@ const ReviewPage = props => {
       {redirect ? <Redirect to='/user-profile'/> : null}
       <Header
         brand={
-          <img
+          <img alt="LogoImg"
             className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
             src={Logo}
           />

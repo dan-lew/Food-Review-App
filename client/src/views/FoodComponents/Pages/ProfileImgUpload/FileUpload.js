@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
 import Message from "./message";
 import ProgressBar from "./ProgressBar";
@@ -26,7 +25,7 @@ const FileUpload = (props) => {
 
     try {
       if (imgArray.includes(file.type) && file.size < 5000000) {
-        const res = await axios.post("/api/userReviews/user", formData, {
+        const res = await axios.post("/api/editProfile/user", formData, {
           headers: {
             "Content-Type": "multipart/form-data"
           },
@@ -78,20 +77,9 @@ const FileUpload = (props) => {
         <ProgressBar percentage={uploadPercentage} />
         <input
           type="button" onClick={onSubmitImg}
-          value="Upload Photo"
+          value="Upload Profile Photo"
           className="btn btn-info btn-block mt-2"
         />
-       {uploadedFile ? (
-        <div className="row mt-5">
-          <div className="col-md-6 m-auto">
-            <img
-              alt={uploadedFile.fileName}
-              src={uploadedFile.filePath}
-              style={{ width: "100%" }}
-            />
-          </div>
-        </div>
-      ) : null}
     </Fragment>
   );
 };

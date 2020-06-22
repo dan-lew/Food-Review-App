@@ -23,7 +23,7 @@ const ReviewSchema=new mongoose.Schema({
     },
     dateOfVisit:{
         type: Date,
-        default:Date.now
+        default:new Date()
     },
     price:{
         type: Number,
@@ -31,7 +31,7 @@ const ReviewSchema=new mongoose.Schema({
     },
     photo:{
         type:String,
-        required: false
+        required: true
     },
     rating:{
         type: Number,

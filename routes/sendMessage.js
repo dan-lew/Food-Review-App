@@ -4,40 +4,26 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 const path = require("path");
 
-router.get("/", (req, res) => {
-  res.render("sendMessagePage", { layout: false });
-});
-
-// static folder
-router.use("/public", express.static(path.join(__dirname, "public")));
-
-// body-parser application - will allow me to send data to myself
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(bodyParser.json());
-
-// recieve the form data
-router.post("/send", (req, res) => {
-  console.log(req.body);
-});
-
 router.post("/", async (req, res, next) => {
   const sendMsg = req.body;
+  const { email, name, message } = req.body;
+
   console.log(sendMsg);
   try {
     await sendEmail({
-      email: sendMsg.email,
-      name: sendMsg.name,
-      subject: " Thanks for sending us a message",
-      message: sendMsg.message
+      from: " Contact Us Message <food-review@hamburg-coders.pro>  ",
+      to: "dan.lewis1803@gmail.com",
+      subject: "You have a new message from the App",
+      html: ` <h1> Dear admin the user : ${name} sent the message and his email is : ${email} </h1>
+      <h2> ${message}  </h2>   `
     });
     res.status(200).json({
       status: "Success",
       message: "Your email has been sent to us"
     });
-  } catch {
-    return next(
-      new Error(" there was an error by sending the email try again later !")
-    );
+  } catch(error) {
+    console.log(error);
+     
   }
 });
 

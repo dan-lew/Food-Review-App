@@ -20,7 +20,6 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/sendmsgbg1.jpg";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
-import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import Logo from "assets/img/Logo-FR-124.png";
 const useStyles = makeStyles(styles);
 
@@ -29,9 +28,9 @@ const SendMessagePage = props => {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-  const useStylesT = makeStyles(stylesT);
+
   const useStylesI = makeStyles(stylesI);
-  const classesT = useStylesT();
+
   const classesI = useStylesI();
   const classes = useStyles();
   const { ...rest } = props;
@@ -39,7 +38,7 @@ const SendMessagePage = props => {
   const { setAlert } = alertContext;
   const authContext = useContext(AuthContext);
   const { sendMail } = authContext;
-
+  let successMessage = false;
   const [sendMessage, setMessage] = useState({
     name: "",
     email: "",
@@ -53,11 +52,6 @@ const SendMessagePage = props => {
 
   const onSubmit = e => {
     e.preventDefault();
-    sendMail({
-      name,
-      email,
-      message
-    });
     try {
       if (name === "" || email === "" || message === "") {
         setAlert(" Please complete all the fields", "danger");
@@ -68,8 +62,12 @@ const SendMessagePage = props => {
           email,
           message
         });
+        successMessage = true;
+        setAlert(" Your message has been sent", "success");
       }
     } catch (error) {
+      successMessage = false;
+
       setAlert(error.msg, "danger");
     }
   };
@@ -78,6 +76,7 @@ const SendMessagePage = props => {
       <Header
         brand={
           <img
+            alt="LogoImg"
             className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
             src={Logo}
           />
@@ -103,89 +102,84 @@ const SendMessagePage = props => {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={5}>
               <Card className={classes[cardAnimaton]}>
-                <form onSubmit={onSubmit} className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Send us a message</h4>
-                  </CardHeader>
-                  <p className={classes.divider}>
-                    {" "}
-                    Please complete the form below...
-                  </p>
-                  <CardBody>
-                    <CustomInput
-                      onChange={onChange}
-                      labelText="First Name..."
-                      id="first"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        onChange: onChange,
-                        name: "name",
-                        type: "text",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <People className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <CustomInput
-                      onChange={onChange}
-                      labelText="Email..."
-                      id="email"
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        onChange: onChange,
-                        name: "email",
-                        type: "email",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                    />
-                    <CustomInput
-                      labelText="Your Message"
-                      id="sendMessage"
-                      formControlProps={{
-                        fullWidth: true,
-                        className: classes.textArea
-                      }}
-                      inputProps={{
-                        onChange: onChange,
-                        name: "message",
-                        multiline: true,
-                        rows: 5,
-                        endAdornment: [
-                          <InputAdornment position="end">
-                            <i className="fas fa-comment"></i>
-                          </InputAdornment>
-                        ]
-                      }}
-                    />
-                  </CardBody>
-                  <Alerts />
-                  <CardFooter className={classes.cardFooter}>
-                    <Button
-                      type="submit"
-                      onSubmit={onSubmit}
-                      simple
-                      color="primary"
-                      size="lg"
-                    >
-                      Get started
-                    </Button>
-                  </CardFooter>
-                </form>
+
+              
+                  <form onSubmit={onSubmit} className={classes.form}>
+                    <CardHeader color="primary" className={classes.cardHeader}>
+                      <h4>Send us a message</h4>
+                    </CardHeader>
+                    <p className={classes.divider}>
+                      {" "}
+                      Please complete the form below...
+                    </p>
+                    <CardBody>
+                      <CustomInput
+                        onChange={onChange}
+                        labelText="First Name..."
+                        id="first"
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                        inputProps={{
+                          onChange: onChange,
+                          name: "name",
+                          type: "text",
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <People className={classes.inputIconsColor} />
+                            </InputAdornment>
+                          )
+                        }}
+                      />
+                      <CustomInput
+                        onChange={onChange}
+                        labelText="Email..."
+                        id="email"
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                        inputProps={{
+                          onChange: onChange,
+                          name: "email",
+                          type: "email",
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <Email className={classes.inputIconsColor} />
+                            </InputAdornment>
+                          )
+                        }}
+                      />
+                      <CustomInput
+                        labelText="Your Message"
+                        id="sendMessage"
+                        formControlProps={{
+                          fullWidth: true,
+                          className: classes.textArea
+                        }}
+                        inputProps={{
+                          onChange: onChange,
+                          name: "message",
+                          multiline: true,
+                          rows: 5,
+                          endAdornment: [
+                            <InputAdornment position="end">
+                              <i className="fas fa-comment"></i>
+                            </InputAdornment>
+                          ]
+                        }}
+                      />
+                    </CardBody>
+                    <Alerts />
+                    <CardFooter className={classes.cardFooter}>
+                      <Button type="submit" simple color="primary" size="lg">
+                        Get started
+                      </Button>
+                    </CardFooter>
+                  </form>   
               </Card>
             </GridItem>
           </GridContainer>
         </div>
-        <Footer whiteFont />
       </div>
     </div>
   );

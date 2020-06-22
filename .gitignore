@@ -45,3 +45,4 @@ config.env
 config_d.env
 
  /client/src/views/MapContainers/MapContainer0.js
+/client/src/views/FoodComponents/Layout/MapContainer.js

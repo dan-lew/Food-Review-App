@@ -1,11 +1,10 @@
-import React, { useStyles } from "react";
+import React, { useContext } from "react";
+import AuthContext from "../../../context/auth/authContext";
 import Header from "../Layout/Header/Header.js";
 import HeaderLinks from "../Layout/Header/HeaderLinks.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components";
 import UserPr from "../Layout/UserPr";
-import GridContainer from "components/Grid/GridContainer";
-import GridItem from "components/Grid/GridItem";
 import Logo from "assets/img/Logo-FR-124.png";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 
@@ -16,12 +15,18 @@ const UsersProfile = props => {
   const classesI = useStylesI();
   console.log(classes);
   const { ...rest } = props;
+
+  const authContext = useContext(AuthContext);
+  const { user } = authContext;
+  console.log("The User =", user);
+
   return (
     <div className="">
       <div className="">
         <Header
           brand={
             <img
+              alt="LogoImg"
               className={
                 classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }
