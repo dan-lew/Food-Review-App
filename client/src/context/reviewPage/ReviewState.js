@@ -12,17 +12,20 @@ import {
   UPDATE_REVIEW,
   DELETE_REVIEW,
   FILTER_REVIEW,
-  CLEAR_FILTER
+  FILTER_REVIEW_CATEGORY,
+  CLEAR_FILTER,
+  SET_LOADING,
   // SET_ALERT,
   // REMOVE_ALERT
 } from "../type";
 // import restaurantContext from "context/restaurants/restaurants/restaurantContext";
 
-const ReviewState = props => {
+const ReviewState = (props) => {
   const initialState = {
     reviews: null,
     current: null,
-    filtered: null
+    filtered: null,
+    reviewsCategory:[]
   };
   const [state, dispatch] = useReducer(reviewReducer, initialState);
 
@@ -31,31 +34,47 @@ const ReviewState = props => {
       const res = await axios.get("/api/reviews/userReviews");
       dispatch({
         type: GET_REVIEWS,
-        payload: res.data
+        payload: res.data,
       });
     } catch (error) {
       dispatch({ type: REVIEWS_ERROR, payload: error.message });
     }
   };
-  const addReview = review => {
+  const addReview = (review) => {
     review.id = uuid.v4();
     dispatch({ type: ADD_REVIEW, payload: review });
   };
 
-  const filterReviews = async (date) => { 
+  const filterReviews = async (date) => {
     const res = await axios.post("/api/reviews/dateFilter", date);
     dispatch({ type: FILTER_REVIEW, payload: res.data });
   };
 
-  const updateReview = review => {
+  const filterReviewsCategory = async (restaurantName) => {
+    try {
+      setLoading();
+      console.log(restaurantName);
+      let data = {
+        restaurantName: restaurantName,
+      };
+      console.log("data: ",data)
+      const res = await axios.post("/api/reviews/dataReviewFilter", data);
+      console.log("res: ",res);
+      dispatch({ type: FILTER_REVIEW_CATEGORY, payload: res.data});
+    } catch (error) {
+      dispatch({ type: REVIEWS_ERROR, payload: error.message });
+    }
+  };
+
+  const updateReview = (review) => {
     dispatch({ type: UPDATE_REVIEW, payload: review });
   };
 
-  const deleteReview = id => {
+  const deleteReview = (id) => {
     dispatch({ type: DELETE_REVIEW, payload: id });
   };
 
-  const setCurrent = review => {
+  const setCurrent = (review) => {
     dispatch({ type: SET_CURRENT, payload: review });
   };
 
@@ -68,7 +87,7 @@ const ReviewState = props => {
   };
   // Set Alert
   // Remove Alert
-
+  const setLoading = () => dispatch({ type: SET_LOADING });
   return (
     <reviewContext.Provider
       value={{
@@ -81,8 +100,10 @@ const ReviewState = props => {
         clearCurrent,
         updateReview,
         filterReviews,
+        filterReviewsCategory,
         clearFilter,
-        filtered: state.filtered
+        filtered: state.filtered,
+        reviewsCategory: state.reviewsCategory
       }}
     >
       {props.children}

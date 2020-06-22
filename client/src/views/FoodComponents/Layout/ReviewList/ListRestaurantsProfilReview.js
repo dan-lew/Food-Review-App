@@ -17,35 +17,32 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 import CardListRestaurant from "./CardListRestaurant";
 import RestaurantContext from "../../../../context/restaurants/restaurantContext";
 const useStylesB = makeStyles(stylesB);
-const useStylesT = makeStyles(stylesT);
 
-
-const ListRestaurantsProfilReview=(props)=> {
-
+const ListRestaurantsProfilReview = (props) => {
+  const useStylesT = makeStyles(stylesT);
+  const classesT = useStylesT();
   // Restaurants list
   const restaurantContext = useContext(RestaurantContext);
   const { getCatRestaurant, catrestaurants } = restaurantContext;
-  useEffect(()=>{
-    getCatRestaurant(props.category)
-    console.log('use effect in list restaurants profile review')
-  },[])
-  console.log(catrestaurants)
-
+  useEffect(() => {
+    getCatRestaurant(props.category);
+    console.log("use effect in list restaurants profile review");
+  }, []);
+  console.log(catrestaurants);
 
   return (
-    <div className={props.className}>
+    <div id={props.category} className={props.className}>
       <GridContainer>
         <GridItem>
-          <GridContainer>
-            {catrestaurants.map(restaurant => (
+          <GridContainer >
+            {catrestaurants.map((restaurant) => (
               <GridItem xs={12} sm={6} md={4} lg={3}>
-                <CardListRestaurant
+                <CardListRestaurant 
                   key={restaurant.id}
                   restaurant={restaurant}
                 />
-              </GridItem> //<div>{user.login}</div>
+              </GridItem>
             ))}
-           
           </GridContainer>
         </GridItem>
         <GridItem></GridItem>

@@ -18,13 +18,10 @@ import image7 from "assets/img/food/food5-1200-400.png";
 import image8 from "assets/img/food/food6-1200-400.png";
 import image9 from "assets/img/food/food7-1200-400.png";
 import image10 from "assets/img/food/food8-1200-400.png";
-
 import styles from "assets/jss/material-kit-react/views/componentsSections/carouselStyle.js";
-
 import MapContainer from "../../MapContainers/MapContainer.js";
 
 import "../../../App.css";
-
 import "antd/dist/antd.css";
 
 

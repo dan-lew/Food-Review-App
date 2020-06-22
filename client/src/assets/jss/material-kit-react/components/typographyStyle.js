@@ -80,7 +80,10 @@ const typographyStyle = {
     textTransform:"uppercase"
   },
   restaurant:{
-    fontSize:"16px"
+    fontSize:"16px",
+    paddingRight:"25px",
+    fontWeight: "bold",
+    margin: "0 auto"
   }
 };
 

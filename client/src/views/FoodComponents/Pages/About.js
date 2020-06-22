@@ -69,9 +69,9 @@ const About = props => {
           </h2>
           <GridContainer>
             <GridItem xs={12} sm={6} md={4} lg={4}>
-              <Card style={{ textAlign: "center", height: "740px" }}>
+              <Card style={{ textAlign: "center", height: "800px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  Mahdieh
+                <h3 style={{fontWeight:"bolder", padding:"5px", margin:"0"}}>Mahdieh</h3>
                 </CardHeader>
                 <CardBody>
                   <img src={profile1} alt="..." className={imageClasses} />
@@ -134,9 +134,9 @@ const About = props => {
             </GridItem>
 
             <GridItem xs={12} sm={6} md={4} lg={4}>
-              <Card style={{ textAlign: "center", height: "740px" }}>
+              <Card style={{ textAlign: "center", height: "800px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  Daniel
+                <h3 style={{fontWeight:"bolder", padding:"5px", margin:"0"}}>Daniel</h3>
                 </CardHeader>
                 <CardBody>
                   <img src={profile} alt="..." className={imageClasses} />
@@ -199,9 +199,9 @@ const About = props => {
               </Card>
             </GridItem>
             <GridItem xs={12} sm={6} md={4} lg={4}>
-              <Card style={{ textAlign: "center", height: "740px" }}>
+              <Card style={{ textAlign: "center", height: "800px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                  Rania
+                <h3 style={{fontWeight:"bolder", padding:"5px", margin:"0"}}>Rania</h3>
                 </CardHeader>
                 <CardBody>
                   <img src={profile2} alt="..." className={imageClasses} />
@@ -216,7 +216,7 @@ const About = props => {
                       style={{ textAlign: "center" }}
                       className={classesT.mutedText}
                     >
-                      Webdeveloper
+                      Web Developer
                     </h3>
                     <p className={classesT.description}>
                       26 years ago I relocated from Uzbekistan to Germany and in
