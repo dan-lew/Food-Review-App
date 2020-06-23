@@ -1,5 +1,4 @@
-
-import React ,{useState}from "react";
+import React, { useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer";
@@ -9,7 +8,6 @@ import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 
-
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 
 import { Link } from "react-router-dom";
@@ -18,8 +16,6 @@ import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 
 import stylesP from "assets/jss/material-kit-react/popoverStyles.js";
-
-
 
 const ListRestaurantStyle = {
   show: {
@@ -32,7 +28,15 @@ const ListRestaurantStyle = {
   },
 };
 const CardListRestaurant = ({
-  restaurant: { restaurantName, address, city, category, rating, photo },
+  restaurant: {
+    restaurantName,
+    address,
+    city,
+    category,
+    rating,
+    photo,
+    website,
+  },
 }) => {
   const [anchorElBottom, setAnchorElBottom] = useState(null);
   const useStylesListR = makeStyles(ListRestaurantStyle);
@@ -41,7 +45,6 @@ const CardListRestaurant = ({
   const classes = useStyles();
   const useStylesI = makeStyles(stylesI);
   const classesI = useStylesI();
-
 
   const [classList, setClassList] = React.useState("notShow");
   return (
@@ -68,9 +71,9 @@ const CardListRestaurant = ({
                 marginTop: "10px",
                 height: "250px",
                 borderRadius: "10px",
-                 alignContent: "center",
-                 justifyContent: "center",
-                 display: "flex",
+                alignContent: "center",
+                justifyContent: "center",
+                display: "flex",
               }}
             >
               <div
@@ -111,6 +114,13 @@ const CardListRestaurant = ({
               <p>{address}</p>
               <p>{city}</p>
               <p>{category}</p>
+              <a
+                href={website}
+                style={{ color: "#9c27b0", fontWeight: "bold" }}
+                target="_blank"
+              >
+                Menu
+              </a>
               <hr style={{ color: "#9c27b0" }}></hr>
               <p>
                 {" "}
