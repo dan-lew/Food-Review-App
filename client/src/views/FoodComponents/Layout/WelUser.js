@@ -11,7 +11,6 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import avatar from "assets/img/Logo-FR-124.png";
 import ListRestaurantsProfilReview from "./ReviewList/ListRestaurantsProfilReview";
-import { Link } from "react-router-dom";
 // import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import SearchRestaurant from "./Restaurants/SearchRestaurant";
 // import Sum from "./ReviewList/Sum";
@@ -149,7 +148,13 @@ export default function WelUser(props) {
               <GridContainer>
                 <GridItem>
                   <Switch>
-                  
+                  <Route exact path="/welcome-user">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="General"
+                      />
+                    </Route>
+{/* 
                     {listCategory.map((item, index) => {
                       return (
                         <Fragment key={index}>
@@ -161,9 +166,71 @@ export default function WelUser(props) {
                           </Route>
                         </Fragment>
                       );
-                    })}
+                    })} */}
 
-                    
+
+                    <Route path="/welcome-user/Iranian">
+                      {/* <AnchorLink href="#Iranian"></AnchorLink>{" "} */}
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Iranian"
+                      />
+                    </Route>
+                    <Route path="/welcome-user/Italian">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Italian"
+                      />
+                    </Route>
+
+                    <Route path="/welcome-user/Greek">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Greek"
+                      />
+                    </Route>
+                    <Route path="/welcome-user/Indian">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Indian"
+                      />
+                    </Route>
+                    <Route path="/welcome-user/Thai">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Thai"
+                      />
+                    </Route>
+                    <Route path="/welcome-user/Asian">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Asian"
+                      />
+                    </Route>
+                    <Route path="/welcome-user/Mediterranean">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Mediterranean"
+                      />
+                    </Route>
+                    <Route path="/welcome-user/American">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="American"
+                      />
+                    </Route>
+                    <Route path="/welcome-user/Japanese">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="Japanese"
+                      />
+                    </Route>
+                    <Route path="/welcome-user/German">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="German"
+                      />
+                    </Route>
                   </Switch>
                 </GridItem>
               </GridContainer>

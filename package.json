@@ -59,6 +59,7 @@
     "material-ui": "^0.20.2",
     "nodemailer": "^6.4.3",
     "passport": "^0.4.1",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-geocode": "^0.2.1",
     "react-google-autocomplete": "^1.1.2",
     "react-google-location": "^1.2.2",

@@ -41,7 +41,7 @@ const SearchRestaurant = () => {
 
   const getAllRestaurant = (value) => {
     getCatRestaurant(value);
-    console.log("value: ",value);
+    console.log("value: ", value);
     setFood({ food: "", city: "" });
   };
   const state = {
@@ -62,26 +62,22 @@ const SearchRestaurant = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-  
+
     await setRedirect(null);
-   
-    //await setRedirect(<Redirect to="/welcome-user" />); 
+
+    //await setRedirect(<Redirect to="/welcome-user" />);
     let alert = " Please complete all the fields";
     try {
       if (food === "" || city === "") {
         setAlert(alert, "danger");
-        
       } else {
-      
-        console.log("sendFood: ",sendFood);
-        searchFood(sendFood.food, sendFood.city);
-        
+        console.log("sendFood: ", sendFood);
+        searchFood(sendFood.food.toLowerCase(), sendFood.city.toLowerCase());
       }
     } catch (error) {
       setAlert(error.msg, "danger");
-      console.log("fehler")
+      console.log("fehler");
     }
-     
   };
 
   return (
