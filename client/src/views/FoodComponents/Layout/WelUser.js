@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card";
@@ -11,7 +11,6 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
 import avatar from "assets/img/Logo-FR-124.png";
 import ListRestaurantsProfilReview from "./ReviewList/ListRestaurantsProfilReview";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 // import ListFoodsReview from "./ReviewList/ListFoodsReview";
 import SearchRestaurant from "./Restaurants/SearchRestaurant";
 // import Sum from "./ReviewList/Sum";
@@ -38,6 +37,23 @@ export default function WelUser(props) {
     }
     return avatar;
   };
+
+
+  let listCategory = [
+    "",
+    "Italian",
+    "Indian",
+    "Asian",
+    "Iranian",
+    "Greek",
+    "Thai",
+    "American",
+    "Mediterranean",
+    "Japanese",
+    "German",
+  ];
+
+
   const useStylesListR = makeStyles(ListRestaurantStyle);
   const classesListR = useStylesListR();
   const useStylesT = makeStyles(stylesT);
@@ -131,6 +147,27 @@ export default function WelUser(props) {
               <GridContainer>
                 <GridItem>
                   <Switch>
+                  <Route exact path="/welcome-user">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="General"
+                      />
+                    </Route>
+{/* 
+                    {listCategory.map((item, index) => {
+                      return (
+                        <Fragment key={index}>
+                          <Route path="/welcome-user/{item}">
+                            <ListRestaurantsProfilReview
+                              className={classesListR["show"]}
+                              category={item}
+                            />
+                          </Route>
+                        </Fragment>
+                      );
+                    })} */}
+
+
                     <Route path="/welcome-user/Iranian">
                       {/* <AnchorLink href="#Iranian"></AnchorLink>{" "} */}
                       <ListRestaurantsProfilReview
@@ -187,6 +224,12 @@ export default function WelUser(props) {
                         category="Japanese"
                       />
                     </Route>
+                    <Route path="/welcome-user/German">
+                      <ListRestaurantsProfilReview
+                        className={classesListR["show"]}
+                        category="German"
+                      />
+                    </Route>
                   </Switch>
                 </GridItem>
               </GridContainer>
@@ -197,3 +240,4 @@ export default function WelUser(props) {
     </div>
   );
 }
+ 

@@ -24,7 +24,7 @@ export default function SearchInput() {
                     <GridItem xs={10} sm={4} md={4} lg={4}>
                         {/* <Place /> */}
                         <CustomInput
-                            labelText=" City"
+                            labelText="City"
                             id="float"
                             formControlProps={{
                             fullWidth: true,
