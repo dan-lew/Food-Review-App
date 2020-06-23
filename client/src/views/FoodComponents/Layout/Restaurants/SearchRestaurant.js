@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 //import classBut from 'src/assets/jss/material-kit-react/components/buttonStyle.js'
-import { Link, Switch, Route,NavLink,Redirect } from "react-router-dom";
+import { Link, Switch, Route, NavLink, Redirect } from "react-router-dom";
 import Button from "components/CustomButtons/Button";
 import LocationOn from "@material-ui/icons/LocationOn";
 import LocalDiningIcon from "@material-ui/icons/LocalDining";
@@ -13,10 +13,9 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { makeStyles } from "@material-ui/core/styles";
 import stylesT from "assets/jss/material-kit-react/components/typographyStyle.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-import RestaurantContext from '../../../../context/restaurants/restaurantContext'
+import RestaurantContext from "../../../../context/restaurants/restaurantContext";
 
-
-const  SearchRestaurant=()=> {
+const SearchRestaurant = () => {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   const useStylesT = makeStyles(stylesT);
@@ -25,55 +24,64 @@ const  SearchRestaurant=()=> {
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
   const restaurantContext = useContext(RestaurantContext);
-  const {getCatRestaurant, catrestaurants,searchFood} = restaurantContext;
-  
-  let listCategory = ["Italian", "Indian", "Asian","Iranian", "Greek", "Thai","American","Mediterranean"];
+  const { getCatRestaurant, catrestaurants, searchFood } = restaurantContext;
 
-  const getAllRestaurant=(value)=>{
+  let listCategory = [
+    "Italian",
+    "Indian",
+    "Asian",
+    "Iranian",
+    "Greek",
+    "Thai",
+    "American",
+    "Mediterranean",
+    "Japanese"
+  ];
 
-    getCatRestaurant(value)
-    console.log(value)
-    setFood({ food:'',city:'' })
-  }
+  const getAllRestaurant = (value) => {
+    getCatRestaurant(value);
+    console.log("value: ",value);
+    setFood({ food: "", city: "" });
+  };
   const state = {
-    category: listCategory
+    category: listCategory,
   };
 
   let btnS = [];
   btnS.push(state.category);
 
- //-------------------------------------------------------
-  const [redirect,setRedirect] = useState(null)
-  const [sendFood,setFood]=useState({ food:'',city:'' });
-  const {food,city}=sendFood;
+  //-------------------------------------------------------
+  const [redirect, setRedirect] = useState(null);
+  const [sendFood, setFood] = useState({ food: "", city: "" });
+  const { food, city } = sendFood;
 
-  const onChange=(e)=>{
-    setFood({ ...sendFood, [e.target.name]:e.target.value})
-    
-    
-  }
+  const onChange = (e) => {
+    setFood({ ...sendFood, [e.target.name]: e.target.value });
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    await setRedirect(null)
-    await setRedirect(<Redirect to="/welcome-user"/>)
-      let alert = " Please complete all the fields";
-      try{
-        if(food === '' || city === '' ){
-          setAlert(alert,'danger')
-        }   
-        else {
-          console.log(sendFood)
-          searchFood(sendFood.food,sendFood.city);
-          
-            // setFood('');
-        }
+  
+    await setRedirect(null);
+   
+    //await setRedirect(<Redirect to="/welcome-user" />); 
+    let alert = " Please complete all the fields";
+    try {
+      if (food === "" || city === "") {
+        setAlert(alert, "danger");
+        
+      } else {
+      
+        console.log("sendFood: ",sendFood);
+        searchFood(sendFood.food, sendFood.city);
+        
       }
-      catch(error){
-        setAlert(error.msg, 'danger')
-
-      }
+    } catch (error) {
+      setAlert(error.msg, "danger");
+      console.log("fehler")
     }
+     
+  };
 
   return (
     <div>
@@ -84,19 +92,27 @@ const  SearchRestaurant=()=> {
           {btnS[0].map((value, index) => {
             return (
               <Fragment key={index}>
-                <NavLink  
-                  activeStyle={{
-                    fontWeight: "bold",
-                    color: "#61DAFB"
-                  }}
-                  onClick={()=>{getAllRestaurant(value)}}
-                  id="link"
+                <NavLink
                   className={classesT.primaryText + " " + classesT.restaurant}
+                  activeStyle={{
+                    color: "#61DAFB",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    margin: "0 auto",
+                  }}
+                  onClick={() => {
+                    getAllRestaurant(value);
+                  }}
+                  id="link"
                   key={index}
                   to={`/welcome-user/${value}`}
                 >
-                  {" "}
-                  {value}{<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>}
+                  <span
+                    className={classesT.primaryText + " " + classesT.restaurant}
+                  >
+                    {" "}
+                    {value}
+                  </span>
                 </NavLink>
               </Fragment>
             );
@@ -104,14 +120,14 @@ const  SearchRestaurant=()=> {
         </GridItem>
         <GridItem xs={12} sm={12} md={12} lg={12}>
           <form onSubmit={onSubmit} className={classes.form}>
-          <GridContainer xs={12} sm={12} md={12} lg={12}>
-            <GridItem xs={12} sm={8} md={6} lg={6}>
-              <CustomInput 
+            <GridContainer xs={12} sm={12} md={12} lg={12}>
+              <GridItem xs={12} sm={10} md={6} lg={6}>
+                <CustomInput
                   onChangeFunction={onChange}
                   labelText="Food"
                   id="float"
                   formControlProps={{
-                    fullWidth: true
+                    fullWidth: true,
                   }}
                   inputProps={{
                     name: "food",
@@ -121,17 +137,17 @@ const  SearchRestaurant=()=> {
                       <InputAdornment position="end">
                         <LocalDiningIcon />
                       </InputAdornment>
-                    )
+                    ),
                   }}
                 />
               </GridItem>
-              <GridItem xs={10} sm={10} md={6} lg={6}>
+              <GridItem xs={12} sm={10} md={6} lg={6}>
                 <CustomInput
                   onChangeFunction={onChange}
                   labelText="City"
                   id="float"
                   formControlProps={{
-                    fullWidth: true
+                    fullWidth: true,
                   }}
                   inputProps={{
                     name: "city",
@@ -139,15 +155,17 @@ const  SearchRestaurant=()=> {
                     value: city,
                     endAdornment: (
                       <InputAdornment position="end">
-                      <LocationOn />
+                        <LocationOn />
                       </InputAdornment>
-                    )
+                    ),
                   }}
                 />
               </GridItem>
-              </GridContainer>
-                <Button color="primary" size="sm" type="submit"> Search </Button>
-            
+            </GridContainer>
+            <Button color="primary" size="sm" type="submit">
+              {" "}
+              Search{" "}
+            </Button>
           </form>
         </GridItem>
       </GridContainer>

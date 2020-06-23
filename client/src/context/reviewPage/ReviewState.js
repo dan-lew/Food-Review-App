@@ -18,7 +18,7 @@ import {
 } from "../type";
 // import restaurantContext from "context/restaurants/restaurants/restaurantContext";
 
-const ReviewState = props => {
+const ReviewState = (props) => {
   const initialState = {
     reviews: null,
     current: null,
@@ -51,11 +51,11 @@ const ReviewState = props => {
     dispatch({ type: UPDATE_REVIEW, payload: review });
   };
 
-  const deleteReview = id => {
+  const deleteReview = (id) => {
     dispatch({ type: DELETE_REVIEW, payload: id });
   };
 
-  const setCurrent = review => {
+  const setCurrent = (review) => {
     dispatch({ type: SET_CURRENT, payload: review });
   };
 
@@ -68,7 +68,7 @@ const ReviewState = props => {
   };
   // Set Alert
   // Remove Alert
-
+  const setLoading = () => dispatch({ type: SET_LOADING });
   return (
     <reviewContext.Provider
       value={{
@@ -81,8 +81,10 @@ const ReviewState = props => {
         clearCurrent,
         updateReview,
         filterReviews,
+        filterReviewsCategory,
         clearFilter,
-        filtered: state.filtered
+        filtered: state.filtered,
+        reviewsCategory: state.reviewsCategory
       }}
     >
       {props.children}

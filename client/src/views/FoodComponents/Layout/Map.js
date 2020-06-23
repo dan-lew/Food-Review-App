@@ -9,12 +9,6 @@ const {
   Marker,
 } = require("react-google-maps");
 const { SearchBox } = require("react-google-maps/lib/components/places/SearchBox");
-//const Restaurant="Hofbräu Wirtshaus Wandsbek"
-//const Restaurant="Bistro Samarkand"
-const Restaurant="RISTORÌ da Franco"
-// const Restaurant="Vapiano Jungfernstieg"
-// const Restaurant="Vapiano Hallerstrasse"
-//const Restaurant="Restaurant Dubrovnik Rennbahnstrasse"
 const Map = compose(
     withProps({
       googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyD1R-U-DEGLzPr-e8z1TwW_p0K27Zmu7ic&v=3.exp&libraries=geometry,drawing,places",

@@ -163,3 +163,14 @@ config.env
 
 19. # in client  install react-google-location
 npm i react-google-location react-google-maps react-google-autocomplete react-geocode
+
+20. # in client
+npm install @babel/cli @babel/plugin-proposal-class-properties @babel/preset-env @babel/preset-react eslint-config-prettier eslint-plugin-prettier eslint-plugin-react --save-dev
+
+ "@babel/cli": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+     "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",

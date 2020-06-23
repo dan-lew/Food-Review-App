@@ -48,6 +48,10 @@ const typographyStyle = {
   marginCenter: {
     margin: "0 auto !important"
   },
+  marginCenterCard: {
+    margin: "0 auto !important",
+    padding:"20px"
+  },
   marginTop: {
     marginTop: "100px"
   },
