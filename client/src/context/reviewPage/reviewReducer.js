@@ -25,7 +25,7 @@ export default (state, action) => {
     case REVIEWS_ERROR:
       return {
         ...state,
-        error: action.payload,
+        error: action.payload
       };
     case ADD_REVIEW:
       return {
@@ -43,6 +43,12 @@ export default (state, action) => {
         ...state,
         reviewsCategory: action.payload,
         loading: false,
+      };
+    case FILTER_REVIEW:
+      return {
+        ...state,
+        reviews:  action.payload,
+        loading: false
       };
     case DELETE_REVIEW:
       return {
@@ -64,8 +70,9 @@ export default (state, action) => {
         ...state,
         reviews: state.reviews.map((item) =>
           item.id === action.payload.id ? action.payload : item
-        ),
+        )
       };
+
     case CLEAR_FILTER:
       return {
         ...state,

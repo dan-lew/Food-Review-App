@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+
+import React ,{useState}from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer";
 import { Rate } from "antd";
@@ -6,10 +8,17 @@ import GridItem from "components/Grid/GridItem";
 // import { Switch, Route, Link } from "react-router-dom";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-//import RestaurantsReview from 'views/FoodComponents/Pages/RestaurantsReview';
+
+
+import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
+
 import { Link } from "react-router-dom";
+
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
+
+import stylesP from "assets/jss/material-kit-react/popoverStyles.js";
+
 
 
 const ListRestaurantStyle = {
@@ -37,7 +46,7 @@ const CardListRestaurant = ({
   const [classList, setClassList] = React.useState("notShow");
   return (
     <div>
-      <GridContainer >
+      <GridContainer>
         <GridItem>
           <Card
             style={{
@@ -46,44 +55,57 @@ const CardListRestaurant = ({
               flex: 1,
               flexDirection: "column",
               textAlign: "center",
-             
+
               alignContent: "center",
               justifyContent: "center",
               display: "flex",
-             
             }}
           >
             <div
               style={{
-                boxShadow: "1px 1px 4px #969696",
-                height:"auto",
-                padding: "10px",
+                //  boxShadow: "1px 1px 4px #969696",
+                padding: "0px",
                 marginTop: "10px",
-                height: "180px",
+                height: "250px",
                 borderRadius: "10px",
-                textAlign: "center",
-                alignContent: "center",
-                justifyContent: "center",
-                display: "flex",
+                 alignContent: "center",
+                 justifyContent: "center",
+                 display: "flex",
               }}
             >
-              <img
-                src={photo}
-                style={{ borderRadius: "10px",
-                textAlign: "center",
-                alignItems: "center",
-                justifyContent: "center",
-                display: "flex",
-                width: "150px",
-                height:"auto",
-              }}
-                alt="No Photo"
-                className={classesI.imgCardTop}
-              />
+              <div
+                style={{
+                  boxShadow: "1px 1px 4px #969696",
+                  padding: "15px",
+                  borderRadius: "10px",
+                  textAlign: "center",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                }}
+              >
+                <img
+                  src={photo}
+                  style={{
+                    borderRadius: "10px",
+                    textAlign: "center",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    display: "flex",
+                    width: "150px",
+                    height: "auto",
+                  }}
+                  alt="No Photo"
+                  className={classesI.imgCardTop}
+                />
+              </div>
             </div>
             <CardBody>
-              {/* zeigt keine name von Restaurant */}                                             
-              <Link className={classes.navLink}  to={{pathname:"/restaurantsReview", state:restaurantName}}>
+              {/* zeigt keine name von Restaurant */}
+              <Link
+                className={classes.navLink}
+                to={{ pathname: "/restaurantsReview", state: restaurantName }}
+              >
                 <h4 style={{ color: "#9c27b0" }}>{restaurantName}</h4>
               </Link>
               <p>{address}</p>

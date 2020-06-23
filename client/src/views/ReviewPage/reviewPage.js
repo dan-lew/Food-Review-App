@@ -6,7 +6,7 @@ import ReactStars from "react-stars";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import {Redirect} from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 
 // core components
 import Header from "../FoodComponents/Layout/Header/Header.js";
@@ -27,12 +27,12 @@ import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 const useStyles = makeStyles(styles);
 
-const ReviewPage = props => {
+const ReviewPage = (props) => {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-  
+
   const useStylesI = makeStyles(stylesI);
   const classesI = useStylesI();
   const classes = useStyles();
@@ -42,7 +42,7 @@ const ReviewPage = props => {
   const authContext = useContext(AuthContext);
   const { registerReview } = authContext;
 
-  const [redirect,setRedirect] = useState(false)
+  const [redirect, setRedirect] = useState(false);
   const [review, setReview] = useState({
     restaurantName: "",
     city: "",
@@ -52,7 +52,7 @@ const ReviewPage = props => {
     price: "",
     photo: "",
     rating: "",
-    comment: ""
+    comment: "",
   });
   const {
     restaurantName,
@@ -63,25 +63,30 @@ const ReviewPage = props => {
     price,
     photo,
     rating,
-    comment
+    comment,
   } = review;
 
-  const onChange = e =>
-    setReview({ ...review, [e.target.name]: e.target.value });
+  const onChange = (e) =>
+    setReview({
+      ...review,
+      [e.target.name]:
+        e.target.value.substring(0, 1).toUpperCase() +
+        e.target.value.substring(1).toLowerCase(),
+    });
 
   // console.log("onchange", review);
 
-  const stars = star => {
+  const stars = (star) => {
     //document.getElementById('rating').value=star
     setReview({ ...review, rating: star });
   };
 
-  const getImgPath = path => {
+  const getImgPath = (path) => {
     console.log(path);
     setReview({ ...review, photo: path });
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     try {
       if (
@@ -107,10 +112,10 @@ const ReviewPage = props => {
           price,
           photo,
           rating,
-          comment
+          comment,
         });
         console.log(registerReview);
-        setRedirect(true)
+        setRedirect(true);
       }
     } catch (error) {
       setAlert(error.msg, "danger");
@@ -119,10 +124,11 @@ const ReviewPage = props => {
 
   return (
     <div>
-      {redirect ? <Redirect to='/user-profile'/> : null}
+      {redirect ? <Redirect to="/user-profile" /> : null}
       <Header
         brand={
-          <img alt="LogoImg"
+          <img
+            alt="LogoImg"
             className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
             src={Logo}
           />
@@ -132,7 +138,7 @@ const ReviewPage = props => {
         color="dark"
         changeColorOnScroll={{
           height: 100,
-          color: "white"
+          color: "white",
         }}
         {...rest}
       />
@@ -141,7 +147,7 @@ const ReviewPage = props => {
         style={{
           backgroundImage: "url(" + image + ")",
           backgroundSize: "cover",
-          backgroundPosition: "top center"
+          backgroundPosition: "top center",
         }}
       >
         <div className={classes.container}>
@@ -161,7 +167,7 @@ const ReviewPage = props => {
                       labelText="Restaurant Name..."
                       id="restaurantName"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         onChange: onChange,
@@ -171,14 +177,14 @@ const ReviewPage = props => {
                           <InputAdornment position="end">
                             <i className="fas fa-home"></i>
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
                       labelText="Restaurant Location..."
                       id="city"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         onChange: onChange,
@@ -188,7 +194,7 @@ const ReviewPage = props => {
                           <InputAdornment position="end">
                             <i className="fas fa-map-marker-alt"></i>
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
@@ -196,7 +202,7 @@ const ReviewPage = props => {
                       labelText="Type of cuisine..."
                       id="category"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         onChange: onChange,
@@ -206,7 +212,7 @@ const ReviewPage = props => {
                           <InputAdornment position="end">
                             <i className="fas fa-utensils"></i>
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
@@ -214,7 +220,7 @@ const ReviewPage = props => {
                       labelText="Type of dish..."
                       id="nameOfDish"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         onChange: onChange,
@@ -224,14 +230,14 @@ const ReviewPage = props => {
                           <InputAdornment position="end">
                             <i className="fas fa-utensils"></i>
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
                       id="dateodateOfVisitfvisit"
                       onChange={onChange}
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         onChange: onChange,
@@ -241,7 +247,7 @@ const ReviewPage = props => {
                           <InputAdornment position="end">
                             <i className="fas fa-calendar-alt"></i>
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
@@ -249,7 +255,7 @@ const ReviewPage = props => {
                       labelText="Price of the food..."
                       id="price"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         onChange: onChange,
@@ -259,7 +265,7 @@ const ReviewPage = props => {
                           <InputAdornment position="end">
                             <i className="fas fa-dollar-sign"></i>
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <div>
@@ -283,7 +289,7 @@ const ReviewPage = props => {
                       id="comment"
                       formControlProps={{
                         fullWidth: true,
-                        className: classes.textArea
+                        className: classes.textArea,
                       }}
                       inputProps={{
                         onChange: onChange,
@@ -294,7 +300,7 @@ const ReviewPage = props => {
                           <InputAdornment position="end">
                             <i className="fas fa-comment fa-lg"></i>
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                   </CardBody>
@@ -304,7 +310,6 @@ const ReviewPage = props => {
                       Add Review
                     </Button>
                   </CardFooter>
-                 
                 </form>
               </Card>
             </GridItem>
