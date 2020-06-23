@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment } from "react";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card";
@@ -38,6 +38,21 @@ export default function WelUser(props) {
     return avatar;
   };
 
+
+  let listCategory = [
+    "Italian",
+    "Indian",
+    "Asian",
+    "Iranian",
+    "Greek",
+    "Thai",
+    "American",
+    "Mediterranean",
+    "Japanese",
+    "German",
+  ];
+
+
   const useStylesListR = makeStyles(ListRestaurantStyle);
   const classesListR = useStylesListR();
   const useStylesT = makeStyles(stylesT);
@@ -48,21 +63,13 @@ export default function WelUser(props) {
   const classes = useStyles();
 
   const [classList, setClassList] = React.useState("notShow");
-  const alertContext = useContext(AlertContext);
-  const { setAlert } = alertContext;
-  const restaurantContext = useContext(RestaurantContext);
-  const { searchFood } = restaurantContext;
-
   const authContext = useContext(AuthContext);
   const { user } = authContext;
   console.log("The User =", user);
 
   return (
-    <div className={classesT.marginCenter}>
-      <Card
-        style={{ paddingTop: "100px", width: "90%" }}
-        className={classesT.marginCenter}
-      >
+    <div className={classesT.marginCenter} style={{ width: "90%" }}>
+      <Card className={classesT.marginCenter} style={{ paddingTop: "140px" }}>
         <CardBody className={classesT.marginCenter}>
           <GridContainer xs={12} sm={12} md={12} lg={12}></GridContainer>
           <GridContainer className={classesT.marginCenter}>
@@ -134,62 +141,26 @@ export default function WelUser(props) {
               <GridContainer>
                 <GridItem>
                   <Switch>
-                    <Route path="/welcome-user/Iranian">
-                      {/* <AnchorLink href="#Iranian"></AnchorLink>{" "} */}
+                  <Route exact path="/welcome-user">
                       <ListRestaurantsProfilReview
                         className={classesListR["show"]}
-                        category="Iranian"
+                        category="General"
                       />
                     </Route>
-                    <Route path="/welcome-user/Italian">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Italian"
-                      />
-                    </Route>
+                        {/* Route  of Categories */}
+                    {listCategory.map((item, index) => {        
+                      return (
+                         <Fragment key={item}>
+                          <Route  path="/welcome-user/{item}">
+                            <ListRestaurantsProfilReview
+                              className={classesListR["show"]}
+                              category={item}
+                            />
+                          </Route>
+                        </Fragment>
+                      );
+                    })}
 
-                    <Route path="/welcome-user/Greek">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Greek"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Indian">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Indian"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Thai">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Thai"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Asian">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Asian"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Mediterranean">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Mediterranean"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/American">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="American"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Japanese">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Japanese"
-                      />
-                    </Route>
                   </Switch>
                 </GridItem>
               </GridContainer>
@@ -200,3 +171,4 @@ export default function WelUser(props) {
     </div>
   );
 }
+ 

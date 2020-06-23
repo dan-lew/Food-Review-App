@@ -1,4 +1,4 @@
-const { uuid } = require("uuid");
+const { uuid } = require("uuidv4");
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");

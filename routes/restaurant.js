@@ -17,7 +17,7 @@ router.post('/',auth,async(req,res)=>{
    let city = req.body.city;
    const restaurants = await Restaurant.find({$and:[{category:category},{city:city}]}).sort({date:-1});
    console.log(restaurants)
-   res.json(restaurants)
+   res.json(restaurants) 
 
  } catch (error) {
    console.log(error.message);
