@@ -12,6 +12,7 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import avatar from "assets/img/Logo-FR-124.png";
+import Datetime from "react-datetime";
 import DatePicker from "react-datepicker";
 import AlertContext from "../../../context/alert/alertContext";
 import "react-datepicker/dist/react-datepicker.css";
@@ -34,7 +35,7 @@ export default function UserPr(props) {
   const classes = useStyles();
   const classesI = useStylesI();
   console.log(classes);
-  const userPhoto = (userPr) => {
+  const userPhoto = userPr => {
     if (userPr.photo) {
       return userPr.photo;
     }
@@ -74,6 +75,24 @@ export default function UserPr(props) {
   // const [setStartDate, setEndDate] = useState(new Date());
   console.log(startDate, endDate);
 
+  console.log("user: ", user);
+  let price = [];
+  let getPrice = count => {
+    if (count === 0) {
+      console.log("keine daten");
+      return (
+        <Fragment>
+          <h3>Keine Angaben</h3>
+        </Fragment>
+      );
+    } else {
+      for (let i = 0; i < count; i++) {
+        console.log("count: ", count);
+        console.log(userData[i].user.price);
+        price.push(userData[i].user.price);
+      }
+      console.log(price);
+      return price;
   const onSubmit = (e) => {
     e.preventDefault();
     let alert = "Please select dates";
@@ -254,7 +273,7 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-                <Button className={classesT.buttonInfo} onClick={onSubmit}>
+                <Button  className={classesT.buttonInfo} onClick={onSubmit}>
                   Select dates
                 </Button>
               </GridContainer>
@@ -343,8 +362,8 @@ export default function UserPr(props) {
                   <h3>Your reviews...</h3>
                 </GridItem>
                 {reviews !== null &&
-                  reviews.map((item) => {
-                    return (
+                  reviews.map(item => 
+                    return 
                       <GridItem
                         xs={12}
                         sm={12}
@@ -371,7 +390,7 @@ export default function UserPr(props) {
                         </Card>
                       </GridItem>
                     );
-                  })}
+                  }
               </GridContainer>
             </GridItem>
           </GridContainer>
@@ -380,3 +399,4 @@ export default function UserPr(props) {
     </div>
   );
 }
+

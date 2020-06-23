@@ -38,6 +38,7 @@ export default function WelUser(props) {
     return avatar;
   };
 
+
   let listCategory = [
     "",
     "Italian",
@@ -51,6 +52,7 @@ export default function WelUser(props) {
     "Japanese",
     "German",
   ];
+
 
   const useStylesListR = makeStyles(ListRestaurantStyle);
   const classesListR = useStylesListR();
@@ -72,11 +74,8 @@ export default function WelUser(props) {
   console.log("The User =", user);
 
   return (
-    <div className={classesT.marginCenter}>
-      <Card
-        style={{ paddingTop: "100px", width: "90%" }}
-        className={classesT.marginCenter}
-      >
+    <div className={classesT.marginCenter} style={{ width: "90%" }}>
+      <Card className={classesT.marginCenter} style={{ paddingTop: "140px" }}>
         <CardBody className={classesT.marginCenter}>
           <GridContainer xs={12} sm={12} md={12} lg={12}></GridContainer>
           <GridContainer className={classesT.marginCenter}>

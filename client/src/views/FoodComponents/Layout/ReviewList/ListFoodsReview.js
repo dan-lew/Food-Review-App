@@ -9,15 +9,9 @@ import CardHeader from "components/Card/CardHeader.js";
 export default function ListFoodsReview(props) {
     const useStyles = makeStyles(styles);
     const classes = useStyles();
-    console.log("props.foodReview: ",props.foodReview)
-    var getFoodReview;
-    if (props.foodReview != null) {
-      getFoodReview = props.foodReview.map((item) => {
-        console.log(item.nameOfDish);
-        return item.nameOfDish;
-      });
-    }
-  console.log(getFoodReview);
+    console.log(classes)
+    // const { ...rest } = props;
+
     return (
       <div className={props.className}>
         <Card>
