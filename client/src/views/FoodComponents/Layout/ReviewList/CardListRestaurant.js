@@ -23,7 +23,7 @@ const ListRestaurantStyle = {
   },
 };
 const CardListRestaurant = ({
-  restaurant: { restaurantName, address, city, category, rating, photo },
+  restaurant: { restaurantName, address, city, category, rating, photo,website },
 }) => {
   const [anchorElBottom, setAnchorElBottom] = useState(null);
   const useStylesListR = makeStyles(ListRestaurantStyle);
@@ -89,6 +89,7 @@ const CardListRestaurant = ({
               <p>{address}</p>
               <p>{city}</p>
               <p>{category}</p>
+              <a href={website} target="_blank" style={{fontWeight:"bold" ,color: "#9c27b0"}}>Menu</a>
               <hr style={{ color: "#9c27b0" }}></hr>
               <p>
                 {" "}

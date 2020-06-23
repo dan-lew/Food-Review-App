@@ -41,7 +41,7 @@ router.post('/category',auth,async(req,res)=>{
 
 
 // add a restaurant
-router.post("/",
+router.post("/add",
   [
     check("restaurantName")
       .trim()
@@ -73,14 +73,15 @@ router.post("/",
       .isNumeric()
       .not()
       .isEmpty()
-      .withMessage("Please select a rating"),
+      .withMessage("Please select a rating")
+   
   ],auth,
   async (req, res) => {           ``
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
      return res.status(400).json({ erorrs : errors.array()});
     }
-    const { restaurantName,address,city,country,category,photo,rating} = req.body;
+    const { restaurantName,address,city,country,category,photo,rating, website} = req.body;
     try {
       const restaurant = new Restaurant({
         restaurantName,
@@ -89,7 +90,8 @@ router.post("/",
         country,
         category,
         photo,
-        rating
+        rating,
+        website
       });
       const newRestaurant = await restaurant.save();
       res.json(newRestaurant)
