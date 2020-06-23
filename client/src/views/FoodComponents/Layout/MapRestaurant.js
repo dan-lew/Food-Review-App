@@ -72,9 +72,17 @@ class Map extends Component {
     this.setState({ markers });
   };
 
-  getLocation = (lat, lng) => {
-    this.setState({ cityLocation: { lat: lat, lng: lng } });
-  };
+  //getting location from restaurant
+
+  getLocation = () => {
+    this.state.geoCoderService.geocode({ address: "Hamburg,Germany" }, response => {
+      const { location } = response[0].geometry;
+      //this.props.addMarker(location.lat(), location.lng(), this.props.markerName);
+      this.setState({ cityLocation: { lat:location.lat(), lng:location.lng() } });
+      this.handleSearch({lat:location.lat(), lng:location.lng()})
+    });
+  }
+
   setCenter = (lat, lng) => {
     const prevMarkers = this.state.markers;
     let markers = Object.assign([], prevMarkers);
@@ -109,8 +117,8 @@ class Map extends Component {
 
   // Runs once when the Google Maps library is ready
   // Initializes all services that we need
-  apiHasLoaded = (map, mapsApi) => {
-    this.setState({
+  apiHasLoaded = async (map, mapsApi) => {
+    await this.setState({
       mapsLoaded: true,
       map,
       mapsApi,
@@ -120,12 +128,13 @@ class Map extends Component {
       geoCoderService: new mapsApi.Geocoder(),
     });
     console.log(this.state);
+    this.getLocation()
+
   };
 
   // With the constraints, find some places serving restaurant
-  handleSearch = () => {
+  handleSearch = (cityLocation) => {
     const {
-      cityLocation,
       constraints,
       placesService,
       // directionService,
@@ -242,20 +251,20 @@ class Map extends Component {
                 return (
                   <div key={key} className="mb-4">
                     <div className="d-flex mb-2">
-                      <Input
+                      {/* <Input
                        style={{width:"100px"}}
                         className="col-5   mr-2"
                         placeholder="Country"
                         value={"germany"}
-                      />
-                      <MapAutoComplete
+                      /> */}
+                      {/* <MapAutoComplete
                         autoCompleteService={autoCompleteService}
                         geoCoderService={geoCoderService}
                         germanyLatLng={germanyLatLng}
                         markerName={name}
                         addMarker={this.addMarker}
                         getLocation={this.getLocation}
-                      />
+                      /> */}
                     </div>
                   </div>
                 );
@@ -263,14 +272,14 @@ class Map extends Component {
             </div>
           ) : null}
           {/* Search Button */}
-          <Button
+          {/* <Button
             style={{textAlign:"center"}}
             color="primary"
             size="sm"
             onClick={this.handleSearch}
           >
             Show <br></br> {this.state.constraints[0].name}<br></br> on the Map
-          </Button>
+          </Button> */}
         </section>
         {/* </GridItem> */}
 

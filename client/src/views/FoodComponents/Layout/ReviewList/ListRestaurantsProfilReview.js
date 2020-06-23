@@ -25,7 +25,9 @@ const ListRestaurantsProfilReview = (props) => {
   const restaurantContext = useContext(RestaurantContext);
   const { getCatRestaurant, catrestaurants } = restaurantContext;
   useEffect(() => {
-    getCatRestaurant(props.category);
+    if(props.category !== 'general') {
+      getCatRestaurant(props.category);
+    }
     console.log("use effect in list restaurants profile review");
   }, []);
   console.log(catrestaurants);
