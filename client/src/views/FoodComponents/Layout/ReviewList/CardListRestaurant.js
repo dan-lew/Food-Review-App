@@ -8,17 +8,11 @@ import GridItem from "components/Grid/GridItem";
 // import { Switch, Route, Link } from "react-router-dom";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-
-
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
-
 import { Link } from "react-router-dom";
 
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
-
-import stylesP from "assets/jss/material-kit-react/popoverStyles.js";
-
 
 
 const ListRestaurantStyle = {
@@ -71,7 +65,6 @@ const CardListRestaurant = ({
           >
             <div
               style={{
-                //  boxShadow: "1px 1px 4px #969696",
                 padding: "0px",
                 marginTop: "10px",
                 height: "250px",
@@ -109,7 +102,7 @@ const CardListRestaurant = ({
               </div>
             </div>
             <CardBody>
-              {/* zeigt keine name von Restaurant */}
+
               <Link
                 className={classes.navLink}
                 to={{ pathname: "/restaurantsReview", state: restaurantName }}
@@ -127,10 +120,10 @@ const CardListRestaurant = ({
                 Menu
               </a>
               <hr style={{ color: "#9c27b0" }}></hr>
-              <p>
+              <span>
                 {" "}
-                Rating - <Rate value={rating} />
-              </p>
+                Rating - 
+              </span><Rate value={rating} />
             </CardBody>
           </Card>
         </GridItem>

@@ -11,9 +11,6 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 
-// import img from "../../../../photos/restaurant/kebab.jpeg"
-// import SelectFood from "./SelectFood";
-// import Popover from "@material-ui/core/Popover";
 
 const ListRestaurantStyle = {
   show: {

@@ -40,7 +40,6 @@ export default function WelUser(props) {
 
 
   let listCategory = [
-    "",
     "Italian",
     "Indian",
     "Asian",
@@ -64,11 +63,6 @@ export default function WelUser(props) {
   const classes = useStyles();
 
   const [classList, setClassList] = React.useState("notShow");
-  const alertContext = useContext(AlertContext);
-  const { setAlert } = alertContext;
-  const restaurantContext = useContext(RestaurantContext);
-  const { searchFood } = restaurantContext;
-
   const authContext = useContext(AuthContext);
   const { user } = authContext;
   console.log("The User =", user);
@@ -153,11 +147,11 @@ export default function WelUser(props) {
                         category="General"
                       />
                     </Route>
-{/* 
-                    {listCategory.map((item, index) => {
+                        {/* Route  of Categories */}
+                    {listCategory.map((item, index) => {        
                       return (
-                        <Fragment key={index}>
-                          <Route path="/welcome-user/{item}">
+                         <Fragment key={item}>
+                          <Route  path="/welcome-user/{item}">
                             <ListRestaurantsProfilReview
                               className={classesListR["show"]}
                               category={item}
@@ -165,71 +159,8 @@ export default function WelUser(props) {
                           </Route>
                         </Fragment>
                       );
-                    })} */}
+                    })}
 
-
-                    <Route path="/welcome-user/Iranian">
-                      {/* <AnchorLink href="#Iranian"></AnchorLink>{" "} */}
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Iranian"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Italian">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Italian"
-                      />
-                    </Route>
-
-                    <Route path="/welcome-user/Greek">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Greek"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Indian">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Indian"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Thai">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Thai"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Asian">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Asian"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Mediterranean">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Mediterranean"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/American">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="American"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/Japanese">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="Japanese"
-                      />
-                    </Route>
-                    <Route path="/welcome-user/German">
-                      <ListRestaurantsProfilReview
-                        className={classesListR["show"]}
-                        category="German"
-                      />
-                    </Route>
                   </Switch>
                 </GridItem>
               </GridContainer>
