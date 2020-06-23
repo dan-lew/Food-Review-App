@@ -5,7 +5,7 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
 import CardHeader from "components/Card/CardHeader.js";
-import { Link } from "react-router-dom";
+
 export default function ListFoodsReview(props) {
     const useStyles = makeStyles(styles);
     const classes = useStyles();

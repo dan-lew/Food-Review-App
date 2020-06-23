@@ -35,7 +35,8 @@ const SearchRestaurant = () => {
     "Thai",
     "American",
     "Mediterranean",
-    "Japanese"
+    "Japanese",
+    "German"
   ];
 
   const getAllRestaurant = (value) => {

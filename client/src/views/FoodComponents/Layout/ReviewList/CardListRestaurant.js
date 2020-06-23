@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 
-
 const ListRestaurantStyle = {
   show: {
     display: "block",
@@ -33,11 +32,10 @@ const CardListRestaurant = ({
   const useStylesI = makeStyles(stylesI);
   const classesI = useStylesI();
 
-
   const [classList, setClassList] = React.useState("notShow");
   return (
     <div>
-      <GridContainer >
+      <GridContainer>
         <GridItem>
           <Card
             style={{
@@ -46,44 +44,57 @@ const CardListRestaurant = ({
               flex: 1,
               flexDirection: "column",
               textAlign: "center",
-             
+
               alignContent: "center",
               justifyContent: "center",
               display: "flex",
-             
             }}
           >
             <div
               style={{
-                boxShadow: "1px 1px 4px #969696",
-                height:"auto",
-                padding: "10px",
+                //  boxShadow: "1px 1px 4px #969696",
+                padding: "0px",
                 marginTop: "10px",
-                height: "180px",
+                height: "250px",
                 borderRadius: "10px",
-                textAlign: "center",
-                alignContent: "center",
-                justifyContent: "center",
-                display: "flex",
+                 alignContent: "center",
+                 justifyContent: "center",
+                 display: "flex",
               }}
             >
-              <img
-                src={photo}
-                style={{ borderRadius: "10px",
-                textAlign: "center",
-                alignItems: "center",
-                justifyContent: "center",
-                display: "flex",
-                width: "150px",
-                height:"auto",
-              }}
-                alt="No Photo"
-                className={classesI.imgCardTop}
-              />
+              <div
+                style={{
+                  boxShadow: "1px 1px 4px #969696",
+                  padding: "15px",
+                  borderRadius: "10px",
+                  textAlign: "center",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  display: "flex",
+                }}
+              >
+                <img
+                  src={photo}
+                  style={{
+                    borderRadius: "10px",
+                    textAlign: "center",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    display: "flex",
+                    width: "150px",
+                    height: "auto",
+                  }}
+                  alt="No Photo"
+                  className={classesI.imgCardTop}
+                />
+              </div>
             </div>
             <CardBody>
-              {/* zeigt keine name von Restaurant */}                                             
-              <Link className={classes.navLink}  to={{pathname:"/restaurantsReview", state:restaurantName}}>
+              {/* zeigt keine name von Restaurant */}
+              <Link
+                className={classes.navLink}
+                to={{ pathname: "/restaurantsReview", state: restaurantName }}
+              >
                 <h4 style={{ color: "#9c27b0" }}>{restaurantName}</h4>
               </Link>
               <p>{address}</p>
