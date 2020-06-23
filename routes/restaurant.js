@@ -41,7 +41,7 @@ router.post('/category',auth,async(req,res)=>{
 
 
 // add a restaurant
-router.post("/",
+router.post("/add",
   [
     check("restaurantName")
       .trim()

@@ -18,7 +18,7 @@ import Logo from "assets/img/Logo-FR-124.png";
 import profile from "assets/img/faces/dans.png";
 import profile1 from "assets/img/faces/mahdieh.jpg";
 import profile2 from "assets/img/faces/rania.jpg";
-
+import Alert from '../../FoodComponents/Layout/Alert'
 const About = props => {
   const useStylesT = makeStyles(stylesT);
   const useStylesI = makeStyles(stylesI);
@@ -60,6 +60,7 @@ const About = props => {
         />
       </div>
       <div style={{ width: "90%" }} className={classesT.marginCenter}>
+        <Alert />
         <Card style={{ paddingTop: "120px" }} className={classesT.marginCenter}>
           <h2
             style={{ paddingLeft: "50px" }}

@@ -9,6 +9,8 @@ import Logo from "assets/img/Logo-FR-124.png";
 //import HeaderRights from "../Layout/Header/HeaderRights";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 
+
+
 export default function WelcomeUser(props) {
   const useStyles = makeStyles(styles);
   const useStylesI = makeStyles(stylesI);
@@ -38,7 +40,9 @@ export default function WelcomeUser(props) {
           {...rest}
         />
       </div>
+        
       <div  className={classes.marginAuto}>
+        
         <WelUser />
       </div>
     </div>

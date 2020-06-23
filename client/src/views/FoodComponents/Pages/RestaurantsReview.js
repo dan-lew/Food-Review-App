@@ -18,6 +18,7 @@ import HeaderLinks from "../Layout/Header/HeaderLinks.js";
 
 import CardListReview from "../Layout/ReviewList/CardListReview";
 import ReviewContext from "../../../context/reviewPage/reviewContext";
+import Alert from '../Layout/Alert'
 
 export default function RestaurantsReview(props) {
   const useStylesT = makeStyles(stylesT);
@@ -45,6 +46,7 @@ export default function RestaurantsReview(props) {
   return (
     <div>
       <div>
+        <Alert />
         <Header
           brand={
             <img
