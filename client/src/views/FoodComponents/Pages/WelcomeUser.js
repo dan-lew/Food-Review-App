@@ -23,7 +23,7 @@ export default function WelcomeUser(props) {
           brand={
             <img alt= "LogoImg"
               className={
-                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
+                classesI.imgRaised+ " " + classesI.imgFluidLogo +" "+classesI.imgRounded+" "+ classesI.imgShadow
               }
               src={Logo}
             />

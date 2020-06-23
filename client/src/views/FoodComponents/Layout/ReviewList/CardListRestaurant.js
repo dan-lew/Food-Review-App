@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+
+import React ,{useState}from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer";
 import { Rate } from "antd";
@@ -6,10 +8,18 @@ import GridItem from "components/Grid/GridItem";
 // import { Switch, Route, Link } from "react-router-dom";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-//import RestaurantsReview from 'views/FoodComponents/Pages/RestaurantsReview';
+
+
+import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
+
 import { Link } from "react-router-dom";
+
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
+
+import stylesP from "assets/jss/material-kit-react/popoverStyles.js";
+
+
 
 const ListRestaurantStyle = {
   show: {
@@ -39,6 +49,7 @@ const CardListRestaurant = ({
   const classes = useStyles();
   const useStylesI = makeStyles(stylesI);
   const classesI = useStylesI();
+
 
   const [classList, setClassList] = React.useState("notShow");
   return (

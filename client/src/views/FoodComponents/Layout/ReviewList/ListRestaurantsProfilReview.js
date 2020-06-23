@@ -18,12 +18,13 @@ import CardListRestaurant from "./CardListRestaurant";
 import RestaurantContext from "../../../../context/restaurants/restaurantContext";
 const useStylesB = makeStyles(stylesB);
 
-const ListRestaurantsProfilReview = (props) => {
-  const useStylesT = makeStyles(stylesT);
-  const classesT = useStylesT();
+
+const ListRestaurantsProfilReview=(props)=> {
+
   // Restaurants list
   const restaurantContext = useContext(RestaurantContext);
   const { getCatRestaurant, catrestaurants } = restaurantContext;
+
   useEffect(() => {
     if(props.category !== 'general') {
       getCatRestaurant(props.category);
@@ -31,6 +32,7 @@ const ListRestaurantsProfilReview = (props) => {
     console.log("use effect in list restaurants profile review");
   }, []);
   console.log(catrestaurants);
+
 
   return (
     <div id={props.category} className={props.className}>
