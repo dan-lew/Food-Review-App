@@ -80,7 +80,7 @@ router.post("/",
     if (!errors.isEmpty()) {
      return res.status(400).json({ erorrs : errors.array()});
     }
-    const { restaurantName,address,city,country,category,photo,rating} = req.body;
+    const { restaurantName,address,city,country,category,photo,rating, website} = req.body;
     try {
       const restaurant = new Restaurant({
         restaurantName,
@@ -89,7 +89,8 @@ router.post("/",
         country,
         category,
         photo,
-        rating
+        rating,
+        website
       });
       const newRestaurant = await restaurant.save();
       res.json(newRestaurant)
