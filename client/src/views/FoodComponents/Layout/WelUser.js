@@ -18,6 +18,7 @@ import SearchRestaurant from "./Restaurants/SearchRestaurant";
 import RestaurantContext from "../../../context/restaurants/restaurantContext";
 import AlertContext from "../../../context/alert/alertContext";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+import Alert from './Alert'
 
 const ListRestaurantStyle = {
   show: {
@@ -130,6 +131,7 @@ export default function WelUser(props) {
                   <Card>
                     <CardBody>
                       <SearchRestaurant />
+                      <Alert />
                     </CardBody>
                   </Card>
                 </GridItem>

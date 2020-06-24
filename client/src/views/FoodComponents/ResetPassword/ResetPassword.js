@@ -7,12 +7,9 @@ import AuthContext from '../../../context/auth/authContext' ;
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
+
 // core components
 import Header from "../Layout/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
@@ -23,11 +20,9 @@ import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/sushi.jpg";
-import loginStyle from 'assets/jss/material-kit-react/views/componentsSections/loginStyle';
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
-import {Link} from "react-router-dom"
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
 

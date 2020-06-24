@@ -24,6 +24,7 @@ import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 import ReviewContext from "../../../context/reviewPage/reviewContext";
 import Button from "components/CustomButtons/Button.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+import Alert from './Alert'
 
 export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
@@ -113,11 +114,13 @@ export default function UserPr(props) {
 
   return (
     <div className={classesT.marginCenter}>
+      <Alert />
       <Card
         style={{ paddingTop: "80px", width: "90%" }}
         className={classesT.marginCenter}
       >
         <CardBody className={classesT.marginCenter}>
+
           <GridContainer className={classesT.marginCenter}>
             <GridItem
               xs={12}

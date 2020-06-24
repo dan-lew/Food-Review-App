@@ -8,7 +8,7 @@ import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
 import CardHeader from "components/Card/CardHeader";
 import { makeStyles } from "@material-ui/core/styles";
-
+import NoReviewList from "../Layout/ReviewList/NoReviewList";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import stylesT from "assets/jss/material-kit-react/views/componentsSections/typographyStyle.js";
@@ -18,6 +18,7 @@ import HeaderLinks from "../Layout/Header/HeaderLinks.js";
 
 import CardListReview from "../Layout/ReviewList/CardListReview";
 import ReviewContext from "../../../context/reviewPage/reviewContext";
+import Alert from "../Layout/Alert";
 
 export default function RestaurantsReview(props) {
   const useStylesT = makeStyles(stylesT);
@@ -41,10 +42,16 @@ export default function RestaurantsReview(props) {
   console.log("reviewsCategory", reviewsCategory);
 
   console.log(props.location.state);
+  let reviewsCards = reviewsCategory.map((reviews) => (
+    // <GridItem xs={12} sm={12} md={12} lg={12}>
+    <CardListReview key={reviews.id} reviews={reviews} />
+    // </GridItem>
+  ));
 
   return (
     <div>
       <div>
+        <Alert />
         <Header
           brand={
             <img
@@ -120,17 +127,21 @@ export default function RestaurantsReview(props) {
                   >
                     {/* reviews rating*/}
                     <GridContainer className={classesT.marginCenter}>
-                      <GridItem>
-                        <h3 style={{ paddingLeft: "30px" }}>
-                          Your review(s) for {props.location.state}
-                        </h3>
-                      </GridItem>
                       {/* reviewsCategory */}
-                      {reviewsCategory.map((reviews) => (
-                        // <GridItem xs={12} sm={12} md={12} lg={12}>
-                        <CardListReview key={reviews.id} reviews={reviews} />
-                        // </GridItem>
-                      ))}
+                      {reviewsCategory.length > 0 ? (
+                        <>
+                          <GridItem>
+                            <h3 style={{ paddingLeft: "30px" }}>
+                              Your review(s) for {props.location.state}
+                            </h3>
+                          </GridItem>
+                          {reviewsCards}
+                        </>
+                      ) : (
+                        <GridItem>
+                          <NoReviewList />
+                        </GridItem>
+                      )}
                     </GridContainer>
                   </GridItem>
                 </GridContainer>

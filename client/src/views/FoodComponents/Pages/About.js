@@ -18,7 +18,7 @@ import Logo from "assets/img/Logo-FR-124.png";
 import profile from "assets/img/faces/dans.png";
 import profile1 from "assets/img/faces/mahdieh.jpg";
 import profile2 from "assets/img/faces/rania.jpg";
-
+import Alert from '../../FoodComponents/Layout/Alert'
 const About = props => {
   const useStylesT = makeStyles(stylesT);
   const useStylesI = makeStyles(stylesI);
@@ -60,18 +60,19 @@ const About = props => {
         />
       </div>
       <div style={{ width: "90%" }} className={classesT.marginCenter}>
+        <Alert />
         <Card style={{ paddingTop: "120px" }} className={classesT.marginCenter}>
-          <h2
+          <h3
             style={{ paddingLeft: "50px" }}
             className={classesT.header + " " + classesT.title}
           >
             About Us
-          </h2>
+          </h3>
           <GridContainer>
             <GridItem xs={12} sm={6} md={4} lg={4}>
               <Card style={{ textAlign: "center", height: "800px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                <h3 style={{fontWeight:"bolder", padding:"5px", margin:"0"}}>Mahdieh</h3>
+                <h4 style={{fontWeight:"bolder", padding:"5px", color:"#ffffff",margin:"0"}}>Mahdieh</h4>
                 </CardHeader>
                 <CardBody>
                   <img src={profile1} alt="..." className={imageClasses} />
@@ -80,12 +81,12 @@ const About = props => {
                       style={{ textAlign: "justify", paddingTop: "20px" }}
                       className={classesT.quoteAuthor}
                     >
-                      <h3
-                        style={{ textAlign: "center" }}
+                      <h4
+                        style={{ textAlign: "center", color: "#9c27b0" }}
                         className={classesT.mutedText}
                       >
                         Web Developer
-                      </h3>
+                      </h4>
                       After teaching mathematics and basic programming to
                       schools in Iran, I decided to further my knowledge in IT
                       so in 2005, I started studying computer science. A keen
@@ -136,7 +137,7 @@ const About = props => {
             <GridItem xs={12} sm={6} md={4} lg={4}>
               <Card style={{ textAlign: "center", height: "800px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                <h3 style={{fontWeight:"bolder", padding:"5px", margin:"0"}}>Daniel</h3>
+                <h4 style={{fontWeight:"bolder", padding:"5px", color:"#ffffff",margin:"0"}}>Daniel</h4>
                 </CardHeader>
                 <CardBody>
                   <img src={profile} alt="..." className={imageClasses} />
@@ -147,12 +148,12 @@ const About = props => {
                     md={12}
                     lg={12}
                   >
-                    <h3
-                      style={{ textAlign: "center" }}
-                      className={classesT.mutedText}
-                    >
+                  <h4
+                        style={{ textAlign: "center", color: "#9c27b0" }}
+                        className={classesT.mutedText}
+                      >
                       Web Developer
-                    </h3>
+                    </h4>
                     <p className={classesT.description}>
                       Since relocating to Hamburg from England in October 2016,
                       I worked with an events company who provide recruitment
@@ -201,7 +202,7 @@ const About = props => {
             <GridItem xs={12} sm={6} md={4} lg={4}>
               <Card style={{ textAlign: "center", height: "800px" }}>
                 <CardHeader color="primary" className={classes.cardHeader}>
-                <h3 style={{fontWeight:"bolder", padding:"5px", margin:"0"}}>Rania</h3>
+                <h4 style={{fontWeight:"bolder", padding:"5px", color:"#ffffff",margin:"0"}}>Rania</h4>
                 </CardHeader>
                 <CardBody>
                   <img src={profile2} alt="..." className={imageClasses} />
@@ -212,12 +213,12 @@ const About = props => {
                     md={12}
                     lg={12}
                   >
-                    <h3
-                      style={{ textAlign: "center" }}
-                      className={classesT.mutedText}
-                    >
+                     <h4
+                        style={{ textAlign: "center", color: "#9c27b0" }}
+                        className={classesT.mutedText}
+                      >
                       Web Developer
-                    </h3>
+                    </h4>
                     <p className={classesT.description}>
                       26 years ago I relocated from Uzbekistan to Germany and in
                       2001, I started a new journey into IT. I started studying

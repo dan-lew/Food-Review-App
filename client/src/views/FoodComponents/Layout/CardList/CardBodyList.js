@@ -1,16 +1,10 @@
-import React from 'react'
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components";
 
 export default function CardBodyList(props) {
-    const useStyles = makeStyles(styles);
-    const classes = useStyles();
-    // console.log(classes)
-    // const { ...rest } = props;
+  const useStyles = makeStyles(styles);
+  const classes = useStyles();
 
-    return (
-        <div>
-        {props.comment}
-        </div>
-    )
+  return <div>{props.comment}</div>;
 }
