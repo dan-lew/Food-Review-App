@@ -81,8 +81,8 @@ const typographyStyle = {
   },
   restaurant:{
     fontSize:"16px",
+    paddingRight:"25px",
     fontWeight: "bold",
-    paddingRight: "25px",
     margin: "0 auto"
   }
 };

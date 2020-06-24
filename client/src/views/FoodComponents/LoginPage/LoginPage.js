@@ -34,11 +34,15 @@ const LoginPage = props => {
     if(isAuthenticated){
         props.history.push('/welcome-user');//go to profile page
     }
-    if (error === "Invalid email or password") {
+    if (error) {
       setAlert(error, "danger");
       clearErrors();
     }
   }, [error, clearErrors, setAlert, isAuthenticated, props.history]);
+
+  
+ 
+
 
   const [user, setUser] = useState({
     email: "",

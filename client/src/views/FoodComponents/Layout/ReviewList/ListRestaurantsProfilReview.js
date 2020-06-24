@@ -7,7 +7,7 @@
 // import CardHeader from "components/Card/CardHeader.js";
 // import { Switch, Route, Link } from "react-router-dom";
 // const useStyles = makeStyles(styles);
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, Fragment } from "react";
 import GridContainer from "components/Grid/GridContainer";
 import GridItem from "components/Grid/GridItem";
 import { makeStyles } from "@material-ui/core/styles";
@@ -25,27 +25,20 @@ const ListRestaurantsProfilReview=(props)=> {
   const restaurantContext = useContext(RestaurantContext);
   const { getCatRestaurant, catrestaurants } = restaurantContext;
 
-  useEffect(() => {
-    if(props.category !== 'general') {
-      getCatRestaurant(props.category);
-    }
-    console.log("use effect in list restaurants profile review");
-  }, []);
-  console.log(catrestaurants);
-
-
   return (
     <div id={props.category} className={props.className}>
       <GridContainer>
         <GridItem>
           <GridContainer >
             {catrestaurants.map((restaurant) => (
-              <GridItem xs={12} sm={6} md={4} lg={3}>
+              <Fragment key={restaurant._id}>
+              <GridItem  xs={12} sm={6} md={4} lg={3}>
                 <CardListRestaurant 
-                  key={restaurant.id}
+                 
                   restaurant={restaurant}
                 />
               </GridItem>
+              </Fragment>
             ))}
           </GridContainer>
         </GridItem>

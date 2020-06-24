@@ -4,10 +4,10 @@ import HeaderLinks from "../Layout/Header/HeaderLinks.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/components.js";
 import WelUser from "../Layout/WelUser";
-//import stylesM from '../../../assets/jss/material-kit-react.js'
 import Logo from "assets/img/Logo-FR-124.png";
-//import HeaderRights from "../Layout/Header/HeaderRights";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
+
+
 
 export default function WelcomeUser(props) {
   const useStyles = makeStyles(styles);
@@ -23,7 +23,7 @@ export default function WelcomeUser(props) {
           brand={
             <img alt= "LogoImg"
               className={
-                classesI.imgRaised+ " " + classesI.imgFluidLogo +" "+classesI.imgRounded+" "+ classesI.imgShadow
+                classesI.imgRoundedCircle + " " + classesI.imgFluidLogo
               }
               src={Logo}
             />
@@ -38,7 +38,9 @@ export default function WelcomeUser(props) {
           {...rest}
         />
       </div>
+        
       <div  className={classes.marginAuto}>
+        
         <WelUser />
       </div>
     </div>

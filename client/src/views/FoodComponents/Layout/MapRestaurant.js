@@ -19,13 +19,13 @@ export const Restaurant = (props) => {
 };
 const constraints = { name: "", city: "" };
 var nameRestaurant = "";
-
+var cityRestaurant = "";
 class Map extends Component {
   constructor(props) {
     super(props);
     console.log("MAP: ", props);
     this.state = {
-      constraints: [{ name: props.google.location.state, city: "Hamburg" }],
+      constraints: [{ name: props.google.location.state.name, city: props.google.location.state.city }],
       searchResults: [],
       mapsLoaded: false,
       markers: [],
@@ -43,10 +43,11 @@ class Map extends Component {
       cityLocation: { lat: 0, lng: 0 },
     };
     this.setState({
-      name: props.google.location.state,
-      city: "Hamburg",
+      name: props.google.location.state.name,
+      city: props.google.location.state.city,
     });
     nameRestaurant = this.state.constraints[0].name;
+    cityRestaurant = this.state.constraints[0].city;
   }
 
   addMarker = (lat, lng, name) => {
@@ -75,7 +76,7 @@ class Map extends Component {
   //getting location from restaurant
 
   getLocation = () => {
-    this.state.geoCoderService.geocode({ address: "Hamburg,Germany" }, response => {
+    this.state.geoCoderService.geocode({ address: cityRestaurant }, response => {
       const { location } = response[0].geometry;
       //this.props.addMarker(location.lat(), location.lng(), this.props.markerName);
       this.setState({ cityLocation: { lat:location.lat(), lng:location.lng() } });
@@ -150,7 +151,7 @@ class Map extends Component {
     console.log("nameRestaurant: ", nameRestaurant);
     const placesRequest = {
       location: markerLatLng,
-      query: nameRestaurant,
+      query: `${nameRestaurant} ${cityRestaurant}` ,
       fields: ["name", "geometry", "type", "formatted_address"], //rankBy: mapsApi.places.RankBy.DISTANCE, // Cannot be used with radius.
     };
     const latPlace = [];

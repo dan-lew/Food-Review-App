@@ -34,7 +34,7 @@ function App() {
         <ReviewState>
           <AlertState>           
             <Router history={hist}>
-            <Alerts />
+            {/* <Alerts /> */}
               <Switch>
                 <Route path="/home" component={Home} />
                 <Route path="/about" component={About} />

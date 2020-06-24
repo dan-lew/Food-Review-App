@@ -21,7 +21,7 @@ import "./style.css"
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
-
+import Alert from '../Layout/Alert'
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
 
@@ -133,6 +133,7 @@ try{
       >
     
         <div className={classes.container}>
+          <Alert />
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={6} lg={6}>
               <Card className={classes[cardAnimaton]}>
