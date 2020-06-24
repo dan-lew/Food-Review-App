@@ -105,7 +105,7 @@ const CardListRestaurant = ({
 
               <Link
                 className={classes.navLink}
-                to={{ pathname: "/restaurantsReview", state: restaurantName }}
+                to={{ pathname: "/restaurantsReview", state: {name: restaurantName, city: city }}}
               >
                 <h4 style={{ color: "#9c27b0" }}>{restaurantName}</h4>
               </Link>

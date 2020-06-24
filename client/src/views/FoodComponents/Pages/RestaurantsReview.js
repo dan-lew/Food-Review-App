@@ -36,7 +36,7 @@ export default function RestaurantsReview(props) {
 
   const { filterReviewsCategory, reviewsCategory } = reviewContext;
   useEffect(() => {
-    filterReviewsCategory(props.location.state);
+    filterReviewsCategory(props.location.state.name);
     console.log("use effect in list review name");
   }, []);
   console.log("reviewsCategory", reviewsCategory);
@@ -106,7 +106,7 @@ export default function RestaurantsReview(props) {
                         color: "#9c27b0",
                       }}
                     >
-                      <Restaurant name={props.location.state} />
+                      <Restaurant name={props.location.state.name} />
                     </h3>
                     <Map
                       google={props}
@@ -132,7 +132,7 @@ export default function RestaurantsReview(props) {
                         <>
                           <GridItem>
                             <h3 style={{ paddingLeft: "30px" }}>
-                              Your review(s) for {props.location.state}
+                              Your review(s) for {props.location.state.name}
                             </h3>
                           </GridItem>
                           {reviewsCards}
