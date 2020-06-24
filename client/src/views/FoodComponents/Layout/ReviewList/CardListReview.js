@@ -11,10 +11,6 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
 
-// import img from "../../../../photos/restaurant/kebab.jpeg"
-// import SelectFood from "./SelectFood";
-// import Popover from "@material-ui/core/Popover";
-
 const ListRestaurantStyle = {
   show: {
     display: "block",
@@ -26,14 +22,7 @@ const ListRestaurantStyle = {
   },
 };
 const CardListReview = ({
-  reviews: {
-    restaurantName,
-    category,
-    nameOfDish,
-    rating,
-    photo,
-    comment,
-  },
+  reviews: { restaurantName, category, nameOfDish, rating, photo, comment },
 }) => {
   const useStylesListR = makeStyles(ListRestaurantStyle);
   const classesListR = useStylesListR();
@@ -48,6 +37,7 @@ const CardListReview = ({
   return (
     <div>
       <GridContainer>
+      
         <GridItem>
           <Card
             style={{
@@ -60,14 +50,19 @@ const CardListReview = ({
           >
             <CardHeader color="primary" className={classes.cardHeader}>
               {" "}
-              <GridContainer  > 
-                <GridItem xs={12} sm={5} md={5} lg={5}
-                style={{
-                      textAlign: "center",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      display: "flex",
-                    }}>
+              <GridContainer>
+                <GridItem
+                  xs={12}
+                  sm={5}
+                  md={5}
+                  lg={5}
+                  style={{
+                    textAlign: "center",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    display: "flex",
+                  }}
+                >
                   <div
                     style={{
                       width: "150px",
@@ -98,7 +93,7 @@ const CardListReview = ({
                   </div>
                 </GridItem>
                 <GridItem
-                  style={{ paddingLeft: "40px",paddingRight: "40px" }}
+                  style={{ paddingLeft: "40px", paddingRight: "40px" }}
                   xs={12}
                   sm={6}
                   md={6}

@@ -65,7 +65,6 @@ const SearchRestaurant = () => {
 
     await setRedirect(null);
 
-    //await setRedirect(<Redirect to="/welcome-user" />);
     let alert = " Please complete all the fields";
     try {
       if (food === "" || city === "") {

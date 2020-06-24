@@ -24,12 +24,7 @@ export default function ListFoodsReview(props) {
           <CardHeader color="primary">Select foods: </CardHeader>
           <CardBody>
             {getFoodReview!=null && getFoodReview.map((food) => (
-            //   <Link
-            //     className={classes.navLink}
-            //     to={{ pathname: "/restaurantsReview", state: food }}
-            //   >
-                <h4 style={{ color: "#9c27b0" }}>{food}</h4>
-            //   </Link>
+                  <h4 style={{ color: "#9c27b0" }}>{food}</h4>
             ))}
           </CardBody>
         </Card>

@@ -124,7 +124,6 @@ router.post("/dateFilter", auth, async (req, res) => {
 // Get reviews with dataReviewFilter
 router.post("/dataReviewFilter", auth, async (req, res) => {
   const restaurantN = req.body.restaurantName;
-
   try {
     const reviewsCategory = await Review.find(
         { restaurantName: restaurantN });
