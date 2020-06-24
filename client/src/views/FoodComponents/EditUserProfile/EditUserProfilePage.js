@@ -7,6 +7,11 @@ import Alerts from "../Layout/Alert";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
+import FaceIcon from '@material-ui/icons/Face';
+import Person from "@material-ui/icons/Person";
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
+import RoomIcon from '@material-ui/icons/Room';
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 // import People from "@material-ui/icons/People";
@@ -182,7 +187,14 @@ const EditUserProfilePage = props => {
                         value: firstname,
                         type: "text",
                         name: "firstname",
-                        required: true
+                        required: true,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Person className={classes.inputIconsColor}>
+                              lock_outline
+                            </Person>
+                          </InputAdornment>
+                        ),
                       }}
                     />
                     <CustomInput
@@ -196,7 +208,14 @@ const EditUserProfilePage = props => {
                         value: lastname,
                         type: "text",
                         name: "lastname",
-                        required: true
+                        required: true,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <Person className={classes.inputIconsColor}>
+                              lock_outline
+                            </Person>
+                          </InputAdornment>
+                        ),
                       }}
                     />
                     <CustomInput
@@ -210,7 +229,14 @@ const EditUserProfilePage = props => {
                         value: username,
                         type: "text",
                         name: "username",
-                        required: true
+                        required: true,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <FaceIcon className={classes.inputIconsColor}>
+                              lock_outline
+                            </FaceIcon>
+                          </InputAdornment>
+                        ),
                       }}
                     />
                     <CustomInput
@@ -245,7 +271,14 @@ const EditUserProfilePage = props => {
                         value: dateOfBirth,
                         name: "dateOfBirth",
                         type: "text",
-                        required: true
+                        required: true,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PermContactCalendarIcon className={classes.inputIconsColor}>
+                              lock_outline
+                            </PermContactCalendarIcon>
+                          </InputAdornment>
+                        ),
                       }}
                     />
                     <CustomInput
@@ -259,7 +292,14 @@ const EditUserProfilePage = props => {
                         value: city,
                         type: "text",
                         name: "city",
-                        required: true
+                        required: true,
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <RoomIcon className={classes.inputIconsColor}>
+                              lock_outline
+                            </RoomIcon>
+                          </InputAdornment>
+                        ),
                       }}
                     />
                     <CustomInput
