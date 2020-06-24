@@ -16,7 +16,7 @@ export default function ListRestaurantsReview(props) {
   if (props.restaurantName != null) {
     getRestaurantName = props.restaurantName.map((item) => {
       console.log(item.restaurantName);
-      return item.restaurantName;
+      return {name: item.restaurantName, city: item.city};
     });
   }
 
@@ -28,9 +28,9 @@ export default function ListRestaurantsReview(props) {
           {getRestaurantName!=null && getRestaurantName.map((restaurant) => (
             <Link
               className={classes.navLink}
-              to={{ pathname: "/restaurantsReview", state: restaurant }}
+              to={{ pathname: "/restaurantsReview", state: {name: restaurant.name, city: restaurant.city} }}
             >
-              <h4 style={{ color: "#9c27b0" }}>{restaurant}</h4>
+              <h4 style={{ color: "#9c27b0" }}>{restaurant.name}</h4>
             </Link>
           ))}
         </CardBody>
