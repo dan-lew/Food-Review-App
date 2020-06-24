@@ -2,12 +2,19 @@ import {
     GET_CATRESTAURANT,
     SEARCH_FOOD,
     SET_LOADING,
-    RESTAURANT_ERROR
+    RESTAURANT_ERROR,
+    GET_RESTAURANT
 } from '../type';
 
 export default (state , action) => {
     switch(action.type) {
-     
+        case GET_RESTAURANT:
+            return{
+                ...state,
+                loading:false,
+                getRestaurant: action.payload,
+            }
+
         case GET_CATRESTAURANT:
             return{
                 ...state,

@@ -31,6 +31,7 @@ import image from "assets/img/sushi.jpg";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
 import HeaderLinks from "../Layout/Header/HeaderLinks";
+import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
@@ -77,7 +78,8 @@ const EditUserProfilePage = props => {
     if (init) {
       get_user_profile();
       setClient({
-        ...user
+        ...user,
+        password: ""
       });
       init = false;
     }
@@ -133,6 +135,8 @@ const EditUserProfilePage = props => {
           password,
           password2
         });
+        //Redirect("/usersProfile")
+        props.history.push('/welcome-user')
         console.log("Your profile is edited");
       }
     } catch (error) {
@@ -313,7 +317,7 @@ const EditUserProfilePage = props => {
                         value: password,
                         type: "password",
                         name: "password",
-                        required: true,
+                        required: false,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -335,7 +339,7 @@ const EditUserProfilePage = props => {
                         value: password2,
                         type: "password",
                         name: "password2",
-                        required: true,
+                        required: false,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>

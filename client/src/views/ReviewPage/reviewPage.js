@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
 import Alerts from "../FoodComponents/Layout/Alert";
@@ -7,6 +7,10 @@ import ReactStars from "react-stars";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { Redirect } from "react-router-dom";
+import PermContactCalendarIcon from "@material-ui/icons/PermContactCalendar";
+import RestaurantContext from "../../context/restaurants/restaurantContext";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 
 // core components
 import Header from "../FoodComponents/Layout/Header/Header.js";
@@ -41,6 +45,9 @@ const ReviewPage = (props) => {
   const { setAlert } = alertContext;
   const authContext = useContext(AuthContext);
   const { registerReview } = authContext;
+
+  const restaurantContext = useContext(RestaurantContext);
+  const { getRestaurant, getRestaurantNames } = restaurantContext;
 
   const [redirect, setRedirect] = useState(false);
   const [review, setReview] = useState({
@@ -86,6 +93,17 @@ const ReviewPage = (props) => {
     setReview({ ...review, photo: path });
   };
 
+  useEffect(() => {
+    if (!getRestaurant.length) {
+      getRestaurantNames();
+    }
+  }, [getRestaurantNames]);
+
+  console.log(getRestaurant);
+
+  const onFocus = (e) => {
+    return (e.target.type = "date");
+  };
   const onSubmit = (e) => {
     e.preventDefault();
     try {
@@ -119,6 +137,16 @@ const ReviewPage = (props) => {
       }
     } catch (error) {
       setAlert(error.msg, "danger");
+    }
+  };
+
+  const onChangeAutocomplete = (e, newValue) => {
+    console.log(newValue);
+    if(newValue){
+      setReview({
+        ...review,
+        restaurantName: newValue.restaurantName,
+      });
     }
   };
 
@@ -163,7 +191,24 @@ const ReviewPage = (props) => {
                     Please complete the form below...
                   </p>
                   <CardBody>
-                    <CustomInput
+                    <Autocomplete
+                      id="restaurantName"
+                      options={getRestaurant}
+                      getOptionLabel={(option) => option.restaurantName}
+                      formControlProps={{
+                        fullWidth: true,
+                      }}
+                      onChange={onChangeAutocomplete}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Enter Restaurant Name..."
+                          margin="normal"
+                        />
+                      )}
+                    />
+
+                    {/* <CustomInput
                       labelText="Restaurant Name..."
                       id="restaurantName"
                       formControlProps={{
@@ -179,7 +224,8 @@ const ReviewPage = (props) => {
                           </InputAdornment>
                         ),
                       }}
-                    />
+                    /> */}
+
                     <CustomInput
                       labelText="Restaurant Location..."
                       id="city"
@@ -234,18 +280,23 @@ const ReviewPage = (props) => {
                       }}
                     />
                     <CustomInput
-                      id="dateodateOfVisitfvisit"
-                      onChange={onChange}
+                      onChangeFunction={onChange}
+                      onFocusFunction={onFocus}
+                      labelText="Date of Visit..."
+                      id="dateOfVisit"
                       formControlProps={{
                         fullWidth: true,
                       }}
                       inputProps={{
-                        onChange: onChange,
+                        value: dateOfVisit,
                         name: "dateOfVisit",
-                        type: "date",
+                        type: "text",
+                        required: true,
                         endAdornment: (
                           <InputAdornment position="end">
-                            <i className="fas fa-calendar-alt"></i>
+                            <PermContactCalendarIcon
+                              className={classes.inputIconsColor}
+                            />
                           </InputAdornment>
                         ),
                       }}

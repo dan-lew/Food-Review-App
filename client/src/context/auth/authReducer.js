@@ -85,7 +85,8 @@ export default (state, action) => {
         ...state,
         isAuthenticated: true,
         loading: false,
-        user: action.payload
+        user: action.payload.user,
+        token: action.payload.token
       };
 
     default:

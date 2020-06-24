@@ -43,7 +43,7 @@ export default function UserPr(props) {
   };
 
   const authContext = useContext(AuthContext);
-  const { user, loadUser } = authContext;
+  const { user, loadUser, get_user_profile } = authContext;
   console.log("The User =", user);
 
   const alertContext = useContext(AlertContext);
@@ -55,6 +55,7 @@ export default function UserPr(props) {
 
   useEffect(() => {
     getReviews();
+    get_user_profile();
   }, []);
   console.log("reviews: ", reviews);
 

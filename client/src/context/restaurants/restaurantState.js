@@ -6,11 +6,14 @@ import {
     GET_CATRESTAURANT,
     SEARCH_FOOD,
     SET_LOADING,
-    RESTAURANT_ERROR
+    RESTAURANT_ERROR,
+    GET_RESTAURANT
 } from '../type';
+import { AddBoxOutlined } from '@material-ui/icons';
 
 const RestaurantState = props => {
     const initialState = {
+        getRestaurant:{},
         restaurant:{},
         catrestaurants:[],
         filtered:[],
@@ -20,7 +23,15 @@ const RestaurantState = props => {
 
 
     const [state , dispatch ] = useReducer (RestaurantReducer , initialState);
-        
+    //Get restaurant list
+    const getRestaurantNames = async () => {
+        const res = await axios.get("/api/restaurant/getRestaurant")
+        dispatch({
+            type:GET_RESTAURANT,
+            payload: res.data
+        })
+    }
+    
     //Get a RESTAURANTS category
     const getCatRestaurant = async (restaurantcategory) => { ///async (restaurantcategory,city)
         setLoading();
@@ -78,11 +89,13 @@ const RestaurantState = props => {
     return (
         <RestaurantContext.Provider
             value={{
+                getRestaurant: state.getRestaurant,
                 restaurants: state.restaurants,
                 catrestaurants: state.catrestaurants,
                 filtered: state.filtered,
                 error:state.error,
                 loading:state.loading,
+                getRestaurantNames,
                 searchFood,
                 getCatRestaurant
             }}

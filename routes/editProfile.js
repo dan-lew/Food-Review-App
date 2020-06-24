@@ -98,11 +98,11 @@ router.post("/", auth, async (req, res) => {
       payload,
       process.env.JWT_SECRET,
       {
-        expiresIn: 3600
+        expiresIn: '1h'
       },
       (err, token) => {
         if (err) throw err;
-        res.json({ token });
+        res.json({ user: updatedUser, token });
       }
     );
   } catch (error) {

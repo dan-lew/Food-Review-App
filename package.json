@@ -47,6 +47,7 @@
     "uuidv4": "^6.0.6"
   },
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "antd": "^4.0.1",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
