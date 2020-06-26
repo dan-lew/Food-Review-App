@@ -148,7 +148,7 @@ class Map extends Component {
     }
 
     const markerLatLng = new mapsApi.LatLng(cityLocation.lat, cityLocation.lng);
-    console.log("nameRestaurant: ", nameRestaurant);
+    console.log("nameRestaurant: ", `${nameRestaurant} ${cityRestaurant}`);
     const placesRequest = {
       location: markerLatLng,
       query: `${nameRestaurant} ${cityRestaurant}` ,
@@ -169,7 +169,7 @@ class Map extends Component {
         const address = restaurantPlace.formatted_address;
         total_Addresses.push(address);
 
-        latPlace[i] = restaurantPlace.geometry.viewport.Ya.i;
+        latPlace[i] = restaurantPlace.geometry.viewport.Za.i;
         lngPlace[i] = restaurantPlace.geometry.viewport.Ua.i;
         this.loadMarkers(
           map,

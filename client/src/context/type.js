@@ -38,6 +38,7 @@ export const LOGOUT = "LOGOUT";
  export const SET_LOADING  = "SET_LOADING";
  export const GET_RESTAURANT = "GET_RESTAURANT";
  export const GET_CATRESTAURANT = "GET_CATRESTAURANT";
+ export const GET_CATEGORY = "GET_CATEGORY";
 
  
  

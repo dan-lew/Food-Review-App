@@ -30,11 +30,11 @@ export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
   const useStylesI = makeStyles(stylesI);
   const classesT = useStylesT();
-  console.log(classesT);
+  //console.log(classesT);
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   const classesI = useStylesI();
-  console.log(classes);
+  //console.log(classes);
   const userPhoto = (userPr) => {
     if (userPr.photo) {
       return userPr.photo;
@@ -44,23 +44,23 @@ export default function UserPr(props) {
 
   const authContext = useContext(AuthContext);
   const { user, loadUser, get_user_profile } = authContext;
-  console.log("The User =", user);
+ //console.log("The User =", user);
 
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
 
   const reviewContext = useContext(ReviewContext);
   const { reviews, getReviews, filterReviews } = reviewContext;
-  console.log(reviews, getReviews);
+  //console.log(reviews, getReviews);
 
   useEffect(() => {
     getReviews();
     get_user_profile();
   }, []);
-  console.log("reviews: ", reviews);
+  //console.log("reviews: ", reviews);
 
   const [userData, setUserData] = useState([]);
-  console.log("userData", userData);
+  //console.log("userData", userData);
 
   const [sendDate, setDate] = useState({
     startDate: new Date(),
@@ -74,7 +74,7 @@ export default function UserPr(props) {
     setDate({ ...sendDate, endDate: date });
   };
   // const [setStartDate, setEndDate] = useState(new Date());
-  console.log(startDate, endDate);
+  //console.log(startDate, endDate);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -89,7 +89,7 @@ export default function UserPr(props) {
   const onChange = (e) =>
     setUserData({ ...user, [e.target.name]: e.target.value });
   const getImgPath = (path) => {
-    console.log(path);
+    //console.log(path);
     setUserData({ ...userData, photo: path });
     // Load the user Data
     loadUser();
@@ -109,7 +109,7 @@ export default function UserPr(props) {
     return uhrzeit;
   };
 
-  console.log("user: ", user);
+  //console.log("user: ", user);
  
 
 
@@ -271,7 +271,7 @@ export default function UserPr(props) {
                   lg={4}
                   className={classesT.marginLeft}
                 >
-                  <h4>Restaurantsreview</h4>
+                  <h4>Your restaurant reviews... </h4>
                 </GridItem>
                 <GridItem
                   xs={12}

@@ -40,6 +40,28 @@ const ReviewState = (props) => {
       dispatch({ type: REVIEWS_ERROR, payload: error.message });
     }
   };
+
+  // Register Review
+  const registerReview = async formData => {
+    const config = {
+      headers: { "Content-Type": "application/json" }
+    };
+    try {
+      const res = await axios.post("/api/reviews/review", formData, config);
+      
+      dispatch({
+        type:   ADD_REVIEW,
+        payload: res.data
+      });
+      
+    } catch (error) {
+      dispatch({
+        type: REVIEWS_ERROR,
+        payload: error.response.data.msg
+      });
+    }
+  };
+
   const addReview = (review) => {
     review.id = uuid.v4();
     dispatch({ type: ADD_REVIEW, payload: review });
@@ -102,6 +124,7 @@ const ReviewState = (props) => {
         filterReviews,
         filterReviewsCategory,
         clearFilter,
+        registerReview,
         filtered: state.filtered,
         reviewsCategory: state.reviewsCategory
       }}

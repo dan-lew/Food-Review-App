@@ -9,18 +9,18 @@ import ReviewContext from "../../../../context/reviewPage/reviewContext";
 import { Rate } from "antd";
 
 export default function CardHeaderList(props) {
-  console.log(avatar);
+  //console.log(avatar);
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   const useStylesI = makeStyles(stylesI);
   const classesI = useStylesI();
-  console.log(classes);
+  //console.log(classes);
   const photo = props.photo;
   // const { ...rest } = props;
 
   const reviewContext = useContext(ReviewContext);
   const { reviews, getReviews } = reviewContext;
-  console.log(reviews, getReviews);
+  //console.log(reviews, getReviews);
 
   return (
     <div>

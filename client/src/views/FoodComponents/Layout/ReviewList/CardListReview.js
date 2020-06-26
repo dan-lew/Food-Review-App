@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer";
-import { Rate } from "antd";
+
+import ReactStars from "react-stars";
 import GridItem from "components/Grid/GridItem";
 import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
@@ -102,7 +103,13 @@ const CardListReview = ({
                   <h4 style={{ color: "#ffffff" }}>Dish: {nameOfDish}</h4>
                   <p>
                     {" "}
-                    Rating: <Rate value={rating} />
+                    Rating: <ReactStars
+                        count={5}
+                        size={20}
+                        edit={false}
+                        value={rating}
+                        color2={"#ffd700"}
+                      />
                   </p>
                 </GridItem>
               </GridContainer>

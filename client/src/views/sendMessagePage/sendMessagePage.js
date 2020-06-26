@@ -172,7 +172,7 @@ const SendMessagePage = props => {
                     <Alerts />
                     <CardFooter className={classes.cardFooter}>
                       <Button type="submit" simple color="primary" size="lg">
-                        Get started
+                        Send us your message
                       </Button>
                     </CardFooter>
                   </form>   

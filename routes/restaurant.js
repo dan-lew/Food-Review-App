@@ -19,6 +19,29 @@ router.get("/getRestaurant", async (req, res) => {
   }
 });
 
+
+
+router.get("/getCuisine", async (rec,res)=>{
+  try {
+    let category = await Restaurant.find({}).select({
+      category: 1,
+    }).sort({category: 1})
+    let prev_category = ''
+    let filtered_category = category.filter(element => {
+      if(element.category !== prev_category){
+        prev_category = element.category;
+        return true
+      }else{
+        return false
+      }
+    })
+    res.status(200).json(filtered_category);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ msg: "Server Error" });
+  }
+})
+
 router.post("/", auth, async (req, res) => {
   // res.send("Restaurant page");
   try {

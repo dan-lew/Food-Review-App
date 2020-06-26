@@ -30,7 +30,7 @@ import HeaderLinks from "../Layout/Header/HeaderLinks";
 const useStyles = makeStyles(styles);
 const useStylesI = makeStyles(stylesI);
 
-const EditUserProfilePage = props => {
+const EditUserProfilePage = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
 
@@ -42,7 +42,7 @@ const EditUserProfilePage = props => {
     isAuthenticated,
     get_user_profile,
     edit_profile,
-    user
+    user,
   } = authContext;
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   console.log(user);
@@ -62,7 +62,7 @@ const EditUserProfilePage = props => {
     dateOfBirth: "",
     city: "",
     password: "",
-    password2: ""
+    password2: "",
   });
 
   useEffect(() => {
@@ -72,7 +72,9 @@ const EditUserProfilePage = props => {
     if (init) {
       get_user_profile();
       setClient({
-        ...user
+        ...user,
+        password: "",
+        password2: ""
       });
       init = false;
     }
@@ -86,20 +88,20 @@ const EditUserProfilePage = props => {
     dateOfBirth,
     city,
     password,
-    password2
+    password2,
   } = client;
 
-  const onChange = e => {
+  const onChange = (e) => {
     setClient({ ...client, [e.target.name]: e.target.value });
   };
 
-  const onFocus = e => {
+  const onFocus = (e) => {
     return (e.target.type = "date");
   };
   // const onBlur = e => {
   //   return (e.target.type = "text");
   // };
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     console.log(client);
     let alert = " Please complete all the fields";
@@ -110,12 +112,13 @@ const EditUserProfilePage = props => {
         username === "" ||
         email === "" ||
         dateOfBirth === "" ||
-        city === "" ||
-        password === ""
+        city === ""
       ) {
         setAlert(alert, "danger");
       } else if (password !== password2) {
-        setAlert(" Password do not match", "danger");
+        
+          setAlert(" Password do not match", "danger");
+        
       } else {
         console.log("onSubmit", client);
         edit_profile({
@@ -126,9 +129,10 @@ const EditUserProfilePage = props => {
           dateOfBirth,
           city,
           password,
-          password2
+          password2,
         });
         console.log("Your profile is edited");
+        setAlert(" Your changes have been saved", "success");
       }
     } catch (error) {
       setAlert(error.msg, "danger");
@@ -139,7 +143,8 @@ const EditUserProfilePage = props => {
     <div>
       <Header
         brand={
-          <img alt= "LogoImg"
+          <img
+            alt="LogoImg"
             className={classesI.imgRoundedCircle + " " + classesI.imgFluidLogo}
             src={Logo}
           />
@@ -149,7 +154,7 @@ const EditUserProfilePage = props => {
         color="dark"
         changeColorOnScroll={{
           height: 100,
-          color: "white"
+          color: "white",
         }}
         {...rest}
       />
@@ -158,7 +163,7 @@ const EditUserProfilePage = props => {
         style={{
           backgroundImage: "url(" + image + ")",
           backgroundSize: "cover",
-          backgroundPosition: "top center"
+          backgroundPosition: "top center",
         }}
       >
         <div className={classes.container}>
@@ -176,13 +181,13 @@ const EditUserProfilePage = props => {
                       labelText="First Name..."
                       id="first"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         value: firstname,
                         type: "text",
                         name: "firstname",
-                        required: true
+                        required: true,
                       }}
                     />
                     <CustomInput
@@ -190,13 +195,13 @@ const EditUserProfilePage = props => {
                       labelText="Last Name..."
                       id="last"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         value: lastname,
                         type: "text",
                         name: "lastname",
-                        required: true
+                        required: true,
                       }}
                     />
                     <CustomInput
@@ -204,13 +209,13 @@ const EditUserProfilePage = props => {
                       labelText="Username..."
                       id="username"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         value: username,
                         type: "text",
                         name: "username",
-                        required: true
+                        required: true,
                       }}
                     />
                     <CustomInput
@@ -218,7 +223,7 @@ const EditUserProfilePage = props => {
                       labelText="Email..."
                       id="email"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         value: email,
@@ -230,7 +235,7 @@ const EditUserProfilePage = props => {
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
@@ -239,13 +244,13 @@ const EditUserProfilePage = props => {
                       labelText="Date of Birth..."
                       id="dateOfBirth"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         value: dateOfBirth,
                         name: "dateOfBirth",
                         type: "text",
-                        required: true
+                        required: true,
                       }}
                     />
                     <CustomInput
@@ -253,13 +258,13 @@ const EditUserProfilePage = props => {
                       labelText="City"
                       id="city"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         value: city,
                         type: "text",
                         name: "city",
-                        required: true
+                        required: true,
                       }}
                     />
                     <CustomInput
@@ -267,13 +272,12 @@ const EditUserProfilePage = props => {
                       labelText="Password"
                       id="pass"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         value: password,
                         type: "password",
                         name: "password",
-                        required: true,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -281,7 +285,7 @@ const EditUserProfilePage = props => {
                             </Icon>
                           </InputAdornment>
                         ),
-                        autoComplete: "off"
+                        autoComplete: "off",
                       }}
                     />
                     <CustomInput
@@ -289,13 +293,12 @@ const EditUserProfilePage = props => {
                       labelText="Confirm Password"
                       id="pass2"
                       formControlProps={{
-                        fullWidth: true
+                        fullWidth: true,
                       }}
                       inputProps={{
                         value: password2,
                         type: "password",
                         name: "password2",
-                        required: true,
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -303,7 +306,7 @@ const EditUserProfilePage = props => {
                             </Icon>
                           </InputAdornment>
                         ),
-                        autoComplete: "off"
+                        autoComplete: "off",
                       }}
                     />
                   </CardBody>

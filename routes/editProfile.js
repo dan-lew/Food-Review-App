@@ -72,9 +72,10 @@ router.post("/", auth, async (req, res) => {
       return res.status(400).json({ msg: "no user exist" });
     }
 
+    if (password){
     const salt = await bcrypt.genSalt(10);
     password = await bcrypt.hash(password, salt);
-
+    }
     let updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
       {

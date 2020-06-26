@@ -29,6 +29,7 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/reviewpgbg.jpg";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import Logo from "assets/img/Logo-FR-124.png";
+import ReviewContext from "../../context/reviewPage/reviewContext";
 const useStyles = makeStyles(styles);
 
 const ReviewPage = (props) => {
@@ -43,11 +44,11 @@ const ReviewPage = (props) => {
   const { ...rest } = props;
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
-  const authContext = useContext(AuthContext);
-  const { registerReview } = authContext;
+  const reviewContext = useContext(ReviewContext);
+  const { registerReview } = reviewContext;
 
   const restaurantContext = useContext(RestaurantContext);
-  const { getRestaurant, getRestaurantNames } = restaurantContext;
+  const { getRestaurant, getRestaurantNames,  getCategory, categories} = restaurantContext;
 
   const [redirect, setRedirect] = useState(false);
   const [review, setReview] = useState({
@@ -97,7 +98,10 @@ const ReviewPage = (props) => {
     if (!getRestaurant.length) {
       getRestaurantNames();
     }
-  }, [getRestaurantNames]);
+    if(!categories.length){
+      getCategory()
+    }
+  }, [getRestaurantNames,getCategory]);
 
   console.log(getRestaurant);
 
@@ -149,6 +153,16 @@ const ReviewPage = (props) => {
       });
     }
   };
+
+  const onChangeAutocompleteCat = (e, newValue) => {
+    console.log(newValue);
+    if(newValue){
+      setReview({
+        ...review,
+        category: newValue.category,
+      });
+    }
+  }; 
 
   return (
     <div>
@@ -243,7 +257,27 @@ const ReviewPage = (props) => {
                         ),
                       }}
                     />
-                    <CustomInput
+
+
+                    <Autocomplete
+                      id="Categories"
+                      options={categories}
+                      getOptionLabel={(option) => option.category}
+                      formControlProps={{
+                        fullWidth: true,
+                      }}
+                      onChange={onChangeAutocompleteCat}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          label="Type of cuisine..."
+                          margin="normal"
+                        />
+                      )}
+                    />
+
+
+                    {/* <CustomInput
                       onChange={onChange}
                       labelText="Type of cuisine..."
                       id="category"
@@ -260,7 +294,8 @@ const ReviewPage = (props) => {
                           </InputAdornment>
                         ),
                       }}
-                    />
+                    /> */}
+
                     <CustomInput
                       onChange={onChange}
                       labelText="Type of dish..."

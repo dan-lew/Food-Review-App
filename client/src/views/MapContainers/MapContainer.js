@@ -171,7 +171,7 @@ class MapsContainer extends Component {
         const address = restaurantPlace.formatted_address; // e.g 80 mandai Lake Rd,
         total_Addresses.push(address);
  
-        latPlace[i] = restaurantPlace.geometry.viewport.Ya.i;
+        latPlace[i] = restaurantPlace.geometry.viewport.Za.i;
         lngPlace[i] = restaurantPlace.geometry.viewport.Ua.i;
 
         //this.addMarker(latPlace[i],lngPlace[i],restaurantPlace.name);

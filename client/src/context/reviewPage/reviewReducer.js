@@ -28,6 +28,7 @@ export default (state, action) => {
         error: action.payload,
       };
     case ADD_REVIEW:
+      console.log(state.reviews)
       return {
         ...state,
         reviews: [...state.reviews, action.payload],

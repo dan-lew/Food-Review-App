@@ -12,25 +12,52 @@ export default function ListRestaurantsReview(props) {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
 
-  var getRestaurantName;
+  var getRestaurantName = [];
+  let repeated = false;
+  let acum = 0;
+  let ind = 0;
   if (props.restaurantName != null) {
-    getRestaurantName = props.restaurantName.map((item) => {
-      console.log(item.restaurantName);
-      return {name: item.restaurantName, city: item.city};
+    props.restaurantName.forEach((item) => {
+      //console.log(item.restaurantName);
+      if(getRestaurantName.length){
+        while(!repeated && ind < getRestaurantName.length){
+          console.log(getRestaurantName[ind].name)
+          if(getRestaurantName[ind].name === item.restaurantName){
+            repeated = true
+          }
+          ind = ind + 1;
+        }
+      }
+
+      if(!repeated){
+        props.restaurantName.forEach((currentValue) =>{
+          if(item.restaurantName === currentValue.restaurantName){
+            return acum = acum + 1;
+          }
+        })
+        getRestaurantName.push({name: item.restaurantName, city: item.city, visits: acum});
+        
+      }
+      repeated = false;
+      acum = 0;
+      ind = 0;
+      
     });
   }
+
+  console.log('HEEEEEEREEEEE',getRestaurantName)
 
   return (
     <div className={props.className}>
       <Card>
-        <CardHeader color="primary">Select restaurants: </CardHeader>
+        <CardHeader color="primary">Restaurants you reviewed: </CardHeader>
         <CardBody>
           {getRestaurantName!=null && getRestaurantName.map((restaurant) => (
             <Link
               className={classes.navLink}
               to={{ pathname: "/restaurantsReview", state: {name: restaurant.name, city: restaurant.city} }}
             >
-              <h4 style={{ color: "#9c27b0" }}>{restaurant.name}</h4>
+              <h4 style={{ color: "#9c27b0" }}>{restaurant.name} ({restaurant.visits})</h4>
             </Link>
           ))}
         </CardBody>

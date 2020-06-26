@@ -132,7 +132,7 @@ export default function RestaurantsReview(props) {
                         <>
                           <GridItem>
                             <h3 style={{ paddingLeft: "30px" }}>
-                              Your review(s) for {props.location.state.name}
+                              Review(s) from our users for {props.location.state.name}
                             </h3>
                           </GridItem>
                           {reviewsCards}

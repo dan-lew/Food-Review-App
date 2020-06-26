@@ -16,6 +16,7 @@ router.get("/userReviews", auth, async (req, res) => {
   }
 });
 
+
 router.post("/foodImgUpload", (req, res) => {
   console.log(req.body);
   if (req.files === null) {
@@ -97,7 +98,7 @@ router.post(
       const review = await newReview.save();
       console.log("Your review has been saved!", review);
       //res.redirect("../reviews/review");
-      res.send("Review saved");
+      res.send(review);
     } catch (error) {
       res.status(500).send("Server Error");
     }
