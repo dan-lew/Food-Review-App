@@ -5,13 +5,13 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import { Link } from "react-router-dom";
-
+import './listRestaurantCss.css'
 
 export default function ListRestaurantsReview(props) {
 
   const useStyles = makeStyles(styles);
   const classes = useStyles();
-
+  //console.log(props.className)
   var getRestaurantName = [];
   let repeated = false;
   let acum = 0;
@@ -21,7 +21,7 @@ export default function ListRestaurantsReview(props) {
       //console.log(item.restaurantName);
       if(getRestaurantName.length){
         while(!repeated && ind < getRestaurantName.length){
-          console.log(getRestaurantName[ind].name)
+          //console.log(getRestaurantName[ind].name)
           if(getRestaurantName[ind].name === item.restaurantName){
             repeated = true
           }
@@ -45,21 +45,23 @@ export default function ListRestaurantsReview(props) {
     });
   }
 
-  console.log('HEEEEEEREEEEE',getRestaurantName)
+  //console.log('HEEEEEEREEEEE',getRestaurantName)
 
   return (
     <div className={props.className}>
       <Card>
         <CardHeader color="primary">Restaurants you reviewed: </CardHeader>
         <CardBody>
-          {getRestaurantName!=null && getRestaurantName.map((restaurant) => (
-            <Link
-              className={classes.navLink}
-              to={{ pathname: "/restaurantsReview", state: {name: restaurant.name, city: restaurant.city} }}
-            >
-              <h4 style={{ color: "#9c27b0" }}>{restaurant.name} ({restaurant.visits})</h4>
-            </Link>
-          ))}
+          <div className="scroll">
+            {getRestaurantName!=null && getRestaurantName.map((restaurant) => (
+              <Link
+                className={classes.navLink}
+                to={{ pathname: "/restaurantsReview", state: {name: restaurant.name, city: restaurant.city} }}
+              >
+                <h4 style={{ color: "#9c27b0" }}>{restaurant.name} ({restaurant.visits})</h4>
+              </Link>
+            ))}
+          </div>
         </CardBody>
       </Card>
     </div>

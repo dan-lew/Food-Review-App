@@ -5,6 +5,7 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
+import ReactStars from "react-stars";
 import ReviewContext from "../../../../context/reviewPage/reviewContext";
 import { Rate } from "antd";
 
@@ -48,7 +49,14 @@ export default function CardHeaderList(props) {
 
         <GridItem xs={12} sm={4} md={4} lg={5}>
           {props.dateOfVisit}
-          <Rate value={props.rating} />
+          <ReactStars
+            count={5}
+            size={30}
+            edit={false}
+            value={props.rating}
+            color2={"#ffd700"}
+          />
+          {/* <Rate value={props.rating} /> */}
         </GridItem>
       </GridContainer>
     </div>

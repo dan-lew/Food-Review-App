@@ -24,7 +24,7 @@ import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 import ReviewContext from "../../../context/reviewPage/reviewContext";
 import Button from "components/CustomButtons/Button.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
-import Alert from './Alert'
+import Alert from "./Alert";
 
 export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
@@ -44,7 +44,7 @@ export default function UserPr(props) {
 
   const authContext = useContext(AuthContext);
   const { user, loadUser, get_user_profile } = authContext;
- //console.log("The User =", user);
+  //console.log("The User =", user);
 
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
@@ -110,8 +110,6 @@ export default function UserPr(props) {
   };
 
   //console.log("user: ", user);
- 
-
 
   return (
     <div className={classesT.marginCenter}>
@@ -121,7 +119,6 @@ export default function UserPr(props) {
         className={classesT.marginCenter}
       >
         <CardBody className={classesT.marginCenter}>
-
           <GridContainer className={classesT.marginCenter}>
             <GridItem
               xs={12}
@@ -270,9 +267,7 @@ export default function UserPr(props) {
                   md={4}
                   lg={4}
                   className={classesT.marginLeft}
-                >
-                  <h4>Your restaurant reviews... </h4>
-                </GridItem>
+                ></GridItem>
                 <GridItem
                   xs={12}
                   sm={12}
@@ -293,9 +288,7 @@ export default function UserPr(props) {
                   md={4}
                   lg={4}
                   className={classesT.marginLeft}
-                >
-                  <h4>Top Foods reviewed</h4>
-                </GridItem>
+                ></GridItem>
                 <GridItem
                   xs={12}
                   sm={12}
@@ -310,24 +303,20 @@ export default function UserPr(props) {
                   </Card>
                 </GridItem>
                 <GridItem
-                  xs={12}
-                  sm={12}
-                  md={4}
-                  lg={4}
-                  className={classesT.marginLeft}
-                >
-                  <h4>Total Spent on food for this period </h4>
-                </GridItem>
-                <GridItem
-                  xs={12}
+                xs={12}
                   sm={12}
                   md={8}
                   lg={8}
                   className={classesT.marginLeft}
                 >
                   <Card>
+                    <CardHeader color="primary">
+                      Total Spent on food for this period{" "}
+                    </CardHeader>
                     <CardBody>
-                      <Sum price={reviews} />
+                      <div className="scroll">
+                        <Sum price={reviews} />
+                      </div>
                     </CardBody>
                   </Card>
                 </GridItem>

@@ -5,6 +5,7 @@ import styles from "assets/jss/material-kit-react/views/components.js";
 import Card from "components/Card/Card";
 import CardBody from "components/Card/CardBody";
 import CardHeader from "components/Card/CardHeader.js";
+import './listRestaurantCss.css'
 
 export default function ListFoodsReview(props) {
     const useStyles = makeStyles(styles);
@@ -21,11 +22,13 @@ export default function ListFoodsReview(props) {
     return (
       <div className={props.className}>
         <Card>
-          <CardHeader color="primary">Select foods: </CardHeader>
+          <CardHeader color="primary">Food you have reviewed: </CardHeader>
           <CardBody>
+          <div className="scroll">
             {getFoodReview!=null && getFoodReview.map((food) => (
                   <h4 style={{ color: "#9c27b0" }}>{food}</h4>
             ))}
+            </div>
           </CardBody>
         </Card>
       </div>

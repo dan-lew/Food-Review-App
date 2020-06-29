@@ -38,7 +38,6 @@ const CardListReview = ({
   return (
     <div>
       <GridContainer>
-      
         <GridItem>
           <Card
             style={{
@@ -101,16 +100,13 @@ const CardListReview = ({
                   lg={6}
                 >
                   <h4 style={{ color: "#ffffff" }}>Dish: {nameOfDish}</h4>
-                  <p>
-                    {" "}
-                    Rating: <ReactStars
-                        count={5}
-                        size={20}
-                        edit={false}
-                        value={rating}
-                        color2={"#ffd700"}
-                      />
-                  </p>
+                  <ReactStars
+                    count={5}
+                    size={22}
+                    edit={false}
+                    value={rating}
+                    color2={"#ffd700"}
+                  />
                 </GridItem>
               </GridContainer>
             </CardHeader>
