@@ -117,7 +117,7 @@ const CardListReview = ({
               {/* </Link> */}
               {/*  <h4 style={{color: "#9c27b0" }}>Name of Dish: {nameOfDish}</h4> */}
               <p style={{ color: "#9c27b0", fontWeight: "bold" }}>
-                Category of Restaurants:{" "}
+                Category:{" "}
                 <span style={{ color: "#000000", fontWeight: "normal" }}>
                   {category}
                 </span>

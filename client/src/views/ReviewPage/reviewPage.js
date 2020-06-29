@@ -317,7 +317,7 @@ const ReviewPage = (props) => {
                     <CustomInput
                       onChangeFunction={onChange}
                       onFocusFunction={onFocus}
-                      labelText="Date of Visit..."
+                      labelText= "Visited..."
                       id="dateOfVisit"
                       formControlProps={{
                         fullWidth: true,

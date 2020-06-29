@@ -24,7 +24,7 @@ export default function CardHeaderList(props) {
   //console.log(reviews, getReviews);
 
   return (
-    <div>
+    <div> 
       <GridContainer>
         <GridItem xs={12} sm={2} md={2} lg={2}>
           <img

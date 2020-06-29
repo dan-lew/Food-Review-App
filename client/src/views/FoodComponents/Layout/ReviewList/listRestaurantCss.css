@@ -2,3 +2,10 @@
     overflow: auto;
     max-height: 150px;
 }
+
+.scrollReviews{
+    overflow-y: auto;
+    max-width: 100%;
+    max-height: 500px;
+    overflow-x: hidden; 
+}
