@@ -58,7 +58,7 @@ router.post("/", auth, async (req, res) => {
   } = req.body;
   // Build contact Object
   const userFields = {};
-  if (firstname) userFields.firsname = firstname;
+  if (firstname) userFields.firstname = firstname;
   if (lastname) userFields.lastname = lastname;
   if (username) userFields.username = username;
   if (email) userFields.email = email;
@@ -74,19 +74,12 @@ router.post("/", auth, async (req, res) => {
 
     if (password){
     const salt = await bcrypt.genSalt(10);
-    password = await bcrypt.hash(password, salt);
+    userFields.password = await bcrypt.hash(password, salt);
     }
+    console.log(userFields)
     let updatedUser = await User.findOneAndUpdate(
       { _id: user._id },
-      {
-        firstname,
-        lastname,
-        username,
-        email,
-        dateOfBirth,
-        city,
-        password
-      },
+      userFields,
       { new: true }
     );
     console.log(updatedUser);
