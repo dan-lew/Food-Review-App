@@ -17,7 +17,7 @@ export default function NoReviewList() {
           <Card>
             <CardBody style={{ textAlign: "left" }}>
 
-              <h3>There is no reviews for this restaurant</h3>
+              <h3>There are no reviews for this restaurant</h3>
               <Link
                 style={{ color: "#9c27b0" }}
                 className={classes.navLink}

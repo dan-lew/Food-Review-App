@@ -24,7 +24,9 @@ import FileUpload from "../Pages/ProfileImgUpload/FileUpload";
 import ReviewContext from "../../../context/reviewPage/reviewContext";
 import Button from "components/CustomButtons/Button.js";
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
-import Alert from './Alert'
+import Alert from "./Alert";
+import { Grid } from "@material-ui/core";
+import "./ReviewList/listRestaurantCss.css";
 
 export default function UserPr(props) {
   const useStylesT = makeStyles(stylesT);
@@ -44,7 +46,7 @@ export default function UserPr(props) {
 
   const authContext = useContext(AuthContext);
   const { user, loadUser, get_user_profile } = authContext;
- //console.log("The User =", user);
+  //console.log("The User =", user);
 
   const alertContext = useContext(AlertContext);
   const { setAlert } = alertContext;
@@ -105,107 +107,86 @@ export default function UserPr(props) {
       monat = "0" + monat;
     }
     var jahr = d.getFullYear();
-    var uhrzeit = "Date of Visit " + tag + "." + monat + "." + jahr;
+    var uhrzeit = "Visited: " + tag + "." + monat + "." + jahr;
     return uhrzeit;
   };
 
   //console.log("user: ", user);
- 
-
 
   return (
     <div className={classesT.marginCenter}>
       <Alert />
       <Card
-        style={{ paddingTop: "80px", width: "90%" }}
+        style={{ paddingTop: "140px", width: "90%" }}
         className={classesT.marginCenter}
       >
         <CardBody className={classesT.marginCenter}>
-
           <GridContainer className={classesT.marginCenter}>
-            <GridItem
-              xs={12}
-              sm={12}
-              md={4}
-              lg={4}
-              className={classesT.marginCenter}
-            >
-              <GridContainer className={classesT.marginLeft}>
-                <GridItem xs={12} sm={12} md={10} lg={10}>
-                  <Card>
-                    <CardHeader color="primary" className={classes.cardHeader}>
-                      Welcome {`${user.firstname}   ${user.lastname}`}
-                    </CardHeader>
-                    <CardBody
-                      className={
-                        { display: "flex", alignItems: "center" } +
-                        " " +
-                        classes.textCenter
-                      }
-                    >
-                      <div onChange={onChange}>
-                        {/* User foto links */}
+            <GridItem xs={12} sm={12} md={4} lg={4}>
+              <Card>
+                <CardHeader color="primary" className={classes.cardHeader}>
+                  Welcome {`${user.firstname}   ${user.lastname}`}
+                </CardHeader>
+                <CardBody
+                  className={
+                    { display: "flex", alignItems: "center" } +
+                    " " +
+                    classes.textCenter
+                  }
+                >
+                  <div onChange={onChange}>
+                    {/* User foto links */}
 
-                        <img
-                          src={user.photo}
-                          alt="..."
-                          className={
-                            {
-                              height: "100px",
-                              justifyContent: "center",
-                              width: "100%",
-                            } +
-                            " " +
-                            classesT.imgFluid +
-                            " " +
-                            classesI.imgRounded +
-                            " " +
-                            classesI.imgShadow
-                          }
-                        />
-                        <p></p>
-                        <FileUpload getImgPath={getImgPath} />
-                      </div>
-                    </CardBody>
-                  </Card>
-                  <Card>
-                    <CardBody>
-                      <Link
-                        style={{ color: "#9c27b0" }}
-                        className={classes.navLink}
-                        to="/review-page"
-                      >
-                        Add a review
-                      </Link>
-                      <br></br>
-                      <Link
-                        style={{ color: "#9c27b0" }}
-                        className={classes.navLink}
-                        to="/editProfile"
-                      >
-                        Edit Profile
-                      </Link>
-                    </CardBody>
-                  </Card>
-                </GridItem>
+                    <img
+                      src={user.photo}
+                      alt="..."
+                      className={
+                        {
+                          height: "100px",
+                          justifyContent: "center",
+                          width: "100%",
+                        } +
+                        " " +
+                        classesT.imgFluid +
+                        " " +
+                        classesI.imgRounded +
+                        " " +
+                        classesI.imgShadow
+                      }
+                    />
+                    <p></p>
+                    <FileUpload getImgPath={getImgPath} />
+                  </div>
+                </CardBody>
+              </Card>
+              <Card>
+                <CardBody>
+                  <Link
+                    style={{ color: "#9c27b0", fontWeight: "bold" }}
+                    className={classes.navLink}
+                    to="/review-page"
+                  >
+                    Add a review
+                  </Link>
+                  <br></br>
+                  <Link
+                    style={{ color: "#9c27b0", fontWeight: "bold" }}
+                    className={classes.navLink}
+                    to="/editProfile"
+                  >
+                    Edit Profile
+                  </Link>
+                </CardBody>
+              </Card>
+            </GridItem>
+            <GridItem xs={12} sm={12} md={8} lg={8}>
+              <GridContainer>
                 <GridItem
                   xs={12}
                   sm={12}
-                  md={12}
-                  lg={4}
-                  className={classesT.marginLeft}
-                ></GridItem>
-              </GridContainer>
-            </GridItem>
-            <GridItem xs={12} sm={12} md={8} lg={8}>
-              {/* datapicker*/}
-              <GridContainer style={{ paddingTop: "90px" }}>
-                <GridItem
-                  xs={12}
-                  sm={6}
                   md={6}
                   lg={6}
-                  className={classesT.marginLeft}
+                  className={classesT.marginCenter}
                 >
                   <Card>
                     <CardHeader color="primary" className={classes.cardHeader}>
@@ -232,10 +213,10 @@ export default function UserPr(props) {
                 </GridItem>
                 <GridItem
                   xs={12}
-                  sm={6}
+                  sm={12}
                   md={6}
                   lg={6}
-                  className={classesT.marginLeft}
+                  className={classesT.marginCenter}
                 >
                   <Card>
                     <CardHeader color="primary" className={classes.cardHeader}>
@@ -258,81 +239,72 @@ export default function UserPr(props) {
                     </CardBody>
                   </Card>
                 </GridItem>
-                <Button className={classesT.buttonInfo} onClick={onSubmit}>
-                  Select dates
-                </Button>
-              </GridContainer>
-              {/* restaurants reviews */}
-              <GridContainer>
                 <GridItem
                   xs={12}
                   sm={12}
-                  md={4}
-                  lg={4}
-                  className={classesT.marginLeft}
+                  md={12}
+                  lg={12}
+                  className={classesT.marginCenter}
+                  style={{ textAlign: "center" }}
                 >
-                  <h4>Your restaurant reviews... </h4>
+                  <Button className={classesT.buttonInfo} onClick={onSubmit}>
+                    Select dates
+                  </Button>
                 </GridItem>
                 <GridItem
                   xs={12}
                   sm={12}
-                  md={8}
-                  lg={8}
-                  className={classesT.marginLeft}
+                  md={6}
+                  lg={6}
+                  className={classesT.marginCenter}
+                  style={{ paddingTop: "20px" }}
                 >
                   <Card>
+                    <CardHeader color="primary">
+                      Total Spent on food for this period{" "}
+                    </CardHeader>
                     <CardBody>
-                      <ListRestaurantsReview restaurantName={reviews} />
-                    </CardBody>
-                  </Card>
-                </GridItem>
-
-                <GridItem
-                  xs={12}
-                  sm={12}
-                  md={4}
-                  lg={4}
-                  className={classesT.marginLeft}
-                >
-                  <h4>Top Foods reviewed</h4>
-                </GridItem>
-                <GridItem
-                  xs={12}
-                  sm={12}
-                  md={8}
-                  lg={8}
-                  className={classesT.marginLeft}
-                >
-                  <Card>
-                    <CardBody>
-                      <ListFoodsReview foodReview={reviews} />
-                    </CardBody>
-                  </Card>
-                </GridItem>
-                <GridItem
-                  xs={12}
-                  sm={12}
-                  md={4}
-                  lg={4}
-                  className={classesT.marginLeft}
-                >
-                  <h4>Total Spent on food for this period </h4>
-                </GridItem>
-                <GridItem
-                  xs={12}
-                  sm={12}
-                  md={8}
-                  lg={8}
-                  className={classesT.marginLeft}
-                >
-                  <Card>
-                    <CardBody>
-                      <Sum price={reviews} />
+                      <div className="scroll">
+                        <Sum price={reviews} />
+                      </div>
                     </CardBody>
                   </Card>
                 </GridItem>
               </GridContainer>
             </GridItem>
+          </GridContainer>
+
+          <GridContainer className={classesT.marginCenter}>
+            <GridItem
+              xs={12}
+              sm={12}
+              md={6}
+              lg={6}
+              className={classesT.marginLeft}
+            >
+              <Card>
+                <CardBody>
+                  <ListRestaurantsReview restaurantName={reviews} />
+                </CardBody>
+              </Card>
+            </GridItem>
+
+            <GridItem
+              xs={12}
+              sm={12}
+              md={6}
+              lg={6}
+              className={classesT.marginLeft}
+            >
+              <Card>
+                <CardBody>
+                  <ListFoodsReview foodReview={reviews} />
+                </CardBody>
+              </Card>
+            </GridItem>
+          </GridContainer>
+
+          <GridContainer className={classesT.marginCenter}>
             <GridItem
               xs={12}
               sm={12}
@@ -344,38 +316,44 @@ export default function UserPr(props) {
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12} lg={6}>
                   {/* style={{paddingLeft:"30px"}}  */}
-                  <h3>Your reviews...</h3>
+                  <h3 style = {{textAlign:"center", paddingBottom: "15px" , fontWeight: "bold"}}>Your reviews...</h3>
                 </GridItem>
-                {reviews !== null &&
-                  reviews.map((item) => {
-                    return (
-                      <GridItem
-                        xs={12}
-                        sm={12}
-                        md={12}
-                        lg={12}
-                        className={classesT.marginCenter}
-                      >
-                        <Card>
-                          <CardHeader
-                            color="primary"
-                            className={classes.cardHeader}
+                <GridItem xs={12} sm={12} md={10} lg={10} className={classesT.marginCenter}>
+                  <div className="scrollReviews">
+                    <GridContainer>
+                    {reviews !== null &&
+                      reviews.map((item) => {
+                        return (
+                          <GridItem
+                            xs={12}
+                            sm={12}
+                            md={12}
+                            lg={12}
+                            className={classesT.marginCenter}
                           >
-                            <CardHeaderList
-                              rating={item.rating}
-                              restaurantName={item.restaurantName}
-                              photo={item.photo}
-                              nameOfDish={item.nameOfDish}
-                              dateOfVisit={getFullDate(item.dateOfVisit)}
-                            />
-                          </CardHeader>
-                          <CardBody>
-                            <CardBodyList comment={item.comment} />
-                          </CardBody>
-                        </Card>
-                      </GridItem>
-                    );
-                  })}
+                            <Card>
+                              <CardHeader
+                                color="primary"
+                                className={classes.cardHeader}
+                              >
+                                <CardHeaderList
+                                  rating={item.rating}
+                                  restaurantName={item.restaurantName}
+                                  photo={item.photo}
+                                  nameOfDish={item.nameOfDish}
+                                  dateOfVisit={getFullDate(item.dateOfVisit)}
+                                />
+                              </CardHeader>
+                              <CardBody>
+                                <CardBodyList comment={item.comment} />
+                              </CardBody>
+                            </Card>
+                          </GridItem>
+                        );
+                      })}{" "}
+                      </GridContainer>
+                  </div>
+                </GridItem>
               </GridContainer>
             </GridItem>
           </GridContainer>

@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 import stylesI from "assets/jss/material-kit-react/imagesStyles.js";
 import styles from "assets/jss/material-kit-react/views/components.js";
-
+import ReactStars from "react-stars";
 
 const ListRestaurantStyle = {
   show: {
@@ -100,10 +100,12 @@ const CardListRestaurant = ({
               </div>
             </div>
             <CardBody>
-
               <Link
                 className={classes.navLink}
-                to={{ pathname: "/restaurantsReview", state: {name: restaurantName, city: city }}}
+                to={{
+                  pathname: "/restaurantsReview",
+                  state: { name: restaurantName, city: city },
+                }}
               >
                 <h4 style={{ color: "#9c27b0" }}>{restaurantName}</h4>
               </Link>
@@ -118,10 +120,14 @@ const CardListRestaurant = ({
                 Menu
               </a>
               <hr style={{ color: "#9c27b0" }}></hr>
-              <span>
-                {" "}
-                Rating - 
-              </span><Rate value={rating} />
+              <div style={{ width:"125px" , margin: "0 auto"}}><ReactStars
+                    count={5}
+                    size={25}
+                    edit={false}
+                    value={rating}
+                    color2={"#ffd700"}
+                  />
+                  </div>
             </CardBody>
           </Card>
         </GridItem>

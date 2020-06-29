@@ -15,7 +15,7 @@ import stylesT from "assets/jss/material-kit-react/views/componentsSections/typo
 import Logo from "assets/img/Logo-FR-124.png";
 import Header from "../Layout/Header/Header.js";
 import HeaderLinks from "../Layout/Header/HeaderLinks.js";
-
+import "../../FoodComponents/Layout/ReviewList/listRestaurantCss.css";
 import CardListReview from "../Layout/ReviewList/CardListReview";
 import ReviewContext from "../../../context/reviewPage/reviewContext";
 import Alert from "../Layout/Alert";
@@ -127,21 +127,21 @@ export default function RestaurantsReview(props) {
                   >
                     {/* reviews rating*/}
                     <GridContainer className={classesT.marginCenter}>
-                      {/* reviewsCategory */}
-                      {reviewsCategory.length > 0 ? (
-                        <>
+                      <GridItem>
+                        <h3 style={{ paddingLeft: "30px" }}>
+                          User reviews for {" "} {props.location.state.name}
+                        </h3>
+                      </GridItem>
+                      <div className="scrollReviews">
+                        {/* reviewsCategory */}
+                        {reviewsCategory.length > 0 ? (
+                          <>{reviewsCards}</>
+                        ) : (
                           <GridItem>
-                            <h3 style={{ paddingLeft: "30px" }}>
-                              Review(s) from our users for {props.location.state.name}
-                            </h3>
+                            <NoReviewList />
                           </GridItem>
-                          {reviewsCards}
-                        </>
-                      ) : (
-                        <GridItem>
-                          <NoReviewList />
-                        </GridItem>
-                      )}
+                        )}
+                      </div>
                     </GridContainer>
                   </GridItem>
                 </GridContainer>
