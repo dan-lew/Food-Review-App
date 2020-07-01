@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import Alerts from "../Layout/Alert";
 import AlertContext from "../../../context/alert/alertContext";
 import AuthContext from "../../../context/auth/authContext";
 
@@ -65,6 +66,7 @@ const ForgetPassword = props => {
         forgot_password({
           email
         });
+        setAlert(" We have sent you an email with the token","success")
       }
     } catch (error) {
       setAlert(error.msg, "danger");
@@ -133,6 +135,7 @@ const ForgetPassword = props => {
                         )
                       }}
                     />
+                    <Alerts />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button type="submit" simple color="primary" size="lg">

@@ -20,6 +20,10 @@ import {
   EDIT_PROFILE,
   USER_ERROR,
   LOGOUT,
+  RESET_PASSWORD,
+  RESET_PASSWORD_FAIL,
+  CHECK_RESET_PASSWORD,
+  CHECK_RESET_PASSWORD_FAIL,
   REGISTER_REVIEW
 } from "../type";
 
@@ -29,7 +33,8 @@ const AuthState = props => {
     isAuthenticated: null,
     loading: true,
     user: null,
-    error: null
+    error: null,
+    validToken: true,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -172,6 +177,43 @@ const get_user_profile = async ()=>{
  }
 }
 
+const checkTokenPassword = async (token) => {
+  try {
+    const res = await axios.get('/api/resetpassword/reset/'+token);
+
+    console.log(res.data)
+
+    dispatch({
+      type: CHECK_RESET_PASSWORD,
+      payload: res.data
+    })
+
+  } catch (error) {
+    dispatch({
+    type: CHECK_RESET_PASSWORD_FAIL,
+    payload: error.response.msg 
+   }); 
+  }
+}
+
+
+const resetPassword = async (data) => {
+  try {
+    const res = await axios.post('/api/resetpassword/reset',data);
+
+    dispatch({
+      type: RESET_PASSWORD,
+      payload: res.data
+    })
+
+  } catch (error) {
+    dispatch({
+    type: RESET_PASSWORD_FAIL,
+    payload: error.response.msg 
+   }); 
+  }
+}
+
 
   //Edit Profile
   const edit_profile=async formData=>{
@@ -213,6 +255,7 @@ const get_user_profile = async ()=>{
         loading: state.loading,
         user: state.user,
         error: state.error,
+        validToken: state.validToken,
         register,
         registerReview,
         sendMail,
@@ -223,6 +266,8 @@ const get_user_profile = async ()=>{
         get_user_profile,
         edit_profile,
         logout,
+        checkTokenPassword,
+        resetPassword
 
       }}
     >

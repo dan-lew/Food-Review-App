@@ -24,6 +24,7 @@ import ForgetPassword from "views/FoodComponents/ForgetPassword/ForgetPassword";
 import EditUserProfile from "views/FoodComponents/EditUserProfile/EditUserProfilePage";
 import RestaurantState from './context/restaurants/restaurantState';
 import PrivateRoute from './components/Routing/PrivateRoute'
+import ResetPassword from './views/FoodComponents/ResetPassword/ResetPassword'
 var hist = createBrowserHistory();
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/login" component={LoginPage} />
                 <Route path="/ForgetPassword" component={ForgetPassword} />
+                <Route path="/resetPassword/:token" component={ResetPassword} />
                 <PrivateRoute path="/welcome-user" component={WelcomeUser} />
                 <PrivateRoute path="/user-profile" component={UsersProfile} />
                 <PrivateRoute path="/editprofile" component={EditUserProfile} />

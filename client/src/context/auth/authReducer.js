@@ -15,7 +15,11 @@ import {
   LOGOUT,
   CLEAR_ERRORS,
   GET_USER_PROFILE,
-  EDIT_PROFILE
+  EDIT_PROFILE,
+  RESET_PASSWORD,
+  RESET_PASSWORD_FAIL,
+  CHECK_RESET_PASSWORD,
+  CHECK_RESET_PASSWORD_FAIL
   // USER_ERROR,
 } from "../type";
 
@@ -88,7 +92,26 @@ export default (state, action) => {
         user: action.payload.user,
         token: action.payload.token
       };
+    case RESET_PASSWORD:
+      return{
+        ...state,
+        loading:false,
+      }
 
+    case CHECK_RESET_PASSWORD:
+      return{
+        ...state,
+        loading:false,
+        validToken: action.payload.valid
+      }
+
+    case RESET_PASSWORD_FAIL:
+    case CHECK_RESET_PASSWORD_FAIL:
+      return{
+        ...state,
+        error: action.payload,
+        validToken: false
+      }
     default:
       return state;
   }
