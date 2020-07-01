@@ -1,13 +1,18 @@
 const nodemailer=require('nodemailer');
 const sendEmail=async (options)=>{
     let transporter=nodemailer.createTransport({
-        host:'smtp.mailtrap.io',
-        post:2525,
-        auth:{
-            user:process.env.MY_EMAIL,
-            pass:process.env.MY_PASSWORD
+        host: "mail.hamburg-coders.pro",
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+          user: process.env.MY_EMAIL,
+          pass: process.env.MY_PASS
+        },
+        tls: {
+          rejectUnauthorized: false
         }
-    });
+      });
+      //console.log(options)
     let mailOptions={
         from:'"FBW web developer"<info@dci.com>',
         to:options.email,

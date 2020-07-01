@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const mailer = require('../config/sendEmail');
 // const authController = require('../config/auth');//new
 const crypto=require('crypto');
-const sendEmail=require('../config/sendEmail');
+const sendEmail=require('../config/sendTokenPasswordEmail');
 // User model
 const User = require("../models/User");
 
@@ -19,6 +19,7 @@ router.post('/forgot', async(req, res , next) => {
     // 1- get the user from the DB using the email
     const email = req.body.email;
     let errors = [];
+    console.log(req.get('Referer').slice(0,-15))
     const user= await User.findOne({email:email});
     if(!user){
       errors.push({
@@ -34,8 +35,9 @@ router.post('/forgot', async(req, res , next) => {
     await user.save();
   
   
+    
     //3- send the resetToken to the user's Email
-    const resetUrl=`${req.protocol}://${req.get('host')}/users/resetPassword/${resetToken}`
+    const resetUrl=`${req.get('Referer').slice(0,-15)}/resetPassword/${resetToken}`
     const message=`Forget your password ? click on the link and submit your new 
     password and password confirmation to ${resetUrl}\n\n 
     if you didn't forget your password please ignore this email`
@@ -62,7 +64,7 @@ router.post('/forgot', async(req, res , next) => {
   })
   
 //reset password handle
-router.get('/resetPassword/:token' ,async (req , res , next) => {
+router.get('/reset/:token' ,async (req , res , next) => {
 
     // 1- get the user based on the token
     const hashedToken = crypto.createHash('sha256').update(req.params.token)
@@ -70,13 +72,17 @@ router.get('/resetPassword/:token' ,async (req , res , next) => {
     const user = await User.findOne({passwordResetToken : hashedToken 
     ,passwordResetExpire : {$gt : Date.now() }})
    if(!user){
-       return next(new Error('Token is invalid or has expired' , 400))
+       //return next(new Error('Token is invalid or has expired' , 400))
+       console.log('token is invalid')
+       return res.status(400).json({valid:false})
    }
    //2- if the token has not expired and there is user , set new password
    // res.status(200).json({
    //     message : ' Your token is correct you can change your password'
    // })
+   console.log('token is valid')
    res.status(200).send({
+      valid: true,
        token : req.params.token
    });
      
@@ -87,7 +93,7 @@ router.get('/resetPassword/:token' ,async (req , res , next) => {
 
 
 //reset Password POST
-router.post('/resetPassword',[
+router.post('/reset',[
     check('password').isLength({ min: 6 }).withMessage('password is to short'),
     body('password').custom((value, { req }) => {
         if (value !== req.body.password2) {
