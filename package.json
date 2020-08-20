@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/dan-lew/Food-Review-App#readme",
   "devDependencies": {
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "bootstrap": "^4.4.1",
     "colors": "^1.4.0",
     "concurrently": "^5.1.0",
